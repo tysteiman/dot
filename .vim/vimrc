@@ -44,8 +44,8 @@ inoremap <c-\>f for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
 inoremap jk <esc>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-vnoremap <leader>: <esc>`<i"<esc>`>a"<esc>
-vnoremap <leader>; <esc>`<i'<esc>`>a'<esc>
+vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
