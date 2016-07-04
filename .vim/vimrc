@@ -33,7 +33,7 @@ inoremap <c-\>if () {<Enter>}<Esc>bbf)i
 inoremap <c-\>e else {<Enter>}<Esc>O
 inoremap <c-\>r if<Enter>else<Enter>end<Esc>kka<space>
 inoremap <c-\>f for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
-
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
@@ -55,7 +55,7 @@ noremap <silent><leader>s :set nospell<CR>
 noremap <silent><leader>t :tselect<CR>
 noremap <leader>V :Eview <CR>
 noremap <leader>w :StripWhitespace<CR>
-nnoremap <leader>sop :source %<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "Pathogen
 execute pathogen#infect()
