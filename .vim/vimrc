@@ -37,10 +37,15 @@ nnoremap <leader>sp :call FixLastSpellingError()<CR>
 iabbrev teh the
 iabbrev iot in order to
 iabbrev doc documentation
-inoremap <c-\>if () {<Enter>}<Esc>bbf)i
+autocmd FileType php,cpp,javascript,c iabbrev <buffer>iff if () {<Enter>}<Esc>bbf)i
+autocmd FileType php,cpp,javascript,c iabbrev <buffer>ife if () {<Enter>} else {<Enter>}<Esc>kk0f)i
+autocmd FileType ruby iabbrev <buffer>iff if<Enter>end<Enter><Esc>kkA
+autocmd FileType ruby iabbrev <buffer>ife if<Enter>else<Enter>end<Enter><Esc>kkkA
 inoremap <c-\>e else {<Enter>}<Esc>O
-inoremap <c-\>r if<Enter>else<Enter>end<Esc>kka<space>
-inoremap <c-\>f for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
+autocmd FileType php iabbrev <buffer>ffor for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw<left>
+autocmd FileType javascript iabbrev <buffer>ffor for(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wviw
+autocmd FileType javascript,php nnoremap<buffer><localleader>c I//<esc>j
+autocmd FileType python,ruby nnoremap<buffer><localleader>c I#<esc>j
 inoremap jk <esc>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
