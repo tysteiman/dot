@@ -61,7 +61,7 @@ noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 noremap <silent><leader>r :AirlineRefresh<CR>
 noremap <silent><leader>t :tselect<CR>
 noremap <leader>w :StripWhitespace<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source %<CR>
 
 "Pathogen
 execute pathogen#infect()
