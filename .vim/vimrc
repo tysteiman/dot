@@ -27,7 +27,7 @@ set autoread
 filetype indent on
 " }}}
 " Autocmds {{{ ---------------------------------------------------
-augroup filetype_vim
+augroup custom_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup end
