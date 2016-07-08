@@ -1,4 +1,5 @@
 " Sets {{{ -----------------------
+
 "set t_Co=256
 set background=dark
 set foldlevelstart=0
@@ -25,8 +26,10 @@ set noswapfile
 set laststatus=2
 set autoread
 filetype indent on
+
 " }}}
 " Autocmds {{{ ---------------------------------------------------
+
 augroup custom_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
@@ -56,8 +59,10 @@ augroup custom_mixed
     autocmd FileType javascript,php nnoremap<buffer><localleader>c I//<esc>j
     autocmd FileType python,ruby nnoremap<buffer><localleader>c I#<esc>j
 augroup end
+
 " }}}
 " Mappings {{{ -------------------------------------------------------
+
 onoremap p i(
 onoremap in :<c-u>normal! f(vi(<cr>
 onoremap il :<c-u>normal! F)vi(<cr>
@@ -89,13 +94,17 @@ nnoremap <leader>sv :source %<CR>
 nnoremap <leader>o O<esc>jo<esc>k
 noremap <silent><C-n> :NERDTreeToggle<CR>
 nnoremap <leader>sp mm[s1z=`m
+
 " }}}
 " Abbreviations {{{ ----------
+
 iabbrev teh the
 iabbrev iot in order to
 iabbrev doc documentation
+
 " }}}
 " Status Line {{{ -----------------
+
 set statusline=%r
 set statusline+=%f
 set statusline+=\ ->\ %y
@@ -105,6 +114,7 @@ set statusline+=%=
 set statusline+=%l
 set statusline+=/
 set statusline+=%L
+
 " }}}
 execute pathogen#infect()
 color zellner
