@@ -1,22 +1,19 @@
+" Sets {{{ -----------------------
 "set t_Co=256
 set background=dark
+set foldlevelstart=0
 syntax on
 set number
 set hlsearch
 set nocompatible
 set ai
 set history=700
-set wildmenu
 set ruler
 set cmdheight=1
 set hid
 set ignorecase
 set smartcase
 set incsearch
-set lazyredraw
-set magic
-set t_vb =
-set tm=500
 set expandtab
 set smarttab
 set shiftwidth=4
@@ -28,15 +25,12 @@ set noswapfile
 set laststatus=2
 set autoread
 filetype indent on
-
-function! FixLastSpellingError()
-    normal! mm[s1z=`m
-endfunction
-nnoremap <leader>sp :call FixLastSpellingError()<CR>
-
-iabbrev teh the
-iabbrev iot in order to
-iabbrev doc documentation
+" }}}
+" Autocmds {{{ ---------------------------------------------------
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup end
 
 augroup custom_html
     autocmd!
@@ -62,13 +56,13 @@ augroup custom_mixed
     autocmd FileType javascript,php nnoremap<buffer><localleader>c I//<esc>j
     autocmd FileType python,ruby nnoremap<buffer><localleader>c I#<esc>j
 augroup end
-
+" }}}
+" Mappings {{{ -------------------------------------------------------
 onoremap p i(
 onoremap in :<c-u>normal! f(vi(<cr>
 onoremap il :<c-u>normal! F)vi(<cr>
 onoremap fn :<c-u>normal! 0f(hviw<CR>
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
-
 inoremap <c-\>e else {<Enter>}<Esc>O
 inoremap jk <esc>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
@@ -93,14 +87,24 @@ noremap <silent><leader>t :tselect<CR>
 noremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>sv :source %<CR>
 nnoremap <leader>o O<esc>jo<esc>k
-
-"Pathogen
-execute pathogen#infect()
-
 noremap <silent><C-n> :NERDTreeToggle<CR>
-
-"setglobal spell spelllang=en_us
-"set spell
-
-color delek
-
+nnoremap <leader>sp mm[s1z=`m
+" }}}
+" Abbreviations {{{ ----------
+iabbrev teh the
+iabbrev iot in order to
+iabbrev doc documentation
+" }}}
+" Status Line {{{ -----------------
+set statusline=%r
+set statusline+=%f
+set statusline+=\ ->\ %y
+set statusline+=%m
+set statusline+=\ \ Buffer:[%n]
+set statusline+=%=
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
+" }}}
+execute pathogen#infect()
+color zellner
