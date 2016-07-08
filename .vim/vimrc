@@ -79,6 +79,7 @@ nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
+nnoremap <leader>vv :e $MYVIMRC<cr>
 noremap <silent><leader>2 :NumbersToggle<CR>
 noremap <silent><leader>a :spellr<CR>
 noremap <silent><leader>b :TagbarToggle<CR>
