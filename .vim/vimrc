@@ -1,6 +1,6 @@
 " Sets {{{ -----------------------
 
-"set t_Co=256
+set t_Co=256
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -107,7 +107,7 @@ iabbrev doc documentation
 " Status Line {{{ -----------------
 
 set statusline=%r
-set statusline+=%f
+set statusline+=%.40f
 set statusline+=\ ->\ %y
 set statusline+=%m
 set statusline+=\ \ Buffer:[%n]
@@ -118,4 +118,4 @@ set statusline+=%L
 
 " }}}
 execute pathogen#infect()
-color zellner
+color jellybeans
