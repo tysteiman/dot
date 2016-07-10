@@ -36,11 +36,6 @@ augroup custom_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup end
 
-augroup custom_html
-    autocmd!
-    autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
-augroup end
-
 augroup custom_javascript
     autocmd!
     autocmd FileType javascript iabbrev <buffer>ffor for(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wviw
@@ -52,11 +47,14 @@ augroup custom_ruby
     autocmd FileType ruby iabbrev <buffer>ife if<Enter>else<Enter>end<Enter><Esc>kkkA
 augroup end
 
+augroup custom_php
+    autocmd FileType php nnoremap <buffer><localleader>f ifor($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
+augroup end
+
 augroup custom_mixed
     autocmd!
-    autocmd FileType php,cpp,javascript,c iabbrev <buffer>iff if () {<Enter>}<Esc>bbf)i
-    autocmd FileType php,cpp,javascript,c iabbrev <buffer>ife if () {<Enter>} else {<Enter>}<Esc>kk0f)i
-    autocmd FileType php iabbrev <buffer>ffor for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw<left>
+    autocmd FileType php,cpp,javascript,c nnoremap<buffer><localleader>i iif () {<Enter>}<Esc>bbf)i
+    autocmd FileType php,cpp,javascript,c nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType javascript,php nnoremap<buffer><localleader>c I//<esc>j
     autocmd FileType python,ruby nnoremap<buffer><localleader>c I#<esc>j
 augroup end
@@ -99,14 +97,14 @@ nnoremap <leader>sp mm[s1z=`m
 nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
 nnoremap <leader>e; mmA;<esc>`m
 
-nnoremap <leader>f :call FoldColumnToggle()<cr>
-function! FoldColumnToggle()
-    if &foldcolumn
-        setlocal foldcolumn=0
-    else
-        setlocal foldcolumn=4
-    endif
-endfunction
+"nnoremap <leader>f :call FoldColumnToggle()<cr>
+"function! FoldColumnToggle()
+"    if &foldcolumn
+"        setlocal foldcolumn=0
+"    else
+"        setlocal foldcolumn=4
+"    endif
+"endfunction
 
 nnoremap <leader>Q :call QuickFixToggle()<cr>
 let g:quickfix_is_open = 0
