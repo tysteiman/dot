@@ -111,7 +111,7 @@ iabbrev doc documentation
 " Status Line {{{ -----------------
 
 set statusline=%r
-set statusline+=%.40f
+set statusline+=%t
 set statusline+=\ ->\ %y
 set statusline+=%m
 set statusline+=\ \ Buffer:[%n]
