@@ -98,7 +98,29 @@ noremap <silent><C-n> :NERDTreeToggle<CR>
 nnoremap <leader>sp mm[s1z=`m
 nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
 nnoremap <leader>e; mmA;<esc>`m
-"nnoremap <leader>G :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen 20<cr>
+
+nnoremap <leader>f :call FoldColumnToggle()<cr>
+function! FoldColumnToggle()
+    if &foldcolumn
+        setlocal foldcolumn=0
+    else
+        setlocal foldcolumn=4
+    endif
+endfunction
+
+nnoremap <leader>Q :call QuickFixToggle()<cr>
+let g:quickfix_is_open = 0
+function! QuickFixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
 
 " }}}
 " Abbreviations {{{ ----------
@@ -122,4 +144,5 @@ set statusline+=%L
 
 " }}}
 execute pathogen#infect()
-color badwolf
+color hybrid
+
