@@ -5,6 +5,7 @@ set background=dark
 set foldlevelstart=0
 syntax on
 set number
+set magic
 set hlsearch
 set nocompatible
 set ai
@@ -75,15 +76,15 @@ nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
-nnoremap <leader>vv :e $MYVIMRC<cr>
 noremap <silent><leader>2 :NumbersToggle<CR>
 noremap <silent><leader>a :spellr<CR>
 noremap <silent><leader>b :TagbarToggle<CR>
-nnoremap <silent><leader>g :Gst<cr>
+nnoremap <silent><leader>G :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
@@ -95,6 +96,9 @@ nnoremap <leader>sv :source %<CR>
 nnoremap <leader>o O<esc>jo<esc>k
 noremap <silent><C-n> :NERDTreeToggle<CR>
 nnoremap <leader>sp mm[s1z=`m
+nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
+nnoremap <leader>e; mmA;<esc>`m
+"nnoremap <leader>G :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen 20<cr>
 
 " }}}
 " Abbreviations {{{ ----------
@@ -118,4 +122,4 @@ set statusline+=%L
 
 " }}}
 execute pathogen#infect()
-color jellybeans
+color badwolf
