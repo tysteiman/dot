@@ -133,5 +133,5 @@ set statusline+=%L
 
 " }}}
 execute pathogen#infect()
-color hybrid
+color jellybeans
 
