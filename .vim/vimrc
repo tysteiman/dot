@@ -82,7 +82,7 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 noremap <silent><leader>2 :NumbersToggle<CR>
 noremap <silent><leader>a :spellr<CR>
 noremap <silent><leader>b :TagbarToggle<CR>
-nnoremap <silent><leader>G :Gst<cr>
+nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
@@ -96,15 +96,6 @@ noremap <silent><C-n> :NERDTreeToggle<CR>
 nnoremap <leader>sp mm[s1z=`m
 nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
 nnoremap <leader>e; mmA;<esc>`m
-
-"nnoremap <leader>f :call FoldColumnToggle()<cr>
-"function! FoldColumnToggle()
-"    if &foldcolumn
-"        setlocal foldcolumn=0
-"    else
-"        setlocal foldcolumn=4
-"    endif
-"endfunction
 
 nnoremap <leader>Q :call QuickFixToggle()<cr>
 let g:quickfix_is_open = 0
