@@ -78,9 +78,9 @@ augroup snippets_commenter
     autocmd!
     autocmd FileType html,eruby vnoremap <buffer><localleader>cl <esc>`<O<!--<esc>`>o--><esc>
     autocmd FileType html,eruby vnoremap <buffer><localleader>cd <esc>`<kdd`>jdd
-    autocmd FileType javascript,php,java,c,cpp nnoremap<buffer><localleader>cc I//<esc>j
-    autocmd FileType python,ruby nnoremap<buffer><localleader>cc I#<esc>j
-    autocmd FileType vim nnoremap<buffer><localleader>cc I"<esc>j
+    autocmd FileType javascript,php,java,c,cpp nnoremap<buffer><localleader>cc I//<space><esc>j
+    autocmd FileType python,ruby nnoremap<buffer><localleader>cc I#<space><esc>j
+    autocmd FileType vim nnoremap<buffer><localleader>cc I"<space><esc>j
     autocmd FileType javascript,php,c,cpp,java vnoremap <buffer><localleader>cl :call CommentLines("c", 1)<cr>
     autocmd FileType ruby,python vnoremap <buffer><localleader>cl :call CommentLines("rb", 1)<cr>
     autocmd FileType ruby,python,javascript,php,c,cpp,java vnoremap <buffer><localleader>cd :call CommentLines("c", 0)<cr>
