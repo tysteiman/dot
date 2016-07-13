@@ -86,6 +86,7 @@ augroup end
 
 " }}}
 " Mappings {{{ -------------------------------------------------------
+
 " operators {{{-------------------------------
 
 onoremap p i(
@@ -152,6 +153,7 @@ vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 
 " }}}
+
 " }}}
 " Abbreviations {{{ ----------
 
