@@ -104,7 +104,7 @@ nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
-"noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+noremap <silent><leader>Q :bp<bar>sp<bar>bn<bar>bd<CR>
 noremap <silent><leader>t :tselect<CR>
 noremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>sv :source %<CR>
