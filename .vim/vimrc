@@ -8,6 +8,7 @@ set number
 set magic
 set hlsearch
 set nocompatible
+set foldmethod=marker
 set ai
 set history=700
 set ruler
@@ -31,14 +32,9 @@ filetype indent on
 " }}}
 " Autocmds {{{ ---------------------------------------------------
 
-augroup custom_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup end
-
 augroup custom_javascript
     autocmd!
-    autocmd FileType javascript iabbrev <buffer>ffor for(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wviw
+    autocmd FileType javascript nnoremap <buffer><localleader>f ifor(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wviw
 augroup end
 
 augroup custom_ruby
@@ -69,16 +65,21 @@ onoremap fn :<c-u>normal! 0f(hviw<CR>
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 inoremap <c-\>e else {<Enter>}<Esc>O
 inoremap jk <esc>
+inoremap <c-\>b {\|\|<space>}<esc>F\|i
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>B :Gblame<cr>
+nnoremap <leader>f i"<space>{{{<enter><enter><enter><enter>"<space>}}}<esc>kkkk0f{i
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
+nnoremap <leader>l1 yyp0vg_r=o<Enter>
+nnoremap <leader>l2 yyp0vg_r-o<Enter>
 noremap <silent><leader>2 :NumbersToggle<CR>
 noremap <silent><leader>a :spellr<CR>
 noremap <silent><leader>b :TagbarToggle<CR>
@@ -87,7 +88,6 @@ nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
 noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
-noremap <silent><leader>r :AirlineRefresh<CR>
 noremap <silent><leader>t :tselect<CR>
 noremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>sv :source %<CR>
@@ -133,5 +133,5 @@ set statusline+=%L
 
 " }}}
 execute pathogen#infect()
-color jellybeans
+color hybrid
 
