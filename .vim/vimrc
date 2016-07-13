@@ -99,7 +99,7 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 " insert {{{-------------------------------
 
 inoremap jk <esc>
-inoremap jjo <esc>o
+inoremap <c-j>o <esc>o
 
 " }}}
 " normal {{{-------------------------------
@@ -119,11 +119,11 @@ nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
-nnoremap <leader>sv :source %<CR>
+nnoremap <leader>sv :source %<CR>:noh<cr>
 nnoremap <leader>o O<esc>jo<esc>k
 nnoremap <leader>sp mm[s1z=`m
 nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
-nnoremap <leader>e; mmA;<esc>`m
+nnoremap <leader>; mmA;<esc>`m
 nnoremap <leader>Q :call QuickFixToggle()<cr>
 nnoremap <silent><leader>2 :NumbersToggle<CR>
 nnoremap <silent><leader>a :spellr<CR>
