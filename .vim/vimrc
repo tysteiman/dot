@@ -76,8 +76,6 @@ augroup end
 
 augroup snippets_commenter
     autocmd!
-    " This should get turned into a plugin to work as an operator so for an entire tag
-    " set one could simply type 'qat' or something for comment all tag.
     autocmd FileType html,eruby vnoremap <buffer><localleader>cl <esc>`<O<!--<esc>`>o--><esc>
     autocmd FileType html,eruby vnoremap <buffer><localleader>cd <esc>`<kdd`>jdd
     autocmd FileType javascript,php,java,c,cpp nnoremap<buffer><localleader>cc I//<esc>j
@@ -85,15 +83,16 @@ augroup snippets_commenter
     autocmd FileType vim nnoremap<buffer><localleader>cc I"<esc>j
     autocmd FileType javascript,php,c,cpp,java vnoremap <buffer><localleader>cl :call CommentLines("php", 1)<cr>
     autocmd FileType ruby,python vnoremap <buffer><localleader>cl :call CommentLines("rb", 1)<cr>
-    autocmd FileType ruby,python,javascript,php,c,cpp,java vnoremap <buffer><localleader>cd :call CommentLines("php", 0)<cr>
+    autocmd FileType ruby,python,javascript,php,c,cpp,java vnoremap <buffer><localleader>cd :call CommentLines("c", 0)<cr>
 augroup end
 
+" This is super janky and only works with languages I work with because I'm lazy
 fun! CommentLines(ftype, commentOn) range
     let l:curline = a:firstline
     while l:curline <= a:lastline
         :call cursor(l:curline, 1)
         if a:commentOn
-            if a:ftype == "php"
+            if a:ftype == "c"
                 :execute "normal! I//\<space>"
             else
                 :execute "normal! I#\<space>"
