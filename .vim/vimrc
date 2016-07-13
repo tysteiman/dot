@@ -32,6 +32,15 @@ filetype indent on
 " }}}
 " Snippets {{{ ---------------------------------------------------
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                                                                    "
+"                                               ***                                                  "
+"                                                                                                    "
+"                         The ultimate snippet system of perpetual laziness.                         "
+"                                                                                                    "
+"                                               ***                                                  "
+"                                                                                                    "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup snippets_javascript
     autocmd!
     autocmd FileType javascript nnoremap <buffer><localleader>f ifor<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
@@ -41,7 +50,7 @@ augroup snippets_javascript
 augroup end
 
 augroup snippets_vim
-    autocmd FileType vim nnoremap <buffer><localleader>f i"<space>{{{<enter><enter><enter><enter>"<space>}}}<esc>kkkk0f{i
+    autocmd FileType vim nnoremap <buffer><localleader>f i"<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>0xxkxkxkxk0f{i
     autocmd FileType vim nnoremap <buffer><localleader>ag iaugroup<enter>augroup<space>end<esc>kA<space>
 augroup end
 
@@ -60,11 +69,12 @@ augroup end
 
 augroup snippets_mixed
     autocmd!
-    autocmd FileType php,cpp,javascript,c nnoremap<buffer><localleader>i iif () {<Enter>}<Esc>bbf)i
+    autocmd FileType php,cpp,javascript,c nnoremap<buffer><localleader>ii iif () {<Enter>}<Esc>bbf)i
     autocmd FileType php,cpp,javascript,c nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
+    autocmd FileType php,cpp,javascript,c nnoremap <buffer><localleader>ee A<space>else {<Enter>}<Esc>O
 augroup end
 
-augroup commenter
+augroup snippets_commenter
     autocmd!
     " This should get turned into a plugin to work as an operator so for an entire tag
     " set one could simply type 'qat' or something for comment all tag.
@@ -82,7 +92,6 @@ onoremap in :<c-u>normal! f(vi(<cr>
 onoremap il :<c-u>normal! F)vi(<cr>
 onoremap fn :<c-u>normal! 0f(hviw<CR>
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
-inoremap <c-\>e else {<Enter>}<Esc>O
 inoremap jk <esc>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -104,7 +113,7 @@ nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
-noremap <silent><leader>Q :bp<bar>sp<bar>bn<bar>bd<CR>
+noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 noremap <silent><leader>t :tselect<CR>
 noremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>sv :source %<CR>
@@ -151,3 +160,4 @@ set statusline+=%L
 " }}}
 execute pathogen#infect()
 color hybrid
+
