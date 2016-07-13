@@ -69,20 +69,41 @@ augroup end
 
 augroup snippets_mixed
     autocmd!
-    autocmd FileType php,cpp,javascript,c nnoremap<buffer><localleader>ii iif () {<Enter>}<Esc>bbf)i
-    autocmd FileType php,cpp,javascript,c nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
-    autocmd FileType php,cpp,javascript,c nnoremap <buffer><localleader>ee A<space>else {<Enter>}<Esc>O
+    autocmd FileType php,cpp,javascript,c,java nnoremap<buffer><localleader>ii iif () {<Enter>}<Esc>bbf)i
+    autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
+    autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>ee A<space>else {<Enter>}<Esc>O
 augroup end
 
 augroup snippets_commenter
     autocmd!
     " This should get turned into a plugin to work as an operator so for an entire tag
     " set one could simply type 'qat' or something for comment all tag.
-    autocmd FileType html,eruby vnoremap <buffer><localleader>c <esc>`<O<!--<esc>`>o--><esc>
-    autocmd FileType javascript,php nnoremap<buffer><localleader>c I//<esc>j
-    autocmd FileType python,ruby nnoremap<buffer><localleader>c I#<esc>j
-    autocmd FileType vim nnoremap<buffer><localleader>c I"<esc>j
+    autocmd FileType html,eruby vnoremap <buffer><localleader>cl <esc>`<O<!--<esc>`>o--><esc>
+    autocmd FileType html,eruby vnoremap <buffer><localleader>cd <esc>`<kdd`>jdd
+    autocmd FileType javascript,php,java,c,cpp nnoremap<buffer><localleader>cc I//<esc>j
+    autocmd FileType python,ruby nnoremap<buffer><localleader>cc I#<esc>j
+    autocmd FileType vim nnoremap<buffer><localleader>cc I"<esc>j
+    autocmd FileType javascript,php,c,cpp,java vnoremap <buffer><localleader>cl :call CommentLines("php", 1)<cr>
+    autocmd FileType ruby,python vnoremap <buffer><localleader>cl :call CommentLines("rb", 1)<cr>
+    autocmd FileType ruby,python,javascript,php,c,cpp,java vnoremap <buffer><localleader>cd :call CommentLines("php", 0)<cr>
 augroup end
+
+fun! CommentLines(ftype, commentOn) range
+    let l:curline = a:firstline
+    while l:curline <= a:lastline
+        :call cursor(l:curline, 1)
+        if a:commentOn
+            if a:ftype == "php"
+                :execute "normal! I//\<space>"
+            else
+                :execute "normal! I#\<space>"
+            endif
+        else
+            :execute "normal! ^vwhx"
+        endif
+        let l:curline+=1
+    endwhile
+endfun
 
 " }}}
 " Mappings {{{ -------------------------------------------------------
