@@ -30,6 +30,7 @@ set autoread
 filetype indent on
 
 " }}}
+
 " Snippets {{{ ---------------------------------------------------
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,18 +86,26 @@ augroup snippets_commenter
 augroup end
 
 " }}}
+
 " Mappings {{{ -------------------------------------------------------
+" operators {{{-------------------------------
 
 onoremap p i(
 onoremap in :<c-u>normal! f(vi(<cr>
 onoremap il :<c-u>normal! F)vi(<cr>
 onoremap fn :<c-u>normal! 0f(hviw<CR>
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
+
+" }}}
+" insert {{{-------------------------------
+
 inoremap jk <esc>
+
+" }}}
+" normal {{{-------------------------------
+
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
-vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
-vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>B :Gblame<cr>
 nnoremap <leader>vv :e $MYVIMRC<cr>
@@ -106,24 +115,24 @@ nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>l1 yyp0vg_r=o<Enter>
 nnoremap <leader>l2 yyp0vg_r-o<Enter>
-noremap <silent><leader>2 :NumbersToggle<CR>
-noremap <silent><leader>a :spellr<CR>
-noremap <silent><leader>b :TagbarToggle<CR>
 nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
-noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
-noremap <silent><leader>t :tselect<CR>
-noremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>sv :source %<CR>
 nnoremap <leader>o O<esc>jo<esc>k
-noremap <silent><C-n> :NERDTreeToggle<CR>
 nnoremap <leader>sp mm[s1z=`m
 nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
 nnoremap <leader>e; mmA;<esc>`m
-
 nnoremap <leader>Q :call QuickFixToggle()<cr>
+nnoremap <silent><leader>2 :NumbersToggle<CR>
+nnoremap <silent><leader>a :spellr<CR>
+nnoremap <silent><leader>b :TagbarToggle<CR>
+nnoremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <silent><leader>t :tselect<CR>
+nnoremap <leader>w :StripWhitespace<CR>
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
+
 let g:quickfix_is_open = 0
 function! QuickFixToggle()
     if g:quickfix_is_open
@@ -138,6 +147,14 @@ function! QuickFixToggle()
 endfunction
 
 " }}}
+" visual {{{-------------------------------
+
+vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
+
+" }}}
+" }}}
+
 " Abbreviations {{{ ----------
 
 iabbrev teh the
@@ -145,6 +162,7 @@ iabbrev iot in order to
 iabbrev doc documentation
 
 " }}}
+
 " Status Line {{{ -----------------
 
 set statusline=%r
@@ -158,6 +176,7 @@ set statusline+=/
 set statusline+=%L
 
 " }}}
+
 execute pathogen#infect()
 color hybrid
 
