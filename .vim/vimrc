@@ -30,29 +30,48 @@ set autoread
 filetype indent on
 
 " }}}
-" Autocmds {{{ ---------------------------------------------------
+" Snippets {{{ ---------------------------------------------------
 
-augroup custom_javascript
+augroup snippets_javascript
     autocmd!
-    autocmd FileType javascript nnoremap <buffer><localleader>f ifor(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wviw
+    autocmd FileType javascript nnoremap <buffer><localleader>f ifor<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
+    autocmd FileType javascript nnoremap <buffer><localleader>qq i$("");<esc>F"i
+    autocmd FileType javascript nnoremap <buffer><localleader>qe i$();<esc>F)i
+    autocmd FileType javascript nnoremap <buffer><localleader>dr i$(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
 augroup end
 
-augroup custom_ruby
+augroup snippets_vim
+    autocmd FileType vim nnoremap <buffer><localleader>f i"<space>{{{<enter><enter><enter><enter>"<space>}}}<esc>kkkk0f{i
+    autocmd FileType vim nnoremap <buffer><localleader>ag iaugroup<enter>augroup<space>end<esc>kA<space>
+augroup end
+
+augroup snippets_ruby
     autocmd!
     autocmd FileType ruby iabbrev <buffer>iff if<Enter>end<Enter><Esc>kkA
     autocmd FileType ruby iabbrev <buffer>ife if<Enter>else<Enter>end<Enter><Esc>kkkA
+    autocmd FileType ruby inoremap <buffer><c-b> {\|\|<space>}<esc>F\|i
+    autocmd FileType ruby inoremap <buffer><c-e> .each<space>do<space>\|\|<enter>end<esc>k02f\|i
+    autocmd FileType ruby inoremap <buffer><c-t> .times<space>do<space>\|\|<enter>end<esc>k02f\|i
 augroup end
 
-augroup custom_php
+augroup snippets_php
     autocmd FileType php nnoremap <buffer><localleader>f ifor($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
 augroup end
 
-augroup custom_mixed
+augroup snippets_mixed
     autocmd!
     autocmd FileType php,cpp,javascript,c nnoremap<buffer><localleader>i iif () {<Enter>}<Esc>bbf)i
     autocmd FileType php,cpp,javascript,c nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
+augroup end
+
+augroup commenter
+    autocmd!
+    " This should get turned into a plugin to work as an operator so for an entire tag
+    " set one could simply type 'qat' or something for comment all tag.
+    autocmd FileType html,eruby vnoremap <buffer><localleader>c <esc>`<O<!--<esc>`>o--><esc>
     autocmd FileType javascript,php nnoremap<buffer><localleader>c I//<esc>j
     autocmd FileType python,ruby nnoremap<buffer><localleader>c I#<esc>j
+    autocmd FileType vim nnoremap<buffer><localleader>c I"<esc>j
 augroup end
 
 " }}}
@@ -65,14 +84,12 @@ onoremap fn :<c-u>normal! 0f(hviw<CR>
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 inoremap <c-\>e else {<Enter>}<Esc>O
 inoremap jk <esc>
-inoremap <c-\>b {\|\|<space>}<esc>F\|i
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>B :Gblame<cr>
-nnoremap <leader>f i"<space>{{{<enter><enter><enter><enter>"<space>}}}<esc>kkkk0f{i
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
@@ -87,7 +104,7 @@ nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
-noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+"noremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 noremap <silent><leader>t :tselect<CR>
 noremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>sv :source %<CR>
@@ -134,4 +151,3 @@ set statusline+=%L
 " }}}
 execute pathogen#infect()
 color hybrid
-
