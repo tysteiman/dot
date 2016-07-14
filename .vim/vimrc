@@ -89,10 +89,10 @@ augroup end
 augroup snippets_mixed
     autocmd!
     autocmd FileType php,cpp,javascript,c,java nnoremap<buffer><localleader>ii iif () {<Enter>}<Esc>bbf)i
-    autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
+    autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>ie iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>ee A<space>else {<Enter>}<Esc>O
     autocmd FileType php,cpp,javascript,c,java inoremap<buffer><localleader>ii if () {<Enter>}<Esc>bbf)i
-    autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>el if () {<Enter>} else {<Enter>}<Esc>kk0f)i
+    autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ie if () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ee <space>else {<Enter>}<Esc>O
 augroup end
 
