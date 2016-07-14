@@ -1,6 +1,6 @@
 " Sets {{{ -----------------------
 
-set t_Co=256
+"set t_Co=256
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -66,8 +66,9 @@ augroup end
 
 augroup snippets_erb
     autocmd!
-    autocmd FileType eruby nnoremap <buffer><localleader>% i<%=%><esc>F=a<space>
-    autocmd FileType eruby nnoremap <buffer><localleader>+ i<%%><esc>F%i<space>
+    autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
+    autocmd FileType eruby nnoremap <buffer><localleader>% i<%%><esc>F%i<space>
+    autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
 augroup end
 
 augroup snippets_php
@@ -206,7 +207,11 @@ set statusline+=]
 set statusline+=\ \ Col:[%c]
 
 " }}}
+" Plugin Variables{{{-------------------------------
 
+let g:numbers_exclude = ["tagbar","minibufexpl","nerdtree"]
+
+" }}}
 execute pathogen#infect()
-color hybrid
+color slate
 
