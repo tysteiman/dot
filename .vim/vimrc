@@ -58,9 +58,14 @@ augroup snippets_ruby
     autocmd!
     autocmd FileType ruby iabbrev <buffer>iff if<Enter>end<Enter><Esc>kkA
     autocmd FileType ruby iabbrev <buffer>ife if<Enter>else<Enter>end<Enter><Esc>kkkA
-    autocmd FileType ruby inoremap <buffer><c-b> {\|\|<space>}<esc>F\|i
-    autocmd FileType ruby inoremap <buffer><c-e> .each<space>do<space>\|\|<enter>end<esc>k02f\|i
-    autocmd FileType ruby inoremap <buffer><c-t> .times<space>do<space>\|\|<enter>end<esc>k02f\|i
+    autocmd FileType ruby,eruby inoremap <buffer><c-b> {\|\|<space>}<esc>F\|i
+    autocmd FileType ruby,eruby inoremap <buffer><c-e> .each<space>do<space>\|\|<enter>end<esc>k02f\|i
+    autocmd FileType ruby,eruby inoremap <buffer><c-t> .times<space>do<space>\|\|<enter>end<esc>k02f\|i
+augroup end
+
+augroup snippets_erb
+    autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
+    autocmd FileType eruby nnoremap <buffer><localleader>+ i<%%><esc>F%i<space>
 augroup end
 
 augroup snippets_php
