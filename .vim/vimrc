@@ -196,6 +196,7 @@ nnoremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <silent><leader>t :tselect<CR>
 nnoremap <leader>w :StripWhitespace<CR>
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
+nnoremap <leader>r :call RepaintStatusLine()<cr>
 
 let g:quickfix_is_open = 0
 function! QuickFixToggle()
@@ -228,18 +229,32 @@ iabbrev doc documentation
 " }}}
 " Status Line {{{ -----------------
 
-set statusline=%r
-set statusline+=%t
-set statusline+=\ ->\ %y
-set statusline+=%m
-set statusline+=\ \ Buffer:[%n]
-set statusline+=%=
-set statusline+=Line:[
-set statusline+=%l
-set statusline+=/
-set statusline+=%L
-set statusline+=]
-set statusline+=\ \ Col:[%c]
+fun! GetGitBranch()
+    let l:br = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
+    if l:br != ''
+        return substitute(l:br, '\n', '', 'g')
+    else
+        return 'X'
+    endif
+endfun
+
+fun! RepaintStatusLine()
+    set statusline=%r
+    set statusline+=%t
+    set statusline+=\ ->\ %y
+    set statusline+=%m
+    set statusline+=\ \ Buffer:[%n]
+    set statusline+=\ \ Git:[%{GetGitBranch()}]
+    set statusline+=%=
+    set statusline+=Line:[
+    set statusline+=%l
+    set statusline+=/
+    set statusline+=%L
+    set statusline+=]
+    set statusline+=\ \ Col:[%c]
+endfun
+
+set statusline=%{RepaintStatusLine()}
 
 " }}}
 " Plugin Variables{{{-------------------------------
