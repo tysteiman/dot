@@ -50,6 +50,7 @@ augroup snippets_javascript
 augroup end
 
 augroup snippets_vim
+    autocmd!
     autocmd FileType vim nnoremap <buffer><localleader>f i"<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>0xxkxkxkxk0f{i
     autocmd FileType vim nnoremap <buffer><localleader>ag iaugroup<enter>augroup<space>end<esc>kA<space>
 augroup end
@@ -64,11 +65,13 @@ augroup snippets_ruby
 augroup end
 
 augroup snippets_erb
-    autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
+    autocmd!
+    autocmd FileType eruby nnoremap <buffer><localleader>% i<%=%><esc>F=a<space>
     autocmd FileType eruby nnoremap <buffer><localleader>+ i<%%><esc>F%i<space>
 augroup end
 
 augroup snippets_php
+    autocmd!
     autocmd FileType php nnoremap <buffer><localleader>f ifor($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
 augroup end
 
@@ -81,6 +84,7 @@ augroup end
 
 augroup snippets_commenter
     autocmd!
+    " All these need to work with one single keybinding that evaluates the beginning of the line for comment
     autocmd FileType html,eruby vnoremap <buffer><localleader>cl <esc>`<O<!--<esc>`>o--><esc>
     autocmd FileType html,eruby vnoremap <buffer><localleader>cd <esc>`<kdd`>jdd
     autocmd FileType javascript,php,java,c,cpp nnoremap<buffer><localleader>cc I//<space><esc>j
@@ -124,7 +128,6 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 " insert {{{-------------------------------
 
 inoremap jk <esc>
-inoremap <c-j>o <esc>o
 
 " }}}
 " normal {{{-------------------------------
