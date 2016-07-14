@@ -47,6 +47,10 @@ augroup snippets_javascript
     autocmd FileType javascript nnoremap <buffer><localleader>qq i$("");<esc>F"i
     autocmd FileType javascript nnoremap <buffer><localleader>qe i$();<esc>F)i
     autocmd FileType javascript nnoremap <buffer><localleader>dr i$(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
+    autocmd FileType javascript inoremap <buffer><localleader>f for<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
+    autocmd FileType javascript inoremap <buffer><localleader>qq $("");<esc>F"i
+    autocmd FileType javascript inoremap <buffer><localleader>qe $();<esc>F)i
+    autocmd FileType javascript inoremap <buffer><localleader>dr $(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
 augroup end
 
 augroup snippets_vim
@@ -70,11 +74,16 @@ augroup snippets_erb
     autocmd FileType eruby nnoremap <buffer><localleader>% i<%%><esc>F%i<space>
     autocmd FileType eruby nnoremap <buffer><localleader>ie i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
     autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
+    autocmd FileType eruby inoremap <buffer><localleader>= <%=%><esc>F=a<space>
+    autocmd FileType eruby inoremap <buffer><localleader>% <%%><esc>F%i<space>
+    autocmd FileType eruby inoremap <buffer><localleader>ie <%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
+    autocmd FileType eruby inoremap <buffer><localleader>ii <%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
 augroup end
 
 augroup snippets_php
     autocmd!
     autocmd FileType php nnoremap <buffer><localleader>f ifor($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
+    autocmd FileType php inoremap <buffer><localleader>f for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
 augroup end
 
 augroup snippets_mixed
@@ -82,37 +91,65 @@ augroup snippets_mixed
     autocmd FileType php,cpp,javascript,c,java nnoremap<buffer><localleader>ii iif () {<Enter>}<Esc>bbf)i
     autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>el iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>ee A<space>else {<Enter>}<Esc>O
+    autocmd FileType php,cpp,javascript,c,java inoremap<buffer><localleader>ii if () {<Enter>}<Esc>bbf)i
+    autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>el if () {<Enter>} else {<Enter>}<Esc>kk0f)i
+    autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ee <space>else {<Enter>}<Esc>O
 augroup end
 
 augroup snippets_commenter
     autocmd!
-    " All these need to work with one single keybinding that evaluates the beginning of the line for comment
-    autocmd FileType html,eruby vnoremap <buffer><localleader>cl <esc>`<O<!--<esc>`>o--><esc>
-    autocmd FileType html,eruby vnoremap <buffer><localleader>cd <esc>`<kdd`>jdd
-    autocmd FileType javascript,php,java,c,cpp nnoremap<buffer><localleader>cc I//<space><esc>j
-    autocmd FileType python,ruby nnoremap<buffer><localleader>cc I#<space><esc>j
+    "autocmd FileType html,eruby vnoremap <buffer><localleader>cc <esc>`<O<!--<esc>`>o--><esc>
+    "autocmd FileType html,eruby vnoremap <buffer><localleader>cd <esc>`<kdd`>jdd
+    autocmd FileType html,eruby nnoremap <buffer><localleader>cc :call CommentLines("html", 1)<cr>
+    autocmd FileType html,eruby vnoremap <buffer><localleader>cc :call CommentLines("html", 0)<cr>
     autocmd FileType vim nnoremap<buffer><localleader>cc I"<space><esc>j
-    autocmd FileType javascript,php,c,cpp,java vnoremap <buffer><localleader>cl :call CommentLines("c", 1)<cr>
-    autocmd FileType ruby,python vnoremap <buffer><localleader>cl :call CommentLines("rb", 1)<cr>
-    autocmd FileType ruby,python,javascript,php,c,cpp,java vnoremap <buffer><localleader>cd :call CommentLines("c", 0)<cr>
+    " autocmd FileType javascript,php,c,cpp,java vnoremap<silent> <buffer><localleader>cc :call CommentLines("c")<cr>
+    autocmd FileType javascript,php,java,c,cpp noremap<silent><buffer><localleader>cc :call CommentLines("c", 0)<cr>
+    " autocmd FileType ruby,python vnoremap <silent><buffer><localleader>cc :call CommentLines("rb")<cr>
+    autocmd FileType python,ruby noremap<silent><buffer><localleader>cc :call CommentLines("rb", 0)<cr>
 augroup end
 
-" This is super janky and only works with languages I work with because I'm lazy
-fun! CommentLines(ftype, commentOn) range
+fun! CommentLines(ftype, isNormalMode) range
     let l:curline = a:firstline
-    while l:curline <= a:lastline
-        :call cursor(l:curline, 1)
-        if a:commentOn
-            if a:ftype == "c"
-                :execute "normal! I//\<space>"
-            else
-                :execute "normal! I#\<space>"
-            endif
-        else
-            :execute "normal! ^vwhx"
+    let l:exRegister = @"
+    if a:ftype == "html"
+        :normal! ^lyl
+        if @" == "!"
+           :normal! ^dt<$F>ld$^
+       else
+           :normal! k^lyl
+           if @" == "!"
+               :normal! dd`>jdd"
+           else
+               if a:isNormalMode
+                   :execute "normal! jI<!--\<space>\<esc>A\<space>-->\<esc>^"
+               else
+                   :execute "normal! o<!--\<esc>`>o-->\<esc>"
+               endif
+           end
         endif
-        let l:curline+=1
-    endwhile
+    else
+        while l:curline <= a:lastline
+            :call cursor(l:curline, 1)
+            :normal! ^yl
+            let l:fchar = @"
+            if a:ftype == "c"
+                if l:fchar == "/"
+                    :normal! xxx
+                else
+                    :execute "normal! I//\<space>"
+                endif
+            else
+                if l:fchar == "#"
+                    :normal! xx
+                else
+                    :execute "normal! I#\<space>"
+                endif
+            endif
+            let l:curline+=1
+        endwhile
+    endif
+    let @" = l:exRegister
 endfun
 
 " }}}
