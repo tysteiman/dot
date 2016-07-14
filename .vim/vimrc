@@ -183,7 +183,7 @@ nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
 nnoremap <leader>sv :source %<CR>:noh<cr>
-nnoremap <leader>vs :!vimsync
+nnoremap <leader>vs :!vimsync<cr>
 nnoremap <leader>o O<esc>jo<esc>k
 nnoremap <leader>sp mm[s1z=`m
 nnoremap <leader>lb :execute "rightbelow vsplit " . bufname("#")<cr>
