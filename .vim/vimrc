@@ -68,7 +68,8 @@ augroup snippets_erb
     autocmd!
     autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
     autocmd FileType eruby nnoremap <buffer><localleader>% i<%%><esc>F%i<space>
-    autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
+    autocmd FileType eruby nnoremap <buffer><localleader>ie i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
+    autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
 augroup end
 
 augroup snippets_php
