@@ -195,9 +195,12 @@ set statusline+=\ ->\ %y
 set statusline+=%m
 set statusline+=\ \ Buffer:[%n]
 set statusline+=%=
+set statusline+=Line:[
 set statusline+=%l
 set statusline+=/
 set statusline+=%L
+set statusline+=]
+set statusline+=\ \ Col:[%c]
 
 " }}}
 
