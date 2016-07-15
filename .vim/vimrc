@@ -229,32 +229,18 @@ iabbrev doc documentation
 " }}}
 " Status Line {{{ -----------------
 
-fun! GetGitBranch()
-    let l:br = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
-    if l:br != ''
-        return substitute(l:br, '\n', '', 'g')
-    else
-        return 'X'
-    endif
-endfun
-
-fun! RepaintStatusLine()
-    set statusline=%r
-    set statusline+=%t
-    set statusline+=\ ->\ %y
-    set statusline+=%m
-    set statusline+=\ \ Buffer:[%n]
-    set statusline+=\ \ Git:[%{GetGitBranch()}]
-    set statusline+=%=
-    set statusline+=Line:[
-    set statusline+=%l
-    set statusline+=/
-    set statusline+=%L
-    set statusline+=]
-    set statusline+=\ \ Col:[%c]
-endfun
-
-set statusline=%{RepaintStatusLine()}
+set statusline=%r
+set statusline+=%t
+set statusline+=\ ->\ %y
+set statusline+=%m
+set statusline+=\ \ Buffer:[%n]
+set statusline+=%=
+set statusline+=Line:[
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
+set statusline+=]
+set statusline+=\ \ Col:[%c]
 
 " }}}
 " Plugin Variables{{{-------------------------------
