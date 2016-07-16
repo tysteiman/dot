@@ -1,6 +1,6 @@
 " Sets {{{ -----------------------
 
-"set t_Co=256
+set t_Co=256
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -32,17 +32,7 @@ filetype indent on
 " }}}
 " Snippets {{{ ---------------------------------------------------
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                                                                                    "
-"                                               ***                                                  "
-"                                                                                                    "
-"                         The ultimate snippet system of perpetual laziness.                         "
-"                                                                                                    "
-"                                               ***                                                  "
-"                                                                                                    "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Vim {{{-------------------------------
+" --- Vim {{{-------------------------------
 
 augroup snippets_vim
     autocmd!
@@ -51,7 +41,7 @@ augroup snippets_vim
 augroup end
 
 " }}}
-" Javascript {{{-------------------------------
+" --- Javascript {{{-------------------------------
 
 augroup snippets_javascript
     autocmd!
@@ -62,7 +52,7 @@ augroup snippets_javascript
 augroup end
 
 " }}}
-" Ruby {{{-------------------------------
+" --- Ruby {{{-------------------------------
 
 augroup snippets_ruby
     autocmd!
@@ -92,7 +82,7 @@ fun! RubyGrabAbbreviation()
 endfun
 
 " }}}
-" ERB {{{-------------------------------
+" --- ERB {{{-------------------------------
 
 augroup snippets_erb
     autocmd!
@@ -105,7 +95,7 @@ augroup snippets_erb
 augroup end
 
 " }}}
-" PHP {{{-------------------------------
+" --- PHP {{{-------------------------------
 
 augroup snippets_php
     autocmd!
@@ -119,7 +109,7 @@ fun! PhpNextArg()
 endfun
 
 " }}}
-" Mixed {{{-------------------------------
+" --- Mixed {{{-------------------------------
 
 augroup snippets_mixed
     autocmd!
@@ -129,7 +119,7 @@ augroup snippets_mixed
 augroup end
 
 " }}}
-" Commenter {{{-------------------------------
+" --- Commenter {{{-------------------------------
 
 augroup snippets_commenter
     autocmd!
@@ -189,7 +179,7 @@ endfun
 " }}}
 " Mappings {{{ -------------------------------------------------------
 
-" operators {{{-------------------------------
+" --- operators {{{-------------------------------
 
 onoremap p i(
 onoremap in :<c-u>normal! f(vi(<cr>
@@ -198,12 +188,12 @@ onoremap fn :<c-u>normal! 0f(hviw<CR>
 onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 
 " }}}
-" insert {{{-------------------------------
+" --- insert {{{-------------------------------
 
 inoremap jk <esc>
 
 " }}}
-" normal {{{-------------------------------
+" --- normal {{{-------------------------------
 
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -250,7 +240,7 @@ function! QuickFixToggle()
 endfunction
 
 " }}}
-" visual {{{-------------------------------
+" --- visual {{{-------------------------------
 
 vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
@@ -287,4 +277,4 @@ let g:numbers_exclude = ["tagbar","minibufexpl","nerdtree", "fugitive"]
 
 " }}}
 execute pathogen#infect()
-color slate
+color distinguished
