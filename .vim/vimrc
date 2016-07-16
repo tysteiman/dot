@@ -45,10 +45,11 @@ augroup end
 
 augroup snippets_javascript
     autocmd!
-    autocmd FileType javascript inoremap <buffer><localleader>fe for<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
+    autocmd FileType javascript inoremap <buffer><localleader>ff for<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
     autocmd FileType javascript inoremap <buffer><localleader>qq $("")<esc>F"i
     autocmd FileType javascript inoremap <buffer><localleader>qe $()<esc>F)i
     autocmd FileType javascript inoremap <buffer><localleader>dr $(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
+    autocmd FileType javascript inoremap <buffer><localleader>cl console.log();<esc>F)i
 augroup end
 
 " }}}
