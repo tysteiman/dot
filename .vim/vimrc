@@ -41,23 +41,33 @@ filetype indent on
 "                                               ***                                                  "
 "                                                                                                    "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup snippets_javascript
-    autocmd!
-    autocmd FileType javascript nnoremap <buffer><localleader>f ifor<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
-    autocmd FileType javascript nnoremap <buffer><localleader>qq i$("");<esc>F"i
-    autocmd FileType javascript nnoremap <buffer><localleader>qe i$();<esc>F)i
-    autocmd FileType javascript nnoremap <buffer><localleader>dr i$(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
-    autocmd FileType javascript inoremap <buffer><localleader>f for<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
-    autocmd FileType javascript inoremap <buffer><localleader>qq $("");<esc>F"i
-    autocmd FileType javascript inoremap <buffer><localleader>qe $();<esc>F)i
-    autocmd FileType javascript inoremap <buffer><localleader>dr $(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
-augroup end
+
+" Vim {{{-------------------------------
 
 augroup snippets_vim
     autocmd!
     autocmd FileType vim nnoremap <buffer><localleader>f i"<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>0xxkxkxkxk0f{i
+    autocmd FileType vim inoremap <buffer><localleader>f "<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>0xxkxkxkxk0f{i
     autocmd FileType vim nnoremap <buffer><localleader>ag iaugroup<enter>augroup<space>end<esc>kA<space>
 augroup end
+
+" }}}
+" Javascript {{{-------------------------------
+
+augroup snippets_javascript
+    autocmd!
+    autocmd FileType javascript nnoremap <buffer><localleader>qq i$("")<esc>F"i
+    autocmd FileType javascript nnoremap <buffer><localleader>qe i$()<esc>F)i
+    autocmd FileType javascript nnoremap <buffer><localleader>dr i$(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
+    autocmd FileType javascript inoremap <buffer><localleader>fe for<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
+    autocmd FileType javascript nnoremap <buffer><localleader>fe ifor<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
+    autocmd FileType javascript inoremap <buffer><localleader>qq $("")<esc>F"i
+    autocmd FileType javascript inoremap <buffer><localleader>qe $()<esc>F)i
+    autocmd FileType javascript inoremap <buffer><localleader>dr $(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
+augroup end
+
+" }}}
+" Ruby {{{-------------------------------
 
 augroup snippets_ruby
     autocmd!
@@ -66,20 +76,6 @@ augroup snippets_ruby
     autocmd FileType ruby,eruby inoremap <buffer><c-b> {\|\|<space>}<esc>F\|i
     autocmd FileType ruby inoremap <buffer><c-t> .times<space>do<space>\|\|<enter>end<esc>k02f\|in<esc>o
     autocmd FileType ruby inoremap <buffer><c-e> <esc>:call RubyEachWithAbbreviation("ruby")<cr>
-augroup end
-
-augroup snippets_erb
-    autocmd!
-    autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
-    autocmd FileType eruby nnoremap <buffer><localleader>% i<%%><esc>F%i<space>
-    autocmd FileType eruby nnoremap <buffer><localleader>ie i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
-    autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
-    autocmd FileType eruby inoremap <buffer><localleader>= <%=%><esc>F=a<space>
-    autocmd FileType eruby inoremap <buffer><localleader>% <%%><esc>F%i<space>
-    autocmd FileType eruby inoremap <buffer><localleader>ie <%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
-    autocmd FileType eruby inoremap <buffer><localleader>ii <%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
-    autocmd FileType eruby inoremap <buffer><c-e> <esc>:call RubyEachWithAbbreviation("eruby")<cr>
-    autocmd FileType eruby inoremap <buffer><c-t> .times<space>do<space>\|\|<space><esc>o<%<space>end<space>%><esc>k02f\|in<esc>o
 augroup end
 
 fun! RubyEachWithAbbreviation(type)
@@ -100,11 +96,40 @@ fun! RubyGrabAbbreviation()
     return l:newreg
 endfun
 
+" }}}
+" ERB {{{-------------------------------
+
+augroup snippets_erb
+    autocmd!
+    autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
+    autocmd FileType eruby nnoremap <buffer><localleader>% i<%%><esc>F%i<space>
+    autocmd FileType eruby nnoremap <buffer><localleader>ie i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
+    autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
+    autocmd FileType eruby inoremap <buffer><localleader>= <%=%><esc>F=a<space>
+    autocmd FileType eruby inoremap <buffer><localleader>% <%%><esc>F%i<space>
+    autocmd FileType eruby inoremap <buffer><localleader>ie <%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
+    autocmd FileType eruby inoremap <buffer><localleader>ii <%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
+    autocmd FileType eruby inoremap <buffer><c-e> <esc>:call RubyEachWithAbbreviation("eruby")<cr>
+    autocmd FileType eruby inoremap <buffer><c-t> .times<space>do<space>\|\|<space><esc>o<%<space>end<space>%><esc>k02f\|in<esc>o
+augroup end
+
+" }}}
+" PHP {{{-------------------------------
+
 augroup snippets_php
     autocmd!
-    autocmd FileType php nnoremap <buffer><localleader>f ifor($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
-    autocmd FileType php inoremap <buffer><localleader>f for($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
+    autocmd FileType php nnoremap <buffer><localleader>ff i<space>for<space>($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
+    autocmd FileType php inoremap <buffer><localleader>ff for<space>($i = 0; $i < lessthan; $i++)<space>{<Enter>}<Esc>k0f<wviw
+    autocmd FileType php inoremap <buffer><localleader>fe foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
+    autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
 augroup end
+
+fun! PhpNextArg()
+    :normal! f$wviw
+endfun
+
+" }}}
+" Mixed {{{-------------------------------
 
 augroup snippets_mixed
     autocmd!
@@ -116,6 +141,9 @@ augroup snippets_mixed
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ee <space>else {<Enter>}<Esc>O
 augroup end
 
+" }}}
+" Commenter {{{-------------------------------
+
 augroup snippets_commenter
     autocmd!
     autocmd FileType vim nnoremap<buffer><localleader>cc I"<space><esc>j
@@ -124,6 +152,7 @@ augroup snippets_commenter
     autocmd FileType javascript,php,java,c,cpp noremap<silent><buffer><localleader>cc :call CommentLines("c", 0)<cr>
     autocmd FileType python,ruby noremap<silent><buffer><localleader>cc :call CommentLines("rb", 0)<cr>
 augroup end
+
 
 fun! CommentLines(ftype, isNormalMode) range
     let l:curline = a:firstline
@@ -169,6 +198,8 @@ fun! CommentLines(ftype, isNormalMode) range
 endfun
 
 " }}}
+
+" }}}
 " Mappings {{{ -------------------------------------------------------
 
 " operators {{{-------------------------------
@@ -200,7 +231,7 @@ nnoremap <leader>l1 yyp0vg_r=o<Enter>
 nnoremap <leader>l2 yyp0vg_r-o<Enter>
 nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
-nnoremap <leader>> 10<c-w>>
+nnoremap <leader>> 10<c-w>> -->
 nnoremap <leader>< 10<c-w><
 nnoremap <leader>sv :source %<CR>:noh<cr>
 nnoremap <leader>vs :!vimsync<cr>
@@ -270,4 +301,3 @@ let g:numbers_exclude = ["tagbar","minibufexpl","nerdtree", "fugitive"]
 " }}}
 execute pathogen#infect()
 color slate
-
