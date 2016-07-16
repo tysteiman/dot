@@ -46,8 +46,7 @@ filetype indent on
 
 augroup snippets_vim
     autocmd!
-    autocmd FileType vim nnoremap <buffer><localleader>f i"<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>0xxkxkxkxk0f{i
-    autocmd FileType vim inoremap <buffer><localleader>f "<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>0xxkxkxkxk0f{i
+    autocmd FileType vim inoremap <buffer><localleader>f "<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>02xkxkxkxk0f{i
     autocmd FileType vim nnoremap <buffer><localleader>ag iaugroup<enter>augroup<space>end<esc>kA<space>
 augroup end
 
@@ -56,11 +55,7 @@ augroup end
 
 augroup snippets_javascript
     autocmd!
-    autocmd FileType javascript nnoremap <buffer><localleader>qq i$("")<esc>F"i
-    autocmd FileType javascript nnoremap <buffer><localleader>qe i$()<esc>F)i
-    autocmd FileType javascript nnoremap <buffer><localleader>dr i$(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
     autocmd FileType javascript inoremap <buffer><localleader>fe for<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
-    autocmd FileType javascript nnoremap <buffer><localleader>fe ifor<space>(var i = 0; i < lessthan; i++){<Enter>}<Esc>k0f<wvt;
     autocmd FileType javascript inoremap <buffer><localleader>qq $("")<esc>F"i
     autocmd FileType javascript inoremap <buffer><localleader>qe $()<esc>F)i
     autocmd FileType javascript inoremap <buffer><localleader>dr $(document).ready(function<space>()<space>{<enter><esc>A});<esc>O
@@ -101,10 +96,6 @@ endfun
 
 augroup snippets_erb
     autocmd!
-    autocmd FileType eruby nnoremap <buffer><localleader>= i<%=%><esc>F=a<space>
-    autocmd FileType eruby nnoremap <buffer><localleader>% i<%%><esc>F%i<space>
-    autocmd FileType eruby nnoremap <buffer><localleader>ie i<%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
-    autocmd FileType eruby nnoremap <buffer><localleader>ii i<%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
     autocmd FileType eruby inoremap <buffer><localleader>= <%=%><esc>F=a<space>
     autocmd FileType eruby inoremap <buffer><localleader>% <%%><esc>F%i<space>
     autocmd FileType eruby inoremap <buffer><localleader>ie <%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
@@ -118,7 +109,6 @@ augroup end
 
 augroup snippets_php
     autocmd!
-    autocmd FileType php nnoremap <buffer><localleader>ff i<space>for<space>($i = 0; $i < lessthan; $i++){<Enter>}<Esc>k0f<wviw
     autocmd FileType php inoremap <buffer><localleader>ff for<space>($i = 0; $i < lessthan; $i++)<space>{<Enter>}<Esc>k0f<wviw
     autocmd FileType php inoremap <buffer><localleader>fe foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
@@ -133,9 +123,6 @@ endfun
 
 augroup snippets_mixed
     autocmd!
-    autocmd FileType php,cpp,javascript,c,java nnoremap<buffer><localleader>ii iif () {<Enter>}<Esc>bbf)i
-    autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>ie iif () {<Enter>} else {<Enter>}<Esc>kk0f)i
-    autocmd FileType php,cpp,javascript,c,java nnoremap <buffer><localleader>ee A<space>else {<Enter>}<Esc>O
     autocmd FileType php,cpp,javascript,c,java inoremap<buffer><localleader>ii if () {<Enter>}<Esc>bbf)i
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ie if () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ee <space>else {<Enter>}<Esc>O
