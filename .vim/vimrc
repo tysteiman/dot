@@ -64,8 +64,8 @@ augroup snippets_ruby
     autocmd FileType ruby iabbrev <buffer>iff if<Enter>end<Enter><Esc>kkA
     autocmd FileType ruby iabbrev <buffer>ife if<Enter>else<Enter>end<Enter><Esc>kkkA
     autocmd FileType ruby,eruby inoremap <buffer><c-b> {\|\|<space>}<esc>F\|i
-    autocmd FileType ruby,eruby inoremap <buffer><c-e> .each<space>do<space>\|\|<enter>end<esc>k02f\|i
-    autocmd FileType ruby,eruby inoremap <buffer><c-t> .times<space>do<space>\|\|<enter>end<esc>k02f\|i
+    autocmd FileType ruby inoremap <buffer><c-t> .times<space>do<space>\|\|<enter>end<esc>k02f\|in<esc>o
+    autocmd FileType ruby inoremap <buffer><c-e> <esc>:call RubyEachWithAbbreviation("ruby")<cr>
 augroup end
 
 augroup snippets_erb
@@ -78,7 +78,27 @@ augroup snippets_erb
     autocmd FileType eruby inoremap <buffer><localleader>% <%%><esc>F%i<space>
     autocmd FileType eruby inoremap <buffer><localleader>ie <%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
     autocmd FileType eruby inoremap <buffer><localleader>ii <%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
+    autocmd FileType eruby inoremap <buffer><c-e> <esc>:call RubyEachWithAbbreviation("eruby")<cr>
+    autocmd FileType eruby inoremap <buffer><c-t> .times<space>do<space>\|\|<space><esc>o<%<space>end<space>%><esc>k02f\|in<esc>o
 augroup end
+
+fun! RubyEachWithAbbreviation(type)
+    if a:type == "eruby"
+        :execute "normal! i\<right>.each\<space>do\<space>||\<space>\<esc>o\<%\<space>end\<space>%>\<esc>k"
+    else
+        :execute "normal i\<right>.each\<space>do\<space>||\<enter>end\<esc>k"
+    endif
+    let l:abb = RubyGrabAbbreviation()
+    :execute "normal! 2f|i" . l:abb . "\<esc>"
+endfun
+
+fun! RubyGrabAbbreviation()
+    let l:reg = @"
+    :normal! byl
+    let l:newreg = @"
+    let @" = l:reg
+    return l:newreg
+endfun
 
 augroup snippets_php
     autocmd!
