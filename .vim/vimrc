@@ -227,7 +227,6 @@ nnoremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <silent><leader>t :tselect<CR>
 nnoremap <leader>w :StripWhitespace<CR>
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
-nnoremap <leader>r :call RepaintStatusLine()<cr>
 
 let g:quickfix_is_open = 0
 function! QuickFixToggle()
