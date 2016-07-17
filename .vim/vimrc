@@ -126,7 +126,7 @@ augroup end
 
 augroup snippets_commenter
     autocmd!
-    autocmd FileType vim nnoremap<buffer><localleader>cc I"<space><esc>j
+    autocmd FileType vim nnoremap<buffer><localleader>cc :call CommentLines("vim", 0)<cr>
     autocmd FileType html,eruby nnoremap <buffer><localleader>cc :call CommentLines("html", 1)<cr>
     autocmd FileType html,eruby vnoremap <buffer><localleader>cc :call CommentLines("html", 0)<cr>
     autocmd FileType javascript,php,java,c,cpp noremap<silent><buffer><localleader>cc :call CommentLines("c", 0)<cr>
@@ -161,13 +161,19 @@ fun! CommentLines(ftype, isNormalMode) range
             let l:fchar = @"
             if a:ftype == "c"
                 if l:fchar == "/"
-                    :normal! xxx
+                    :normal! 3x
                 else
                     :execute "normal! I//\<space>"
                 endif
+            elseif a:ftype == "vim"
+                if l:fchar == '"'
+                    :normal 2x
+                else
+                    :execute "normal! I\"\<space>"
+                endif
             else
                 if l:fchar == "#"
-                    :normal! xx
+                    :normal! 2x
                 else
                     :execute "normal! I#\<space>"
                 endif
