@@ -272,11 +272,21 @@ iabbrev doc documentation
 " }}}
 " Status Line {{{ -----------------
 
+fun! GetGitBranch()
+    let l:br = system("git branch | grep '* ' | sed 's.* ..'")
+    if l:br[0:5] != "fatal:"
+        return substitute(l:br, '\n', '', 'g')
+    else
+        return 'X'
+    endif
+endfun
+
 set statusline=%r
 set statusline+=%t
 set statusline+=\ ->\ %y
 set statusline+=%m
 set statusline+=\ \ Buffer:[%n]
+set statusline+=\ \ Git:[%{GetGitBranch()}]
 set statusline+=%=
 set statusline+=Line:[
 set statusline+=%l
@@ -320,4 +330,3 @@ endif
 " }}}
 execute pathogen#infect()
 color distinguished
-
