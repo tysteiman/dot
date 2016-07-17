@@ -137,6 +137,7 @@ augroup end
 fun! CommentLines(ftype, isNormalMode) range
     let l:curline = a:firstline
     let l:exRegister = @"
+    :normal! mm
     if a:ftype == "html"
         :normal! ^lyl
         if @" == "!"
@@ -175,6 +176,7 @@ fun! CommentLines(ftype, isNormalMode) range
         endwhile
     endif
     let @" = l:exRegister
+    :normal! `m
 endfun
 
 " }}}
