@@ -51,6 +51,11 @@ augroup snippets_javascript
     autocmd FileType javascript inoremap <buffer><localleader>dr $(document).ready(function()<space>{<enter><esc>A});<esc>O
     autocmd FileType javascript inoremap <buffer><localleader>qf $().(function()<space>{<enter><esc>A});<esc>k0f)i
     autocmd FileType javascript inoremap <buffer><localleader>cl console.log();<esc>F)i
+    autocmd FileType javascript inoremap <buffer><localleader>an ()();<esc>2F)ifunction<space>(){<enter>}<esc>O
+    autocmd FileType javascript inoremap <buffer><localleader>ge document.getElementById('#');<esc>F'i
+    autocmd FileType javascript inoremap <buffer><localleader>gc document.getElementsByClass('.');<esc>F'i
+    autocmd FileType javascript inoremap <buffer><localleader>qp $.post("send_to.php",<space>{data:set}).done(function<space>(data)<space>{<enter>});<esc>k0f"lvi"
+    autocmd FileType javascript inoremap <buffer><localleader>qg $.get("get_from.php",<space>{data:set}).done(function<space>(data)<space>{<enter>});<esc>k0f"lvi"
 augroup end
 
 " }}}
