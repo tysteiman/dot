@@ -98,7 +98,6 @@ augroup snippets_erb
     autocmd FileType eruby inoremap <buffer><localleader>ie <%<space>if<space>%><enter><%<space>else<space>%><enter><%<space>end<space>%><esc>kk$F%i
     autocmd FileType eruby inoremap <buffer><localleader>ii <%<space>if<space>%><enter><%<space>end<space>%><esc>k$F%i
     autocmd FileType eruby inoremap <buffer>fe <esc>:call RubyEachWithAbbreviation("eruby")<cr>
-    autocmd FileType eruby inoremap <buffer>ft .times<space>do<space>\|\|<space><esc>o<%<space>end<space>%><esc>k02f\|in<esc>o
 augroup end
 
 " }}}
