@@ -66,7 +66,6 @@ augroup snippets_ruby
     autocmd FileType ruby iabbrev <buffer>iff if<Enter>end<Enter><Esc>kkA
     autocmd FileType ruby iabbrev <buffer>ife if<Enter>else<Enter>end<Enter><Esc>kkkA
     autocmd FileType ruby,eruby inoremap <buffer><c-b> {\|\|<space>}<esc>F\|i
-    autocmd FileType ruby inoremap <buffer><leader>ft .times<space>do<space>\|\|<enter>end<esc>k02f\|in<esc>o
     autocmd FileType ruby inoremap <buffer><leader>fe <esc>:call RubyEachWithAbbreviation("ruby")<cr>
 augroup end
 
