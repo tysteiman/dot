@@ -1,6 +1,6 @@
 " Sets {{{ -----------------------
 
-set t_Co=256
+" set t_Co=256
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -105,7 +105,8 @@ augroup end
 augroup snippets_php
     autocmd!
     autocmd FileType php inoremap <buffer><localleader>ff for<space>($i = 0; $i < lessthan; $i++)<space>{<Enter>}<Esc>k0f<wviw
-    autocmd FileType php inoremap <buffer><localleader>fe foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
+    autocmd FileType php inoremap <buffer><localleader>fe1 foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
+    autocmd FileType php inoremap <buffer><localleader>fe2 foreach<space>($things as $key => $value)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
     autocmd FileType php nnoremap <buffer><localleader>pr mmIprint_r(<esc>f;i)<esc>`m
 augroup end
@@ -328,4 +329,4 @@ endif
 
 " }}}
 execute pathogen#infect()
-color distinguished
+color delek
