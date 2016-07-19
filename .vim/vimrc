@@ -239,7 +239,7 @@ nnoremap <silent><leader>b :TagbarToggle<CR>
 nnoremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <silent><leader>t :tselect<CR>
 nnoremap <leader>w :StripWhitespace<CR>
-nnoremap <silent><C-n> :NERDTreeToggle<CR>
+" nnoremap <silent><C-n> :NERDTreeToggle<CR>
 
 let g:quickfix_is_open = 0
 function! QuickFixToggle()
@@ -286,7 +286,7 @@ set statusline+=%t
 set statusline+=\ ->\ %y
 set statusline+=%m
 set statusline+=\ \ Buffer:[%n]
-set statusline+=\ \ Git:[%{GetGitBranch()}]
+" set statusline+=\ \ Git:[%{GetGitBranch()}]
 set statusline+=%=
 set statusline+=Line:[
 set statusline+=%l
