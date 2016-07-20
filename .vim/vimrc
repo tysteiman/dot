@@ -25,7 +25,7 @@ set lbr
 set tw=500
 set wrap
 set noswapfile
-set laststatus=2
+set laststatus=0
 set autoread
 filetype indent on
 
