@@ -329,4 +329,4 @@ endif
 
 " }}}
 execute pathogen#infect()
-color delek
+color slate
