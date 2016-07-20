@@ -188,6 +188,7 @@ fun! CommentLines(ftype, isNormalMode) range
     endif
     let @" = l:exRegister
     :normal! `m
+    :execute "normal! :w\<esc>"
 endfun
 
 " }}}
