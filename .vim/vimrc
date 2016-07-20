@@ -124,6 +124,8 @@ augroup snippets_mixed
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ie if () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ee <space>else {<Enter>}<Esc>O
     autocmd FileType eruby,ruby inoremap <buffer><localleader>ss #{}<left>
+    autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>fo //<space>{{{-------------------------------<enter><enter><enter><enter>//<space>}}}<esc>kxkxkxk0f{i
+    autocmd FileType ruby,python inoremap <buffer><localleader>fo #<space>{{{-------------------------------<enter><enter><enter><enter>#<space>}}}<esc>kxkxkxk0f{i
 augroup end
 
 " }}}
