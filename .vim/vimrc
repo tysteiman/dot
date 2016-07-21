@@ -311,7 +311,7 @@ set statusline+=\ \ Col:[%c]
 let g:numbers_exclude = ["tagbar","minibufexpl","nerdtree", "fugitive"]
 
 " }}}
-" V Search {{{-------------------------------
+" V Search (I didn't write this) {{{-------------------------------
 
 function! VisualStarSearchSet(cmdtype,...)
     let temp = @"
