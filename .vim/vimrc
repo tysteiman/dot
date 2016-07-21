@@ -110,6 +110,7 @@ augroup snippets_php
     autocmd FileType php inoremap <buffer><localleader>fe2 foreach<space>($things as $key => $value)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
     autocmd FileType php nnoremap <buffer><localleader>pr mmIprint_r(<esc>f;i)<esc>`m
+    autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
 augroup end
 
 fun! PhpNextArg()
@@ -212,7 +213,9 @@ inoremap jk <esc>
 inoremap <c-\>a <esc>A
 inoremap <c-\>i <esc>I
 inoremap <c-\>q ("")<esc><left>i
+inoremap <c-\>e ()<esc>i
 inoremap <c-\>; <esc>mmA;<esc>`mi<right>
+inoremap <c-\>] <right>
 
 " }}}
 " --- normal {{{-------------------------------
