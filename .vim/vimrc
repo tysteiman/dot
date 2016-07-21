@@ -233,7 +233,7 @@ nnoremap <leader>l1 yyp0vg_r=o<Enter>
 nnoremap <leader>l2 yyp0vg_r-o<Enter>
 nnoremap <silent><leader>g :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
-nnoremap <leader>> 10<c-w>> -->
+nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
 nnoremap <leader>sv :source %<CR>:noh<cr>
 nnoremap <leader>vs :!vimsync<cr>
