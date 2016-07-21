@@ -212,6 +212,7 @@ inoremap jk <esc>
 inoremap <c-\>a <esc>A
 inoremap <c-\>i <esc>I
 inoremap <c-\>q ("")<esc><left>i
+inoremap <c-\>; <esc>mmA;<esc>`mi<right>
 
 " }}}
 " --- normal {{{-------------------------------
