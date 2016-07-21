@@ -105,12 +105,12 @@ augroup end
 
 augroup snippets_php
     autocmd!
+    autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
     autocmd FileType php inoremap <buffer><localleader>ff for<space>($i = 0; $i < lessthan; $i++)<space>{<Enter>}<Esc>k0f<wviw
     autocmd FileType php inoremap <buffer><localleader>fe1 foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fe2 foreach<space>($things as $key => $value)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
     autocmd FileType php nnoremap <buffer><localleader>pr mmIprint_r(<esc>f;i)<esc>`m
-    autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
 augroup end
 
 fun! PhpNextArg()
@@ -277,6 +277,7 @@ vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
 iabbrev teh the
 iabbrev iot in order to
 iabbrev doc documentation
+iabbrev (): ();
 
 " }}}
 " Status Line {{{ -----------------
