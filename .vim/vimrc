@@ -111,6 +111,7 @@ augroup snippets_php
     autocmd FileType php inoremap <buffer><localleader>fe2 foreach<space>($things as $key => $value)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
     autocmd FileType php nnoremap <buffer><localleader>pr mmIprint_r(<esc>f;i)<esc>`m
+    autocmd FileType php inoremap <buffer><localleader>= <?php<space>?><left><left>
 augroup end
 
 fun! PhpNextArg()
