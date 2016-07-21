@@ -209,6 +209,9 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 " --- insert {{{-------------------------------
 
 inoremap jk <esc>
+inoremap <c-\>a <esc>A
+inoremap <c-\>i <esc>I
+inoremap <c-\>q ("")<esc><left>i
 
 " }}}
 " --- normal {{{-------------------------------
