@@ -1,3 +1,5 @@
+execute pathogen#infect()
+color delek
 " Sets {{{ -----------------------
 
 " set t_Co=256
@@ -36,7 +38,6 @@ filetype indent on
 
 augroup snippets_vim
     autocmd!
-    autocmd FileType vim inoremap <buffer><localleader>f "<space>{{{-------------------------------<enter><enter><enter><enter>"<space>}}}<esc>02xkxkxkxk0f{i
     autocmd FileType vim nnoremap <buffer><localleader>ag iaugroup<enter>augroup<space>end<esc>kA<space>
 augroup end
 
@@ -124,8 +125,6 @@ augroup snippets_mixed
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ie if () {<Enter>} else {<Enter>}<Esc>kk0f)i
     autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>ee <space>else {<Enter>}<Esc>O
     autocmd FileType eruby,ruby inoremap <buffer><localleader>ss #{}<left>
-    autocmd FileType php,cpp,javascript,c,java inoremap <buffer><localleader>fo //<space>{{{-------------------------------<enter><enter><enter><enter>//<space>}}}<esc>kxkxkxk0f{i
-    autocmd FileType ruby,python inoremap <buffer><localleader>fo #<space>{{{-------------------------------<enter><enter><enter><enter>#<space>}}}<esc>kxkxkxk0f{i
 augroup end
 
 " }}}
@@ -331,5 +330,11 @@ if maparg('<leader>*', 'v') == ''
 endif
 
 " }}}
-execute pathogen#infect()
-color delek
+" folding bindings (messes up file when declaring them) {{{
+
+autocmd FileType vim inoremap <buffer><localleader>fo {{{<enter><enter><enter><enter>}}}<esc>I"<space><esc>?{{{<cr>I"<space>
+autocmd FileType php,javascript,cpp,c,java inoremap <buffer><localleader>fo {{{<enter><enter><enter><enter>}}}<esc>I//<space><esc>?{{{<cr>I//<space>
+autocmd FileType ruby,python inoremap <buffer><localleader>fo {{{<enter><enter><enter><enter>}}}<esc>I#<space><esc>?{{{<cr>I#<space>
+
+" }}}
+
