@@ -1,5 +1,5 @@
 execute pathogen#infect()
-color delek
+color gruvbox
 " Sets {{{ -----------------------
 
 " set t_Co=256
