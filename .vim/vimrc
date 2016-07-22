@@ -27,7 +27,7 @@ set lbr
 set tw=500
 set wrap
 set noswapfile
-set laststatus=0
+set laststatus=2
 set autoread
 set guioptions-=m
 set guioptions-=T
@@ -110,12 +110,12 @@ augroup end
 augroup snippets_php
     autocmd!
     autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
+    autocmd FileType php inoremap <buffer><localleader>= <?php<space>?><left><left>
     autocmd FileType php inoremap <buffer><localleader>ff for<space>($i = 0; $i < lessthan; $i++)<space>{<Enter>}<Esc>k0f<wviw
     autocmd FileType php inoremap <buffer><localleader>fe1 foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fe2 foreach<space>($things as $key => $value)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
     autocmd FileType php nnoremap <buffer><localleader>pr mmIprint_r(<esc>f;i)<esc>`m
-    autocmd FileType php inoremap <buffer><localleader>= <?php<space>?><left><left>
 augroup end
 
 fun! PhpNextArg()
@@ -215,12 +215,14 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 " --- insert {{{-------------------------------
 
 inoremap jk <esc>
-inoremap <c-\>a <esc>A
-inoremap <c-\>i <esc>I
+inoremap <c-a> <esc>A
+inoremap <c-i> <esc>I
 inoremap <c-\>q ("")<esc><left>i
 inoremap <c-\>e ()<esc>i
 inoremap <c-\>; <esc>mmA;<esc>`mi<right>
-inoremap <c-\>] <right>
+inoremap <c-f> <right>
+inoremap <c-o> <esc>o
+inoremap <c-u> <esc>O
 
 " }}}
 " --- normal {{{-------------------------------
