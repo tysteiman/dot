@@ -260,6 +260,9 @@ nnoremap <silent><leader>b :TagbarToggle<CR>
 nnoremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <silent><leader>t :tselect<CR>
 nnoremap <leader>w :StripWhitespace<CR>
+nnoremap <leader>fc :Econtroller
+nnoremap <leader>fv :Eview
+nnoremap <leader>fm :Emodel
 " nnoremap <silent><C-n> :NERDTreeToggle<CR>
 
 let g:quickfix_is_open = 0
