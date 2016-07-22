@@ -175,6 +175,10 @@ fun! CommentLines(ftype, isNormalMode) range
                 if l:fchar == "/"
                     :normal! 3x
                 else
+                    " these should get stubbed out so it's just one block of logic
+                    " that uses a dict to store the comment character for different
+                    " languages. That way a bunch of ifs aren't used to insert the same
+                    " things basically.
                     :execute "normal! I//\<space>"
                 endif
             elseif a:ftype == "vim"
