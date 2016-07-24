@@ -220,11 +220,12 @@ onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
 " --- insert {{{-------------------------------
 
 inoremap jk <esc>
-inoremap <c-a> <esc>A
-inoremap <c-i> <esc>I
+inoremap <c-e> <esc>A
+inoremap <c-a> <esc>I
 inoremap <c-\>q ("")<esc><left>i
 inoremap <c-\>e ()<esc>i
 inoremap <c-\>; <esc>mmA;<esc>`mi<right>
+inoremap <c-\>{ {{}}<left><left>
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 inoremap <c-o> <esc>o
