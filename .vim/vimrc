@@ -264,6 +264,7 @@ nnoremap <leader>w :StripWhitespace<CR>
 nnoremap <leader>fc :Econtroller
 nnoremap <leader>fv :Eview
 nnoremap <leader>fm :Emodel
+nnoremap <leader> zb zagg
 " nnoremap <silent><C-n> :NERDTreeToggle<CR>
 
 let g:quickfix_is_open = 0
@@ -284,6 +285,7 @@ endfunction
 
 vnoremap <leader>: <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>; <esc>`<i'<esc>`>la'<esc>
+vnoremap mk <esc>
 
 " }}}
 
