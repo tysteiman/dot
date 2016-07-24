@@ -1,5 +1,5 @@
 execute pathogen#infect()
-color gruvbox
+color wombat256
 " Sets {{{ -----------------------
 
 " set t_Co=256
@@ -143,7 +143,7 @@ augroup snippets_commenter
     autocmd FileType html,eruby,liquid nnoremap <buffer><localleader>cc :call CommentLines("html", 1)<cr>
     autocmd FileType html,eruby,liquid vnoremap <buffer><localleader>cc :call CommentLines("html", 0)<cr>
     autocmd FileType javascript,php,java,c,cpp noremap<silent><buffer><localleader>cc :call CommentLines("c", 0)<cr>
-    autocmd FileType python,ruby noremap<silent><buffer><localleader>cc :call CommentLines("rb", 0)<cr>
+    autocmd FileType python,ruby,sh noremap<silent><buffer><localleader>cc :call CommentLines("rb", 0)<cr>
 augroup end
 
 
@@ -168,6 +168,9 @@ fun! CommentLines(ftype, isNormalMode) range
             end
         endif
     else
+        let l:commentGroups = { "c": "//", "rb": "#", "vim": "\""}
+        :echom l:commentGroups[a:ftype][0]
+        return
         while l:curline <= a:lastline
             :call cursor(l:curline, 1)
             :normal! ^yl
