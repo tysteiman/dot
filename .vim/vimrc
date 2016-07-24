@@ -1,5 +1,4 @@
 execute pathogen#infect()
-color delek
 " Sets {{{ -----------------------
 
 "set t_Co=256
@@ -35,6 +34,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 filetype indent on
+color zellner
 
 " }}}
 " Snippets / Autocommands {{{ ---------------------------------------------------
@@ -230,7 +230,7 @@ nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>l1 yyp0vg_r=o<Enter>
 nnoremap <leader>l2 yyp0vg_r-o<Enter>
-nnoremap <silent><leader>g :Gst<cr>
+nnoremap <silent><leader>gs :Gst<cr>
 nnoremap <leader>+ 10<c-w>+
 nnoremap <leader>> 10<c-w>>
 nnoremap <leader>< 10<c-w><
@@ -251,6 +251,7 @@ nnoremap <leader>fc :Econtroller
 nnoremap <leader>fv :Eview
 nnoremap <leader>fm :Emodel
 nnoremap <leader> zb zagg
+nnoremap <leader>gg mmgg=G`m
 " nnoremap <silent><C-n> :NERDTreeToggle<CR>
 
 let g:quickfix_is_open = 0
@@ -323,4 +324,5 @@ autocmd FileType php,javascript,cpp,c,java inoremap <buffer><localleader>fo {{{<
 autocmd FileType ruby,python inoremap <buffer><localleader>fo {{{<enter><enter><enter><enter>}}}<esc>I#<space><esc>?{{{<cr>I#<space>
 
 " }}}
+
 
