@@ -300,6 +300,7 @@ iabbrev (): ();
 " }}}
 " Status Line {{{ -----------------
 
+" This was commented out because it enters arbitrary characters into the buffer
 fun! GetGitBranch()
     let l:br = system("git branch | grep '* ' | sed 's.* ..'")
     if l:br[0:5] != "fatal:"
