@@ -116,6 +116,10 @@ augroup snippets_php
     autocmd FileType php inoremap <buffer><localleader>fe1 foreach<space>($things as $thing)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fe2 foreach<space>($things as $key => $value)<space>{<Enter>}<Esc>k0f$wviw
     autocmd FileType php inoremap <buffer><localleader>fa <esc>:call PhpNextArg()<cr>
+    autocmd FileType php inoremap <buffer><localleader>rm $_SERVER["REQUEST_METHOD"]
+    autocmd FileType php inoremap <buffer><localleader>rq $_REQUEST[""]<left><left>
+    autocmd FileType php inoremap <buffer><localleader>rp $_POST[""]<left><left>
+    autocmd FileType php inoremap <buffer><localleader>rg $_GET[""]<left><left>
     autocmd FileType php nnoremap <buffer><localleader>pr mmIprint_r(<esc>f;i)<esc>`m
 augroup end
 
@@ -214,6 +218,7 @@ inoremap <c-f> <right>
 inoremap <c-b> <left>
 inoremap <c-o> <esc>o
 inoremap <c-u> <esc>O
+inoremap <leader>w( (<esc><right>mmf)i)<esc>`m
 
 " }}}
 " --- normal {{{-------------------------------
@@ -246,7 +251,7 @@ nnoremap <silent><leader>a :spellr<CR>
 nnoremap <silent><leader>b :TagbarToggle<CR>
 nnoremap <silent><leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <silent><leader>t :tselect<CR>
-nnoremap <leader>w :StripWhitespace<CR>
+nnoremap <leader>ww :StripWhitespace<CR>
 nnoremap <leader>fc :Econtroller
 nnoremap <leader>fv :Eview
 nnoremap <leader>fm :Emodel
