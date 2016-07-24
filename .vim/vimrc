@@ -3,6 +3,7 @@ color gruvbox
 " Sets {{{ -----------------------
 
 " set t_Co=256
+set guifont=Monaco:h14
 set background=dark
 set foldlevelstart=0
 syntax on
