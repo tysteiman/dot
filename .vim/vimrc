@@ -1,8 +1,8 @@
 execute pathogen#infect()
-color wombat256
+color desert
 " Sets {{{ -----------------------
 
-set t_Co=256
+"set t_Co=256
 set guifont=Monaco:h14
 set background=dark
 set foldlevelstart=0
