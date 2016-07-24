@@ -272,7 +272,6 @@ endfunction
 vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 vnoremap <leader>( <esc>`<i(<esc>`>la)<esc>
-vnoremap mk <esc>
 
 " }}}
 
