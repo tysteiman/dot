@@ -143,7 +143,7 @@ augroup end
 
 augroup snippets_commenter
     autocmd!
-    autocmd FileType vim nnoremap<buffer><localleader>cc :call CommentLines("vim", 0)<cr>
+    autocmd FileType vim noremap<buffer><localleader>cc :call CommentLines("vim", 0)<cr>
     autocmd FileType html,eruby,liquid nnoremap <buffer><localleader>cc :call CommentLines("html", 1)<cr>
     autocmd FileType html,eruby,liquid vnoremap <buffer><localleader>cc :call CommentLines("html", 0)<cr>
     autocmd FileType javascript,php,java,c,cpp,cs noremap<silent><buffer><localleader>cc :call CommentLines("c", 0)<cr>
