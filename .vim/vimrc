@@ -2,7 +2,6 @@ execute pathogen#infect()
 " Sets {{{ -----------------------
 
 "set t_Co=256
-set guifont=Monaco:h14
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -34,7 +33,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 filetype indent on
-color zellner
+color darkblue
 
 " }}}
 " Snippets / Autocommands {{{ ---------------------------------------------------
