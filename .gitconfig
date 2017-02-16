@@ -3,6 +3,7 @@
 	email = ma.steiman@gmail.com
 [core]
 	editor = nano
+  excludesfile = "~/.gitignore"
 [alias]
   co = checkout
   st = status
