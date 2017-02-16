@@ -121,7 +121,7 @@ nnoremap <leader>bd :bufdo bd<cr>
 nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>1 :on<cr>
-
+nnoremap <leader>c :e %:h
 inoremap jk <esc>
 
 " }}}
