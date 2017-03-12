@@ -92,8 +92,9 @@ set smartcase
 set incsearch
 set expandtab
 set smarttab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 set lbr
 set tw=500
 set wrap
@@ -124,5 +125,22 @@ nnoremap <leader>1 :on<cr>
 nnoremap <leader>c :e %:h
 nnoremap <leader>n :noh<cr>
 inoremap jk <esc>
+
+" }}}
+" Autocommands {{{
+
+"" Open some files with only 2 tabs
+autocmd BufNewFile *.rb execute "call SetCustomTabWidth()"
+autocmd BufNewFile *.py execute "call SetCustomTabWidth()"
+
+"" Generic function for converting tab spaces to only 2 instead of default 4.
+fu! SetCustomTabWidth()
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    set softtabstop=2
+endfu
+
+"" Insert php tags when opening a new PHP file
+autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
 
 " }}}
