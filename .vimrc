@@ -137,7 +137,7 @@ autocmd BufNewFile *.py execute "call SetCustomTabWidth()"
 fu! SetCustomTabWidth()
     setlocal shiftwidth=2
     setlocal tabstop=2
-    set softtabstop=2
+    setlocal softtabstop=2
 endfu
 
 "" Insert php tags when opening a new PHP file
