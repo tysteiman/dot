@@ -42,7 +42,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " }}}
-
 " Airline {{{
 
 if !exists('g:airline_symbols')
@@ -107,6 +106,7 @@ set guioptions-=r
 set guioptions-=L
 color jellybeans
 let g:airline_theme='jellybeans'
+set cursorline
 
 " }}}
 " Remaps {{{
