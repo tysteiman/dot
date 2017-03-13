@@ -1,16 +1,16 @@
 [user]
-	name = Tyler Steiman
-	email = ma.steiman@gmail.com
+    name = Tyler Steiman
+    email = ma.steiman@gmail.com
 [core]
-	editor = vim
-  excludesfile = "~/.gitignore"
+    editor = vim
+    excludesfile = "~/.gitignore"
 [alias]
-  co = checkout
-  st = status
-  br = branch
-  ft = fetch
-  ps = push
-  ct = commit
-  pl = pull
-  df = diff
-  lg = log
+    co = checkout
+    st = status
+    br = branch
+    ft = fetch
+    ps = push
+    ct = commit
+    pl = pull
+    df = diff
+    lg = log
