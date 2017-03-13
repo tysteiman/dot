@@ -109,7 +109,6 @@ let g:alduin_Shout_Fire_Breath = 1
 let g:alduin_Shout_Become_Ethereal = 1
 color alduin
 let g:airline_theme='term'
-set cursorline
 
 " }}}
 " Remaps {{{
