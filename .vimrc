@@ -104,8 +104,6 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-let g:alduin_Shout_Fire_Breath = 1
-let g:alduin_Shout_Become_Ethereal = 1
 color jellybeans
 let g:airline_theme='jellybeans'
 
