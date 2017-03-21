@@ -18,11 +18,11 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'slim-template/vim-slim'
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'sk1418/last256'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'jlanzarotta/bufexplorer'
+Plugin 'fholgado/minibufexpl.vim'
 
 " }}}
 
@@ -104,8 +104,8 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color jellybeans
-let g:airline_theme='jellybeans'
+color last256
+let g:airline_theme='term'
 
 " }}}
 " Remaps {{{
@@ -129,8 +129,8 @@ inoremap jk <esc>
 " Autocommands {{{
 
 "" Open some files with only 2 tabs
-autocmd BufNewFile *.rb execute "call SetCustomTabWidth()"
-autocmd BufNewFile *.py execute "call SetCustomTabWidth()"
+autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
+autocmd BufNewFile,BufNewFile *.py execute "call SetCustomTabWidth()"
 
 "" Generic function for converting tab spaces to only 2 instead of default 4.
 fu! SetCustomTabWidth()
