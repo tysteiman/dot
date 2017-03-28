@@ -18,7 +18,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'slim-template/vim-slim'
-Plugin 'sk1418/last256'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -104,8 +104,8 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color last256
-let g:airline_theme='term'
+color jellybeans
+let g:airline_theme='jellybeans'
 
 " }}}
 " Remaps {{{
