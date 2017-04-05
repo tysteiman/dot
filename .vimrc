@@ -22,7 +22,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'fholgado/minibufexpl.vim'
+Plugin 'jlanzarotta/bufexplorer'
 
 " }}}
 
@@ -73,7 +73,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 " Sets {{{
 
 set t_Co=256
-set guifont=Monaco:h14
+set guifont=Monaco:h12
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -117,12 +117,10 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>bd :bufdo bd<cr>
 nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>c :e %:h
-nnoremap <leader>n :noh<cr>
 inoremap jk <esc>
 
 " }}}
