@@ -105,8 +105,8 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color alduin
-let g:airline_theme='hybrid'
+color desert
+let g:airline_theme='term'
 
 " }}}
 " Remaps {{{
@@ -122,6 +122,7 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>c :e %:h
+nnoremap <leader>bb :b#<cr>
 inoremap jk <esc>
 
 " }}}
