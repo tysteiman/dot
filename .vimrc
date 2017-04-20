@@ -18,8 +18,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'slim-template/vim-slim'
-" Plugin 'nanotech/jellybeans.vim'
-Plugin 'AlessandroYorba/Alduin'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -74,7 +72,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 " Sets {{{
 
 set t_Co=256
-set guifont=Monaco:h12
 set background=dark
 set foldlevelstart=0
 syntax on
@@ -142,3 +139,4 @@ endfu
 autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
 
 " }}}
+
