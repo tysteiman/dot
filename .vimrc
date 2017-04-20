@@ -18,9 +18,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'slim-template/vim-slim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jlanzarotta/bufexplorer'
 
 " }}}
@@ -41,32 +38,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " }}}
-" Airline {{{
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" }}}
 
 " }}}
 " Sets {{{
@@ -75,7 +46,7 @@ set t_Co=256
 set background=dark
 set foldlevelstart=0
 syntax on
-set number
+set nonumber
 set magic
 set hlsearch
 set foldmethod=marker
@@ -96,14 +67,13 @@ set lbr
 set tw=500
 set wrap
 set noswapfile
-set laststatus=2
+set laststatus=0
 set autoread
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color desert
-let g:airline_theme='term'
+color default
 
 " }}}
 " Remaps {{{
@@ -116,10 +86,10 @@ nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
-nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>c :e %:h
 nnoremap <leader>bb :b#<cr>
+nnoremap <leader>t :tnext<cr>
 inoremap jk <esc>
 
 " }}}
