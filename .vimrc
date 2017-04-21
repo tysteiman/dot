@@ -90,6 +90,7 @@ nnoremap <leader>1 :on<cr>
 nnoremap <leader>c :e %:h
 nnoremap <leader>bb :b#<cr>
 nnoremap <leader>t :tnext<cr>
+nnoremap <leader>g :Gst<cr>
 inoremap jk <esc>
 
 " }}}
