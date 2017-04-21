@@ -91,6 +91,7 @@ nnoremap <leader>c :e %:h
 nnoremap <leader>bb :b#<cr>
 nnoremap <leader>t :tnext<cr>
 nnoremap <leader>g :Gst<cr>
+nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 inoremap jk <esc>
 
 " }}}
