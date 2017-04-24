@@ -16,7 +16,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'slim-template/vim-slim'
 Plugin 'jlanzarotta/bufexplorer'
 
