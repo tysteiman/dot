@@ -88,7 +88,8 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>c :e %:h
 nnoremap <leader>bb :b#<cr>
-nnoremap <leader>t :tnext<cr>
+nnoremap <leader>tt :tnext<cr>
+nnoremap <leader>ts :tselect<cr>
 nnoremap <leader>g :Gst<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 inoremap jk <esc>
