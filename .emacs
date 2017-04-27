@@ -3,17 +3,19 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.emacs.d/custom.el")                            ;; save custom changes away
 
-(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+(setq package-archives '(("elpa" . "http://tromey.com/elpa/")        ;; add melpa
                          ("melpa" . "https://melpa.org/packages/")))
 
-(package-initialize)
+(package-initialize)                                                 ;; init packages
 
-(menu-bar-mode 0)
-(setq make-backup-files nil)
-(setq ns-pop-up-frames nil)
-(setq-default c-basic-offset 4)
-(setq-default indent-tabs-mode nil)
+(menu-bar-mode 0)                                                    ;; no menu bar
+(setq make-backup-files nil)                                         ;; no backup files
+(setq ns-pop-up-frames nil)                                          ;; load files in same frame
+(setq vc-follow-symlinks t)                                          ;; don't prompt for symlinks
+(setq-default c-basic-offset 4)                                      ;; C indentation to 4
+(setq-default indent-tabs-mode nil)                                  ;; only use spaces
+(setq-default show-trailing-whitespace t)                            ;; show trailing whitespace
 
-(load-theme 'wombat)
+(load-theme 'wombat)                                                 ;; use wombat!
