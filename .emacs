@@ -11,6 +11,8 @@
 (package-initialize)                                                 ;; init packages
 
 (menu-bar-mode 0)                                                    ;; no menu bar
+(scroll-bar-mode 0)                                                  ;; disable scroll bars
+(set-fringe-mode 0)                                                  ;; no fringe in windows
 (setq make-backup-files nil)                                         ;; no backup files
 (setq ns-pop-up-frames nil)                                          ;; load files in same frame
 (setq vc-follow-symlinks t)                                          ;; don't prompt for symlinks
