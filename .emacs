@@ -21,3 +21,4 @@
 (setq-default show-trailing-whitespace t)                            ;; show trailing whitespace
 
 (load-theme 'wombat)                                                 ;; use wombat!
+(put 'narrow-to-region 'disabled nil)
