@@ -10,17 +10,21 @@
                          ("melpa" .
                           "https://melpa.org/packages/")))
 
+;; funcs
 (package-initialize)                                       ;; init packages
-
 (menu-bar-mode 0)                                          ;; no menu bar
 (scroll-bar-mode 0)                                        ;; disable scroll bars
+(load-theme 'misterioso)                                   ;; misterioso theme!
+
+;; vars
 (setq make-backup-files nil)                               ;; no backup files
 (setq ns-pop-up-frames nil)                                ;; load files in same frame
 (setq vc-follow-symlinks t)                                ;; don't prompt for symlinks
+
+;; vars - defaults
 (setq-default truncate-lines t)                            ;; truncate lines
 (setq-default c-basic-offset 4)                            ;; C indentation to 4
 (setq-default indent-tabs-mode nil)                        ;; only use spaces
 
+;; puts
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
-
-(load-theme 'wombat)                                       ;; use wombat!
