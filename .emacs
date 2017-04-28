@@ -17,6 +17,7 @@
 (setq make-backup-files nil)                               ;; no backup files
 (setq ns-pop-up-frames nil)                                ;; load files in same frame
 (setq vc-follow-symlinks t)                                ;; don't prompt for symlinks
+(setq-default truncate-lines t)                            ;; truncate lines
 (setq-default c-basic-offset 4)                            ;; C indentation to 4
 (setq-default indent-tabs-mode nil)                        ;; only use spaces
 
