@@ -14,7 +14,8 @@
 (package-initialize)                                       ;; init packages
 (menu-bar-mode 0)                                          ;; no menu bar
 (scroll-bar-mode 0)                                        ;; disable scroll bars
-(load-theme 'misterioso)                                   ;; misterioso theme!
+(show-paren-mode)                                          ;; hl parens
+(load-theme 'wombat)                                       ;; wombat theme!
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
