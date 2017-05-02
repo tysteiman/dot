@@ -14,6 +14,7 @@
 (package-initialize)                                       ;; init packages
 (menu-bar-mode 0)                                          ;; no menu bar
 (scroll-bar-mode 0)                                        ;; disable scroll bars
+(tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
 (load-theme 'misterioso)                                   ;; misterioso theme!
 
