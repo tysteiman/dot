@@ -15,7 +15,7 @@
 (menu-bar-mode 0)                                          ;; no menu bar
 (scroll-bar-mode 0)                                        ;; disable scroll bars
 (show-paren-mode)                                          ;; hl parens
-(load-theme 'wombat)                                       ;; wombat theme!
+(load-theme 'misterioso)                                   ;; misterioso theme!
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
