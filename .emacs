@@ -32,7 +32,7 @@
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
 
 ;; key bindings
-(let ((keys '(("C-x C-b" (lambda ()
+(let ((keys '(("C-x C-b" (lambda ()                        ;; C-x C-b last (other) buffer
                            "Visit the last visited (other) buffer"
                            (interactive)
                            (switch-to-buffer (other-buffer)))))))
