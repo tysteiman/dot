@@ -30,3 +30,14 @@
 
 ;; puts
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
+
+;; key bindings
+(let ((keys '(("C-x C-b" (lambda ()
+                           "Visit the last visited (other) buffer"
+                           (interactive)
+                           (switch-to-buffer (other-buffer)))))))
+  (dolist (binding keys)
+    (let ((key (car binding))
+          (fun (car (cdr binding))))
+      (when (and key fun)
+        (global-set-key (kbd key) fun)))))
