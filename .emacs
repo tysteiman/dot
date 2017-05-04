@@ -32,6 +32,11 @@
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
 
 ;; key bindings
+;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
+;; ;; like movement commands etc directly into global-set-key by using
+;; ;; lambdas. For more complex functions custom functions in general
+;; ;; they shouldn't be defined here. However it should be fine if we
+;; ;; have our own functions used inside of simple procedures in a lambda.
 (let ((keys '(("C-x C-b" (lambda ()
                            "Visit the last visited (other) buffer"
                            (interactive)
