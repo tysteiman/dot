@@ -16,7 +16,7 @@
 (scroll-bar-mode 0)                                        ;; disable scroll bars
 (tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
-(load-theme 'misterioso)                                   ;; misterioso theme!
+(load-theme 'leuven)                                       ;; leuven theme!
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
