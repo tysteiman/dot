@@ -37,8 +37,14 @@
   (set-background-color "black")
   (set-foreground-color "darkgrey")
   (set-cursor-color "red")
-  (set-face-attribute 'mode-line nil :background "black" :foreground "darkred" :box "darkred")
-  (set-face-attribute 'mode-line-inactive nil :background "black" :foreground "darkgrey" :box "darkgrey"))
+  (set-face-attribute 'mode-line nil
+                      :background "black"
+                      :foreground "darkred"
+                      :box "darkred")
+  (set-face-attribute 'mode-line-inactive nil
+                      :background "black"
+                      :foreground "darkgrey"
+                      :box "darkgrey"))
 
 ;; key bindings
 ;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
