@@ -16,8 +16,6 @@
 (scroll-bar-mode 0)                                        ;; disable scroll bars
 (tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
-(load-theme 'leuven)                                       ;; leuven theme!
-(global-hl-line-mode)                                      ;; hl line
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
@@ -33,6 +31,11 @@
 
 ;; puts
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
+
+(when (window-system)
+  (set-background-color "black")
+  (set-foreground-color "darkgrey")
+  (set-cursor-color "red"))
 
 ;; key bindings
 ;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
