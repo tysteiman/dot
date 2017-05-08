@@ -17,6 +17,7 @@
 (tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
 (load-theme 'leuven)                                       ;; leuven theme!
+(global-hl-line-mode)                                      ;; hl line
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
