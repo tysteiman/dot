@@ -16,6 +16,7 @@
 (scroll-bar-mode 0)                                        ;; disable scroll bars
 (tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
+(fringe-mode 0)                                            ;; no fringe
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
@@ -35,7 +36,9 @@
 (when (window-system)
   (set-background-color "black")
   (set-foreground-color "darkgrey")
-  (set-cursor-color "red"))
+  (set-cursor-color "red")
+  (set-face-attribute 'mode-line nil :background "black" :foreground "darkred" :box "darkred")
+  (set-face-attribute 'mode-line-inactive nil :background "black" :foreground "darkgrey" :box "darkgrey"))
 
 ;; key bindings
 ;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
