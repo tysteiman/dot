@@ -23,6 +23,7 @@
 (setq make-backup-files nil)                               ;; no backup files
 (setq ns-pop-up-frames nil)                                ;; load files in same frame
 (setq vc-follow-symlinks t)                                ;; don't prompt for symlinks
+(setq tags-revert-without-query t)                         ;; don't prompt for tag refresh
 
 ;; vars - defaults
 (setq-default truncate-lines t)                            ;; truncate lines
