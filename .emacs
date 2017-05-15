@@ -24,6 +24,7 @@
 (setq vc-follow-symlinks t)                                ;; don't prompt for symlinks
 (setq tags-revert-without-query t)                         ;; don't prompt for tag refresh
 (setq initial-buffer-choice t)                             ;; open scratch buffer on startup
+(setq custom-safe-themes t)                                ;; allow custom themes
 
 ;; vars - defaults
 (setq-default truncate-lines t)                            ;; truncate lines
@@ -33,18 +34,9 @@
 ;; puts
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
 
-(when (window-system)
-  (set-background-color "black")
-  (set-foreground-color "darkgrey")
-  (set-cursor-color "red")
-  (set-face-attribute 'mode-line nil
-                      :background "black"
-                      :foreground "darkred"
-                      :box "darkred")
-  (set-face-attribute 'mode-line-inactive nil
-                      :background "black"
-                      :foreground "darkgrey"
-                      :box "darkgrey"))
+(load-theme 'zenburn)                                      ;; use zenburn
+(set-cursor-color "red")                                   ;; make cursor red
+(global-hl-line-mode)                                      ;; hl line like a bozz
 
 ;; key bindings
 ;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
