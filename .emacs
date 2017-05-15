@@ -35,7 +35,6 @@
 
 (load-theme 'wombat)                                       ;; use wombat
 (set-cursor-color "red")                                   ;; make cursor red
-(global-hl-line-mode)                                      ;; hl line like a bozz
 
 ;; key bindings
 ;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
