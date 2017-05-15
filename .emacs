@@ -16,7 +16,6 @@
 (scroll-bar-mode 0)                                        ;; disable scroll bars
 (tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
-(fringe-mode 0)                                            ;; no fringe
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
@@ -34,7 +33,7 @@
 ;; puts
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
 
-(load-theme 'zenburn)                                      ;; use zenburn
+(load-theme 'wombat)                                       ;; use wombat
 (set-cursor-color "red")                                   ;; make cursor red
 (global-hl-line-mode)                                      ;; hl line like a bozz
 
