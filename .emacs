@@ -33,8 +33,7 @@
 ;; puts
 (put 'narrow-to-region 'disabled nil)                      ;; allow narrow
 
-(load-theme 'wombat)                                       ;; use wombat
-(set-cursor-color "red")                                   ;; make cursor red
+(load-theme 'leuven)                                       ;; use leuven
 
 ;; key bindings
 ;; ;; Since I'm lazy I find it easier to bind simple Emacs procedures
