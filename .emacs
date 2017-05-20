@@ -44,19 +44,7 @@
 (let ((keys '(("C-x C-b" (lambda ()
                            "Visit the last visited (other) buffer"
                            (interactive)
-                           (switch-to-buffer (other-buffer))))
-              ("C-o"     (lambda ()
-                           "Create a new line below the cursor"
-                           (interactive)
-                           (move-end-of-line 1)
-                           (newline-and-indent)))
-              ("C-M-o"   (lambda ()
-                           "New line above"
-                           (interactive)
-                           (move-beginning-of-line 1)
-                           (newline)
-                           (previous-line)
-                           (indent-for-tab-command))))))
+                           (switch-to-buffer (other-buffer)))))))
   (dolist (binding keys)
     (let ((key (car binding))
           (fun (car (cdr binding))))
