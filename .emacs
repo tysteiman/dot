@@ -90,13 +90,13 @@
 ;; ;; Nothing should be put below unless it requires a specific
 ;; ;; package above to be downloaded / installed first. For example
 ;; ;; custom theme load-theme calls, helm, etc.
-(setq ac-auto-show-menu 0)
-(setq helm-mode-fuzzy-match t)
-(setq helm-projectile-fuzzy-match t)
-(setq solarized-high-contrast-mode-line t)
+(setq ac-auto-show-menu 0)                                 ;; Don't wait to show ac menu
+(setq helm-mode-fuzzy-match t)                             ;; Use fuzzy matching in helm
+(setq helm-projectile-fuzzy-match t)                       ;; Use fuzzy matching in helm-projectile
+(setq solarized-high-contrast-mode-line t)                 ;; Use high contrast mode line in solarized
 
-(load-theme 'solarized-dark)
+(load-theme 'solarized-dark)                               ;; Load theme
 
-(global-auto-complete-mode)
-(projectile-mode)
-(helm-projectile-on)
+(global-auto-complete-mode)                                ;; Use autocomplete everywhere!
+(projectile-mode)                                          ;; Use projectile everywhere!
+(helm-projectile-on)                                       ;; Use helm projectile everywhere!
