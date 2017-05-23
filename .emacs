@@ -98,6 +98,7 @@
 
 (if (window-system)                                        ;; window env specific settings
     (progn                                                 ;; ;; GUI
+      (setq solarized-distinct-fringe-background t)        ;; ;; ;; solarized show fringe
       (load-theme 'solarized-dark)                         ;; ;; ;; solarized-dark in gui
       (global-hl-line-mode))                               ;; ;; ;; highlight current line
   (load-theme 'manoj-dark))                                ;; ;; TERM manoj-dark in terminal
