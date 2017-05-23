@@ -16,7 +16,6 @@
 (scroll-bar-mode 0)                                        ;; disable scroll bars
 (tool-bar-mode 0)                                          ;; disable tool bar
 (show-paren-mode)                                          ;; hl parens
-(global-hl-line-mode)                                      ;; highlight current line
 
 ;; vars
 (setq make-backup-files nil)                               ;; no backup files
@@ -97,9 +96,11 @@
 (setq helm-projectile-fuzzy-match t)                       ;; Use fuzzy matching in helm-projectile
 (setq solarized-high-contrast-mode-line t)                 ;; Use high contrast mode line in solarized
 
-(if (window-system)                                        ;; load theme based on window env
-    (load-theme 'solarized-dark)                           ;; ;; solarized-dark in gui
-  (load-theme 'manoj-dark))                                ;; ;; manoj-dark in terminal
+(if (window-system)                                        ;; window env specific settings
+    (progn                                                 ;; ;; GUI
+      (load-theme 'solarized-dark)                         ;; ;; ;; solarized-dark in gui
+      (global-hl-line-mode))                               ;; ;; ;; highlight current line
+  (load-theme 'manoj-dark))                                ;; ;; TERM manoj-dark in terminal
 
 (global-auto-complete-mode)                                ;; Use autocomplete everywhere!
 (projectile-mode)                                          ;; Use projectile everywhere!
