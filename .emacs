@@ -97,7 +97,9 @@
 (setq helm-projectile-fuzzy-match t)                       ;; Use fuzzy matching in helm-projectile
 (setq solarized-high-contrast-mode-line t)                 ;; Use high contrast mode line in solarized
 
-(load-theme 'solarized-dark)                               ;; Load theme
+(if (window-system)                                        ;; load theme based on window env
+    (load-theme 'solarized-dark)
+  (load-theme 'manoj-dark))
 
 (global-auto-complete-mode)                                ;; Use autocomplete everywhere!
 (projectile-mode)                                          ;; Use projectile everywhere!
