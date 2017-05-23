@@ -96,12 +96,20 @@
 (setq helm-projectile-fuzzy-match t)                       ;; Use fuzzy matching in helm-projectile
 (setq solarized-high-contrast-mode-line t)                 ;; Use high contrast mode line in solarized
 
-(if (window-system)                                        ;; window env specific settings
-    (progn                                                 ;; ;; GUI
-      (setq solarized-distinct-fringe-background t)        ;; ;; ;; solarized show fringe
-      (load-theme 'solarized-dark)                         ;; ;; ;; solarized-dark in gui
-      (global-hl-line-mode))                               ;; ;; ;; highlight current line
-  (load-theme 'manoj-dark))                                ;; ;; TERM manoj-dark in terminal
+;; ;; window env specific settings
+;; ;; ;; Sometimes I like to change settings consistently
+;; ;; ;; depending on the platform I'm using i.e. Linux vs Mac
+;; ;; ;; If this config is broken out more it would be nice to have
+;; ;; ;; an entire file dedicated to a certain platform or something?
+;; ;; ;; I'm not sure what that would look like so leave for now.
+(if (window-system)                                        ;; GUI
+    (let ((sys system-type))
+      (setq solarized-distinct-fringe-background t)        ;; ;; solarized show fringe
+      (if (string= sys "darwin")                           ;; ;; Darwin (Mac) specific settings
+          (load-theme 'solarized-light)
+        (load-theme 'solarized-dark))                      ;; ;; everywhere else (Linux) settings
+      (global-hl-line-mode))                               ;; ;; global highlight line
+  (load-theme 'manoj-dark))                                ;; TERM manoj-dark in terminal
 
 (global-auto-complete-mode)                                ;; Use autocomplete everywhere!
 (projectile-mode)                                          ;; Use projectile everywhere!
