@@ -98,8 +98,8 @@
 (setq solarized-high-contrast-mode-line t)                 ;; Use high contrast mode line in solarized
 
 (if (window-system)                                        ;; load theme based on window env
-    (load-theme 'solarized-dark)
-  (load-theme 'manoj-dark))
+    (load-theme 'solarized-dark)                           ;; ;; solarized-dark in gui
+  (load-theme 'manoj-dark))                                ;; ;; manoj-dark in terminal
 
 (global-auto-complete-mode)                                ;; Use autocomplete everywhere!
 (projectile-mode)                                          ;; Use projectile everywhere!
