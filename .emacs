@@ -55,6 +55,8 @@
                            (switch-to-buffer (other-buffer))))
               ("M-x"     helm-M-x)                                  ;; helm M-x
               ("C-x C-f" helm-find-files)                           ;; helm find files
+              ("C-c s w" helm-wikipedia-suggest)                    ;; search wikipedia
+              ("C-c s g" helm-google-suggest)                       ;; search googlep
               ("C-x b"   helm-buffers-list)))                       ;; helm buffers list
 
       ;; packages to auto install
