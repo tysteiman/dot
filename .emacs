@@ -52,6 +52,10 @@
                            "Visit the last visited (other) buffer"
                            (interactive)
                            (switch-to-buffer (other-buffer))))
+              ("C-c f d" (lambda ()                                 ;; open .emacs
+                           "Open .emacs file"
+                           (interactive)
+                           (find-file "~/.emacs")))
               ("M-x"     helm-M-x)                                  ;; helm M-x
               ("C-x C-f" helm-find-files)                           ;; helm find files
               ("C-c s w" helm-wikipedia-suggest)                    ;; search wikipedia
