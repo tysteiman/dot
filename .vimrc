@@ -71,7 +71,7 @@ set t_Co=256
 set background=dark
 set foldlevelstart=0
 syntax on
-set nonumber
+set number
 set magic
 set hlsearch
 set foldmethod=marker
@@ -90,7 +90,7 @@ set tabstop=4
 set softtabstop=4
 set lbr
 set tw=500
-set wrap
+set nowrap
 set noswapfile
 set laststatus=2
 set autoread
@@ -118,6 +118,8 @@ nnoremap <leader>tt :tnext<cr>
 nnoremap <leader>ts :tselect<cr>
 nnoremap <leader>g :Gst<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
+nnoremap <leader>ff :copen<cr>
+nnoremap <leader>fc :cclose<cr>
 inoremap jk <esc>
 
 " }}}
