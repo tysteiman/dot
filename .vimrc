@@ -99,6 +99,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 color solarized
+let g:airline_theme="base16_solarized"
 
 " }}}
 " Remaps {{{
