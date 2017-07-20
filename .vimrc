@@ -1,7 +1,3 @@
-" Plugins {{{
-
-" Vundle {{{
-
 set nocompatible              " be iMproved, required"
 filetype off                  " required"
 
@@ -11,19 +7,12 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Packages {{{
-
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'slim-template/vim-slim'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'pangloss/vim-javascript'
-
-" }}}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,33 +28,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" }}}
-
-" }}}
-" Sets {{{
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
 
 set t_Co=256
 set background=dark
@@ -92,17 +54,13 @@ set lbr
 set tw=500
 set nowrap
 set noswapfile
-set laststatus=2
+set laststatus=1
 set autoread
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color solarized
-let g:airline_theme="base16"
-
-" }}}
-" Remaps {{{
+color desert
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
@@ -121,10 +79,9 @@ nnoremap <leader>g :Gst<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
-inoremap jk <esc>
+nnoremap <leader>c :noh<cr>
 
-" }}}
-" Autocommands {{{
+inoremap jk <esc>
 
 "" Open some files with only 2 tabs
 autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
@@ -138,5 +95,3 @@ endfu
 
 "" Insert php tags when opening a new PHP file
 autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
-
-" }}}
