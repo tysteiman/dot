@@ -14,6 +14,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'pangloss/vim-javascript'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,7 +82,6 @@ nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
 nnoremap <leader>c :noh<cr>
-
 inoremap jk <esc>
 
 "" Open some files with only 2 tabs
