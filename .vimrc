@@ -15,6 +15,9 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'pangloss/vim-javascript'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,13 +59,13 @@ set lbr
 set tw=500
 set nowrap
 set noswapfile
-set laststatus=1
+set laststatus=2
 set autoread
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color desert
+color jellybeans
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
@@ -73,7 +76,7 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>1 :on<cr>
-nnoremap <leader>c :e %:h
+nnoremap <leader>cf :e %:h
 nnoremap <leader>bb :b#<cr>
 nnoremap <leader>tt :tnext<cr>
 nnoremap <leader>ts :tselect<cr>
@@ -81,7 +84,7 @@ nnoremap <leader>g :Gst<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
-nnoremap <leader>c :noh<cr>
+nnoremap <leader>cc :noh<cr>
 inoremap jk <esc>
 
 "" Open some files with only 2 tabs
