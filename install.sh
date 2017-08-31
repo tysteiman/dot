@@ -6,6 +6,5 @@ ln -s $PWD/.ctags ~/
 ln -s $PWD/.emacs ~/
 ln -s $PWD/.gitconfig ~/
 ln -s $PWD/.nanorc ~/
-ln -s $PWD/.spacemacs ~/
 ln -s $PWD/.tmux.conf ~/
 ln -s $PWD/.vimrc ~/
