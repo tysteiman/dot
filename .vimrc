@@ -89,6 +89,7 @@ inoremap jk <esc>
 
 "" Open some files with only 2 tabs
 autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
+autocmd BufReadPost,BufNewFile *.rake execute "call SetCustomTabWidth()"
 
 "" Generic function for converting tab spaces to only 2 instead of default 4.
 fu! SetCustomTabWidth()
