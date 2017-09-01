@@ -1,5 +1,3 @@
---verbose
-
 --langdef=Go
 --langmap=Go:.go
 --regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/d,func/
@@ -8,6 +6,7 @@
 
 --exclude=vendor/*
 --exclude=node_modules/*
+--exclude=.*
 
 --regex-ruby=/^[ \t]*scope[ \t]*:([a-zA-Z0-9_]+)/\1/
 
