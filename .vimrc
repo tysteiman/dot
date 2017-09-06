@@ -18,6 +18,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,6 +86,7 @@ nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
 nnoremap <leader>cc :noh<cr>
+nnoremap <leader>r :TagbarToggle<cr>
 inoremap jk <esc>
 
 "" Open some files with only 2 tabs
