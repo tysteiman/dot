@@ -69,7 +69,6 @@ set guioptions-=L
 color jellybeans
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
-nnoremap <leader>vs :source $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
@@ -79,8 +78,6 @@ nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>cf :e %:h
 nnoremap <leader>bb :b#<cr>
-nnoremap <leader>tt :tnext<cr>
-nnoremap <leader>ts :tselect<cr>
 nnoremap <leader>g :Gst<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
