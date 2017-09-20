@@ -6,6 +6,7 @@
 
 --exclude=vendor/*
 --exclude=node_modules/*
+--exclude=*.min.js
 --exclude=.*
 
 --regex-ruby=/^[ \t]*scope[ \t]*:([a-zA-Z0-9_]+)/\1/
