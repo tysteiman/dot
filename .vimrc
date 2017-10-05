@@ -19,8 +19,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,7 +84,8 @@ nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
 nnoremap <leader>cc :noh<cr>
 nnoremap <leader>r :TagbarToggle<cr>
-inoremap jk <esc>
+nnoremap <leader>s mm]s1z=`m
+" inoremap jk <esc>
 
 "" Open some files with only 2 tabs
 autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
@@ -101,27 +100,3 @@ endfu
 
 "" Insert php tags when opening a new PHP file
 autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
-
-" Configure Airline
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
