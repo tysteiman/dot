@@ -19,6 +19,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
+Plugin 'kchmck/vim-coffee-script'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,11 +86,12 @@ nnoremap <leader>fc :cclose<cr>
 nnoremap <leader>cc :noh<cr>
 nnoremap <leader>r :TagbarToggle<cr>
 nnoremap <leader>s mm]s1z=`m
-" inoremap jk <esc>
+inoremap jk <esc>
 
 "" Open some files with only 2 tabs
 autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
 autocmd BufReadPost,BufNewFile *.rake execute "call SetCustomTabWidth()"
+autocmd BufReadPost,BufNewFile Gemfile execute "call SetCustomTabWidth()"
 
 "" Generic function for converting tab spaces to only 2 instead of default 4.
 fu! SetCustomTabWidth()
