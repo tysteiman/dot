@@ -69,6 +69,7 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+set spell
 color solarized
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
