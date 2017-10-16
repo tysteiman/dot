@@ -16,7 +16,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'nanotech/jellybeans.vim'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'ericbn/vim-solarized'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
@@ -39,7 +39,7 @@ filetype plugin indent on    " required
 
 set guifont=menlo:h13
 set t_Co=256
-set background=dark
+set background=light
 set foldlevelstart=0
 syntax on
 set number
@@ -70,7 +70,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 set spell
-color solarized
+color jellybeans
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
@@ -78,10 +78,9 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+" nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>bb :b#<cr>
-nnoremap <leader>g :Gst<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
