@@ -21,6 +21,7 @@ Plugin 'ericbn/vim-solarized'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
