@@ -22,8 +22,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -112,7 +110,7 @@ nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
 nnoremap <leader>cc :noh<cr>
-nnoremap <leader>r :TagbarToggle<cr>
+nnoremap <leader>t :TagbarToggle<cr>
 nnoremap <leader>s mm]s1z=`m
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
