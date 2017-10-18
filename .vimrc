@@ -114,6 +114,8 @@ nnoremap <leader>t :TagbarToggle<cr>
 nnoremap <leader>s mm]s1z=`m
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
+nnoremap <leader>w :StripWhitespace<cr>
+
 inoremap jk <esc>
 
 "" Open some files with only 2 tabs
