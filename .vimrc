@@ -70,7 +70,7 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-set spell
+" set spell
 color jellybeans
 
 if !exists('g:airline_symbols')
@@ -111,7 +111,6 @@ nnoremap <leader>ff :copen<cr>
 nnoremap <leader>fc :cclose<cr>
 nnoremap <leader>cc :noh<cr>
 nnoremap <leader>t :TagbarToggle<cr>
-nnoremap <leader>s mm]s1z=`m
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
 nnoremap <leader>w :StripWhitespace<cr>
