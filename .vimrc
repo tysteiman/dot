@@ -95,7 +95,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 " set spell
-color desert
+color jellybeans
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vs :vs $MYVIMRC<cr>
