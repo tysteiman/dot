@@ -13,15 +13,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'slim-template/vim-slim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'pangloss/vim-javascript'
-" Plugin 'StanAngeloff/php.vim'
+Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'ericbn/vim-solarized'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,6 +37,30 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
 
 set guifont=menlo:h13
 set t_Co=256
@@ -71,7 +95,7 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 " set spell
-color jellybeans
+color desert
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vs :vs $MYVIMRC<cr>
