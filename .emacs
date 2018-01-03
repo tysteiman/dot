@@ -20,7 +20,8 @@
                    web-mode
                    projectile
                    emmet-mode
-                   sudo-edit))
+                   sudo-edit
+                   window-numbering))
   (unless (package-installed-p package)
     (package-install package)))
 
@@ -28,6 +29,7 @@
 (display-time-mode)
 (column-number-mode)
 (scroll-bar-mode 0)
+(window-numbering-mode)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -38,4 +40,6 @@
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
 
-(load-theme 'wombat)
+(let ((local "~/.local.el"))
+  (when (file-exists-p local)
+    (load-file local)))
