@@ -1,33 +1,30 @@
-(setq debug-on-error t)
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(setq custom-file "~/.emacs.d/custom.el")
+(when (file-exists-p custom-file)
+  (load-file custom-file))
 
 (setq package-archives '(("elpa" .
                           "http://tromey.com/elpa/")
                          ("melpa" .
-                          "http://melpa.org/packages/")))
+			  "http://melpa.org/packages/")))
 
-(package-initialize)
-
-(menu-bar-mode 0)
-(tool-bar-mode 0)
+(show-paren-mode)
+(display-time-mode)
+(column-number-mode)
 (scroll-bar-mode 0)
-(fringe-mode 0)
 
 (setq make-backup-files nil)
-(setq vc-follow-symlinks t)
+(setq ns-pop-up-frames nil)
+(setq vc-follow-symblinks t)
+(setq tags-revert-without-query t)
+(setq dired-listing-switches "-lah")
 
-(setq-default indent-tabs-mode nil)
 (setq-default truncate-lines t)
+(setq-default indent-tabs-mode nil)
 
-(setq debug-on-error nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (slim-mode magit))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(load-theme 'wombat)
