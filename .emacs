@@ -19,7 +19,8 @@
 (dolist (package '(php-mode
                    web-mode
                    projectile
-                   emmet-mode))
+                   emmet-mode
+                   sudo-edit))
   (unless (package-installed-p package)
     (package-install package)))
 
