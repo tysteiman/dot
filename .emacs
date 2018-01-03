@@ -13,6 +13,16 @@
                          ("melpa" .
 			  "http://melpa.org/packages/")))
 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package '(php-mode
+                   web-mode
+                   projectile
+                   emmet-mode))
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (show-paren-mode)
 (display-time-mode)
 (column-number-mode)
@@ -20,7 +30,7 @@
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
-(setq vc-follow-symblinks t)
+(setq vc-follow-symlinks t)
 (setq tags-revert-without-query t)
 (setq dired-listing-switches "-lah")
 
