@@ -25,6 +25,11 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(dolist (binding '(("C-j" emmet-expand-line)))
+  (let ((key (car binding))
+        (fun (car (cdr binding))))
+    (global-set-key (kbd key) fun)))
+
 (show-paren-mode)
 (display-time-mode)
 (column-number-mode)
@@ -43,3 +48,5 @@
 (let ((local "~/.local.el"))
   (when (file-exists-p local)
     (load-file local)))
+
+(put 'upcase-region 'disabled nil)
