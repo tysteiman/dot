@@ -25,7 +25,8 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(dolist (binding '(("C-j" emmet-expand-line)))
+(dolist (binding '(("C-j" emmet-expand-line)
+                   ("C-c v o" browse-url-of-file)))
   (let ((key (car binding))
         (fun (car (cdr binding))))
     (global-set-key (kbd key) fun)))
