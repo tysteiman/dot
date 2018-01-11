@@ -11,7 +11,9 @@
 (setq package-archives '(("elpa" .
                           "http://tromey.com/elpa/")
                          ("melpa" .
-			  "http://melpa.org/packages/")))
+			  "http://melpa.org/packages/")
+                         ("marmalade" .
+                          "http://marmalade-repo.org/packages/")))
 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -22,7 +24,8 @@
                    emmet-mode
                    sudo-edit
                    window-numbering
-                   solarized-theme))
+                   solarized-theme
+                   magit))
   (unless (package-installed-p package)
     (package-install package)))
 
