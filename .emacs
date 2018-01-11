@@ -29,10 +29,9 @@
                    ("C-c v o" browse-url-of-file)
                    ("C-c v l" (lambda ()
                                 (interactive)
-                                (find-file "~/.local.el")))
-                   ("C-c p f" projectile-find-file)))
+                                (find-file "~/.local.el")))))
   (let ((key (car binding))
-        (fun (car (cdr binding))))
+	(fun (car (cdr binding))))
     (global-set-key (kbd key) fun)))
 
 (show-paren-mode)
@@ -42,6 +41,8 @@
 (window-numbering-mode)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
+
+(projectile-mode)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
