@@ -21,7 +21,8 @@
                    projectile
                    emmet-mode
                    sudo-edit
-                   window-numbering))
+                   window-numbering
+                   solarized-theme))
   (unless (package-installed-p package)
     (package-install package)))
 
@@ -50,7 +51,7 @@
 (setq tags-revert-without-query t)
 (setq dired-listing-switches "-lah")
 
-(setq-default truncate-lines t)
+(setq-default truncate-lines nil)
 (setq-default indent-tabs-mode nil)
 
 ;; when in Java use 6 spaces for tabs
