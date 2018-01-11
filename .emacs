@@ -26,7 +26,10 @@
     (package-install package)))
 
 (dolist (binding '(("C-j" emmet-expand-line)
-                   ("C-c v o" browse-url-of-file)))
+                   ("C-c v o" browse-url-of-file)
+                   ("C-c v l" (lambda ()
+                                (interactive)
+                                (find-file "~/.local.el")))))
   (let ((key (car binding))
         (fun (car (cdr binding))))
     (global-set-key (kbd key) fun)))
@@ -36,6 +39,8 @@
 (column-number-mode)
 (scroll-bar-mode 0)
 (window-numbering-mode)
+(menu-bar-mode 0)
+(tool-bar-mode 0)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
