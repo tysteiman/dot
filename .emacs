@@ -53,8 +53,14 @@
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
 
+;; when in Java use 6 spaces for tabs
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 6
+                                  tab-width 6)))
+
 (let ((local "~/.local.el"))
   (when (file-exists-p local)
     (load-file local)))
 
 (put 'upcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
