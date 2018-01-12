@@ -33,6 +33,12 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+(defun my/toggle-truncate-lines ()
+  (interactive)
+  (if (bound-and-true-p truncate-lines)
+      (setq truncate-lines nil)
+    (setq truncate-lines t)))
+
 ;; KEY BINDINGS
 (dolist (binding '(("C-j"     emmet-expand-line)
                    ("C-c v o" browse-url-of-file)
@@ -41,7 +47,9 @@
                                 (find-file "~/.local.el")))
                    ("C-c v e" (lambda ()
                                 (interactive)
-                                (find-file "~/.emacs")))))
+                                (find-file "~/.emacs")))
+                   ("C-c s w" my/toggle-truncate-lines)
+                   ("C-c s l" linum-mode)))
   (let ((key (car binding))
 	(fun (car (cdr binding))))
     (global-set-key (kbd key) fun)))
