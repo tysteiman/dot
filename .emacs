@@ -34,11 +34,14 @@
     (package-install package)))
 
 ;; KEY BINDINGS
-(dolist (binding '(("C-j" emmet-expand-line)
+(dolist (binding '(("C-j"     emmet-expand-line)
                    ("C-c v o" browse-url-of-file)
                    ("C-c v l" (lambda ()
                                 (interactive)
-                                (find-file "~/.local.el")))))
+                                (find-file "~/.local.el")))
+                   ("C-c v e" (lambda ()
+                                (interactive)
+                                (find-file "~/.emacs")))))
   (let ((key (car binding))
 	(fun (car (cdr binding))))
     (global-set-key (kbd key) fun)))
