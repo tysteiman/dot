@@ -21,8 +21,6 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,7 +42,7 @@ set t_Co=256
 set background=light
 set foldlevelstart=0
 syntax on
-set number
+set nonumber
 set magic
 set hlsearch
 set foldmethod=marker
@@ -65,13 +63,16 @@ set lbr
 set tw=500
 set nowrap
 set noswapfile
-set laststatus=2
+set laststatus=0
 set autoread
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-color desert
+
+set cc=80
+
+color jellybeans
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vs :vs $MYVIMRC<cr>
