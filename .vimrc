@@ -42,7 +42,7 @@ set t_Co=256
 set background=light
 set foldlevelstart=0
 syntax on
-set nonumber
+set number
 set magic
 set hlsearch
 set foldmethod=marker
@@ -63,7 +63,7 @@ set lbr
 set tw=500
 set nowrap
 set noswapfile
-set laststatus=0
+set laststatus=2
 set autoread
 set guioptions-=m
 set guioptions-=T
