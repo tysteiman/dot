@@ -21,6 +21,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'majutsushi/tagbar'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'artur-shaik/vim-javacomplete2'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,8 +70,7 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
-
-set cc=80
+set spell
 
 color jellybeans
 
@@ -109,3 +109,22 @@ endfu
 
 "" Insert php tags when opening a new PHP file
 autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
+
+" Java stuff
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" Use F4 for auto completion of imports
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+
+" Use F5 to insert class imports (what?)
+nmap <F5> <Plug>(JavaComplete-Imports-Add)
+imap <F5> <Plug>(JavaComplete-Imports-Add)
+
+" Add all missing imports with F6
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+
+" Remove unused with F7
+nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
