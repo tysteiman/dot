@@ -9,37 +9,35 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'slim-template/vim-slim'
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'pangloss/vim-javascript'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'majutsushi/tagbar'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'sickill/vim-monokai'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
-" All of your Plugins must be added before the following line
+" all of your plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
+" to ignore plugin indent changes, instead use:
 "filetype plugin on
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" brief help
+" :pluginlist       - lists configured plugins
+" :plugininstall    - installs plugins; append `!` to update or just :pluginupdate
+" :pluginsearch foo - searches for foo; append `!` to refresh local cache
+" :pluginclean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" see :h vundle for more details or wiki for faq
+" put your non-plugin stuff after this line
 
 set guifont=menlo:h13
-set t_Co=256
+set t_co=256
 set background=light
 set foldlevelstart=0
 syntax on
@@ -67,12 +65,37 @@ set noswapfile
 set laststatus=2
 set autoread
 set guioptions-=m
-set guioptions-=T
+set guioptions-=t
 set guioptions-=r
-set guioptions-=L
+set guioptions-=l
 set spell
 
 color jellybeans
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vs :vs $MYVIMRC<cr>
@@ -80,15 +103,9 @@ nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>o :NERDTreeFind<CR>
 nnoremap <leader>1 :on<cr>
 nnoremap <leader>bb :b#<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
-nnoremap <leader>ff :copen<cr>
-nnoremap <leader>fc :cclose<cr>
-nnoremap <leader>cc :noh<cr>
-nnoremap <leader>t :TagbarToggle<cr>
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
 nnoremap <leader>w :StripWhitespace<cr>
