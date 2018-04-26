@@ -92,3 +92,4 @@
 --exclude=test
 --exclude=tests
 
+--regex-php=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[0-9\"'\/]/\1/V,Variable,Variables/b
