@@ -70,7 +70,7 @@ set guioptions-=r
 set guioptions-=l
 set spell
 
-color jellybeans
+color desert
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -95,6 +95,8 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
+
+let g:airline_theme='term'
 
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
