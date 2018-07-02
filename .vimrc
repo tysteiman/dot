@@ -20,6 +20,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'AlessandroYorba/Alduin'
 
 " all of your plugins must be added before the following line
 call vundle#end()            " required
@@ -70,7 +71,11 @@ set guioptions-=r
 set guioptions-=l
 set spell
 
-color desert
+color jellybeans
+
+" let g:alduin_Shout_Dragon_Aspect = 1
+" color alduin
+" let g:airline_theme='term'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -95,8 +100,6 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
-
-let g:airline_theme='term'
 
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
