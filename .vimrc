@@ -42,7 +42,7 @@ set t_co=256
 set background=light
 set foldlevelstart=0
 syntax on
-set number
+" set number
 set magic
 set hlsearch
 set foldmethod=marker
@@ -71,7 +71,7 @@ set guioptions-=r
 set guioptions-=l
 set spell
 
-color jellybeans
+color desert
 
 " let g:alduin_Shout_Dragon_Aspect = 1
 " color alduin
