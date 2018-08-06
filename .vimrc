@@ -42,7 +42,7 @@ set t_co=256
 set background=light
 set foldlevelstart=0
 syntax on
-" set number
+set number
 set magic
 set hlsearch
 set foldmethod=marker
@@ -114,6 +114,7 @@ nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
 nnoremap <leader>w :StripWhitespace<cr>
+nnoremap <leader>c :noh<cr>
 
 inoremap jk <esc>
 
