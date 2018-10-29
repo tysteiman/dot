@@ -42,7 +42,7 @@ set t_co=256
 set background=light
 set foldlevelstart=0
 syntax on
-set nonumber
+set number
 set magic
 set hlsearch
 set foldmethod=marker
@@ -72,8 +72,11 @@ set guioptions-=l
 set spell
 
 color jellybeans
+" color desert
 
 " let g:alduin_Shout_Dragon_Aspect = 1
+" let g:alduin_Shout_Become_Ethereal = 1
+" let g:alduin_Shout_Fire_Breath = 1
 " color alduin
 " let g:airline_theme='term'
 
@@ -121,6 +124,7 @@ inoremap jk <esc>
 "" Open some files with only 2 tabs
 autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
 autocmd BufReadPost,BufNewFile *.rake execute "call SetCustomTabWidth()"
+autocmd BufReadPost,BufNewFile *.yml execute "call SetCustomTabWidth()"
 autocmd BufReadPost,BufNewFile Gemfile execute "call SetCustomTabWidth()"
 
 "" Generic function for converting tab spaces to only 2 instead of default 4.
