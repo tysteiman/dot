@@ -21,6 +21,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'AlessandroYorba/Alduin'
+Plugin 'mxw/vim-jsx'
 
 " all of your plugins must be added before the following line
 call vundle#end()            " required
@@ -42,7 +43,7 @@ set t_co=256
 set background=light
 set foldlevelstart=0
 syntax on
-set number
+set nonumber
 set magic
 set hlsearch
 set foldmethod=marker
@@ -118,6 +119,8 @@ nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
 nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>c :noh<cr>
+nnoremap <leader>e :e %:h<CR>
+nnoremap <leader>t :setlocal noexpandtab<cr>
 
 inoremap jk <esc>
 
