@@ -37,7 +37,7 @@
 ;; setq
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
-(setq vf-follow-symlinks t)
+(setq vc-follow-symlinks t)
 (setq tags-revert-without-query t)
 (setq dired-listing-switches "-lah")
 (setq initial-buffer-choice t)
