@@ -18,6 +18,7 @@
 (dolist (package '(
                    magit
                    company
+                   projectile
                    ))
   (unless (package-installed-p package)
     (package-install package)))
@@ -33,6 +34,7 @@
 
 ;; custom package funcalls
 (global-company-mode t)
+(projectile-mode)
 
 ;; setq
 (setq make-backup-files nil)
@@ -54,6 +56,8 @@
   (let ((binding (car key))
         (command (car (cdr key))))
     (global-set-key (kbd binding) command)))
+
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; add some hooks
 (add-hook 'prog-mode-hook (lambda ()
