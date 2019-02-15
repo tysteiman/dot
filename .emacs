@@ -19,6 +19,7 @@
                    magit
                    company
                    projectile
+                   helm-projectile
                    ))
   (unless (package-installed-p package)
     (package-install package)))
@@ -35,6 +36,7 @@
 ;; custom package funcalls
 (global-company-mode t)
 (projectile-mode)
+(helm-projectile-on)
 
 ;; setq
 (setq make-backup-files nil)
