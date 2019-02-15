@@ -5,7 +5,7 @@
 (package-initialize)
 
 (setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")
-			 ("gnu" . "https://elpa.gnu.org/packages/")))
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-refresh-contents)
 
@@ -16,9 +16,9 @@
 
 ;; auto install packages
 (dolist (package '(
-		   magit
-		   company
-		   ))
+                   magit
+                   company
+                   ))
   (unless (package-installed-p package)
     (package-install package)))
 
@@ -49,10 +49,16 @@
 ;; set some keybindings
 (dolist (key '(
                ("C-c m s" magit-status)
+               ("C-c w c" whitespace-cleanup)
                ))
   (let ((binding (car key))
         (command (car (cdr key))))
     (global-set-key (kbd binding) command)))
+
+;; add some hooks
+(add-hook 'prog-mode-hook (lambda ()
+                            (linum-mode)
+                            (setq-local show-trailing-whitespace t)))
 
 ;; load any local config we don't want in our repo
 (let ((local "~/local.el"))
