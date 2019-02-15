@@ -46,6 +46,14 @@
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
 
+;; set some keybindings
+(dolist (key '(
+               ("C-c m s" magit-status)
+               ))
+  (let ((binding (car key))
+        (command (car (cdr key))))
+    (global-set-key (kbd binding) command)))
+
 ;; load any local config we don't want in our repo
 (let ((local "~/local.el"))
   (when (file-exists-p local)
