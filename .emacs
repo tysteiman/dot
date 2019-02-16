@@ -54,6 +54,11 @@
 (dolist (key '(
                ("C-c m s" magit-status)
                ("C-c w c" whitespace-cleanup)
+               ("C-x C-b" ibuffer)
+               ;; helm bindings
+               ("C-x C-f" helm-find-files)
+               ("C-x b" helm-buffers-list)
+               ("M-x" helm-M-x)
                ))
   (let ((binding (car key))
         (command (car (cdr key))))
