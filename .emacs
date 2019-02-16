@@ -19,6 +19,7 @@
                    magit
                    company
                    projectile
+                   helm
                    helm-projectile
                    ))
   (unless (package-installed-p package)
