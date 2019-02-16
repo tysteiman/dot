@@ -4,10 +4,9 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+(setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")))
 
-(package-refresh-contents)
+(package-refresh-contents t)
 
 ;; custom file
 (setq custom-file "~/.emacs-custom.el")
