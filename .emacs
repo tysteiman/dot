@@ -38,6 +38,7 @@
 (global-company-mode t)
 (projectile-mode)
 (helm-projectile-on)
+(window-numbering-mode t)
 
 ;; setq
 (setq make-backup-files nil)
