@@ -64,6 +64,7 @@
                ("C-x b" helm-buffers-list)
                ("M-x" helm-M-x)
                ("C-c s s" helm-swoop)
+               ("C-c h i" helm-imenu)
                ))
   (let ((binding (car key))
         (command (car (cdr key))))
