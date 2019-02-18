@@ -6,7 +6,7 @@
 
 (setq package-archives '(("melpa" . "https://stable.melpa.org/packages/")))
 
-(package-refresh-contents t)
+(package-refresh-contents)
 
 ;; custom file
 (setq custom-file "~/.emacs-custom.el")
