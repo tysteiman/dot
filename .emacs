@@ -20,6 +20,7 @@
                    projectile
                    helm
                    helm-projectile
+                   window-numbering
                    ))
   (unless (package-installed-p package)
     (package-install package)))
