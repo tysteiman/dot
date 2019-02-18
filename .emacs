@@ -23,6 +23,7 @@
                    helm-projectile
                    helm-swoop
                    window-numbering
+                   ace-jump-mode
                    ))
   (unless (package-installed-p package)
     (package-install package)))
@@ -59,6 +60,7 @@
                ("C-c m s" magit-status)
                ("C-c w c" whitespace-cleanup)
                ("C-x C-b" ibuffer)
+               ("C-c a j" ace-jump-char-mode)
                ("C-c e e" (lambda ()
                             (interactive)
                             (find-file "~/.emacs")))
