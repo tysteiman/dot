@@ -59,6 +59,9 @@
                ("C-c m s" magit-status)
                ("C-c w c" whitespace-cleanup)
                ("C-x C-b" ibuffer)
+               ("C-c e e" (lambda ()
+                            (interactive)
+                            (find-file "~/.emacs")))
                ;; helm bindings
                ("C-x C-f" helm-find-files)
                ("C-x b" helm-buffers-list)
