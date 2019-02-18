@@ -20,6 +20,7 @@
                    projectile
                    helm
                    helm-projectile
+                   helm-swoop
                    window-numbering
                    ))
   (unless (package-installed-p package)
@@ -61,6 +62,7 @@
                ("C-x C-f" helm-find-files)
                ("C-x b" helm-buffers-list)
                ("M-x" helm-M-x)
+               ("C-c s s" helm-swoop)
                ))
   (let ((binding (car key))
         (command (car (cdr key))))
