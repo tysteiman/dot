@@ -56,6 +56,13 @@
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
 
+;; defuns
+(defun my/new-line-below ()
+  "Create a new indented line below the current line."
+  (interactive)
+  (move-end-of-line 1)
+  (newline-and-indent))
+
 ;; set some keybindings
 (dolist (key '(
                ("C-c m s" magit-status)
@@ -74,6 +81,8 @@
                ("M-x" helm-M-x)
                ("C-c s s" helm-swoop)
                ("C-c h i" helm-imenu)
+               ;; custom defun bindings
+               ("C-o" my/new-line-below)
                ))
   (let ((binding (car key))
         (command (car (cdr key))))
