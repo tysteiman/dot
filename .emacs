@@ -67,9 +67,11 @@
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-;; add some hooks
+;; add some prog mode hooks -- these will only be called when in "code" buffers.
 (add-hook 'prog-mode-hook (lambda ()
+                            ;; show line numbers
                             (linum-mode)
+                            ;; show trailing whitespace
                             (setq-local show-trailing-whitespace t)))
 
 ;; load any local config we don't want in our repo
