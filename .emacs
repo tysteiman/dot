@@ -62,6 +62,9 @@
                ("C-c e e" (lambda ()
                             (interactive)
                             (find-file "~/.emacs")))
+               ("C-c e l" (lambda ()
+                            (interactive)
+                            (find-file "~/local.el")))
                ;; helm bindings
                ("C-x C-f" helm-find-files)
                ("C-x b" helm-buffers-list)
