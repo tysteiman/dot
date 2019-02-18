@@ -24,6 +24,7 @@
                    helm-swoop
                    window-numbering
                    ace-jump-mode
+                   rainbow-delimiters
                    ))
   (unless (package-installed-p package)
     (package-install package)))
@@ -85,7 +86,10 @@
                             ;; show line numbers
                             (linum-mode)
                             ;; show trailing whitespace
-                            (setq-local show-trailing-whitespace t)))
+                            (setq-local show-trailing-whitespace t)
+                            ;; use rainbow delimiters
+                            (rainbow-delimiters-mode)
+                            ))
 
 ;; load any local config we don't want in our repo
 (let ((local "~/local.el"))
