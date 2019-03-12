@@ -20,8 +20,8 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'AlessandroYorba/Alduin'
 Plugin 'mxw/vim-jsx'
+Plugin 'jlanzarotta/bufexplorer'
 
 " all of your plugins must be added before the following line
 call vundle#end()            " required
@@ -72,14 +72,14 @@ set guioptions-=r
 set guioptions-=l
 set spell
 
-color jellybeans
-" color desert
+" color jellybeans
+color desert
 
 " let g:alduin_Shout_Dragon_Aspect = 1
 " let g:alduin_Shout_Become_Ethereal = 1
 " let g:alduin_Shout_Fire_Breath = 1
 " color alduin
-" let g:airline_theme='term'
+let g:airline_theme='term'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
