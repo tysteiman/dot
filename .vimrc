@@ -75,10 +75,6 @@ set spell
 " color jellybeans
 color desert
 
-" let g:alduin_Shout_Dragon_Aspect = 1
-" let g:alduin_Shout_Become_Ethereal = 1
-" let g:alduin_Shout_Fire_Breath = 1
-" color alduin
 let g:airline_theme='term'
 
 if !exists('g:airline_symbols')
