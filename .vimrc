@@ -109,7 +109,6 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>1 :on<cr>
-nnoremap <leader>bb :b#<cr>
 nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
