@@ -7,19 +7,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mxw/vim-jsx'
 Plugin 'jlanzarotta/bufexplorer'
 
@@ -38,9 +32,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for faq
 " put your non-plugin stuff after this line
 
-set guifont=menlo:h13
-set t_co=256
-set background=light
 set foldlevelstart=0
 syntax on
 set nonumber
@@ -66,56 +57,19 @@ set nowrap
 set noswapfile
 set laststatus=2
 set autoread
-set guioptions-=m
-set guioptions-=t
-set guioptions-=r
-set guioptions-=l
-set spell
 
 " color jellybeans
 color desert
 
-let g:airline_theme='term'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-
 nnoremap <leader>vv :e $MYVIMRC<cr>
-nnoremap <leader>vs :vs $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>1 :on<cr>
-nnoremap <leader>pr :CtrlPClearAllCaches<cr>
 nnoremap <leader>r 5<C-w>>
 nnoremap <leader>l 5<C-w><
 nnoremap <leader>w :StripWhitespace<cr>
-nnoremap <leader>c :noh<cr>
-nnoremap <leader>e :e %:h<CR>
-nnoremap <leader>t :setlocal noexpandtab<cr>
 
 inoremap jk <esc>
 
@@ -134,7 +88,3 @@ endfu
 
 "" Insert php tags when opening a new PHP file
 autocmd BufNewFile *.php execute "normal! i<?php\<enter>\<enter>"
-
-"" Set style for bad spelling
-hi clear SpellBad
-hi SpellBad cterm=underline
