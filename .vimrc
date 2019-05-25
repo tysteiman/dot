@@ -33,7 +33,6 @@ set softtabstop=4
 set lbr
 set nowrap
 set noswapfile
-set autoread
 
 color desert
 
