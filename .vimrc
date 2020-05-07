@@ -6,13 +6,14 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'slim-template/vim-slim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'mxw/vim-jsx'
-Plugin 'jlanzarotta/bufexplorer'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jwalton512/vim-blade'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -33,6 +34,7 @@ set softtabstop=4
 set lbr
 set nowrap
 set noswapfile
+set laststatus=2
 
 color desert
 
@@ -46,6 +48,7 @@ nnoremap <leader>w :StripWhitespace<cr>
 inoremap jk <esc>
 
 "" Open some files with only 2 tabs
+autocmd BufReadPost,BufNewFile *.py execute "call SetCustomTabWidth()"
 autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
 autocmd BufReadPost,BufNewFile *.rake execute "call SetCustomTabWidth()"
 autocmd BufReadPost,BufNewFile *.yml execute "call SetCustomTabWidth()"
@@ -57,3 +60,5 @@ fu! SetCustomTabWidth()
     setlocal tabstop=2
     setlocal softtabstop=2
 endfu
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
