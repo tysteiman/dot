@@ -15,6 +15,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'jwalton512/vim-blade'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'morhetz/gruvbox'
+Plugin 'slim-template/vim-slim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -37,8 +38,9 @@ set nowrap
 set noswapfile
 set laststatus=2
 set background=dark
+set number
 
-color gruvbox
+color desert
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
@@ -63,4 +65,5 @@ fu! SetCustomTabWidth()
     setlocal softtabstop=2
 endfu
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor\|build\|www\|platforms'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor\|build\|www\|platforms\|tmp'
+
