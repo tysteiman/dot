@@ -10,7 +10,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'mxw/vim-jsx'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jwalton512/vim-blade'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -48,6 +48,7 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>w :StripWhitespace<cr>
+nnoremap <leader>bb :b#<cr>
 
 inoremap jk <esc>
 
@@ -67,3 +68,4 @@ endfu
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor\|build\|www\|platforms\|tmp'
 
+let g:powerline_pycmd="py3"
