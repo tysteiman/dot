@@ -68,6 +68,7 @@ nnoremap <leader>q :bnext<cr>
 nnoremap <leader>a :bprevious<cr>
 nnoremap <leader>pp :Git push<cr>
 nnoremap <silent> <c-n> :vs %:h<cr>
+nnoremap <silent><leader>rt :!clear && ctags -R app<cr>
 
 inoremap jk <esc>
 
