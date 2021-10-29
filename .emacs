@@ -26,6 +26,7 @@
 (setq-default sgml-basic-offset 4)
 
 (column-number-mode)
+
 (global-display-line-numbers-mode t)
 
 ;; turn off line numbers for some things
@@ -34,6 +35,7 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+;; DEFUNS
 (defun my/open-initfile ()
   (interactive)
   (find-file "~/.emacs"))
@@ -97,6 +99,9 @@
 
 (use-package evil
   :bind (("C-c e v" . evil-mode))
-  :init (evil-mode t)
+  :init (evil-mode 0)
   :config
   (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state))
+
+(use-package eshell-git-prompt
+  :config (eshell-git-prompt-use-theme 'powerline))
