@@ -18,6 +18,7 @@
 (setq dired-listing-switches "-lah")
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
+(setq initial-scratch-message ";; scratch buffer\n\n")
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
@@ -64,6 +65,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
+;; install use-package -- the only package we install 'manually'
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
@@ -99,7 +101,7 @@
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
-  :config (setq which-key-idle-delay 0.3))
+  :config (setq which-key-idle-delay 1))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)))
@@ -135,3 +137,7 @@
 
 (use-package emmet-mode
   :bind (("C-j" . emmet-expand-line)))
+
+;; random puts
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
