@@ -38,6 +38,7 @@
   (interactive)
   (find-file "~/.emacs"))
 
+;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 
 ;; INSTALL PACKAGES (use-package declarations)
@@ -93,3 +94,6 @@
 
 (use-package powerline
   :config (powerline-default-theme))
+
+(use-package evil
+  :bind (("C-c e v" . evil-mode)))
