@@ -138,6 +138,8 @@
 (use-package emmet-mode
   :bind (("C-j" . emmet-expand-line)))
 
+(use-package slim-mode)
+
 ;; random puts
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
