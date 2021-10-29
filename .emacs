@@ -108,4 +108,7 @@
   :config (eshell-git-prompt-use-theme 'powerline))
 
 (use-package airline-themes
-  :config (load-theme 'airline-gruvbox-dark t))
+  :config (load-theme 'airline-term t))
+
+(use-package company
+  :config (global-company-mode))
