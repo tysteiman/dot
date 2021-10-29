@@ -30,10 +30,13 @@
 (global-display-line-numbers-mode t)
 
 ;; turn off line numbers for some things
-(dolist (mode '(org-mode-hook
-                term-mode-hook
+(dolist (mode '(term-mode-hook
                 eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (add-hook mode (lambda ()
+                   (display-line-numbers-mode 0)
+                   (turn-off-evil-mode))))
+
+(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
 ;; DEFUNS
 (defun my/open-initfile ()
@@ -122,3 +125,11 @@
 
 (use-package swiper
   :bind (("C-c s s" . swiper)))
+
+(use-package window-numbering
+  :config (window-numbering-mode 1))
+
+(use-package rjsx-mode)
+
+(use-package emmet-mode
+  :bind (("C-j" . emmet-expand-line)))
