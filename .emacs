@@ -96,4 +96,7 @@
   :config (powerline-default-theme))
 
 (use-package evil
-  :bind (("C-c e v" . evil-mode)))
+  :bind (("C-c e v" . evil-mode))
+  :init (evil-mode t)
+  :config
+  (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state))
