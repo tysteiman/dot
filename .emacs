@@ -42,6 +42,7 @@
 
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
+(global-set-key (kbd "C-c e s") 'eshell)
 
 ;; INSTALL PACKAGES (use-package declarations)
 (require 'package)
@@ -105,3 +106,6 @@
 
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'powerline))
+
+(use-package airline-themes
+  :config (load-theme 'airline-gruvbox-dark t))
