@@ -112,3 +112,6 @@
 
 (use-package company
   :config (global-company-mode))
+
+(use-package swiper
+  :bind (("C-c s s" . swiper)))
