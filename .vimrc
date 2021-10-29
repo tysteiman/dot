@@ -25,6 +25,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tomasr/molokai'
 Plugin 'sjl/badwolf'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'ericbn/vim-solarized'
+" Plugin 'roman/golden-ratio'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,14 +49,11 @@ set nowrap
 set noswapfile
 set laststatus=2
 set background=dark
-set nonumber
+set number
 set shell=/bin/bash
+set cursorline
 
-" color gruvbox
-" color delek
-
-color badwolf
-" color jellybeans
+color jellybeans
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
@@ -64,6 +63,7 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>bb :b#<cr>
 nnoremap <leader>gg :Git<cr>
+nnoremap <leader>gb :Git blame<cr>
 nnoremap <leader>q :bnext<cr>
 nnoremap <leader>a :bprevious<cr>
 nnoremap <leader>pp :Git push<cr>
@@ -88,9 +88,9 @@ fu! SetCustomTabWidth()
 endfu
 
 fu! SetCustomTabWidth4()
-    setlocal shiftwidth=2
-    setlocal tabstop=2
-    setlocal softtabstop=2
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal softtabstop=4
 endfu
 
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|vendor\|build\|www\|platforms\|tmp'
