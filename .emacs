@@ -40,9 +40,16 @@
   (interactive)
   (find-file "~/.emacs"))
 
+(defun my/new-next-line ()
+  (interactive)
+  (move-end-of-line 1)
+  (newline)
+  (indent-for-tab-command))
+
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 (global-set-key (kbd "C-c e s") 'eshell)
+(global-set-key (kbd "C-o")     'my/new-next-line)
 
 ;; INSTALL PACKAGES (use-package declarations)
 (require 'package)
