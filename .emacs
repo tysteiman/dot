@@ -27,7 +27,7 @@
 
 (column-number-mode)
 
-(global-display-line-numbers-mode t)
+;; (global-display-line-numbers-mode t)
 
 ;; turn off line numbers for some things
 (dolist (mode '(term-mode-hook
@@ -71,13 +71,15 @@
 
 (setq use-package-always-ensure t)
 
-(use-package projectile)
+(use-package projectile
+  :config
+  (projectile-mode 1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package ivy
   :config (ivy-mode 1))
 
-(use-package fzf
-  :bind (("C-c p f" . fzf-projectile)))
+(use-package fzf)
 
 (use-package web-mode)
 
