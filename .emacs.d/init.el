@@ -44,6 +44,8 @@
 
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
+(add-hook 'org-mode-hook (lambda () (toggle-truncate-lines)))
+
 ;; DEFUNS
 (defun my/open-initfile ()
   "Open my .emacs file"
