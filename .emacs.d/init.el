@@ -57,16 +57,21 @@
   (newline)
   (indent-for-tab-command))
 
-;; TODO convert this to a generic func for node (src/) etc that can take an arg
-(defun my/rails-tags ()
+(defun my/project-tags (dir)
   "Generate etags for the current project (if in one). This will only generate tags for the app (rails) directory."
-  (interactive)
-  (let ((project (projectile-project-root)))
+  (interactive "sCode dir to generate tags for: ")
+  (let* ((project (projectile-project-root))
+         (target-dir (concat project dir)))
     (if project
-        (if (file-exists-p (concat project "app"))
-            (async-shell-command (concat "ctags -eR " project "app"))
-          (message "Directory [app] does not exist."))
+        (if (file-exists-p target-dir)
+            (async-shell-command (concat "ctags -eR " target-dir))
+          (message "Directory [%s] does not exist." dir))
       (message "Not in a project."))))
+
+(defun my/rails-tags ()
+  "Generate etags for rails projects (src)"
+  (interactive)
+  (my/project-tags "app"))
 
 (defun my/dgg ()
   (interactive)
