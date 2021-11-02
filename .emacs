@@ -1,6 +1,11 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
+;; (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 50)))
+
+(set-face-attribute 'default nil :height 110)
+
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (column-number-mode t)
@@ -41,10 +46,12 @@
 
 ;; DEFUNS
 (defun my/open-initfile ()
+  "Open my .emacs file"
   (interactive)
   (find-file "~/.emacs"))
 
 (defun my/new-next-line ()
+  "Create a new line under the current one"
   (interactive)
   (move-end-of-line 1)
   (newline)
@@ -52,6 +59,7 @@
 
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
+(global-set-key (kbd "C-c f i") 'imenu)
 (global-set-key (kbd "C-c e s") 'eshell)
 (global-set-key (kbd "C-o")     'my/new-next-line)
 
@@ -81,8 +89,6 @@
 (use-package ivy
   :config (ivy-mode 1))
 
-(use-package fzf)
-
 (use-package web-mode)
 
 (use-package dockerfile-mode)
@@ -110,19 +116,26 @@
   :init (ivy-rich-mode 1))
 
 (use-package powerline
-  :config (powerline-default-theme))
-
-(use-package evil
-  :bind (("C-c e v" . evil-mode))
-  :init (evil-mode 0)
-  :config
-  (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state))
+  ;; :config (powerline-default-theme)
+  )
 
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'powerline))
 
 (use-package airline-themes
   :config (load-theme 'airline-term t))
+
+(use-package doom-modeline
+  :init
+  (setq doom-modeline-height 30)
+  :config
+  (doom-modeline-mode 1))
+
+(use-package evil
+  :bind (("C-c e v" . evil-mode))
+  :init (evil-mode 0)
+  :config
+  (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state))
 
 (use-package company
   :config (global-company-mode))
@@ -140,6 +153,9 @@
 
 (use-package slim-mode)
 
+(set-cursor-color "indianred")
+
 ;; random puts
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
