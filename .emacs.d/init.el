@@ -13,6 +13,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
+(fringe-mode 10)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -151,6 +152,7 @@
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 30)
+  (setq doom-modeline-vcs-max-length 25)
   :config
   (doom-modeline-mode 1))
 
@@ -178,6 +180,7 @@
 
 (set-cursor-color "indianred")
 
+;; don't put this earlier in case there is an error -- we will get a giant white screen
 (toggle-frame-maximized)
 
 ;; random puts
