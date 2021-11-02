@@ -57,9 +57,23 @@
   (newline)
   (indent-for-tab-command))
 
+;; TODO convert this to a generic func for node (src/) etc that can take an arg
+(defun my/rails-tags ()
+  "Generate etags for the current project (if in one). This will only generate tags for the app (rails) directory."
+  (interactive)
+  (let ((project (projectile-project-root)))
+    (if project
+        (async-shell-command "ctags -eR app")
+      (message "Not in a project."))))
+
+(defun my/dgg ()
+  (interactive)
+  (eww "https://duckduckgo.com"))
+
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 (global-set-key (kbd "C-c f i") 'imenu)
+(global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c e s") 'eshell)
 (global-set-key (kbd "C-o")     'my/new-next-line)
 
@@ -155,7 +169,9 @@
 
 (set-cursor-color "indianred")
 
+(toggle-frame-maximized)
+
 ;; random puts
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
+(put 'narrow-to-region 'disabled nil)
