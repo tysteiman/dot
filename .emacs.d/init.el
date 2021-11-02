@@ -48,7 +48,7 @@
 (defun my/open-initfile ()
   "Open my .emacs file"
   (interactive)
-  (find-file "~/.emacs"))
+  (find-file (concat user-emacs-directory "init.el")))
 
 (defun my/new-next-line ()
   "Create a new line under the current one"
