@@ -63,7 +63,9 @@
   (interactive)
   (let ((project (projectile-project-root)))
     (if project
-        (async-shell-command "ctags -eR app")
+        (if (file-exists-p (concat project "app"))
+            (async-shell-command (concat "ctags -eR " project "app"))
+          (message "Directory [app] does not exist."))
       (message "Not in a project."))))
 
 (defun my/dgg ()
