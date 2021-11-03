@@ -22,8 +22,6 @@
 (setq ruby-insert-encoding-magic-comment nil)
 (setq inhibit-startup-message t)
 (setq dired-listing-switches "-lah")
-(setq js2-mode-show-parse-errors nil)
-(setq js2-mode-show-strict-warnings nil)
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq browse-url-firefox-program "chromium")
 
@@ -121,7 +119,8 @@
 (use-package dockerfile-mode)
 
 (use-package magit
-  :bind (("C-c m s" . magit-status)))
+  :bind (("C-c m s" . magit-status)
+         ("C-c m b" . magit-blame)))
 
 (use-package yaml-mode)
 
@@ -174,12 +173,17 @@
 (use-package window-numbering
   :config (window-numbering-mode 1))
 
-(use-package rjsx-mode)
+(use-package rjsx-mode
+  :init
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil))
 
 (use-package emmet-mode
   :bind (("C-j" . emmet-expand-line)))
 
 (use-package slim-mode)
+
+(use-package sudo-edit)
 
 (set-cursor-color "indianred")
 
