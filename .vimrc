@@ -18,8 +18,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'morhetz/gruvbox'
 Plugin 'slim-template/vim-slim'
 Plugin 'neoclide/vim-jsx-improve'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomasr/molokai'
@@ -51,9 +51,9 @@ set laststatus=2
 set background=dark
 set number
 set shell=/bin/bash
-set cursorline
+" set cursorline
 
-color jellybeans
+color desert
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
@@ -102,7 +102,7 @@ let g:ctrlp_custom_ignore = 'node_modules'
 " python3 del powerline_setup
 " set laststatus=2
 
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
