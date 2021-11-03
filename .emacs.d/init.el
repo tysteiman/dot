@@ -113,7 +113,9 @@
 (use-package ivy
   :config (ivy-mode 1))
 
-(use-package web-mode)
+(use-package web-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html.erb" . web-mode)))
 
 (use-package dockerfile-mode)
 
