@@ -25,6 +25,7 @@
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
 (setq initial-scratch-message ";; scratch buffer\n\n")
+(setq browse-url-firefox-program "chromium")
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
