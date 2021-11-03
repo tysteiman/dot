@@ -1,5 +1,5 @@
 (setq custom-file "~/.emacs.d/custom.el")
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
 ;; (add-to-list 'default-frame-alist '(alpha . (90 . 50)))
@@ -50,6 +50,8 @@
 (defun my/open-initfile ()
   "Open my .emacs file"
   (interactive)
+  ;; we have to concat the user-emacs-directory, because '`user-init-file' is
+  ;; set to the chemacs directory, not our actual config init.el
   (find-file (concat user-emacs-directory "init.el")))
 
 (defun my/new-next-line ()
@@ -79,11 +81,18 @@
   (interactive)
   (eww "https://duckduckgo.com"))
 
+(defun my/quit-emacs (yn)
+  "Prompt the user if they're sure before closing Emacs."
+  (interactive "cAre you sure you want to close Emacs? (y/n): ")
+  (when (char-equal yn ?y)
+    (save-buffers-kill-terminal)))
+
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 (global-set-key (kbd "C-c f i") 'imenu)
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c e s") 'eshell)
+(global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)
 
 ;; INSTALL PACKAGES (use-package declarations)
@@ -141,10 +150,6 @@
 (use-package ivy-rich
   :init (ivy-rich-mode 1))
 
-(use-package powerline
-  ;; :config (powerline-default-theme)
-  )
-
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'powerline))
 
@@ -184,6 +189,10 @@
 (use-package slim-mode)
 
 (use-package sudo-edit)
+
+;; (use-package dashboard
+;;   :config
+;;   (dashboard-setup-startup-hook))
 
 (set-cursor-color "indianred")
 
