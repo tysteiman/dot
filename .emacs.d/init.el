@@ -67,7 +67,7 @@
          (target-dir (concat project dir)))
     (if project
         (if (file-exists-p target-dir)
-            (async-shell-command (concat "ctags -eR " target-dir))
+            (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR " target-dir))
           (message "Directory [%s] does not exist." dir))
       (message "Not in a project."))))
 
