@@ -69,6 +69,9 @@
          (tags-file (concat project "TAGS")))
     (if project
         (if (file-exists-p target-dir)
+            ;; it may be possible that this command is not finished by the time we reun visit-tags-table....
+            ;; if we ever notice that we could probably just switch this to being a sync exec since our files
+            ;; are never that big...
             (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR -f " tags-file " " target-dir))
           (message "Directory [%s] does not exist." dir))
       (message "Not in a project."))
