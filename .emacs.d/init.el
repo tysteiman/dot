@@ -69,10 +69,10 @@
          (tags-file (concat project "TAGS")))
     (if project
         (if (file-exists-p target-dir)
-            (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR " target-dir))
+            (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR -f " tags-file " " target-dir))
           (message "Directory [%s] does not exist." dir))
-      (message "Not in a project.")))
-  (visit-tags-table tags-file))
+      (message "Not in a project."))
+    (visit-tags-table tags-file)))
 
 (defun my/rails-tags ()
   "Generate etags for rails projects (src)"
