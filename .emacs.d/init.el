@@ -42,7 +42,9 @@
                    (display-line-numbers-mode 0)
                    (turn-off-evil-mode))))
 
-(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq show-trailing-whitespace t)
+                            (hl-line-mode 1)))
 
 (add-hook 'org-mode-hook (lambda () (toggle-truncate-lines)))
 
