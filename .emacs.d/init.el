@@ -199,6 +199,12 @@
   :config
   (dashboard-setup-startup-hook))
 
+(use-package rg)
+
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode))
+
 (set-cursor-color "indianred")
 
 ;; don't put this earlier in case there is an error -- we will get a giant white screen
