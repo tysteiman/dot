@@ -65,12 +65,14 @@
   "Generate etags for the current project (if in one). This will only generate tags for the app (rails) directory."
   (interactive "sCode dir to generate tags for: ")
   (let* ((project (projectile-project-root))
-         (target-dir (concat project dir)))
+         (target-dir (concat project dir))
+         (tags-file (concat project "TAGS")))
     (if project
         (if (file-exists-p target-dir)
             (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR " target-dir))
           (message "Directory [%s] does not exist." dir))
-      (message "Not in a project."))))
+      (message "Not in a project.")))
+  (visit-tags-table tags-file))
 
 (defun my/rails-tags ()
   "Generate etags for rails projects (src)"
@@ -83,7 +85,7 @@
 
 (defun my/quit-emacs (yn)
   "Prompt the user if they're sure before closing Emacs."
-  (interactive "cAre you sure you want to close Emacs? (y/n): ")
+  (interactive "cAre you sure you want to close Emacs? y/n ): ")
   (when (char-equal yn ?y)
     (save-buffers-kill-terminal)))
 
@@ -190,9 +192,9 @@
 
 (use-package sudo-edit)
 
-;; (use-package dashboard
-;;   :config
-;;   (dashboard-setup-startup-hook))
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
 
 (set-cursor-color "indianred")
 
