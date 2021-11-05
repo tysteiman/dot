@@ -102,6 +102,7 @@
 (global-set-key (kbd "C-c e s") 'eshell)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)
+(global-set-key (kbd "M-z")     'zap-up-to-char)
 
 ;; INSTALL PACKAGES (use-package declarations)
 (require 'package)
