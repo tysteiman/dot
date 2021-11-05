@@ -112,6 +112,7 @@
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)
 (global-set-key (kbd "M-z")     'zap-up-to-char)
+(global-set-key (kbd "C-c w w") 'whitespace-cleanup)
 
 ;; INSTALL PACKAGES (use-package declarations)
 (require 'package)
