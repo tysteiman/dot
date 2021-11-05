@@ -175,6 +175,8 @@
 (use-package airline-themes
   :config (load-theme 'airline-term t))
 
+(use-package all-the-icons)
+
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 30)
@@ -214,7 +216,11 @@
   (setq dashboard-startup-banner (concat user-emacs-directory "arch-logo.txt"))
   (setq dashboard-items '((recents . 5)
                           (projects . 5)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
   :config
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (projects . "book")))
   (dashboard-setup-startup-hook))
 
 (use-package rg)
