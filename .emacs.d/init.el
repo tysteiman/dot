@@ -1,4 +1,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
+
+;; needed this on wsl, not on linux
 ;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
@@ -206,13 +208,16 @@
 (use-package rg)
 
 (use-package diff-hl
+  :after magit
   :config
-  (global-diff-hl-mode))
+  (global-diff-hl-mode)
+  :hook
+  (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (set-cursor-color "indianred")
 
 ;; don't put this earlier in case there is an error -- we will get a giant white screen
-(toggle-frame-maximized)
+;; (toggle-frame-maximized)
 
 ;; random puts
 (put 'upcase-region 'disabled nil)
