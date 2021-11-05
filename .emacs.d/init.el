@@ -97,6 +97,13 @@
   (when (char-equal yn ?y)
     (save-buffers-kill-terminal)))
 
+(defun my/load-config-file (file)
+  "Load configuration .el file"
+  (let ((full-path (concat user-emacs-directory file ".el")))
+    (if (file-exists-p full-path)
+        (load-file full-path)
+      (message "File [%s] does not exist." full-path))))
+
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 (global-set-key (kbd "C-c f i") 'imenu)
@@ -202,6 +209,10 @@
 (use-package sudo-edit)
 
 (use-package dashboard
+  :init
+  (setq dashboard-startup-banner 2)
+  (setq dashboard-items '((recents . 5)
+                          (projects . 5)))
   :config
   (dashboard-setup-startup-hook))
 
