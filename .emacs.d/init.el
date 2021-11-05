@@ -128,7 +128,7 @@
 (set-cursor-color "indianred")
 
 ;; don't put this earlier in case there is an error -- we will get a giant white screen
-;; (toggle-frame-maximized)
+(toggle-frame-maximized)
 
 ;; random puts
 (put 'upcase-region 'disabled nil)
