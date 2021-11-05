@@ -211,7 +211,7 @@
 
 (use-package dashboard
   :init
-  (setq dashboard-startup-banner 2)
+  (setq dashboard-startup-banner (concat user-emacs-directory "arch-logo.txt"))
   (setq dashboard-items '((recents . 5)
                           (projects . 5)))
   :config
