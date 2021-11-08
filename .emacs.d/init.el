@@ -1,4 +1,4 @@
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
 
 ;; needed this on wsl, not on linux
 ;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
