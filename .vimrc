@@ -38,7 +38,7 @@ set background=dark
 set nonumber
 set shell=/bin/bash
 
-color slate
+color desert
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
