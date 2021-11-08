@@ -86,7 +86,9 @@
 (use-package rjsx-mode
   :init
   (setq js2-mode-show-parse-errors nil)
-  (setq js2-mode-show-strict-warnings nil))
+  (setq js2-mode-show-strict-warnings nil)
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js" . js2-mode)))
 
 (use-package emmet-mode
   :bind (("C-j" . emmet-expand-line)))
