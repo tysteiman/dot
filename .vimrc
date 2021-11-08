@@ -35,10 +35,10 @@ set nowrap
 set noswapfile
 set laststatus=2
 set background=dark
-set number
+set nonumber
 set shell=/bin/bash
 
-color desert
+color slate
 
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
