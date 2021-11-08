@@ -25,8 +25,10 @@
   :config (ivy-mode 1))
 
 (use-package web-mode
+  :after emmet-mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.html.erb" . web-mode)))
+  (add-to-list 'auto-mode-alist '("\\.html.erb" . web-mode))
+  (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package dockerfile-mode)
 
@@ -90,8 +92,7 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.js" . js2-mode)))
 
-(use-package emmet-mode
-  :bind (("C-j" . emmet-expand-line)))
+(use-package emmet-mode)
 
 (use-package slim-mode)
 
