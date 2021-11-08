@@ -3,8 +3,8 @@
 ;; needed this on wsl, not on linux
 ;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-;; (set-frame-parameter (selected-frame) 'alpha '(90 . 50))
-;; (add-to-list 'default-frame-alist '(alpha . (90 . 50)))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 . 70))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 70)))
 
 (set-face-attribute 'default nil :height 110)
 
