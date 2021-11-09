@@ -48,18 +48,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# swap ctrl & capslock
-setxkbmap -option ctrl:swapcaps
+# ====================================================================================
+#                                      MY STUFF
+# ====================================================================================
 
-# launch xfce
-# exec startxfce4
+# PLASMA (KDE)
+# DESKTOP_SESSION=plasma
+# exec startplasma-x11
 
-# launch KDE
-# exec startkde
-
-# i3-gaps
-# feh --bg-scale /home/tyler/Downloads/wallpapersden.com_forest-minimal-paint-artwork_7680x4320.jpg
-# feh --bg-scale /home/tyler/Downloads/forest-mountains-sunset-cool-weather-minimalism-yn.jpg
-feh --bg-scale /home/tyler/Downloads/firewatch.jpg
+# i3gaps
+xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 compton -b
+feh --bg-scale /home/tyler/Pictures/moon-road.jpg
+xmodmap ~/dot/keys.map
 exec i3
