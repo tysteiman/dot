@@ -98,7 +98,8 @@
   (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode))
   (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line)
-  (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions))
+  (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
+  (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
 
 (use-package emmet-mode)
 
