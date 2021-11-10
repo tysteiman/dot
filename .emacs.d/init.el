@@ -152,7 +152,7 @@
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
 
-(set-cursor-color "indianred")
+;; (set-cursor-color "indianred")
 
 ;; don't put this earlier in case there is an error -- we will get a giant white screen
 (toggle-frame-maximized)
