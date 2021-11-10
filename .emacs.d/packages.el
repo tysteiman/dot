@@ -95,9 +95,10 @@
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
   :config
-  (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode))
-  (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line))
+  (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line)
+  (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions))
 
 (use-package emmet-mode)
 
