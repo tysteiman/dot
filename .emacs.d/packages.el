@@ -91,7 +91,8 @@
   (setq js2-mode-show-strict-warnings nil)
   :config
   (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode)))
+  (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode))
+  (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package emmet-mode)
 
