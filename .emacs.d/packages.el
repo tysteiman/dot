@@ -39,7 +39,12 @@
 (use-package yaml-mode)
 
 (use-package gruvbox-theme
-  :config (load-theme 'gruvbox-dark-hard t))
+  ;; :config (load-theme 'gruvbox-dark-hard t)
+  )
+
+(use-package doom-themes
+  :config (load-theme 'doom-molokai t)
+  )
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
