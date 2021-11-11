@@ -52,11 +52,6 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-# PLASMA (KDE)
-# DESKTOP_SESSION=plasma
-# exec startplasma-x11
-
-# i3gaps
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 compton -b
 feh --bg-scale /home/tyler/Pictures/moon-road.jpg
