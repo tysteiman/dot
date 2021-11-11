@@ -3,7 +3,7 @@
 ;; needed this on wsl, not on linux
 ;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-(set-face-attribute 'default nil :height 80)
+(set-face-attribute 'default nil :height 75)
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
