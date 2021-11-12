@@ -69,6 +69,13 @@
   (newline)
   (indent-for-tab-command))
 
+(defun my/new-previous-line ()
+  (interactive)
+  (move-beginning-of-line 1)
+  (newline)
+  (previous-line)
+  (indent-for-tab-command))
+
 (defun my/project-tags (dir)
   "Generate etags for the current project (if in one). This will only generate tags for the app (rails) directory."
   (interactive "sCode dir to generate tags for: ")
@@ -146,6 +153,7 @@
 (global-set-key (kbd "C-c e s") 'eshell)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)
+(global-set-key (kbd "C-M-o")   'my/new-previous-line)
 (global-set-key (kbd "M-z")     'zap-up-to-char)
 (global-set-key (kbd "C-c w w") 'whitespace-cleanup)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
