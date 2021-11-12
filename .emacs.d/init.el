@@ -70,6 +70,7 @@
   (indent-for-tab-command))
 
 (defun my/new-previous-line ()
+  "Create a new line above the current one"
   (interactive)
   (move-beginning-of-line 1)
   (newline)
