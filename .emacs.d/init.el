@@ -3,7 +3,7 @@
 ;; needed this on wsl, not on linux
 ;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-(set-face-attribute 'default nil :height 75)
+(set-face-attribute 'default nil :height 110)
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -148,6 +148,7 @@
 (global-set-key (kbd "C-o")     'my/new-next-line)
 (global-set-key (kbd "M-z")     'zap-up-to-char)
 (global-set-key (kbd "C-c w w") 'whitespace-cleanup)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
