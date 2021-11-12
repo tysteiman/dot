@@ -62,16 +62,25 @@
   (interactive)
   (my/open-config-file "packages"))
 
+(defun my/trim-current-line-region ()
+  (let ((end (point))
+        (beg (save-excursion
+               (move-beginning-of-line 1)
+               (point))))
+    (whitespace-cleanup-region beg end)))
+
 (defun my/new-next-line ()
   "Create a new line under the current one"
   (interactive)
   (move-end-of-line 1)
+  (my/trim-current-line-region)
   (newline)
   (indent-for-tab-command))
 
 (defun my/new-previous-line ()
   "Create a new line above the current one"
   (interactive)
+  (my/trim-current-line-region)
   (move-beginning-of-line 1)
   (newline)
   (previous-line)
