@@ -63,6 +63,7 @@
   (my/open-config-file "packages"))
 
 (defun my/trim-current-line-region ()
+  "Trim whitespace for the given line"
   (let ((end (point))
         (beg (save-excursion
                (move-beginning-of-line 1)

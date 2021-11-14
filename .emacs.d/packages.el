@@ -43,7 +43,7 @@
   )
 
 (use-package doom-themes
-  :config (load-theme 'doom-molokai t)
+  :config (load-theme 'doom-solarized-dark t)
   )
 
 (use-package rainbow-delimiters
@@ -63,15 +63,13 @@
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'powerline))
 
-(use-package airline-themes
-  :config (load-theme 'airline-term t))
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 30)
   (setq doom-modeline-vcs-max-length 25)
+  (setq doom-modeline-buffer-file-name-style "file-name")
   :config
   (doom-modeline-mode 1))
 
