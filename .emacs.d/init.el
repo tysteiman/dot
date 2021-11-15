@@ -41,6 +41,10 @@
                    (display-line-numbers-mode 0)
                    (turn-off-evil-mode))))
 
+(add-hook 'term-exec-hook (function
+                           (lambda ()
+                             (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
+
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
                             (hl-line-mode 1)))
@@ -100,6 +104,7 @@
               ;; it may be possible that this command is not finished by the time we reun visit-tags-table....
               ;; if we ever notice that we could probably just switch this to being a sync exec since our files
               (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR -f " tags-file " " target-dir))
+              ;; TODO: might not need to do this -- i was generating the tags in the wrong dir previously
               (visit-tags-table tags-file))
           (message "Directory [%s] does not exist." dir))
       (message "Not in a project."))))
@@ -172,7 +177,7 @@
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
 
-;; (set-cursor-color "indianred")
+(set-cursor-color "indianred")
 
 ;; don't put this earlier in case there is an error -- we will get a giant white screen
 (toggle-frame-maximized)

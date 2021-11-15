@@ -39,11 +39,11 @@
 (use-package yaml-mode)
 
 (use-package gruvbox-theme
-  ;; :config (load-theme 'gruvbox-dark-hard t)
+  :config (load-theme 'gruvbox-dark-hard t)
   )
 
 (use-package doom-themes
-  :config (load-theme 'doom-solarized-dark t)
+  ;; :config (load-theme 'doom-molokai t)
   )
 
 (use-package rainbow-delimiters
@@ -61,7 +61,7 @@
   :init (ivy-rich-mode 1))
 
 (use-package eshell-git-prompt
-  :config (eshell-git-prompt-use-theme 'powerline))
+  :config (eshell-git-prompt-use-theme 'multiline))
 
 (use-package all-the-icons)
 
