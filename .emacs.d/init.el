@@ -114,10 +114,6 @@
   (interactive)
   (my/project-tags "app"))
 
-(defun my/dgg ()
-  (interactive)
-  (eww "https://duckduckgo.com"))
-
 (defun my/quit-emacs (yn)
   "Prompt the user if they're sure before closing Emacs."
   (interactive "cAre you sure you want to close Emacs? y/n ): ")
