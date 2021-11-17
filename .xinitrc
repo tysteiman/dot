@@ -53,10 +53,11 @@ fi
 # ====================================================================================
 
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-# compton -b
-feh --bg-scale /home/tyler/Pictures/moon-road.jpg
+compton -b
+# feh --bg-scale /home/tyler/Pictures/moon-road.jpg
 # feh --bg-scale /usr/share/backgrounds/gnome/adwaita-night.png
 # feh --bg-scale ~/Pictures/gruv.jpg
+feh --bg-scale ~/Downloads/gbox/road.jpg
 xmodmap ~/dot/keys.map
 
 exec i3
