@@ -78,7 +78,8 @@
   :config (global-company-mode))
 
 (use-package swiper
-  :bind (("C-c s s" . swiper)))
+  :bind (("C-c s s" . swiper)
+         ("C-M-s"   . swiper)))
 
 (use-package window-numbering
   :config (window-numbering-mode 1))
@@ -100,17 +101,17 @@
 
 (use-package sudo-edit)
 
-;; (use-package dashboard
-;;   :init
-;;   (setq dashboard-startup-banner (concat user-emacs-directory "arch-logo.txt"))
-;;   (setq dashboard-items '((recents . 5)
-;;                           (projects . 5)))
-;;   (setq dashboard-set-heading-icons t)
-;;   (setq dashboard-set-file-icons t)
-;;   :config
-;;   (dashboard-modify-heading-icons '((recents . "file-text")
-;;                                     (projects . "book")))
-;;   (dashboard-setup-startup-hook))
+(use-package dashboard
+  :init
+  (setq dashboard-startup-banner (concat user-emacs-directory "arch-logo.txt"))
+  (setq dashboard-items '((recents . 5)
+                          (projects . 5)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  :config
+  (dashboard-modify-heading-icons '((recents . "file-text")
+                                    (projects . "book")))
+  (dashboard-setup-startup-hook))
 
 (use-package rg)
 
@@ -120,3 +121,16 @@
   (global-diff-hl-mode)
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh))
+
+(use-package org)
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
+
+(use-package ivy-posframe
+  :after ivy
+  :init
+  (setq ivy-posframe-height-alist '((swiper . 30)))
+  :config
+  (ivy-posframe-mode 1))
