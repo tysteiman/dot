@@ -186,9 +186,12 @@ bar {
        # status_command i3status
        status_command ~/dot/i3/status.sh
        position bottom
+       font pango:monospace 10
        colors {
               background #2F2A27
               statusline #fe8019
+              #                 BORDER           BACKGROUND          TEXT
+              focused_workspace #8ec07c          #689d6a             #ffffff
        }
 }
 
