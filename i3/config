@@ -182,22 +182,27 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-       # status_command i3status
-       status_command ~/dot/i3/status.sh
-       position bottom
-       font pango:monospace 10
-       colors {
-              background #2F2A27
-              statusline #fe8019
-              #                 BORDER           BACKGROUND          TEXT
-              focused_workspace #8ec07c          #689d6a             #ffffff
-       }
-}
+# bar {
+#        # status_command i3status
+#        status_command ~/dot/i3/status.sh
+#        position bottom
+#        font pango:monospace 10
+#        colors {
+#               background #2F2A27
+#               statusline #fe8019
+#               #                 BORDER           BACKGROUND          TEXT
+#               focused_workspace #8ec07c          #689d6a             #ffffff
+#        }
+# }
 
 gaps outer 5
 gaps inner 10
-new_window 1pixel
-default_border none
 
-# exec_always --no-startup-id /home/tyler/.config/polybar/launch.sh --shapes
+new_window 1pixel
+
+default_border pixel 0
+
+# class         #border         #background         #text           #indicator      #child_border
+# client.focused  #8ec07c         #285577             #ffffff         #8ec07c         #7c6f64
+
+# exec_always --no-startup-id /home/tyler/.config/polybar/launch.sh --docky

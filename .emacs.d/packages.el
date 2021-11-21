@@ -127,10 +127,3 @@
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode))
-
-(use-package ivy-posframe
-  :after ivy
-  :init
-  (setq ivy-posframe-height-alist '((swiper . 30)))
-  :config
-  (ivy-posframe-mode 1))
