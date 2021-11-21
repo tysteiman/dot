@@ -5,6 +5,9 @@
 
 (set-face-attribute 'default nil :height 110)
 
+(set-frame-parameter (selected-frame) 'alpha '(90 . 60))
+(add-to-list 'default-frame-alist '(alpha . (90 . 60)))
+
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (column-number-mode t)
@@ -126,36 +129,6 @@
     (if (file-exists-p full-path)
         (load-file full-path)
       (message "File [%s] does not exist." full-path))))
-
-(defvar my/opacity 90
-  "Default opacity to use for emacs GUI")
-
-(defun my/adjust-opacity (u-d)
-  "Dynamically adjust opacity based on user input"
-  (interactive "c-/= ")
-  (let ((new-value (if (char-equal u-d ?=)
-                       (setq my/opacity (+ 5 my/opacity))
-                     (if (char-equal u-d ?-)
-                         (setq my/opacity (- my/opacity 5))
-                       nil))))
-    (if new-value
-        (my/set-opacity new-value)
-      (message "Exiting."))))
-
-(defun my/set-opacity (new-value)
-  "Set opacity"
-  (if (or (> new-value 100)
-          (< new-value 0))
-      (progn
-        (message "Invalid number!")
-        (call-interactively 'my/adjust-opacity))
-    (progn
-      (set-frame-parameter (selected-frame) 'alpha `(,new-value . 70))
-      (add-to-list 'default-frame-alist `(alpha . (,new-value . 70)))
-      (call-interactively 'my/adjust-opacity))))
-
-(set-frame-parameter (selected-frame) 'alpha '(90 . 70))
-(add-to-list 'default-frame-alist '(alpha . (90 . 70)))
 
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
