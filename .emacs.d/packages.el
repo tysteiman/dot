@@ -115,3 +115,5 @@
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode))
+
+(use-package ranger)
