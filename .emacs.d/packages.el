@@ -101,18 +101,6 @@
 
 (use-package sudo-edit)
 
-;; (use-package dashboard
-;;   :init
-;;   (setq dashboard-startup-banner (concat user-emacs-directory "arch-logo.txt"))
-;;   (setq dashboard-items '((recents . 5)
-;;                           (projects . 5)))
-;;   (setq dashboard-set-heading-icons t)
-;;   (setq dashboard-set-file-icons t)
-;;   :config
-;;   (dashboard-modify-heading-icons '((recents . "file-text")
-;;                                     (projects . "book")))
-;;   (dashboard-setup-startup-hook))
-
 (use-package rg)
 
 (use-package diff-hl

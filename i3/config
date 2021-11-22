@@ -204,6 +204,8 @@ default_border pixel 0
 
 bindsym $mod+Shift+s exec rofi-screenshot
 
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # class         #border         #background         #text           #indicator      #child_border
 # client.focused  #8ec07c         #285577             #ffffff         #8ec07c         #7c6f64
 
