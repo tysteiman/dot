@@ -57,7 +57,8 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 picom -b
 # picom --experimental-backends --backend glx --blur-method box --blur-size 10 -b
 
-feh --bg-scale ~/Downloads/gbox/road.jpg
+# feh --bg-scale ~/Downloads/gbox/road.jpg
+feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
 xmodmap ~/dot/keys.map
 
 exec i3
