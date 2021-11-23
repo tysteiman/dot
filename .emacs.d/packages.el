@@ -97,8 +97,6 @@
 
 (use-package emmet-mode)
 
-(use-package slim-mode)
-
 (use-package sudo-edit)
 
 (use-package rg)
