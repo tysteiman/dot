@@ -15,7 +15,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 10)
+(fringe-mode 20)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
