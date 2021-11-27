@@ -203,6 +203,7 @@ new_window 1pixel
 default_border pixel 2
 
 bindsym $mod+Shift+s exec rofi-screenshot
+bindsym $mod+Shift+p exec pavucontrol
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 

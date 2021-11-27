@@ -1,8 +1,5 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-;; needed this on wsl, not on linux
-;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
 (set-face-attribute 'default nil :height 110)
 
 (set-frame-parameter (selected-frame) 'alpha '(90 . 60))
@@ -26,6 +23,7 @@
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq browse-url-firefox-program "chromium")
+(setq create-lockfiles nil)
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
@@ -34,8 +32,6 @@
 (setq-default sgml-basic-offset 4)
 
 (column-number-mode)
-
-;; (global-display-line-numbers-mode t)
 
 ;; turn off line numbers for some things
 (dolist (mode '(term-mode-hook
@@ -147,9 +143,6 @@
 (my/load-config-file "packages")
 
 (set-cursor-color "indianred")
-
-;; don't put this earlier in case there is an error -- we will get a giant white screen
-(toggle-frame-maximized)
 
 ;; random puts
 (put 'upcase-region 'disabled nil)
