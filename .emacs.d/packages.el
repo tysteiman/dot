@@ -113,3 +113,7 @@
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode))
+
+(use-package ibuffer
+  :config
+  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
