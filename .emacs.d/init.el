@@ -139,6 +139,9 @@
 (global-set-key (kbd "C-c w w") 'whitespace-cleanup)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; when in ibuffer mode, i want the same C-x C-b key to take me back to the previous buffer
+(define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
+
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
 
