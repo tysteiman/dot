@@ -205,9 +205,9 @@ default_border pixel 2
 bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# class         #border         #background         #text           #indicator      #child_border
-client.focused  #8ec07c         #285577             #ffffff         #8ec07c         #7c6f64
-
-# exec_always --no-startup-id /home/tyler/.config/polybar/launch.sh --docky
+# class                  #border  #background  #text    #indicator  #child_border
+client.focused           #7c6f64  #3c3836      #ffffff  #8ec07c     #7c6f64
+client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
+client.unfocused         #333333  #222222      #888888  #292d2e     #222222
+client.urgent            #2f343a  #900000      #ffffff  #900000     #900000
+client.placeholder       #000000  #0c0c0c      #ffffff  #000000     #0c0c0c
