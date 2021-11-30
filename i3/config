@@ -194,7 +194,7 @@ bindsym $mod+r mode "resize"
 #        }
 # }
 
-gaps outer 5
+gaps outer 10
 gaps inner 20
 
 new_window 1pixel

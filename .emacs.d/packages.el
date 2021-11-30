@@ -78,8 +78,7 @@
   :config (global-company-mode))
 
 (use-package swiper
-  :bind (("C-c s s" . swiper)
-         ("C-M-s"   . swiper)))
+  :bind (("C-M-s" . swiper)))
 
 (use-package window-numbering
   :config (window-numbering-mode 1))

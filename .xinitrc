@@ -52,7 +52,8 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-# xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+# xrandr --output eDP-1 --mode 1920x1080 --brightness .5
 
 # picom -b
 # picom --experimental-backends --backend glx --blur-method box --blur-size 10 -b
