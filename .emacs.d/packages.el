@@ -24,6 +24,15 @@
 (use-package ivy
   :config (ivy-mode 1))
 
+(use-package ivy-posframe
+  :after ivy
+  :init
+  (setq ivy-posframe-border-width 2)
+  (setq ivy-posframe-width 200)
+  (setq ivy-posframe-parameters '((left-fringe  . 10)
+                                  (right-fringe . 10)))
+  (setq ivy-posframe-height-alist '((swiper . 20))))
+
 (use-package web-mode
   :after emmet-mode
   :config
