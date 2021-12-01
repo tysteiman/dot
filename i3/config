@@ -194,8 +194,8 @@ bindsym $mod+r mode "resize"
 #        }
 # }
 
-gaps outer 10
-gaps inner 20
+gaps outer 0
+gaps inner 10
 
 new_window 1pixel
 
@@ -203,6 +203,7 @@ default_border pixel 2
 
 bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
+bindsym $mod+Shift+m exec emacsclient -c &
 
 # class                  #border  #background  #text    #indicator  #child_border
 client.focused           #7c6f64  #3c3836      #ffffff  #8ec07c     #7c6f64
