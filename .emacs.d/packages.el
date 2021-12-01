@@ -81,7 +81,9 @@
   :bind (("C-c e v" . evil-mode))
   :init (evil-mode 0)
   :config
-  (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state))
+  (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state)
+  :hook
+  (prog-mode . turn-on-evil-mode))
 
 (use-package company
   :config (global-company-mode))
