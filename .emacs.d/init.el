@@ -37,8 +37,7 @@
 (dolist (mode '(term-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda ()
-                   (display-line-numbers-mode 0)
-                   (turn-off-evil-mode))))
+                   (display-line-numbers-mode 0))))
 
 (add-hook 'term-exec-hook (function
                            (lambda ()
@@ -125,6 +124,12 @@
     (if (file-exists-p full-path)
         (load-file full-path)
       (message "File [%s] does not exist." full-path))))
+
+(defun my/toggle-evil ()
+  (interactive)
+  (if evil-state
+      (turn-off-evil-mode)
+    (turn-on-evil-mode)))
 
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)

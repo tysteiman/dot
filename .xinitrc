@@ -61,6 +61,6 @@ feh --bg-scale ~/dot/wallpaper/forest.jpg
 
 xmodmap ~/dot/keys.map
 
-emacs --daemon
+# emacs --daemon
 
 exec i3

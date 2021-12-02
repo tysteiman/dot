@@ -24,14 +24,16 @@
 (use-package ivy
   :config (ivy-mode 1))
 
-(use-package ivy-posframe
-  :after ivy
-  :init
-  (setq ivy-posframe-border-width 2)
-  (setq ivy-posframe-width 200)
-  (setq ivy-posframe-parameters '((left-fringe  . 10)
-                                  (right-fringe . 10)))
-  (setq ivy-posframe-height-alist '((swiper . 20))))
+;; (use-package ivy-posframe
+;;   :after ivy
+;;   :config
+;;   (ivy-posframe-mode)
+;;   :init
+;;   (setq ivy-posframe-border-width 2)
+;;   (setq ivy-posframe-width 175)
+;;   (setq ivy-posframe-parameters '((left-fringe  . 10)
+;;                                   (right-fringe . 10)))
+;;   (setq ivy-posframe-height-alist '((swiper . 20))))
 
 (use-package web-mode
   :after emmet-mode
@@ -78,10 +80,8 @@
   (doom-modeline-mode 1))
 
 (use-package evil
-  :bind (("C-c e v" . evil-mode))
-  :init (evil-mode 0)
-  :config
-  (define-key evil-insert-state-map (kbd "jk") 'evil-normal-state))
+  :bind (("C-c e e" . my/toggle-evil))
+  :init (evil-mode 0))
 
 (use-package company
   :config (global-company-mode))
