@@ -126,6 +126,7 @@
       (message "File [%s] does not exist." full-path))))
 
 (defun my/toggle-evil ()
+  "Turn evil mode on and off"
   (interactive)
   (if evil-state
       (turn-off-evil-mode)
