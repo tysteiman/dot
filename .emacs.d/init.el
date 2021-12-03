@@ -134,6 +134,13 @@ Some editors  support this -- just something i'm used to."
       (back-to-indentation)
     (move-beginning-of-line 1)))
 
+(defun my/forward-word ()
+  "Move forward word how i want it to be done. To do manipulation on the next
+word i find myself doing this routine so i mapped it to M-f."
+  (interactive)
+  (forward-word 2)
+  (backward-word))
+
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 (global-set-key (kbd "C-c f p") 'my/open-packages)
@@ -151,6 +158,7 @@ Some editors  support this -- just something i'm used to."
 (global-set-key (kbd "C-M--")   'split-window-below)
 (global-set-key (kbd "C-M-0")   'delete-window)
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
+(global-set-key (kbd "M-f")     'my/forward-word)
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
