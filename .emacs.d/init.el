@@ -149,6 +149,8 @@ Some editors  support this -- just something i'm used to."
 (global-set-key (kbd "C-a")     'my/toggle-beginning-indentation)
 (global-set-key (kbd "C-M-\\")  'split-window-right)
 (global-set-key (kbd "C-M--")   'split-window-below)
+(global-set-key (kbd "C-M-0")   'delete-window)
+(global-set-key (kbd "C-M-1")   'delete-other-windows)
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
