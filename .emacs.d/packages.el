@@ -19,7 +19,9 @@
 (use-package projectile
   :config
   (projectile-mode 1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  :bind
+  (("C-M-f" . projectile-find-file)))
 
 (use-package ivy
   :config (ivy-mode 1))
