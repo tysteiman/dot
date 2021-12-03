@@ -33,12 +33,6 @@
 
 (column-number-mode)
 
-;; turn off line numbers for some things
-(dolist (mode '(term-mode-hook
-                eshell-mode-hook))
-  (add-hook mode (lambda ()
-                   (display-line-numbers-mode 0))))
-
 (add-hook 'term-exec-hook (function
                            (lambda ()
                              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
