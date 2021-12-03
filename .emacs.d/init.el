@@ -147,6 +147,8 @@ Some editors  support this -- just something i'm used to."
 (global-set-key (kbd "C-c w w") 'whitespace-cleanup)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-a")     'my/toggle-beginning-indentation)
+(global-set-key (kbd "C-M-\\")  'split-window-right)
+(global-set-key (kbd "C-M--")   'split-window-below)
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
