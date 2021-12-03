@@ -55,7 +55,12 @@ fi
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .5
 
-feh --bg-scale ~/dot/wallpaper/forest.jpg
+# if we want to randomize our saved wallpapers, we could use this...
+feh --bg-fill --randomize ~/dot/wallpaper/*
+# feh --bg-scale ~/dot/wallpaper/forest.jpg
+# feh --bg-scale ~/Pictures/smokys.jpg
+
+picom -b
 
 # xsetroot -solid "#282828"
 
