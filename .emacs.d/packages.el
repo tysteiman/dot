@@ -105,7 +105,8 @@
   :config
   (global-diff-hl-mode)
   :hook
-  (magit-post-refresh . diff-hl-magit-post-refresh))
+  (magit-post-refresh . diff-hl-magit-post-refresh)
+  (prog-mode          . diff-hl-margin-mode))
 
 (use-package org)
 
