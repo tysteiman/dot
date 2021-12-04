@@ -40,8 +40,12 @@
 
 (use-package yaml-mode)
 
-(use-package gruvbox-theme
-  :config (load-theme 'gruvbox-dark-hard t))
+;; (use-package gruvbox-theme
+  ;; :config (load-theme 'gruvbox-dark-hard t))
+
+(use-package doom-themes
+  :config
+  (load-theme 'doom-one t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -104,9 +108,9 @@
   :after magit
   :config
   (global-diff-hl-mode)
+  (diff-hl-margin-mode)
   :hook
-  (magit-post-refresh . diff-hl-magit-post-refresh)
-  (prog-mode          . diff-hl-margin-mode))
+  (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package org)
 
@@ -117,3 +121,22 @@
 (use-package ibuffer
   :config
   (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
+
+(use-package exwm
+  :config
+  (setq exwm-input-prefix-keys '(
+                                 ?\C-x
+                                 ?\C-u
+                                 ?\C-h
+                                 ?\M-x
+                                 ?\M-`
+                                 ?\M-&
+                                 ?\M-:
+                                 ))
+  (require 'exwm-randr)
+  (setq exwm-randr-workspace-output-plist '(1 "HDMI-1-0"))
+  (add-hook 'exwm-randr-screen-change-hook (lambda ()
+                                             (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
+                                             (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/dark-beach.jpg")))
+  (exwm-randr-enable)
+  (exwm-enable))

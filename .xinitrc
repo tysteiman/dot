@@ -52,13 +52,12 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-# xrandr --output eDP-1 --mode 1920x1080 --brightness .5
+# xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+# xrandr --output eDP-1 --mode 1920x1080 --brightness .8
 
 # if we want to randomize our saved wallpapers, we could use this...
-feh --bg-fill --randomize ~/dot/wallpaper/*
-# feh --bg-scale ~/dot/wallpaper/forest.jpg
-# feh --bg-scale ~/Pictures/smokys.jpg
+# feh --bg-fill --randomize ~/dot/wallpaper/*
+# feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
 
 picom -b
 
@@ -66,4 +65,4 @@ picom -b
 
 xmodmap ~/dot/keys.map
 
-exec i3
+exec emacs -mm --debug-init

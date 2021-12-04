@@ -12,7 +12,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 20)
+;; (fringe-mode 20)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -134,12 +134,18 @@ Some editors  support this -- just something i'm used to."
       (back-to-indentation)
     (move-beginning-of-line 1)))
 
-(defun my/forward-word ()
-  "Move forward word how i want it to be done. To do manipulation on the next
-word i find myself doing this routine so i mapped it to M-f."
+(defun my/send-region-to-shell (&optional start end)
+  "Simple function to send the contents of a region to a shell command -- useful for debugging configs."
   (interactive)
-  (forward-word 2)
-  (backward-word))
+  (let ((region-text (if (and start end)
+                         (buffer-substring start end)
+                       (buffer-substring (region-beginning) (region-end)))))
+    (shell-command region-text)))
+
+(defun my/send-line-to-shell ()
+  "Function to use my/send-region-to-shell, giving it the whole line to run"
+  (interactive)
+  (my/send-region-to-shell (line-beginning-position) (line-end-position)))
 
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
@@ -158,13 +164,14 @@ word i find myself doing this routine so i mapped it to M-f."
 (global-set-key (kbd "C-M--")   'split-window-below)
 (global-set-key (kbd "C-M-0")   'delete-window)
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
-(global-set-key (kbd "M-f")     'my/forward-word)
+(global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
+(global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
 
 ;; (set-cursor-color "indianred")
-(set-cursor-color "#8ec07c")
+;; (set-cursor-color "#8ec07c")
 
 ;; random puts
 (put 'upcase-region 'disabled nil)
