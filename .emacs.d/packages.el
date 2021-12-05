@@ -122,6 +122,8 @@
   :config
   (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
 
+(use-package vterm)
+
 (use-package exwm
   :config
   (setq exwm-input-prefix-keys '(
