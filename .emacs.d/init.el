@@ -127,14 +127,6 @@
       (turn-off-evil-mode)
     (turn-on-evil-mode)))
 
-(defun my/toggle-beginning-indentation ()
-  "Toggle back and forth between the beginning of the line and indentation.
-Some editors  support this -- just something i'm used to."
-  (interactive)
-  (if (eq (current-column) 0)
-      (back-to-indentation)
-    (move-beginning-of-line 1)))
-
 (defun my/send-region-to-shell (&optional start end)
   "Simple function to send the contents of a region to a shell command -- useful for debugging configs."
   (interactive)
@@ -160,7 +152,6 @@ Some editors  support this -- just something i'm used to."
 (global-set-key (kbd "M-z")     'zap-up-to-char)
 (global-set-key (kbd "C-c w w") 'whitespace-cleanup)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-a")     'my/toggle-beginning-indentation)
 (global-set-key (kbd "C-M-\\")  'split-window-right)
 (global-set-key (kbd "C-M--")   'split-window-below)
 (global-set-key (kbd "C-M-0")   'delete-window)
