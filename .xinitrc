@@ -52,11 +52,11 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-# xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .8
 
 # if we want to randomize our saved wallpapers, we could use this...
-# feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
+feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
 
 picom -b
 
@@ -64,9 +64,12 @@ picom -b
 
 xmodmap ~/dot/keys.map
 
-exec emacs -mm --debug-init
-
 # TODO: it would be great to be able to script this to be a little more dynamic. I think maybe creating another script
 # that expects a specific variable to be in place maybe WM=i3 startx -- then our script here checks that and based
 # on that start different things, etc? I'm really not sure but that would also have to bleed into emacs -- but that
 # is going to be a different configuration issue to tackle -- maybe with chemacs or something?
+
+
+# exec emacs -mm --debug-init
+# exec startxfce4
+exec i3

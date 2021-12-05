@@ -14,7 +14,7 @@ git_branch() {
 
 # PS1='[\u@\h \W]\$ '
 # PS1='\e[1m\e[36m\W \e[35m>\e[0m '
-PS1='\e[1m\e[36m\W\e[34m$(git_branch) \e[35m>\e[0m '
+PS1='\e[1m\e[32m\W\e[34m$(git_branch) \e[31m>\e[0m '
 
 alias ls='ls --color=auto'
 alias c="clear"

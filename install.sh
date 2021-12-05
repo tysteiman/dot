@@ -10,5 +10,6 @@ ln -s $PWD/.tmux.conf ~/
 ln -s $PWD/.vimrc ~/
 ln -s $PWD/.xinitrc ~/
 ln -s $PWD/.emacs.d/emacs-profiles.el ~/
-ln -s $PWD/i3 ~/.config/i3
-ln -s $PWD/kitty ~/.config/kitty
+ln -s $PWD/i3 ~/.config/
+ln -s $PWD/kitty ~/.config/
+ln -s $PWD/polybar ~/.config/

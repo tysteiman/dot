@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(set-frame-parameter (selected-frame) 'alpha '(80 . 60))
-(add-to-list 'default-frame-alist '(alpha . (80 . 60)))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 60))
+(add-to-list 'default-frame-alist '(alpha . (90 . 60)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -110,7 +110,7 @@
   "Prompt the user if they're sure before closing Emacs."
   (interactive "cAre you sure you want to close Emacs? y/n ): ")
   (when (char-equal yn ?y)
-    (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness .8")
+    ;; (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness .8")
     (save-buffers-kill-terminal)))
 
 (defun my/load-config-file (file)
@@ -158,9 +158,9 @@
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
-(global-set-key (kbd "M-&")   (lambda (command)
-                                  (interactive (list (read-shell-command "$ ")))
-                                  (start-process-shell-command command nil command)))
+;; (global-set-key (kbd "M-&")   (lambda (command)
+                                  ;; (interactive (list (read-shell-command "$ ")))
+                                  ;; (start-process-shell-command command nil command)))
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
