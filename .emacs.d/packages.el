@@ -148,4 +148,8 @@
                                              (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
                                              (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/dark-beach.jpg")))
   (exwm-randr-enable)
-  (exwm-enable))
+  (exwm-enable)
+  :bind
+  (("C-c k a" . exwm-workspace-add)
+   ("C-c k s" . exwm-workspace-switch)
+   ("C-c k x" . exwm-workspace-delete)))
