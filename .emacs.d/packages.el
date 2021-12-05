@@ -122,7 +122,9 @@
   :config
   (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
 
-(use-package vterm)
+(use-package vterm
+  :bind
+  (("C-c e v" . vterm)))
 
 (use-package exwm
   :config
