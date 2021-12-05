@@ -45,7 +45,7 @@
 
 (use-package doom-themes
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-dracula t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -126,10 +126,10 @@
   :config
   (setq exwm-input-prefix-keys '(
                                  ?\C-x
-                                 ?\C-u
+                                 ;; ?\C-u
                                  ?\C-h
                                  ?\M-x
-                                 ?\M-`
+                                 ;; ?\M-`
                                  ?\M-&
                                  ?\M-:
                                  ?\M-1

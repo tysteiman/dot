@@ -110,6 +110,7 @@
   "Prompt the user if they're sure before closing Emacs."
   (interactive "cAre you sure you want to close Emacs? y/n ): ")
   (when (char-equal yn ?y)
+    (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness .8")
     (save-buffers-kill-terminal)))
 
 (defun my/load-config-file (file)
