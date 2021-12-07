@@ -18,12 +18,15 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #55222222
-background-alt = #99444444
+background = #33222222
+background-alt = #77444444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
+               
+; default yellow
 primary = #ffb52a
+
 secondary = #e60053
 alert = #bd2c40
 
