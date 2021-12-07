@@ -30,6 +30,7 @@ alias gl="git log"
 alias xcc="xclip -selection c"
 alias grep="grep --color"
 alias ll="ls -lAtrh"
+alias duls="ls -A | xargs du -sh"
 
 # nvm
 source /usr/share/nvm/init-nvm.sh
