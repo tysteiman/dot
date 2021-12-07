@@ -53,7 +53,7 @@ fi
 # ====================================================================================
 
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-# xrandr --output eDP-1 --mode 1920x1080 --brightness .8
+# xrandr --output eDP-1 --mode 1920x1080 --brightness .8 --primary
 
 # if we want to randomize our saved wallpapers, we could use this...
 feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
