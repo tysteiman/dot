@@ -77,7 +77,15 @@
 
 (use-package evil
   :bind (("C-c e e" . my/toggle-evil))
-  :init (evil-mode 0))
+  :hook
+  (prog-mode . turn-on-evil-mode))
+
+(use-package evil-escape
+  :after evil
+  :init
+  (setq-default evil-escape-key-sequence "jk")
+  :config
+  (evil-escape-mode))
 
 (use-package company
   :config (global-company-mode))
@@ -126,6 +134,9 @@
 (use-package vterm
   :bind
   (("C-c e v" . vterm)))
+
+(use-package linum-relative
+  :bind (("C-c e r" . linum-relative-toggle)))
 
 ;; (use-package exwm
 ;;   :config
