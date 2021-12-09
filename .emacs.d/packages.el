@@ -45,7 +45,7 @@
   )
 
 (use-package doom-themes
-  :config (load-theme 'doom-one t)
+  :config (load-theme 'doom-dracula t)
   )
 
 (use-package rainbow-delimiters
@@ -78,7 +78,9 @@
 (use-package evil
   :bind (("C-c e e" . my/toggle-evil))
   :hook
-  (prog-mode . turn-on-evil-mode))
+  (prog-mode . turn-on-evil-mode)
+  :hook
+  (org-mode . turn-on-evil-mode))
 
 (use-package evil-escape
   :after evil
@@ -138,34 +140,34 @@
 (use-package linum-relative
   :bind (("C-c e r" . linum-relative-toggle)))
 
-;; (use-package exwm
-;;   :config
-;;   (setq exwm-input-prefix-keys '(
-;;                                  ?\C-x
-;;                                  ?\C-h
-;;                                  ?\M-x
-;;                                  ?\M-&
-;;                                  ?\M-:
-;;                                  ?\M-1
-;;                                  ?\M-2
-;;                                  ?\M-3
-;;                                  ?\M-4
-;;                                  ?\M-5
-;;                                  ?\M-6
-;;                                  ?\M-7
-;;                                  ?\M-8
-;;                                  ?\M-9
-;;                                  ))
-;;   (require 'exwm-randr)
-;;   (setq exwm-randr-workspace-monitor-plist '(1 "HDMI-1-0"))
-;;   (add-hook 'exwm-randr-screen-change-hook (lambda ()
-;;                                              (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
-;;                                              (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/dark-beach.jpg")))
-;;   (exwm-randr-enable)
-;;   (exwm-enable)
-;;   ;; i'm not sure why but this line seems to be breaking startup...
-;;   ;; :bind
-;;   ;; (("C-c k a" . exwm-workspace-add)
-;;    ;; ("C-c k s" . exwm-workspace-switch)
-;;    ;; ("C-c k x" . exwm-workspace-delete))
-;;   )
+(use-package exwm
+  :config
+  (setq exwm-input-prefix-keys '(
+                                 ?\C-x
+                                 ?\C-h
+                                 ?\M-x
+                                 ?\M-&
+                                 ?\M-:
+                                 ?\M-1
+                                 ?\M-2
+                                 ?\M-3
+                                 ?\M-4
+                                 ?\M-5
+                                 ?\M-6
+                                 ?\M-7
+                                 ?\M-8
+                                 ?\M-9
+                                 ))
+  (require 'exwm-randr)
+  (setq exwm-randr-workspace-monitor-plist '(1 "HDMI-1-0"))
+  (add-hook 'exwm-randr-screen-change-hook (lambda ()
+                                             (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
+                                             (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/dark-beach.jpg")))
+  (exwm-randr-enable)
+  (exwm-enable)
+  ;; i'm not sure why but this line seems to be breaking startup...
+  ;; :bind
+  ;; (("C-c k a" . exwm-workspace-add)
+   ;; ("C-c k s" . exwm-workspace-switch)
+   ;; ("C-c k x" . exwm-workspace-delete))
+  )

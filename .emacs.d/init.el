@@ -158,9 +158,9 @@
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
-;; (global-set-key (kbd "M-&")   (lambda (command)
-                                  ;; (interactive (list (read-shell-command "$ ")))
-                                  ;; (start-process-shell-command command nil command)))
+(global-set-key (kbd "M-&")   (lambda (command)
+                                  (interactive (list (read-shell-command "$ ")))
+                                  (start-process-shell-command command nil command)))
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
