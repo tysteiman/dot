@@ -52,15 +52,15 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-# xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .8 --primary
 
 # if we want to randomize our saved wallpapers, we could use this...
 # feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
 
-picom -b
+# picom -b
 
-# xsetroot -solid "#282828"
+xsetroot -solid "#282828"
 
 xmodmap ~/dot/keys.map
 
@@ -70,5 +70,5 @@ xmodmap ~/dot/keys.map
 # is going to be a different configuration issue to tackle -- maybe with chemacs or something?
 
 
-exec emacs -mm --debug-init
-# exec i3
+# exec emacs -mm --debug-init
+exec i3

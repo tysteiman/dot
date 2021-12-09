@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(set-frame-parameter (selected-frame) 'alpha '(90 . 60))
-(add-to-list 'default-frame-alist '(alpha . (90 . 60)))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 . 60))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 60)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -12,7 +12,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-;; (fringe-mode 20)
+(fringe-mode 5)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -31,7 +31,7 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(column-number-mode)
+(column-number-mode t)
 
 (add-hook 'term-exec-hook (function
                            (lambda ()
@@ -41,7 +41,8 @@
                             (setq show-trailing-whitespace t)
                             (hl-line-mode 1)))
 
-(add-hook 'org-mode-hook (lambda () (toggle-truncate-lines)))
+(add-hook 'org-mode-hook (lambda ()
+                           (toggle-truncate-lines)))
 
 ;; DEFUNS
 (defun my/open-config-file (file)
@@ -120,12 +121,12 @@
         (load-file full-path)
       (message "File [%s] does not exist." full-path))))
 
-(defun my/toggle-evil ()
-  "Turn evil mode on and off"
-  (interactive)
-  (if evil-state
-      (turn-off-evil-mode)
-    (turn-on-evil-mode)))
+;; (defun my/toggle-evil ()
+;;   "Turn evil mode on and off"
+;;   (interactive)
+;;   (if evil-state
+;;       (turn-off-evil-mode)
+;;     (turn-on-evil-mode)))
 
 (defun my/send-region-to-shell (&optional start end)
   "Simple function to send the contents of a region to a shell command -- useful for debugging configs."
@@ -158,15 +159,15 @@
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
-(global-set-key (kbd "M-&")   (lambda (command)
-                                  (interactive (list (read-shell-command "$ ")))
-                                  (start-process-shell-command command nil command)))
+;; (global-set-key (kbd "M-&")   (lambda (command)
+;;                                   (interactive (list (read-shell-command "$ ")))
+;;                                   (start-process-shell-command command nil command)))
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
 
 ;; (set-cursor-color "indianred")
-;; (set-cursor-color "#8ec07c")
+(set-cursor-color "#8ec07c")
 
 ;; random puts
 (put 'upcase-region 'disabled nil)
