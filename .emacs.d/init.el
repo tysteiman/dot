@@ -141,6 +141,12 @@
   (interactive)
   (my/send-region-to-shell (line-beginning-position) (line-end-position)))
 
+(defun my/feh-set-bg ()
+  (interactive)
+  (shell-command (concat "feh --bg-scale " (dired-filename-at-point))))
+
+(define-key dired-mode-map "F" 'my/feh-set-bg)
+
 ;; KEY BINDINGS
 (global-set-key (kbd "C-c f d") 'my/open-initfile)
 (global-set-key (kbd "C-c f p") 'my/open-packages)
