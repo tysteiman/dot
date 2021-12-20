@@ -21,7 +21,8 @@
   (projectile-mode 1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   :bind
-  (("C-M-f" . projectile-find-file)))
+  (("C-M-f" . projectile-find-file)
+   ("C-M-g" . projectile-ripgrep)))
 
 (use-package ivy
   :config (ivy-mode 1))
@@ -41,7 +42,7 @@
 (use-package yaml-mode)
 
 (use-package gruvbox-theme
-  :config (load-theme 'gruvbox-dark-medium t)
+  :config (load-theme 'gruvbox-dark-hard t)
   )
 
 (use-package doom-themes
