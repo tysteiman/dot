@@ -55,11 +55,11 @@ fi
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .8 --primary
 
-feh --bg-scale ~/dot/wallpaper/road.jpg
+feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
 
 picom -b
 
-xsetroot -solid "#282828"
+# xsetroot -solid "#282828"
 
 xmodmap ~/dot/keys.map
 

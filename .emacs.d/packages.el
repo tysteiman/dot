@@ -37,6 +37,7 @@
 
 (use-package magit
   :bind (("C-c m s" . magit-status)
+         ("C-M-i"   . magit-status)
          ("C-c m b" . magit-blame)))
 
 (use-package yaml-mode)

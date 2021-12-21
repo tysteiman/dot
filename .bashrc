@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export TERM=xterm
+
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
     if [ $br ]; then
