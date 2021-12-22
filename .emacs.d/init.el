@@ -19,7 +19,7 @@
 (setq vc-follow-symlinks t)
 (setq tags-revert-without-query t)
 (setq ruby-insert-encoding-magic-comment nil)
-(setq inhibit-startup-message t)
+;; (setq inhibit-startup-message t)
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq browse-url-firefox-program "chromium")
@@ -151,7 +151,6 @@
 (global-set-key (kbd "C-o")     'my/new-next-line)
 (global-set-key (kbd "C-M-o")   'my/new-previous-line)
 (global-set-key (kbd "M-z")     'zap-up-to-char)
-(global-set-key (kbd "C-c w w") 'whitespace-cleanup)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-M-\\")  'split-window-right)
 (global-set-key (kbd "C-M--")   'split-window-below)
@@ -159,15 +158,12 @@
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
-;; (global-set-key (kbd "M-&")   (lambda (command)
-;;                                   (interactive (list (read-shell-command "$ ")))
-;;                                   (start-process-shell-command command nil command)))
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
 
-;; (set-cursor-color "indianred")
-(set-cursor-color "#8ec07c")
+(set-cursor-color "indianred")
+;; (set-cursor-color "#8ec07c")
 
 ;; random puts
 (put 'upcase-region 'disabled nil)

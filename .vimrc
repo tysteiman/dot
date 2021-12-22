@@ -40,20 +40,14 @@ set shell=/bin/bash
 
 color slate
 
-nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>w :StripWhitespace<cr>
 nnoremap <leader>bb :b#<cr>
-nnoremap <leader>gg :Git<cr>
-nnoremap <leader>gb :Git blame<cr>
 nnoremap <leader>q :bnext<cr>
 nnoremap <leader>a :bprevious<cr>
-nnoremap <leader>pp :Git push<cr>
-nnoremap <silent> <c-n> :vs %:h<cr>
-nnoremap <silent><leader>rt :!clear && ctags -R app<cr>
 
 inoremap jk <esc>
 

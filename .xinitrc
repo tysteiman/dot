@@ -57,7 +57,7 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 
 feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
 
-picom -b
+# picom -b
 
 # xsetroot -solid "#282828"
 
@@ -70,4 +70,9 @@ xmodmap ~/dot/keys.map
 
 
 # exec emacs -mm --debug-init
+
 exec i3
+
+# XDG_SESSION_TYPE=x11 plank &
+
+# exec openbox
