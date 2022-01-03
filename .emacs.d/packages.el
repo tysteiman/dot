@@ -84,7 +84,9 @@
   :hook
   (prog-mode . turn-on-evil-mode)
   :hook
-  (org-mode . turn-on-evil-mode))
+  (org-mode . turn-on-evil-mode)
+  :hook
+  (conf-mode . turn-on-evil-mode))
 
 (use-package evil-escape
   :after evil
