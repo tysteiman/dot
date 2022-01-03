@@ -144,3 +144,5 @@
 (use-package vterm
   :bind
   (("C-c e v" . vterm)))
+
+(use-package php-mode)

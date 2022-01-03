@@ -63,16 +63,4 @@ feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
 
 xmodmap ~/dot/keys.map
 
-# TODO: it would be great to be able to script this to be a little more dynamic. I think maybe creating another script
-# that expects a specific variable to be in place maybe WM=i3 startx -- then our script here checks that and based
-# on that start different things, etc? I'm really not sure but that would also have to bleed into emacs -- but that
-# is going to be a different configuration issue to tackle -- maybe with chemacs or something?
-
-
-# exec emacs -mm --debug-init
-
 exec i3
-
-# XDG_SESSION_TYPE=x11 plank &
-
-# exec openbox
