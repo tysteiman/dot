@@ -63,4 +63,6 @@ feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
 
 xmodmap ~/dot/keys.map
 
+emacs --daemon
+
 exec i3
