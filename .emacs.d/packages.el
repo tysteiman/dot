@@ -35,7 +35,7 @@
 (use-package web-mode
   :after emmet-mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.html.erb" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb" . web-mode))
   (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package dockerfile-mode)

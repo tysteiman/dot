@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(set-frame-parameter (selected-frame) 'alpha '(90 . 60))
-(add-to-list 'default-frame-alist '(alpha . (90 . 60)))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 . 60))
+;; (add-to-list 'default-frame-alist '(alpha . (90 . 60)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -33,9 +33,9 @@
 
 (column-number-mode t)
 
-(add-hook 'term-exec-hook (function
-                           (lambda ()
-                             (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
+;; (add-hook 'term-exec-hook (function
+;;                            (lambda ()
+;;                              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
@@ -120,13 +120,6 @@
     (if (file-exists-p full-path)
         (load-file full-path)
       (message "File [%s] does not exist." full-path))))
-
-;; (defun my/toggle-evil ()
-;;   "Turn evil mode on and off"
-;;   (interactive)
-;;   (if evil-state
-;;       (turn-off-evil-mode)
-;;     (turn-on-evil-mode)))
 
 (defun my/send-region-to-shell (&optional start end)
   "Simple function to send the contents of a region to a shell command -- useful for debugging configs."

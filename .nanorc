@@ -1,5 +1,3 @@
-# include ~/.nano/nanorc/*.nanorc
-
 set tabstospaces
 set autoindent
 set tabsize 4
