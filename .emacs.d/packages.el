@@ -62,7 +62,8 @@
   (setq which-key-idle-delay 1))
 
 (use-package counsel
-  :bind (("M-x" . counsel-M-x)))
+  :bind (("M-x"   . counsel-M-x)
+         ("C-x b" . counsel-switch-buffer)))
 
 (use-package eshell-git-prompt
   :config
