@@ -141,7 +141,8 @@
 
 (use-package ibuffer
   :config
-  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
+  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
+  (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
 
 (use-package vterm
   :bind
