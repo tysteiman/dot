@@ -84,10 +84,9 @@
   (("C-c e e" . my/toggle-evil))
   :hook
   (prog-mode . turn-on-evil-mode)
-  :hook
-  (org-mode . turn-on-evil-mode)
-  :hook
-  (conf-mode . turn-on-evil-mode))
+  (org-mode  . turn-on-evil-mode)
+  (conf-mode . turn-on-evil-mode)
+  (yaml-mode . turn-on-evil-mode))
 
 (use-package evil-escape
   :after evil
