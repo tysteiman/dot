@@ -36,6 +36,7 @@
   :after emmet-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.erb" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
   (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package dockerfile-mode)
@@ -147,5 +148,3 @@
 (use-package vterm
   :bind
   (("C-c e v" . vterm)))
-
-(use-package php-mode)

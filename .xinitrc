@@ -57,5 +57,4 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 feh --bg-scale --randomize ~/dot/wallpaper/*
 # xsetroot -solid "#282828"
 xmodmap ~/dot/keys.map
-emacs --daemon
 exec i3

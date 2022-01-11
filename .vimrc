@@ -13,7 +13,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'neoclide/vim-jsx-improve'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'morhetz/gruvbox'
+" Plugin 'morhetz/gruvbox'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -39,7 +39,7 @@ set background=dark
 set nonumber
 set shell=/bin/bash
 
-color gruvbox
+color desert
 
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
