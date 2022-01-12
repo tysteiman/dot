@@ -33,10 +33,6 @@
 
 (column-number-mode t)
 
-;; (add-hook 'term-exec-hook (function
-;;                            (lambda ()
-;;                              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
-
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
                             (hl-line-mode 1)
@@ -158,7 +154,6 @@
 (my/load-config-file "packages")
 
 (set-cursor-color "indianred")
-;; (set-cursor-color "#8ec07c")
 
 ;; random puts
 (put 'upcase-region 'disabled nil)

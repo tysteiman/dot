@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm
+export EDITOR="emacsclient -c -nw"
 
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
@@ -33,6 +34,7 @@ alias xcc="xclip -selection c"
 alias grep="grep --color"
 alias ll="ls -lAtrh"
 alias duls="ls -A | xargs du -sh"
+alias emt="emacsclient -c -nw"
 
 # nvm
 source /usr/share/nvm/init-nvm.sh

@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# install chemacs
 git clone https://github.com/plexus/chemacs2 ~/.emacs.d
 
 if [ ! -d ~/.config ]; then
