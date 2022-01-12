@@ -12,7 +12,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 5)
+(fringe-mode 0)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -39,7 +39,9 @@
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
-                            (hl-line-mode 1)))
+                            (hl-line-mode 1)
+                            (setq-local display-line-numbers-type 'relative)
+                            (display-line-numbers-mode 1)))
 
 (add-hook 'org-mode-hook (lambda ()
                            (toggle-truncate-lines)))

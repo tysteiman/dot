@@ -72,6 +72,16 @@
 
 (use-package all-the-icons)
 
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
+
+(use-package all-the-icons-ibuffer
+  :after all-the-icons
+  :hook
+  (ibuffer-mode . all-the-icons-ibuffer-mode))
+
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 40)
