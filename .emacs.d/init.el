@@ -35,9 +35,7 @@
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
-                            (hl-line-mode 1)
-                            (setq-local display-line-numbers-type 'relative)
-                            (display-line-numbers-mode 1)))
+                            (hl-line-mode 1)))
 
 (add-hook 'org-mode-hook (lambda ()
                            (toggle-truncate-lines)))
@@ -82,7 +80,7 @@
   (previous-line)
   (indent-for-tab-command))
 
-(defun my/project-tags (dir)
+(defun my/project-tags (dir &optional excludes)
   "Generate etags for the current project (if in one). This will only generate tags for the app (rails) directory."
   (interactive "sCode dir to generate tags for: ")
   (let* ((project (projectile-project-root))
@@ -94,7 +92,7 @@
             (progn
               ;; it may be possible that this command is not finished by the time we reun visit-tags-table....
               ;; if we ever notice that we could probably just switch this to being a sync exec since our files
-              (async-shell-command (concat "ctags --exclude=*css --exclude=*scss --exclude=*.erb -eR -f " tags-file " " target-dir))
+              (async-shell-command (concat "ctags " (or excludes "") " -eR -f " tags-file " " target-dir))
               ;; TODO: might not need to do this -- i was generating the tags in the wrong dir previously
               (visit-tags-table tags-file))
           (message "Directory [%s] does not exist." dir))
@@ -103,7 +101,7 @@
 (defun my/rails-tags ()
   "Generate etags for rails projects (src)"
   (interactive)
-  (my/project-tags "app"))
+  (my/project-tags "app" "--exclude=*css --exclude=*scss --exclude=*.erb"))
 
 (defun my/quit-emacs (yn)
   "Prompt the user if they're sure before closing Emacs."

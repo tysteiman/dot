@@ -32,13 +32,6 @@
   :init
   (ivy-rich-mode 1))
 
-(use-package web-mode
-  :after emmet-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.erb" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
-  (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
-
 (use-package dockerfile-mode)
 
 (use-package magit
@@ -46,6 +39,14 @@
   (("C-c m s" . magit-status)
    ("C-M-i"   . magit-status)
    ("C-c m b" . magit-blame)))
+
+(use-package diff-hl
+  :after magit
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode)
+  :hook
+  (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package yaml-mode)
 
@@ -74,6 +75,8 @@
 
 (use-package all-the-icons-dired
   :after all-the-icons
+  :init
+  (setq all-the-icons-dired-monochrome nil)
   :hook
   (dired-mode . all-the-icons-dired-mode))
 
@@ -81,6 +84,10 @@
   :after all-the-icons
   :hook
   (ibuffer-mode . all-the-icons-ibuffer-mode))
+
+(use-package diredfl
+  :config
+  (diredfl-global-mode))
 
 (use-package doom-modeline
   :init
@@ -90,21 +97,21 @@
   :config
   (doom-modeline-mode 1))
 
-(use-package evil
-  :bind
-  (("C-c e e" . my/toggle-evil))
-  :hook
-  (prog-mode . turn-on-evil-mode)
-  (org-mode  . turn-on-evil-mode)
-  (conf-mode . turn-on-evil-mode)
-  (yaml-mode . turn-on-evil-mode))
-
-(use-package evil-escape
-  :after evil
-  :init
-  (setq-default evil-escape-key-sequence "jk")
-  :config
-  (evil-escape-mode))
+;; (use-package evil
+;;   :bind
+;;   (("C-c e e" . my/toggle-evil))
+;;   :hook
+;;   (prog-mode . turn-on-evil-mode)
+;;   (org-mode  . turn-on-evil-mode)
+;;   (conf-mode . turn-on-evil-mode)
+;;   (yaml-mode . turn-on-evil-mode))
+;;
+;; (use-package evil-escape
+;;   :after evil
+;;   :init
+;;   (setq-default evil-escape-key-sequence "jk")
+;;   :config
+;;   (evil-escape-mode))
 
 (use-package company
   :config
@@ -131,17 +138,16 @@
 
 (use-package emmet-mode)
 
+(use-package web-mode
+  :after emmet-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.erb" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
+  (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
+
 (use-package sudo-edit)
 
 (use-package rg)
-
-(use-package diff-hl
-  :after magit
-  :config
-  (global-diff-hl-mode)
-  (diff-hl-margin-mode)
-  :hook
-  (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package org)
 
