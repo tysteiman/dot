@@ -147,6 +147,7 @@
 (global-set-key (kbd "C-M-1")   'delete-other-windows)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
+(global-set-key (kbd "C-M-=")   'balance-windows)
 
 ;; LOAD PACKAGES
 (my/load-config-file "packages")
