@@ -193,11 +193,8 @@ bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
 
 # class                  #border  #background  #text    #indicator  #child_border
-# one dark
-# client.focused           #7c6f64  #3c3836      #ffffff  #c678dd     #5B8B99
-# gruvbox
+# -------------------------------------------------------------------------------
 client.focused           #7c6f64  #3c3836      #ffffff  #8ec07c     #7c6f64
-
 client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
 client.unfocused         #333333  #222222      #888888  #292d2e     #222222
 client.urgent            #2f343a  #900000      #ffffff  #900000     #900000
