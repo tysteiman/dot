@@ -38,5 +38,4 @@ feh --bg-scale --randomize ~/dot/wallpaper/*
 # xsetroot -solid "#282828"
 xmodmap ~/dot/keys.map
 xset r rate 200 50
-emacs --daemon
 exec i3
