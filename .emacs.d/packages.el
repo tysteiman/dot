@@ -97,21 +97,20 @@
   :config
   (doom-modeline-mode 1))
 
-;; (use-package evil
-;;   :bind
-;;   (("C-c e e" . my/toggle-evil))
-;;   :hook
-;;   (prog-mode . turn-on-evil-mode)
-;;   (org-mode  . turn-on-evil-mode)
-;;   (conf-mode . turn-on-evil-mode)
-;;   (yaml-mode . turn-on-evil-mode))
-;;
-;; (use-package evil-escape
-;;   :after evil
-;;   :init
-;;   (setq-default evil-escape-key-sequence "jk")
-;;   :config
-;;   (evil-escape-mode))
+(use-package evil
+  ;; :hook
+  ;; (prog-mode . turn-on-evil-mode)
+  ;; (org-mode  . turn-on-evil-mode)
+  ;; (conf-mode . turn-on-evil-mode)
+  ;; (yaml-mode . turn-on-evil-mode)
+  )
+
+(use-package evil-escape
+  :after evil
+  :init
+  (setq-default evil-escape-key-sequence "jk")
+  :config
+  (evil-escape-mode))
 
 (use-package company
   :config
@@ -166,3 +165,5 @@
   (("C-c e v" . vterm)))
 
 (use-package markdown-mode)
+
+(use-package vimrc-mode)
