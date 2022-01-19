@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-;; (set-frame-parameter (selected-frame) 'alpha '(90 . 60))
-;; (add-to-list 'default-frame-alist '(alpha . (90 . 60)))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 70))
+(add-to-list 'default-frame-alist '(alpha . (90 . 70)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -158,3 +158,4 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)

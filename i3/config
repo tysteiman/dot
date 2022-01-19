@@ -52,7 +52,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run 
+bindsym $mod+d exec --no-startup-id rofi -show run -theme ~/.cache/wal/colors-rofi-dark.rasi
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -180,7 +180,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id ~/dot/polybar/launch.sh
+# exec_always --no-startup-id ~/dot/polybar/launch.sh
 
 gaps outer 0
 gaps inner 30
@@ -192,10 +192,27 @@ default_border pixel 5
 bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
 
+set_from_resource $bg i3wm.color1
+set_from_resource $fg i3wm.color6
+set_from_resource $wal2 i3wm.color2
+set_from_resource $wal3 i3wm.color3
+set_from_resource $wal4 i3wm.color4
+
 # class                  #border  #background  #text    #indicator  #child_border
 # -------------------------------------------------------------------------------
-client.focused           #7c6f64  #3c3836      #ffffff  #8ec07c     #7c6f64
+client.focused           #7c6f64  #3c3836      #ffffff  $fg         $bg
 client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
 client.unfocused         #333333  #222222      #888888  #292d2e     #222222
 client.urgent            #2f343a  #900000      #ffffff  #900000     #900000
 client.placeholder       #000000  #0c0c0c      #ffffff  #000000     #0c0c0c
+
+bar {
+    status_command i3status
+    position top
+
+    colors {
+           background $bg
+           statusline $fg
+           focused_workspace $wal2 $wal4 $fg
+    }
+}
