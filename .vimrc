@@ -39,7 +39,7 @@ set background=dark
 set nonumber
 set shell=/bin/bash
 
-" color desert
+color slate
 
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>

@@ -198,22 +198,24 @@ set_from_resource $wal1 i3wm.color1
 set_from_resource $wal2 i3wm.color2
 set_from_resource $wal3 i3wm.color3
 set_from_resource $wal4 i3wm.color4
+set_from_resource $wal5 i3wm.color5
+set_from_resource $wal7 i3wm.color7
 
 # class                  #border  #background  #text    #indicator  #child_border
 # -------------------------------------------------------------------------------
-client.focused           #7c6f64  #3c3836      #ffffff  $fg         $wal1
+client.focused           $bg      $wal1        #ffffff  $wal5       $wal1
 client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
 client.unfocused         #333333  #222222      #888888  #292d2e     #222222
 client.urgent            #2f343a  #900000      #ffffff  #900000     #900000
 client.placeholder       #000000  #0c0c0c      #ffffff  #000000     #0c0c0c
 
-bar {
-    status_command i3status
-    position top
-
-    colors {
-           background $wal1
-           statusline $fg
-           focused_workspace $wal2 $wal4 $fg
-    }
-}
+# bar {
+#     status_command i3status
+#     position top
+#
+#     colors {
+#            background $wal1
+#            statusline $fg
+#            focused_workspace $wal2 $wal4 $fg
+#     }
+# }

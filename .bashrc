@@ -35,6 +35,7 @@ alias grep="grep --color"
 alias ll="ls -lAtrh"
 alias duls="ls -A | xargs du -sh"
 alias emt="emacsclient -c -nw"
+alias vim="nvim"
 
 # nvm
 source /usr/share/nvm/init-nvm.sh
