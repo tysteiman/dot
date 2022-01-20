@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm
-export EDITOR="emacsclient -c -nw"
+export EDITOR="vim"
 
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
@@ -29,7 +29,7 @@ alias gb="git branch"
 alias gcb="git checkout -b"
 alias gcm="git commit -m"
 alias ga="git add ."
-alias gl="git log"
+alias gl="git log --graph"
 alias xcc="xclip -selection c"
 alias grep="grep --color"
 alias ll="ls -lAtrh"

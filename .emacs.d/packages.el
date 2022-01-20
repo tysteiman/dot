@@ -19,19 +19,19 @@
 (use-package projectile
   :config
   (projectile-mode 1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  ;; :bind
-  ;; (("C-M-f" . projectile-find-file)
-  ;;  ("C-M-g" . projectile-ripgrep))
-  )
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package ivy
   :config (ivy-mode 1))
 
-(use-package ivy-rich
-  :after ivy
-  :init
-  (ivy-rich-mode 1))
+;; (use-package ivy-rich
+;;   :after ivy
+;;   :init
+;;   (ivy-rich-mode 1))
+
+;; (use-package counsel
+;;   :bind (("M-x"   . counsel-M-x)
+;;          ("C-x b" . counsel-switch-buffer)))
 
 (use-package dockerfile-mode)
 
@@ -51,9 +51,9 @@
 
 (use-package yaml-mode)
 
-(use-package gruvbox-theme
-  ;; :config (load-theme 'gruvbox-dark-hard t)
-  )
+;; (use-package gruvbox-theme
+;;   ;; :config (load-theme 'gruvbox-dark-hard t)
+;;   )
 
 ;; (use-package xresources-theme
 ;;   :config (load-theme 'xresources t))
@@ -61,16 +61,12 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package which-key
-  :init
-  (which-key-mode)
-  :diminish which-key-mode
-  :config
-  (setq which-key-idle-delay 1))
-
-(use-package counsel
-  :bind (("M-x"   . counsel-M-x)
-         ("C-x b" . counsel-switch-buffer)))
+;; (use-package which-key
+;;   :init
+;;   (which-key-mode)
+;;   :diminish which-key-mode
+;;   :config
+;;   (setq which-key-idle-delay 1))
 
 ;; (use-package eshell-git-prompt
 ;;   :config
@@ -104,10 +100,11 @@
 
 (use-package evil
   :hook
-  (prog-mode . turn-on-evil-mode)
-  (org-mode  . turn-on-evil-mode)
-  (conf-mode . turn-on-evil-mode)
-  (yaml-mode . turn-on-evil-mode))
+  (prog-mode             . turn-on-evil-mode)
+  (org-mode              . turn-on-evil-mode)
+  (conf-mode             . turn-on-evil-mode)
+  (yaml-mode             . turn-on-evil-mode)
+  (git-commit-setup      . turn-on-evil-mode))
 
 (use-package evil-escape
   :after evil

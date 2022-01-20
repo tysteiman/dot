@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(set-frame-parameter (selected-frame) 'alpha '(80 . 70))
-(add-to-list 'default-frame-alist '(alpha . (80 . 70)))
+(set-frame-parameter (selected-frame) 'alpha '(70 . 60))
+(add-to-list 'default-frame-alist '(alpha . (70 . 60)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -19,7 +19,7 @@
 (setq vc-follow-symlinks t)
 (setq tags-revert-without-query t)
 (setq ruby-insert-encoding-magic-comment nil)
-;; (setq inhibit-startup-message t)
+(setq inhibit-startup-message t)
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq browse-url-firefox-program "chromium")
@@ -35,8 +35,8 @@
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
-                            ;; (hl-line-mode 1)
-                            ))
+                            (setq display-line-numbers-type 'relative)
+                            (display-line-numbers-mode 1)))
 
 (add-hook 'org-mode-hook (lambda ()
                            (toggle-truncate-lines)))
@@ -52,8 +52,6 @@
 (my/load-config-file "defuns")
 (my/load-config-file "packages")
 (my/load-config-file "keys")
-
-(set-cursor-color "indianred")
 
 ;; random puts
 (put 'upcase-region 'disabled nil)
