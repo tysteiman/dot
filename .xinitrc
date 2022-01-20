@@ -35,7 +35,7 @@ fi
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .8 --primary
 # feh --bg-scale --randomize ~/dot/wallpaper/*
-picom -b
+picom -b --experimental-backends
 wal -i ~/dot/wallpaper
 # xsetroot -solid "#282828"
 xmodmap ~/dot/keys.map

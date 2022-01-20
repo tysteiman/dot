@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(set-frame-parameter (selected-frame) 'alpha '(90 . 70))
-(add-to-list 'default-frame-alist '(alpha . (90 . 70)))
+(set-frame-parameter (selected-frame) 'alpha '(80 . 70))
+(add-to-list 'default-frame-alist '(alpha . (80 . 70)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -12,14 +12,14 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 10)
+(fringe-mode 0)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
 (setq vc-follow-symlinks t)
 (setq tags-revert-without-query t)
 (setq ruby-insert-encoding-magic-comment nil)
-(setq inhibit-startup-message t)
+;; (setq inhibit-startup-message t)
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq browse-url-firefox-program "chromium")
@@ -35,7 +35,8 @@
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
-                            (hl-line-mode 1)))
+                            ;; (hl-line-mode 1)
+                            ))
 
 (add-hook 'org-mode-hook (lambda ()
                            (toggle-truncate-lines)))

@@ -20,9 +20,10 @@
   :config
   (projectile-mode 1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  :bind
-  (("C-M-f" . projectile-find-file)
-   ("C-M-g" . projectile-ripgrep)))
+  ;; :bind
+  ;; (("C-M-f" . projectile-find-file)
+  ;;  ("C-M-g" . projectile-ripgrep))
+  )
 
 (use-package ivy
   :config (ivy-mode 1))
@@ -40,18 +41,22 @@
    ("C-M-i"   . magit-status)
    ("C-c m b" . magit-blame)))
 
-(use-package diff-hl
-  :after magit
-  :config
-  (global-diff-hl-mode)
-  (diff-hl-margin-mode)
-  :hook
-  (magit-post-refresh . diff-hl-magit-post-refresh))
+;; (use-package diff-hl
+;;   :after magit
+;;   :config
+;;   (global-diff-hl-mode)
+;;   (diff-hl-margin-mode)
+;;   :hook
+;;   (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package yaml-mode)
 
 (use-package gruvbox-theme
-  :config (load-theme 'gruvbox-dark-hard t))
+  ;; :config (load-theme 'gruvbox-dark-hard t)
+  )
+
+;; (use-package xresources-theme
+;;   :config (load-theme 'xresources t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -67,43 +72,42 @@
   :bind (("M-x"   . counsel-M-x)
          ("C-x b" . counsel-switch-buffer)))
 
-(use-package eshell-git-prompt
-  :config
-  (eshell-git-prompt-use-theme 'multiline))
+;; (use-package eshell-git-prompt
+;;   :config
+;;   (eshell-git-prompt-use-theme 'multiline))
 
-(use-package all-the-icons)
+;; (use-package all-the-icons)
+;; 
+;; (use-package all-the-icons-dired
+;;   :after all-the-icons
+;;   :init
+;;   (setq all-the-icons-dired-monochrome nil)
+;;   :hook
+;;   (dired-mode . all-the-icons-dired-mode))
+;; 
+;; (use-package all-the-icons-ibuffer
+;;   :after all-the-icons
+;;   :hook
+;;   (ibuffer-mode . all-the-icons-ibuffer-mode))
 
-(use-package all-the-icons-dired
-  :after all-the-icons
-  :init
-  (setq all-the-icons-dired-monochrome nil)
-  :hook
-  (dired-mode . all-the-icons-dired-mode))
+;; (use-package diredfl
+;;   :config
+;;   (diredfl-global-mode))
 
-(use-package all-the-icons-ibuffer
-  :after all-the-icons
-  :hook
-  (ibuffer-mode . all-the-icons-ibuffer-mode))
-
-(use-package diredfl
-  :config
-  (diredfl-global-mode))
-
-(use-package doom-modeline
-  :init
-  (setq doom-modeline-height 40)
-  (setq doom-modeline-vcs-max-length 25)
-  (setq doom-modeline-buffer-file-name-style "file-name")
-  :config
-  (doom-modeline-mode 1))
+;; (use-package doom-modeline
+;;   :init
+;;   (setq doom-modeline-height 40)
+;;   (setq doom-modeline-vcs-max-length 25)
+;;   (setq doom-modeline-buffer-file-name-style "file-name")
+;;   :config
+;;   (doom-modeline-mode 1))
 
 (use-package evil
-  ;; :hook
-  ;; (prog-mode . turn-on-evil-mode)
-  ;; (org-mode  . turn-on-evil-mode)
-  ;; (conf-mode . turn-on-evil-mode)
-  ;; (yaml-mode . turn-on-evil-mode)
-  )
+  :hook
+  (prog-mode . turn-on-evil-mode)
+  (org-mode  . turn-on-evil-mode)
+  (conf-mode . turn-on-evil-mode)
+  (yaml-mode . turn-on-evil-mode))
 
 (use-package evil-escape
   :after evil
@@ -150,10 +154,10 @@
 
 (use-package org)
 
-(use-package org-bullets
-  :after org
-  :hook
-  (org-mode . org-bullets-mode))
+;; (use-package org-bullets
+;;   :after org
+;;   :hook
+;;   (org-mode . org-bullets-mode))
 
 (use-package ibuffer
   :config
