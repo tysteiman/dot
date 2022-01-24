@@ -24,14 +24,14 @@
 (use-package ivy
   :config (ivy-mode 1))
 
-;; (use-package ivy-rich
-;;   :after ivy
-;;   :init
-;;   (ivy-rich-mode 1))
+(use-package ivy-rich
+  :after ivy
+  :init
+  (ivy-rich-mode 1))
 
-;; (use-package counsel
-;;   :bind (("M-x"   . counsel-M-x)
-;;          ("C-x b" . counsel-switch-buffer)))
+(use-package counsel
+  :bind (("M-x"   . counsel-M-x)
+         ("C-x b" . counsel-switch-buffer)))
 
 (use-package dockerfile-mode)
 
@@ -61,42 +61,44 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-;; (use-package which-key
-;;   :init
-;;   (which-key-mode)
-;;   :diminish which-key-mode
-;;   :config
-;;   (setq which-key-idle-delay 1))
+(use-package which-key
+  :init
+  (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 1))
 
 ;; (use-package eshell-git-prompt
 ;;   :config
 ;;   (eshell-git-prompt-use-theme 'multiline))
 
-;; (use-package all-the-icons)
-;; 
-;; (use-package all-the-icons-dired
-;;   :after all-the-icons
-;;   :init
-;;   (setq all-the-icons-dired-monochrome nil)
-;;   :hook
-;;   (dired-mode . all-the-icons-dired-mode))
-;; 
-;; (use-package all-the-icons-ibuffer
-;;   :after all-the-icons
-;;   :hook
-;;   (ibuffer-mode . all-the-icons-ibuffer-mode))
+(use-package all-the-icons)
 
-;; (use-package diredfl
-;;   :config
-;;   (diredfl-global-mode))
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :init
+  (setq all-the-icons-dired-monochrome nil)
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
 
-;; (use-package doom-modeline
-;;   :init
-;;   (setq doom-modeline-height 40)
-;;   (setq doom-modeline-vcs-max-length 25)
-;;   (setq doom-modeline-buffer-file-name-style "file-name")
-;;   :config
-;;   (doom-modeline-mode 1))
+(use-package all-the-icons-ibuffer
+  :after all-the-icons
+  :hook
+  (ibuffer-mode . all-the-icons-ibuffer-mode))
+
+(use-package diredfl
+  :config
+  (diredfl-global-mode))
+
+(use-package doom-modeline
+  :init
+  (setq doom-modeline-height 40)
+  (setq doom-modeline-vcs-max-length 25)
+  (setq doom-modeline-buffer-file-name-style "file-name")
+  :config
+  (doom-modeline-mode 1))
+
+(use-package doom-themes)
 
 (use-package evil
   :hook
@@ -138,6 +140,8 @@
 
 (use-package emmet-mode)
 
+(use-package php-mode)
+
 (use-package web-mode
   :after emmet-mode
   :config
@@ -151,10 +155,10 @@
 
 (use-package org)
 
-;; (use-package org-bullets
-;;   :after org
-;;   :hook
-;;   (org-mode . org-bullets-mode))
+(use-package org-bullets
+  :after org
+  :hook
+  (org-mode . org-bullets-mode))
 
 (use-package ibuffer
   :config

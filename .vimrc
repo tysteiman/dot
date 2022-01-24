@@ -1,22 +1,22 @@
-set nocompatible              " be iMproved, required"
-filetype off                  " required"
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'mattn/emmet-vim'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'mxw/vim-jsx'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'neoclide/vim-jsx-improve'
-Plugin 'jlanzarotta/bufexplorer'
+" set nocompatible              " be iMproved, required"
+" filetype off                  " required"
+" 
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" 
+" Plugin 'VundleVim/Vundle.vim'
+" 
+" Plugin 'mattn/emmet-vim'
+" Plugin 'ntpeters/vim-better-whitespace'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'neoclide/vim-jsx-improve'
+" Plugin 'jlanzarotta/bufexplorer'
 " Plugin 'morhetz/gruvbox'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
+" 
+" call vundle#end()            " required
+" filetype plugin indent on    " required
 
 set foldlevelstart=0
 syntax on
@@ -39,7 +39,7 @@ set background=dark
 set nonumber
 set shell=/bin/bash
 
-color slate
+color desert
 
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
@@ -74,4 +74,4 @@ fu! SetCustomTabWidth4()
 endfu
 
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|vendor\|build\|www\|platforms\|tmp'
-let g:ctrlp_custom_ignore = 'node_modules'
+" let g:ctrlp_custom_ignore = 'node_modules'

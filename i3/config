@@ -183,11 +183,11 @@ bindsym $mod+r mode "resize"
 # exec_always --no-startup-id ~/dot/polybar/launch.sh
 
 gaps outer 0
-gaps inner 30
+gaps inner 50
 
 new_window 1pixel
 
-default_border pixel 5
+default_border pixel 10
 
 bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
