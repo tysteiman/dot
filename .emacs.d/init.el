@@ -12,7 +12,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 10)
+(fringe-mode 0)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -52,6 +52,11 @@
 ;; LOAD PACKAGES
 (my/load-config-file "defuns")
 (my/load-config-file "packages")
+
+;; stuff to do only when gui is available i.e. graphical-related packages
+(when (display-graphic-p)
+  (my/load-config-file "gui-packages"))
+
 (my/load-config-file "keys")
 
 ;; random puts

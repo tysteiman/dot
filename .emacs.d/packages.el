@@ -24,108 +24,54 @@
 (use-package ivy
   :config (ivy-mode 1))
 
-(use-package ivy-rich
-  :after ivy
-  :init
-  (ivy-rich-mode 1))
-
-(use-package counsel
-  :bind (("M-x"   . counsel-M-x)
-         ("C-x b" . counsel-switch-buffer)))
-
 (use-package dockerfile-mode)
 
 (use-package magit
-  :bind
-  (("C-c m s" . magit-status)
-   ("C-M-i"   . magit-status)
-   ("C-c m b" . magit-blame)))
-
-;; (use-package diff-hl
-;;   :after magit
-;;   :config
-;;   (global-diff-hl-mode)
-;;   (diff-hl-margin-mode)
-;;   :hook
-;;   (magit-post-refresh . diff-hl-magit-post-refresh))
+  :bind (("C-c m s" . magit-status)
+         ("C-M-i"   . magit-status)
+         ("C-c m b" . magit-blame)))
 
 (use-package yaml-mode)
-
-;; (use-package gruvbox-theme
-;;   ;; :config (load-theme 'gruvbox-dark-hard t)
-;;   )
-
-;; (use-package xresources-theme
-;;   :config (load-theme 'xresources t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package which-key
-  :init
-  (which-key-mode)
-  :diminish which-key-mode
-  :config
-  (setq which-key-idle-delay 1))
-
-;; (use-package eshell-git-prompt
-;;   :config
-;;   (eshell-git-prompt-use-theme 'multiline))
-
-(use-package all-the-icons)
-
-(use-package all-the-icons-dired
-  :after all-the-icons
-  :init
-  (setq all-the-icons-dired-monochrome nil)
-  :hook
-  (dired-mode . all-the-icons-dired-mode))
-
-(use-package all-the-icons-ibuffer
-  :after all-the-icons
-  :hook
-  (ibuffer-mode . all-the-icons-ibuffer-mode))
-
-(use-package diredfl
-  :config
-  (diredfl-global-mode))
-
 (use-package doom-modeline
   :init
-  (setq doom-modeline-height 40)
+  (setq doom-modeline-height 50)
   (setq doom-modeline-vcs-max-length 25)
   (setq doom-modeline-buffer-file-name-style "file-name")
-  :config
-  (doom-modeline-mode 1))
+  :config (doom-modeline-mode 1))
 
-(use-package doom-themes)
+(use-package doom-themes
+  :config (load-theme 'doom-one t)
+  )
+
+(use-package gotham-theme
+  ;; :config (load-theme 'gotham t)
+  )
 
 (use-package evil
   :hook
-  (prog-mode             . turn-on-evil-mode)
-  (org-mode              . turn-on-evil-mode)
-  (conf-mode             . turn-on-evil-mode)
-  (yaml-mode             . turn-on-evil-mode)
-  (git-commit-setup      . turn-on-evil-mode))
+  (prog-mode        . turn-on-evil-mode)
+  (org-mode         . turn-on-evil-mode)
+  (conf-mode        . turn-on-evil-mode)
+  (yaml-mode        . turn-on-evil-mode)
+  (git-commit-setup . turn-on-evil-mode))
 
 (use-package evil-escape
   :after evil
-  :init
-  (setq-default evil-escape-key-sequence "jk")
-  :config
-  (evil-escape-mode))
+  :init (setq-default evil-escape-key-sequence "jk")
+  :config (evil-escape-mode))
 
 (use-package company
-  :config
-  (global-company-mode))
+  :config (global-company-mode))
 
 (use-package swiper
-  :bind
-  (("C-M-s" . swiper)))
+  :bind (("C-M-s" . swiper)))
 
 (use-package window-numbering
-  :config
-  (window-numbering-mode 1))
+  :config (window-numbering-mode 1))
 
 (use-package rjsx-mode
   :init
@@ -157,8 +103,7 @@
 
 (use-package org-bullets
   :after org
-  :hook
-  (org-mode . org-bullets-mode))
+  :hook (org-mode . org-bullets-mode))
 
 (use-package ibuffer
   :config
@@ -166,9 +111,11 @@
   (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
 
 (use-package vterm
-  :bind
-  (("C-c e v" . vterm)))
+  :bind (("C-c e v" . vterm)))
 
 (use-package markdown-mode)
 
 (use-package vimrc-mode)
+
+(use-package hide-mode-line
+  :bind (("C-c t m" . hide-mode-line-mode)))

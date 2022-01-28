@@ -1,0 +1,18 @@
+[user]
+    name = Tyler Steiman
+    email = tsteiman@switchboxinc.com
+[core]
+    editor = "vim"
+    excludesfile = "~/.gitignore"
+[alias]
+    co = checkout
+    st = status
+    br = branch
+    ft = fetch
+    ps = push
+    ct = commit
+    pl = pull
+    df = diff
+    lg = log --graph
+[pull]
+    rebase = false
