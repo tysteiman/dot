@@ -2,8 +2,8 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(set-frame-parameter (selected-frame) 'alpha '(70 . 60))
-(add-to-list 'default-frame-alist '(alpha . (70 . 60)))
+(set-frame-parameter (selected-frame) 'alpha '(80 . 60))
+(add-to-list 'default-frame-alist '(alpha . (80 . 60)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -12,7 +12,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 0)
+(fringe-mode 10)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -35,8 +35,8 @@
 
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
-                            ;; (setq display-line-numbers-type 'relative)
-                            ;; (display-line-numbers-mode 1)
+                            (when (display-graphic-p)
+                              (hl-line-mode 1))
                             ))
 
 (add-hook 'org-mode-hook (lambda ()

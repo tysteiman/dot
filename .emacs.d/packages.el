@@ -119,3 +119,6 @@
 
 (use-package hide-mode-line
   :bind (("C-c t m" . hide-mode-line-mode)))
+
+(use-package pulseaudio-control
+  :config (pulseaudio-control-default-keybindings))
