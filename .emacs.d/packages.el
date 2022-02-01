@@ -41,10 +41,11 @@
   (setq doom-modeline-height 50)
   (setq doom-modeline-vcs-max-length 25)
   (setq doom-modeline-buffer-file-name-style "file-name")
-  :config (doom-modeline-mode 1))
+  :config (doom-modeline-mode 1)
+  )
 
 (use-package doom-themes
-  :config (load-theme 'doom-one t)
+  :config (load-theme 'doom-dracula t)
   )
 
 (use-package gotham-theme
@@ -100,10 +101,6 @@
 (use-package rg)
 
 (use-package org)
-
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode))
 
 (use-package ibuffer
   :config

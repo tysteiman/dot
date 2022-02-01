@@ -37,6 +37,10 @@
   :config
   (eshell-git-prompt-use-theme 'multiline))
 
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
+
 ;; (use-package diff-hl
 ;;   :after magit
 ;;   :config
