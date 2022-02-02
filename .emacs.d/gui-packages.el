@@ -23,14 +23,14 @@
   :config
   (diredfl-global-mode))
 
-(use-package ivy-rich
-  :after ivy
-  :init
-  (ivy-rich-mode 1))
-
+;; (use-package ivy-rich
+;;   :after ivy
+;;   :init
+;;   (ivy-rich-mode 1))
+;;
 (use-package counsel
-  :after ivy-rich
-  :bind (("M-x"   . counsel-M-x)
+  ;; :after ivy-rich
+  :bind (;; ("M-x"   . counsel-M-x)
          ("C-x b" . counsel-switch-buffer)))
 
 (use-package eshell-git-prompt
@@ -40,6 +40,17 @@
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode))
+
+(use-package ivy-posframe
+  :init
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+  (setq ivy-posframe-height-alist '((swiper . 20)))
+  (setq ivy-posframe-width 100)
+  (setq ivy-posframe-parameters
+        '((left-fringe . 20)
+          (right-fringe . 20)))
+  :config (ivy-posframe-mode 1)
+  )
 
 ;; (use-package diff-hl
 ;;   :after magit

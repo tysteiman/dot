@@ -16,3 +16,6 @@
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
 (global-set-key (kbd "C-M-=")   'balance-windows)
+(global-set-key (kbd "C-c i i") 'package-install)
+(global-set-key (kbd "C-c i l") 'list-packages)
+(global-set-key (kbd "C-c t l") 'display-line-numbers-mode)

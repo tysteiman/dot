@@ -45,7 +45,7 @@
   )
 
 (use-package doom-themes
-  :config (load-theme 'doom-dracula t)
+  ;; :config (load-theme 'doom-solarized-dark t)
   )
 
 (use-package gotham-theme
