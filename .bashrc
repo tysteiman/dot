@@ -32,7 +32,7 @@ alias ga="git add ."
 alias gl="git log --graph"
 alias xcc="xclip -selection c"
 alias grep="grep --color"
-alias ll="ls -lAtrh"
+alias ll="ls -lA"
 alias duls="ls -A | xargs du -sh"
 alias emt="emacsclient -c -nw"
 

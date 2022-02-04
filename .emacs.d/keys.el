@@ -1,6 +1,24 @@
 ;; KEY BINDINGS
-(global-set-key (kbd "C-c f d") 'my/open-initfile)
-(global-set-key (kbd "C-c f p") 'my/open-packages)
+(global-set-key (kbd "C-c f d") (lambda ()
+                                  (interactive)
+                                  (my/open-config-file "init")))
+
+(global-set-key (kbd "C-c f p") (lambda ()
+                                  (interactive)
+                                  (my/open-config-file "packages")))
+
+(global-set-key (kbd "C-c f u") (lambda ()
+                                  (interactive)
+                                  (my/open-config-file "gui-packages")))
+
+(global-set-key (kbd "C-c f k") (lambda ()
+                                  (interactive)
+                                  (my/open-config-file "keys")))
+
+(global-set-key (kbd "C-c f n") (lambda ()
+                                  (interactive)
+                                  (my/open-config-file "defuns")))
+
 (global-set-key (kbd "C-c f i") 'imenu)
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c e s") 'eshell)
@@ -19,3 +37,9 @@
 (global-set-key (kbd "C-c i i") 'package-install)
 (global-set-key (kbd "C-c i l") 'list-packages)
 (global-set-key (kbd "C-c t l") 'display-line-numbers-mode)
+(global-set-key (kbd "C-c b r") 'rename-buffer)
+
+(global-set-key (kbd "C-c b v") (lambda ()
+                                  (interactive)
+                                  (revert-buffer nil t)
+                                  (message "Buffer reverted.")))

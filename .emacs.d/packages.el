@@ -44,14 +44,6 @@
   :config (doom-modeline-mode 1)
   )
 
-(use-package doom-themes
-  ;; :config (load-theme 'doom-solarized-dark t)
-  )
-
-(use-package gotham-theme
-  ;; :config (load-theme 'gotham t)
-  )
-
 (use-package evil
   :hook
   (prog-mode        . turn-on-evil-mode)

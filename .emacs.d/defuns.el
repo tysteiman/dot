@@ -3,16 +3,6 @@
   (interactive "sWhich config file (name) do you want to open?")
   (find-file (concat user-emacs-directory file ".el")))
 
-(defun my/open-initfile ()
-  "Open my .emacs file"
-  (interactive)
-  (my/open-config-file "init"))
-
-(defun my/open-packages ()
-  "Open my packages file"
-  (interactive)
-  (my/open-config-file "packages"))
-
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
   (let ((end (point))
