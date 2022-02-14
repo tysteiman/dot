@@ -111,3 +111,5 @@
 
 (use-package pulseaudio-control
   :config (pulseaudio-control-default-keybindings))
+
+(use-package dictionary)

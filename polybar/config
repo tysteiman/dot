@@ -19,10 +19,10 @@
 [colors]
 ; background = ${xrdb:color0:#222}
 ; background = #77222222
-background = ${xrdb:color1}
-background-alt = #444444
+background = ${xrdb:background}
+background-alt = ${xrdb:color1}
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = ${xrdb:foreground}
 ; foreground-alt = #555
 foreground-alt = #ebdbb2
 

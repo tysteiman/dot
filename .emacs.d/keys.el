@@ -37,6 +37,7 @@
 (global-set-key (kbd "C-c i i") 'package-install)
 (global-set-key (kbd "C-c i l") 'list-packages)
 (global-set-key (kbd "C-c t l") 'display-line-numbers-mode)
+(global-set-key (kbd "C-c t o") 'my/set-opacity)
 (global-set-key (kbd "C-c b r") 'rename-buffer)
 
 (global-set-key (kbd "C-c b v") (lambda ()

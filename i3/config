@@ -181,6 +181,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # exec_always --no-startup-id ~/dot/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/grayblocks/scripts/pywal.sh ~/dot/wallpaper/canvas.jpg
+# exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
 
 gaps outer 0
 gaps inner 50

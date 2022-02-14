@@ -1,9 +1,9 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 130)
 
-(set-frame-parameter (selected-frame) 'alpha '(80 . 60))
-(add-to-list 'default-frame-alist '(alpha . (80 . 60)))
+(set-frame-parameter (selected-frame) 'alpha '(85 . 60))
+(add-to-list 'default-frame-alist '(alpha . (85 . 60)))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)

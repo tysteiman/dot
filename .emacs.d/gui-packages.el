@@ -1,5 +1,5 @@
 (use-package doom-themes
-  :config (load-theme 'doom-solarized-light t)
+  :config (load-theme 'doom-one t)
   )
 
 (use-package which-key
