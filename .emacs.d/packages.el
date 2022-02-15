@@ -31,7 +31,8 @@
          ("C-M-i"   . magit-status)
          ("C-c m b" . magit-blame)))
 
-(use-package yaml-mode)
+(use-package yaml-mode
+  :hook (yaml-mode . my/configure-prog-mode))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))

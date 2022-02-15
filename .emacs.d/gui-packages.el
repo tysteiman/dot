@@ -1,5 +1,5 @@
 (use-package doom-themes
-  :config (load-theme 'doom-one t)
+  :config (load-theme 'doom-dracula t)
   )
 
 (use-package which-key

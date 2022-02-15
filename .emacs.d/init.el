@@ -33,15 +33,6 @@
 
 (column-number-mode t)
 
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq show-trailing-whitespace t)
-                            (when (display-graphic-p)
-                              (hl-line-mode 1))
-                            ))
-
-(add-hook 'org-mode-hook (lambda ()
-                           (toggle-truncate-lines)))
-
 (defun my/load-config-file (file)
   "Load configuration .el file"
   (let ((full-path (concat user-emacs-directory file ".el")))
@@ -58,6 +49,12 @@
   (my/load-config-file "gui-packages"))
 
 (my/load-config-file "keys")
+
+(add-hook 'prog-mode-hook 'my/configure-prog-mode)
+
+(add-hook 'org-mode-hook (lambda ()
+                           (toggle-truncate-lines)))
+
 
 ;; random puts
 (put 'upcase-region 'disabled nil)

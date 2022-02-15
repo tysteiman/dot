@@ -3,6 +3,12 @@
   (interactive "sWhich config file (name) do you want to open?")
   (find-file (concat user-emacs-directory file ".el")))
 
+(defun my/configure-prog-mode ()
+  (interactive)
+  (setq show-trailing-whitespace t)
+  (when (display-graphic-p)
+    (hl-line-mode 1)))
+
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
   (let ((end (point))
