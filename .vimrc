@@ -13,6 +13,7 @@ set tabstop=4
 set softtabstop=4
 set termguicolors
 set number
+set cursorline
 
 inoremap jk <esc>
 
@@ -22,6 +23,9 @@ nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>q :bnext<cr>
 nnoremap <leader>a :bprevious<cr>
+nnoremap <leader>vv :e $MYVIMRC<cr>
+nnoremap <leader>vb :e ~/.bashrc<cr>
+nnoremap <leader>vt :e ~/.tmux.conf<cr>
 
 call plug#begin()
 
@@ -32,6 +36,12 @@ call plug#begin()
   Plug 'joshdick/onedark.vim'
 
   Plug 'vim-airline/vim-airline'
+
+  Plug 'airblade/vim-gitgutter'
+
+  Plug 'tpope/vim-fugitive'
+
+  Plug 'mattn/emmet-vim'
 
 call plug#end()
 
