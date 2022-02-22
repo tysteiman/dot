@@ -19,7 +19,7 @@
 (setq vc-follow-symlinks t)
 (setq tags-revert-without-query t)
 (setq ruby-insert-encoding-magic-comment nil)
-(setq inhibit-startup-message t)
+;; (setq inhibit-startup-message t)
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq browse-url-firefox-program "chromium")

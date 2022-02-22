@@ -114,3 +114,7 @@
   :config (pulseaudio-control-default-keybindings))
 
 (use-package dictionary)
+
+(use-package doom-themes
+  :config (load-theme 'doom-tokyo-night t)
+  )

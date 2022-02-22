@@ -1,77 +1,43 @@
-" set nocompatible              " be iMproved, required"
-" filetype off                  " required"
-" 
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" 
-" Plugin 'VundleVim/Vundle.vim'
-" 
-" Plugin 'mattn/emmet-vim'
-" Plugin 'ntpeters/vim-better-whitespace'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'ctrlpvim/ctrlp.vim'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'neoclide/vim-jsx-improve'
-" Plugin 'jlanzarotta/bufexplorer'
-" Plugin 'morhetz/gruvbox'
-" 
-" call vundle#end()            " required
-" filetype plugin indent on    " required
-
-set foldlevelstart=0
 syntax on
-set hlsearch
-set foldmethod=marker
-set ai
-set ignorecase
-set smartcase
+
+set nonumber
+set noswapfile
+set nowrap
 set incsearch
-set expandtab
+set hlsearch
+set ignorecase
 set smarttab
+set laststatus=2
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set lbr
-set nowrap
-set noswapfile
-set laststatus=2
-set background=dark
-set nonumber
-set shell=/bin/bash
+set termguicolors
+set number
 
-color desert
+inoremap jk <esc>
 
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
-nnoremap <leader>w :StripWhitespace<cr>
-nnoremap <leader>bb :b#<cr>
 nnoremap <leader>q :bnext<cr>
 nnoremap <leader>a :bprevious<cr>
 
-inoremap jk <esc>
+call plug#begin()
 
-"" Open some files with only 2 tabs
-autocmd BufReadPost,BufNewFile *.py execute "call SetCustomTabWidth()"
-autocmd BufReadPost,BufNewFile *.rb execute "call SetCustomTabWidth()"
-autocmd BufReadPost,BufNewFile *.rake execute "call SetCustomTabWidth()"
-autocmd BufReadPost,BufNewFile *.yml execute "call SetCustomTabWidth()"
-autocmd BufReadPost,BufNewFile *.erb execute "call SetCustomTabWidth4()"
-autocmd BufReadPost,BufNewFile Gemfile execute "call SetCustomTabWidth()"
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
-"" Generic function for converting tab spaces to only 2 instead of default 4.
-fu! SetCustomTabWidth()
-    setlocal shiftwidth=2
-    setlocal tabstop=2
-    setlocal softtabstop=2
-endfu
+  Plug 'sheerun/vim-polyglot'
 
-fu! SetCustomTabWidth4()
-    setlocal shiftwidth=4
-    setlocal tabstop=4
-    setlocal softtabstop=4
-endfu
+  Plug 'joshdick/onedark.vim'
 
-" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git\|vendor\|build\|www\|platforms\|tmp'
-" let g:ctrlp_custom_ignore = 'node_modules'
+  Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+nnoremap <c-p> :FZF<cr>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+color onedark
