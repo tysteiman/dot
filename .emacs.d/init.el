@@ -1,10 +1,5 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(set-face-attribute 'default nil :height 130)
-
-(set-frame-parameter (selected-frame) 'alpha '(85 . 60))
-(add-to-list 'default-frame-alist '(alpha . (85 . 60)))
-
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (column-number-mode t)
@@ -12,7 +7,6 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(fringe-mode 10)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -40,13 +34,12 @@
         (load-file full-path)
       (message "File [%s] does not exist." full-path))))
 
-;; LOAD PACKAGES
+
 (my/load-config-file "defuns")
 (my/load-config-file "packages")
 
-;; stuff to do only when gui is available i.e. graphical-related packages
 (when (display-graphic-p)
-  (my/load-config-file "gui-packages"))
+  (my/load-config-file "gui"))
 
 (my/load-config-file "keys")
 
@@ -54,7 +47,6 @@
 
 (add-hook 'org-mode-hook (lambda ()
                            (toggle-truncate-lines)))
-
 
 ;; random puts
 (put 'upcase-region 'disabled nil)

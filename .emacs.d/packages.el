@@ -37,6 +37,9 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package doom-themes
+  :config (load-theme 'doom-one t))
+
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 50)
@@ -115,6 +118,7 @@
 
 (use-package dictionary)
 
-(use-package doom-themes
-  :config (load-theme 'doom-tokyo-night t)
+(use-package diff-hl
+  :hook
+  (magit-post-refresh . diff-hl-magit-post-refresh)
   )

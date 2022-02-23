@@ -7,6 +7,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smarttab
+set expandtab
 set laststatus=2
 set shiftwidth=4
 set tabstop=4
@@ -29,6 +30,7 @@ nnoremap <leader>vt :e ~/.tmux.conf<cr>
 
 call plug#begin()
 
+  Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
   Plug 'sheerun/vim-polyglot'
@@ -45,17 +47,29 @@ call plug#begin()
 
   Plug 'ntpeters/vim-better-whitespace'
 
-  " Plug 'junegunn/goyo.vim'
-
-  " Plug 'prettier/vim-prettier'
-
-  " Plug 'sotte/presenting.vim'
-
 call plug#end()
 
-nnoremap <c-p> :FZF<cr>
+nnoremap <c-p> :Files<cr>
+nnoremap <leader>fg :Rg<cr>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
 color onedark
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' :'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
