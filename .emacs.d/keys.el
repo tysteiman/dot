@@ -11,6 +11,10 @@
                                   (interactive)
                                   (my/open-config-file "gui-packages")))
 
+(global-set-key (kbd "C-c f g") (lambda ()
+                                  (interactive)
+                                  (my/open-config-file "gui")))
+
 (global-set-key (kbd "C-c f k") (lambda ()
                                   (interactive)
                                   (my/open-config-file "keys")))
