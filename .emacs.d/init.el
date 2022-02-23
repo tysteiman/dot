@@ -22,7 +22,7 @@
 ;; (setq inhibit-startup-message t)
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
-(setq browse-url-firefox-program "chromium")
+;; (setq browse-url-firefox-program "chromium")
 (setq create-lockfiles nil)
 
 (setq-default truncate-lines t)

@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/tyler/proj/api/api-rails/db/migrate'
+let g:netrw_dirhist_4='/home/tyler/proj/api/api-rails/db'
+let g:netrw_dirhist_3='/home/tyler/proj/api/api-rails'
+let g:netrw_dirhist_2='/home/tyler/proj/muc/muc-ui'
+let g:netrw_dirhist_1='/home/tyler/proj/muc'
