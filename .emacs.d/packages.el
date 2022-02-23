@@ -38,7 +38,7 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package doom-themes
-  :config (load-theme 'doom-one t))
+  :config (load-theme 'doom-tokyo-night t))
 
 (use-package doom-modeline
   :init
@@ -122,3 +122,14 @@
   :hook
   (magit-post-refresh . diff-hl-magit-post-refresh)
   )
+
+(use-package dashboard
+  :init
+  (setq initial-buffer-choice (lambda ()
+                                (get-buffer "*dashboard*")))
+
+  (setq dashboard-items '((recents . 5)
+                          (projects . 5)))
+
+  :config
+  (dashboard-setup-startup-hook))
