@@ -208,7 +208,7 @@
 #+begin_src elisp
 
   (use-package doom-themes
-    :config (load-theme 'doom-one t))
+    :config (load-theme 'doom-vibrant t))
 
 #+end_src
 
