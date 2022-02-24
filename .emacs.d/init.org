@@ -424,7 +424,7 @@
 
 #+end_src
 
-* Hook
+* Hooks
 
 #+begin_src elisp
 
@@ -439,8 +439,9 @@
 
 #+begin_src elisp
 
-  (put 'upcase-region 'disabled nil) (put 'downcase-region 'disabled
-                                          nil) (put 'narrow-to-region 'disabled nil) (put 'erase-buffer
-                                          'disabled nil)
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil)
+  (put 'erase-buffer 'disabled nil)
 
 #+end_src
