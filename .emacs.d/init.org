@@ -1,3 +1,5 @@
+#+TITLE: Emacs Configuration
+
 * Set Custom File
 
 #+begin_src elisp
@@ -231,6 +233,8 @@
     )
 
   (use-package company
+    :init
+    (setq company-dabbrev-downcase nil)
     :config (global-company-mode))
 
   (use-package swiper
@@ -255,8 +259,8 @@
     (setq initial-buffer-choice (lambda ()
                                   (get-buffer "*dashboard*")))
 
-    (setq dashboard-items '((recents . 10)
-                            (projects . 10)))
+    (setq dashboard-items '((recents . 20)
+                            (projects . 20)))
 
     :config
     (dashboard-setup-startup-hook))
