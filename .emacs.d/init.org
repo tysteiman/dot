@@ -164,69 +164,14 @@
 #+end_src
 
 ** Install packages
-*** Global
+*** Languages & Coding
 
 #+begin_src elisp
 
-  (use-package projectile
-    :config
-    (projectile-mode 1)
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-
-  (use-package ivy
-    :config (ivy-mode 1))
-
   (use-package dockerfile-mode)
-
-  (use-package magit
-    :bind (("C-c m s" . magit-status)
-           ("C-M-i"   . magit-status)
-           ("C-c m b" . magit-blame)))
 
   (use-package yaml-mode
     :hook (yaml-mode . my/configure-prog-mode))
-
-  (use-package rainbow-delimiters
-    :hook (prog-mode . rainbow-delimiters-mode))
-
-  (use-package doom-themes
-    :config (load-theme 'doom-one t))
-
-  (use-package doom-modeline
-    :init
-    (setq doom-modeline-height 50)
-    (setq doom-modeline-vcs-max-length 25)
-    (setq doom-modeline-buffer-file-name-style "file-name")
-    :config (doom-modeline-mode 1)
-    )
-
-  (use-package evil
-    :hook
-    (prog-mode        . turn-on-evil-mode)
-    (org-mode         . turn-on-evil-mode)
-    (conf-mode        . turn-on-evil-mode)
-    (yaml-mode        . turn-on-evil-mode)
-    (git-commit-setup . turn-on-evil-mode))
-
-  (use-package evil-org
-    :after org
-    :hook (org-mode . evil-org-mode)
-    :config
-    (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
-
-  (use-package evil-escape
-    :after evil
-    :init (setq-default evil-escape-key-sequence "jk")
-    :config (evil-escape-mode))
-
-  (use-package company
-    :config (global-company-mode))
-
-  (use-package swiper
-    :bind (("C-M-s" . swiper)))
-
-  (use-package window-numbering
-    :config (window-numbering-mode 1))
 
   (use-package rjsx-mode
     :init
@@ -250,36 +195,52 @@
     (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
     (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
-  (use-package sudo-edit)
-
-  (use-package rg)
-
-  (use-package org
-    :init
-    (setq org-startup-folded t)
-    :config
-    (require 'org-tempo)
-    (add-to-list 'org-structure-template-alist '("el" . "src elisp")))
-
-  (use-package ibuffer
-    :config
-    (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
-    (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
-
-  (use-package vterm
-    :bind (("C-c e v" . vterm)))
-
   (use-package markdown-mode)
 
   (use-package vimrc-mode)
 
+  (use-package slim-mode)
+
+#+end_src
+
+*** Theme
+
+#+begin_src elisp
+
+  (use-package doom-themes
+    :config (load-theme 'doom-vibrant t))
+
+#+end_src
+
+*** UI
+
+#+begin_src elisp
+
+  (use-package ivy
+    :config (ivy-mode 1))
+
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
+
+  (use-package doom-modeline
+    :init
+    (setq doom-modeline-height 50)
+    (setq doom-modeline-vcs-max-length 25)
+    (setq doom-modeline-buffer-file-name-style "file-name")
+    :config (doom-modeline-mode 1)
+    )
+
+  (use-package company
+    :config (global-company-mode))
+
+  (use-package swiper
+    :bind (("C-M-s" . swiper)))
+
+  (use-package window-numbering
+    :config (window-numbering-mode 1))
+
   (use-package hide-mode-line
     :bind (("C-c t m" . hide-mode-line-mode)))
-
-  (use-package pulseaudio-control
-    :config (pulseaudio-control-default-keybindings))
-
-  (use-package dictionary)
 
   (use-package diff-hl
     :hook
@@ -319,6 +280,73 @@
   (use-package diredfl
     :config
     (diredfl-global-mode))
+
+
+#+end_src
+
+*** Evil
+
+#+begin_src elisp
+
+  (use-package evil
+    :hook
+    (prog-mode        . turn-on-evil-mode)
+    (org-mode         . turn-on-evil-mode)
+    (conf-mode        . turn-on-evil-mode)
+    (yaml-mode        . turn-on-evil-mode)
+    (git-commit-setup . turn-on-evil-mode))
+
+  (use-package evil-org
+    :after org
+    :hook (org-mode . evil-org-mode)
+    :config
+    (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
+
+  (use-package evil-escape
+    :after evil
+    :init (setq-default evil-escape-key-sequence "jk")
+    :config (evil-escape-mode))
+
+#+end_src
+
+*** Misc Emacs Packages
+
+#+begin_src elisp
+
+  (use-package projectile
+    :config
+    (projectile-mode 1)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+  (use-package magit
+    :bind (("C-c m s" . magit-status)
+           ("C-M-i"   . magit-status)
+           ("C-c m b" . magit-blame)))
+
+  (use-package sudo-edit)
+
+  (use-package rg)
+
+  (use-package org
+    :init
+    (setq org-startup-folded t)
+    :config
+    (require 'org-tempo)
+    (add-to-list 'org-structure-template-alist '("el" . "src elisp")))
+
+  (use-package ibuffer
+    :config
+    (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
+    (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
+
+  (use-package vterm
+    :bind (("C-c e v" . vterm)))
+
+  (use-package pulseaudio-control
+    :config (pulseaudio-control-default-keybindings))
+
+  (use-package dictionary)
+
 
 #+end_src
 
