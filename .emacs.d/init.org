@@ -243,6 +243,7 @@
     :bind (("C-c t m" . hide-mode-line-mode)))
 
   (use-package diff-hl
+    :after magit
     :hook
     (magit-post-refresh . diff-hl-magit-post-refresh)
     )
