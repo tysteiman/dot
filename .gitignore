@@ -11,3 +11,4 @@ tags
 /.emacs.d/custom.el
 /.emacs.d/.cache/
 /.emacs.d/games/
+/.emacs.d/init-tangle.el
