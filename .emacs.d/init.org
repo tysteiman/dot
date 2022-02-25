@@ -167,6 +167,7 @@
 
 ** Install packages
 *** Languages & Coding
+**** Language Support
 
 #+begin_src elisp
 
@@ -186,8 +187,6 @@
     (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
     (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
 
-  (use-package emmet-mode)
-
   (use-package php-mode)
 
   (use-package web-mode
@@ -202,6 +201,19 @@
   (use-package vimrc-mode)
 
   (use-package slim-mode)
+
+#+end_src
+
+**** Coding Tools & Helpers
+
+#+begin_src elisp
+
+  (use-package company
+    :init
+    (setq company-dabbrev-downcase nil)
+    :config (global-company-mode))
+
+  (use-package emmet-mode)
 
 #+end_src
 
@@ -232,11 +244,6 @@
     :config (doom-modeline-mode 1)
     )
 
-  (use-package company
-    :init
-    (setq company-dabbrev-downcase nil)
-    :config (global-company-mode))
-
   (use-package swiper
     :bind (("C-M-s" . swiper)))
 
@@ -249,8 +256,7 @@
   (use-package diff-hl
     :after magit
     :hook
-    (magit-post-refresh . diff-hl-magit-post-refresh)
-    )
+    (magit-post-refresh . diff-hl-magit-post-refresh))
 
   (use-package dashboard
     :init
