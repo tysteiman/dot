@@ -45,6 +45,15 @@
 
 #+end_src
 
+* GUI Face Attributes
+
+#+begin_src elisp
+
+  (when (display-graphic-p)
+    (set-face-attribute 'default nil :height 130))
+
+#+end_src
+
 * Defuns
 
 #+begin_src elisp
@@ -55,11 +64,6 @@
       (if (file-exists-p full-path)
           (load-file full-path)
         (message "File [%s] does not exist." full-path))))
-
-  ;; DEFUNS
-  (defun my/open-config-file (file)
-    (interactive "sWhich config file (name) do you want to open?")
-    (find-file (concat user-emacs-directory file ".el")))
 
   (defun my/configure-prog-mode ()
     (interactive)
@@ -222,7 +226,7 @@
 #+begin_src elisp
 
   (use-package doom-themes
-    :config (load-theme 'doom-monokai-classic t))
+    :config (load-theme 'doom-one t))
 
 #+end_src
 
@@ -388,17 +392,15 @@
       :init
       (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
       (setq ivy-posframe-height-alist '((swiper . 20)))
-      (setq ivy-posframe-width 100)
+      (setq ivy-posframe-width 150)
       (setq ivy-posframe-parameters
             '((left-fringe . 20)
               (right-fringe . 20)))
-      :config (ivy-posframe-mode 1)
-      )
+      :config (ivy-posframe-mode 1))
 
     (use-package eshell-git-prompt
       :config
-      (eshell-git-prompt-use-theme 'multiline))
-    )
+      (eshell-git-prompt-use-theme 'multiline)))
 
 #+end_src
 
