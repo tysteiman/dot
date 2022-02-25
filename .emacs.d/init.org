@@ -144,12 +144,12 @@
 
 #+end_src
 
-* Install packages
-** Set up use package
+* Install Packages
+** Package Setup
+*** Add MELPA archive
 
 #+begin_src elisp
 
-  ;; INSTALL PACKAGES (use-package declarations)
   (require 'package)
 
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -159,7 +159,14 @@
   (unless package-archive-contents
     (package-refresh-contents))
 
-  ;; install use-package -- the only package we install 'manually'
+#+end_src
+
+*** Install use-package
+
+The only package we install directly from MELPA ourselves is use-package
+
+#+begin_src elisp
+  
   (unless (package-installed-p 'use-package)
     (package-install 'use-package))
 
@@ -347,7 +354,8 @@
     (setq org-startup-folded t)
     :config
     (require 'org-tempo)
-    (add-to-list 'org-structure-template-alist '("el" . "src elisp")))
+    (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
+    :hook (org-mode . org-indent-mode))
 
   (use-package ibuffer
     :config
