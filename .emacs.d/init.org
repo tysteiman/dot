@@ -396,15 +396,15 @@ The only package we install directly from MELPA ourselves is use-package
       :after org
       :hook (org-mode . org-bullets-mode))
 
-    (use-package ivy-posframe
-      :init
-      (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-      (setq ivy-posframe-height-alist '((swiper . 20)))
-      (setq ivy-posframe-width 150)
-      (setq ivy-posframe-parameters
-            '((left-fringe . 20)
-              (right-fringe . 20)))
-      :config (ivy-posframe-mode 1))
+    ;; (use-package ivy-posframe
+    ;;   :init
+    ;;   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+    ;;   (setq ivy-posframe-height-alist '((swiper . 20)))
+    ;;   (setq ivy-posframe-width 150)
+    ;;   (setq ivy-posframe-parameters
+    ;;         '((left-fringe . 20)
+    ;;           (right-fringe . 20)))
+    ;;   :config (ivy-posframe-mode 1))
 
     (use-package eshell-git-prompt
       :config
@@ -416,6 +416,9 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+begin_src elisp
 
+  (global-set-key (kbd "C-c f o") (lambda ()
+                                    (interactive)
+                                    (find-file (concat user-emacs-directory "init.org"))))
   (global-set-key (kbd "C-c f i") 'imenu)
   (global-set-key (kbd "C-c t r") 'my/rails-tags)
   (global-set-key (kbd "C-c e s") 'eshell)
