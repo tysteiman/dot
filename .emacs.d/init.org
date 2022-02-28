@@ -88,6 +88,10 @@
 
 ** Projects Ctags
 
+Use projectile to generate ctags in known project structures like rails, create-react-app, etc...
+
+*** Main Functionality/defun
+
 #+begin_src elisp
 
   (defun my/project-tags (dir &optional excludes)
@@ -107,6 +111,12 @@
                 (visit-tags-table tags-file))
             (message "Directory [%s] does not exist." dir))
         (message "Not in a project."))))
+
+#+end_src
+
+*** Languages/Frameworks
+
+#+begin_src elisp
 
   (defun my/rails-tags ()
     "Generate etags for rails projects (src)"
