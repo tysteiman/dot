@@ -271,7 +271,7 @@ The only package we install directly from MELPA ourselves is use-package
 #+begin_src elisp
 
   (use-package doom-themes
-    :config (load-theme 'doom-one t))
+    :config (load-theme 'doom-one-light t))
 
 #+end_src
 
@@ -433,7 +433,6 @@ The only package we install directly from MELPA ourselves is use-package
 
   (use-package dictionary)
 
-
 #+end_src
 
 *** GUI-Only Packages
@@ -467,7 +466,7 @@ The only package we install directly from MELPA ourselves is use-package
 
     (use-package eshell-git-prompt
       :config
-      (eshell-git-prompt-use-theme 'multiline)))
+      (eshell-git-prompt-use-theme 'powerline)))
 
 #+end_src
 

@@ -13,7 +13,7 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set termguicolors
-set number
+set relativenumber
 set cursorline
 
 inoremap jk <esc>
@@ -27,6 +27,8 @@ nnoremap <leader>a :bprevious<cr>
 nnoremap <leader>vv :e $MYVIMRC<cr>
 nnoremap <leader>vb :e ~/.bashrc<cr>
 nnoremap <leader>vt :e ~/.tmux.conf<cr>
+nnoremap <leader>bb :Git blame<cr>
+nnoremap <leader>gg :Git<cr>
 
 call plug#begin()
 
@@ -47,14 +49,19 @@ call plug#begin()
 
   Plug 'ntpeters/vim-better-whitespace'
 
+  Plug 'prettier/vim-prettier'
+
 call plug#end()
 
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>fg :Rg<cr>
 
+" Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+" Prettier
+let g:prettier#autoformat_config_present = 1
+let g:prettier#autoformat_require_pragma = 0
 
 color onedark
