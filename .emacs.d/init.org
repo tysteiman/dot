@@ -225,12 +225,15 @@ The only package we install directly from MELPA ourselves is use-package
   (use-package yaml-mode
     :hook (yaml-mode . my/configure-prog-mode))
 
+  (use-package js2-mode)
+
   (use-package rjsx-mode
     :init
     (setq js2-mode-show-parse-errors nil)
     (setq js2-mode-show-strict-warnings nil)
     :config
     (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode))
+    (add-to-list 'auto-mode-alist '("\\.json"  . js-mode))
     (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode))
     (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line)
     (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
@@ -266,12 +269,37 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+end_src
 
+***** PrettierJS
+
+#+begin_src elisp
+
+  (use-package prettier
+    :after (js2-mode rjsx-mode)
+    :hook
+    (js2-mode  . my/configure-prettier)
+    (rjsx-mode . my/configure-prettier))
+
+#+end_src
+
+When we enter a JS file we want to turn on prettier, but only if there is a .prettierrc.json file at the projectile project root.
+
+#+begin_src elisp
+
+  (defun my/configure-prettier ()
+    "Configure Prettier by turning it on only if there is a pretterrc file in the projectile root"
+    (let ((prettier-rc (concat (projectile-project-root) ".prettierrc.json")))
+      (if (file-exists-p prettier-rc)
+          (prettier-mode 1)
+        (message ".prettierrc.json not detected in project root -- skipped loading."))))
+
+#+end_src
+
 *** Theme
 
 #+begin_src elisp
 
   (use-package doom-themes
-    :config (load-theme 'doom-one-light t))
+    :config (load-theme 'doom-one t))
 
 #+end_src
 
