@@ -269,7 +269,7 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+end_src
 
-***** PrettierJS
+*** PrettierJS
 
 #+begin_src elisp
 
