@@ -307,9 +307,6 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
 #+begin_src elisp
 
-  (use-package ivy
-    :config (ivy-mode 1))
-
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -341,20 +338,9 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :config
     (setq which-key-idle-delay 1))
 
-  (use-package ivy-rich
-    :after ivy
-    :init
-    (ivy-rich-mode 1))
-
-  (use-package counsel
-    :after ivy-rich
-    :bind (("M-x"   . counsel-M-x)
-           ("C-x b" . counsel-switch-buffer)))
-
   (use-package diredfl
     :config
     (diredfl-global-mode))
-
 
 #+end_src
 
@@ -463,7 +449,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
 #+end_src
 
-*** GUI-Only Packages
+*** GUI Icons (all-the-icons)
 
 #+begin_src elisp
 
@@ -480,22 +466,37 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (use-package all-the-icons-ibuffer
       :after all-the-icons
       :hook
-      (ibuffer-mode . all-the-icons-ibuffer-mode))
+      (ibuffer-mode . all-the-icons-ibuffer-mode)))
 
-    ;; (use-package ivy-posframe
-    ;;   :init
-    ;;   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-    ;;   (setq ivy-posframe-height-alist '((swiper . 20)))
-    ;;   (setq ivy-posframe-width 150)
-    ;;   (setq ivy-posframe-parameters
-    ;;         '((left-fringe . 20)
-    ;;           (right-fringe . 20)))
-    ;;   :config (ivy-posframe-mode 1))
+#+end_src
 
-    (use-package eshell-git-prompt
-      :config
-      (eshell-git-prompt-use-theme 'powerline)))
+*** Ivy
 
+#+begin_src elisp
+
+  (use-package ivy
+    :config (ivy-mode 1))
+    
+  (use-package ivy-rich
+    :after ivy
+    :init
+    (ivy-rich-mode 1))
+
+  (use-package counsel
+    :after ivy-rich
+    :bind (("M-x"   . counsel-M-x)
+           ("C-x b" . counsel-switch-buffer)))
+
+  (when (display-graphic-p)
+    (use-package ivy-posframe
+      :init
+      (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+      (setq ivy-posframe-height-alist '((swiper . 20)))
+      (setq ivy-posframe-width 170)
+      (setq ivy-posframe-parameters '((left-fringe . 20)
+                                      (right-fringe . 20)))
+      :config (ivy-posframe-mode 1)))
+      
 #+end_src
 
 * Key Bindings
