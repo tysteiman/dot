@@ -326,11 +326,6 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package hide-mode-line
     :bind (("C-c t m" . hide-mode-line-mode)))
 
-  (use-package diff-hl
-    :after magit
-    :hook
-    (magit-post-refresh . diff-hl-magit-post-refresh))
-
   (use-package which-key
     :config
     (which-key-mode)
@@ -416,6 +411,22 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
 #+end_src
 
+*** Magit & Git
+
+#+begin_src elisp
+    
+  (use-package magit
+    :bind (("C-c m s" . magit-status)
+           ("C-M-i"   . magit-status)
+           ("C-c m b" . magit-blame)))
+
+  (use-package diff-hl
+    :after magit
+    :hook
+    (magit-post-refresh . diff-hl-magit-post-refresh))
+
+#+end_src
+
 *** Misc Emacs Packages
 
 #+begin_src elisp
@@ -424,11 +435,6 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :config
     (projectile-mode 1)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-
-  (use-package magit
-    :bind (("C-c m s" . magit-status)
-           ("C-M-i"   . magit-status)
-           ("C-c m b" . magit-blame)))
 
   (use-package sudo-edit)
 
