@@ -216,7 +216,7 @@ The only package we install directly from MELPA ourselves is use-package
 
 ** Install packages
 *** Languages & Coding
-**** Language Support
+**** Language Modes
 
 #+begin_src elisp
 
