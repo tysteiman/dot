@@ -269,8 +269,32 @@ The only package we install directly from MELPA ourselves is use-package
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0)
     :hook (prog-mode . company-mode))
+    
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
 
   (use-package emmet-mode)
+
+#+end_src
+
+**** LSP
+
+#+begin_src elisp
+
+(use-package lsp-mode
+  :after (js2-mode php-mode)
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-headerline-breadcrumb-enable nil)
+  :config
+  (lsp-enable-which-key-integration t)
+  :hook
+  (js2-mode . lsp-deferred)
+  (php-mode . lsp-deferred))
+  
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
 
 #+end_src
 
@@ -508,24 +532,6 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
                                       (right-fringe . 20)))
       :config (ivy-posframe-mode 1)))
       
-#+end_src
-
-*** LSP
-
-#+begin_src elisp
-
-(use-package lsp-mode
-  :after (js2-mode php-mode)
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  (setq lsp-headerline-breadcrumb-enable nil)
-  :config
-  (lsp-enable-which-key-integration t)
-  :hook
-  (js2-mode . lsp-deferred)
-  (php-mode . lsp-deferred))
-
 #+end_src
 
 * Key Bindings
