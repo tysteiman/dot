@@ -258,26 +258,18 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+end_src
 
-**** Coding Tools & Helpers
+**** Auto-Completion
+***** LSP
 
-#+begin_src elisp
+lsp-mode will enable symbols, completion, syntax checking, etc. 
 
-  (use-package company
-    :init
-    (setq company-dabbrev-downcase nil)
-    :custom
-    (company-minimum-prefix-length 1)
-    (company-idle-delay 0.0)
-    :hook (prog-mode . company-mode))
-    
-  (use-package company-box
-    :hook (company-mode . company-box-mode))
-
-  (use-package emmet-mode)
-
-#+end_src
-
-**** LSP
+|------+--------------|
+| Mode | LSP Engine   |
+|------+--------------|
+| Ruby | Solargraph   |
+| JS   | ts-ls        |
+| PHP  | Intelephense |
+|------+--------------|
 
 #+begin_src elisp
 
@@ -299,7 +291,32 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+end_src
 
-*** PrettierJS
+***** Company
+
+#+begin_src elisp
+
+  (use-package company
+    :init
+    (setq company-dabbrev-downcase nil)
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0)
+    :hook (prog-mode . company-mode))
+    
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
+
+#+end_src
+
+***** Misc (Emmet, etc.)
+
+#+begin_src elisp
+
+(use-package emmet-mode)
+
+#+end_src
+
+**** PrettierJS
 
 #+begin_src elisp
 
