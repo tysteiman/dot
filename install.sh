@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# install vundle
-# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install chemacs
+git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 
 if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-ln -s $PWD/.emacs.d ~/
+# ln -s $PWD/.emacs.d ~/
+ln -s $PWD/.emacs-profiles.el ~/
 ln -s $PWD/.ctags ~/
 ln -s $PWD/.gitconfig ~/
 ln -s $PWD/.nanorc ~/
