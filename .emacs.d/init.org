@@ -290,8 +290,9 @@ The only package we install directly from MELPA ourselves is use-package
   :config
   (lsp-enable-which-key-integration t)
   :hook
-  (js2-mode . lsp-deferred)
-  (php-mode . lsp-deferred))
+  (js2-mode  . lsp-deferred)
+  (php-mode  . lsp-deferred)
+  (ruby-mode . lsp-deferred))
   
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
