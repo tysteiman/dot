@@ -12,3 +12,5 @@ tags
 /.emacs.d/.cache/
 /.emacs.d/games/
 /.emacs.d/init-tangle.el
+/.emacs.d/.lsp-session-v1
+/.emacs.d/lsp-cache/
