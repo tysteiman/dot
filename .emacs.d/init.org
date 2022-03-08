@@ -209,8 +209,8 @@ The only package we install directly from MELPA ourselves is use-package
     (package-install 'use-package))
 
   (require 'use-package)
+  
   (setq use-package-always-ensure t)
-  ;; (setq use-package-verbose t)
 
 #+end_src
 
@@ -480,6 +480,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 #+begin_src elisp
     
   (use-package magit
+    :commands magit-status
     :bind (("C-c m s" . magit-status)
            ("C-M-i"   . magit-status)
            ("C-c m b" . magit-blame)))
@@ -500,9 +501,11 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (projectile-mode 1)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-  (use-package sudo-edit :defer t)
+  (use-package sudo-edit
+    :defer t)
 
-  (use-package rg :after projectile)
+  (use-package rg
+    :after projectile)
 
   (use-package ibuffer
     :bind (("C-x C-b" . ibuffer))
