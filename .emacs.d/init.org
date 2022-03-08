@@ -392,7 +392,8 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
   (use-package dashboard
     :init
-    (setq dashboard-startup-banner 'logo)
+    ;; (setq dashboard-startup-banner 'logo)
+    (setq dashboard-startup-banner (concat user-emacs-directory (if (display-graphic-p) "banner.png" "banner.txt")))
     (setq dashboard-set-heading-icons t)
 
     (setq initial-buffer-choice (lambda ()
