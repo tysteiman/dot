@@ -8,6 +8,14 @@
 
 #+end_src
 
+* Startup Performance
+
+#+begin_src elisp
+
+(setq gc-cons-threshold (* 60 1000 1000))
+
+#+end_src
+
 * Main Configuration Funcalls
 
 #+begin_src elisp

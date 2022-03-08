@@ -5,7 +5,8 @@
         (target-file (concat user-emacs-directory "init-tangle.el")))
     (require 'org)
     (org-babel-tangle-file source-file target-file)
-    (byte-compile-file target-file)))
+    ;; (byte-compile-file target-file)
+    ))
 
 (defun my/setup-config-auto-compile-hook ()
   (let ((config (concat user-emacs-directory "init.org")))
@@ -14,7 +15,7 @@
            (expand-file-name config))
       (add-hook 'after-save-hook 'my/compile-config nil t))))
 
-(let ((init (concat user-emacs-directory "init-tangle.elc")))
+(let ((init (concat user-emacs-directory "init-tangle.el")))
   (if (file-exists-p init)
       (load-file init)
     (progn
