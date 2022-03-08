@@ -220,14 +220,15 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+begin_src elisp
 
-  (use-package dockerfile-mode)
+  (use-package dockerfile-mode :defer t)
 
   (use-package yaml-mode
     :hook (yaml-mode . my/configure-prog-mode))
 
-  (use-package js2-mode)
+  (use-package js2-mode :defer t)
 
   (use-package rjsx-mode
+    :defer t
     :init
     (setq js2-mode-show-parse-errors nil)
     (setq js2-mode-show-strict-warnings nil)
@@ -239,9 +240,9 @@ The only package we install directly from MELPA ourselves is use-package
     (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
     (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
     
-  (use-package typescript-mode)
+  (use-package typescript-mode :defer t)
 
-  (use-package php-mode)
+  (use-package php-mode :defer t)
 
   (use-package web-mode
     :after emmet-mode
@@ -250,11 +251,11 @@ The only package we install directly from MELPA ourselves is use-package
     (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
     (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
-  (use-package markdown-mode)
+  (use-package markdown-mode :defer t)
 
-  (use-package vimrc-mode)
+  (use-package vimrc-mode :defer t)
 
-  (use-package slim-mode)
+  (use-package slim-mode :defer t)
 
 #+end_src
 
@@ -274,7 +275,7 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 #+begin_src elisp
 
 (use-package lsp-mode
-  :after (js2-mode php-mode)
+  :after (:any js2-mode php-mode)
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
@@ -312,7 +313,7 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 
 #+begin_src elisp
 
-(use-package emmet-mode)
+(use-package emmet-mode :defer t)
 
 #+end_src
 
@@ -321,7 +322,7 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 #+begin_src elisp
 
   (use-package prettier
-    :after (js2-mode rjsx-mode)
+    :after (:any js2-mode rjsx-mode)
     :hook
     (js2-mode  . my/configure-prettier)
     (rjsx-mode . my/configure-prettier))
@@ -381,8 +382,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (setq which-key-idle-delay 1))
 
   (use-package diredfl
-    :config
-    (diredfl-global-mode))
+    :hook (dired-mode . diredfl-mode))
 
 #+end_src
 
@@ -485,11 +485,12 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (projectile-mode 1)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-  (use-package sudo-edit)
+  (use-package sudo-edit :defer t)
 
-  (use-package rg)
+  (use-package rg :after projectile)
 
   (use-package ibuffer
+    :bind (("C-x C-b" . ibuffer))
     :config
     (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
     (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
@@ -497,10 +498,11 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package vterm
     :bind (("C-c e v" . vterm)))
 
-  (use-package pulseaudio-control
-    :config (pulseaudio-control-default-keybindings))
+  ;; @TODO: only install this on linux
+  ;; (use-package pulseaudio-control
+  ;;   :config (pulseaudio-control-default-keybindings))
 
-  (use-package dictionary)
+  (use-package dictionary :defer t)
 
 #+end_src
 
@@ -580,7 +582,6 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (global-set-key (kbd "C-c f i") 'imenu)
   (global-set-key (kbd "C-c e s") 'eshell)
   (global-set-key (kbd "M-z")     'zap-up-to-char)
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
   (global-set-key (kbd "C-M-\\")  'split-window-right)
   (global-set-key (kbd "C-M--")   'split-window-below)
   (global-set-key (kbd "C-M-0")   'delete-window)
