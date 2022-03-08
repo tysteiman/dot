@@ -220,12 +220,14 @@ The only package we install directly from MELPA ourselves is use-package
 
 #+begin_src elisp
 
-  (use-package dockerfile-mode :defer t)
+  (use-package dockerfile-mode
+    :defer t)
 
   (use-package yaml-mode
     :hook (yaml-mode . my/configure-prog-mode))
 
-  (use-package js2-mode :defer t)
+  (use-package js2-mode
+    :defer t)
 
   (use-package rjsx-mode
     :defer t
@@ -240,9 +242,11 @@ The only package we install directly from MELPA ourselves is use-package
     (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
     (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
     
-  (use-package typescript-mode :defer t)
+  (use-package typescript-mode
+    :defer t)
 
-  (use-package php-mode :defer t)
+  (use-package php-mode
+    :defer t)
 
   (use-package web-mode
     :after emmet-mode
@@ -251,11 +255,14 @@ The only package we install directly from MELPA ourselves is use-package
     (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
     (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
-  (use-package markdown-mode :defer t)
+  (use-package markdown-mode
+    :defer t)
 
-  (use-package vimrc-mode :defer t)
+  (use-package vimrc-mode
+    :defer t)
 
-  (use-package slim-mode :defer t)
+  (use-package slim-mode
+    :defer t)
 
 #+end_src
 
@@ -313,7 +320,8 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 
 #+begin_src elisp
 
-(use-package emmet-mode :defer t)
+(use-package emmet-mode
+  :defer t)
 
 #+end_src
 
@@ -378,7 +386,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :config
     (which-key-mode)
     :diminish which-key-mode
-    :config
+    :init
     (setq which-key-idle-delay 1))
 
   (use-package diredfl
@@ -501,7 +509,8 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   ;; (use-package pulseaudio-control
   ;;   :config (pulseaudio-control-default-keybindings))
 
-  (use-package dictionary :defer t)
+  (use-package dictionary
+    :defer t)
 
 #+end_src
 
@@ -545,6 +554,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
   (when (display-graphic-p)
     (use-package ivy-posframe
+      :after ivy
       :init
       (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
       (setq ivy-posframe-height-alist '((swiper . 20)))
