@@ -422,8 +422,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (org-mode         . turn-on-evil-mode)
     (conf-mode        . turn-on-evil-mode)
     (yaml-mode        . turn-on-evil-mode)
-    (git-commit-setup . turn-on-evil-mode)
-    (text-mode        . turn-on-evil-mode))
+    (git-commit-setup . turn-on-evil-mode))
 
   (use-package evil-org
     :after org
