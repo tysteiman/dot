@@ -9,8 +9,10 @@
 
 (defun my/setup-config-auto-compile-hook ()
   (let ((config (concat user-emacs-directory "init.org")))
-    (when (string-equal (expand-file-name (buffer-file-name)) (expand-file-name config))
-      (add-hook 'after-save-hook 'my/compile-config))))
+    (when (string-equal
+           (expand-file-name (buffer-file-name))
+           (expand-file-name config))
+      (add-hook 'after-save-hook 'my/compile-config nil t))))
 
 (let ((init (concat user-emacs-directory "init-tangle.elc")))
   (if (file-exists-p init)
