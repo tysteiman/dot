@@ -441,7 +441,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package evil-escape
     :after evil
     :init (setq-default evil-escape-key-sequence "jk")
-    :config (evil-escape-mode))
+    :hook (evil-mode . evil-escape-mode))
 
 #+end_src
 
