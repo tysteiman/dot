@@ -32,8 +32,11 @@ nnoremap <leader>gg :Git<cr>
 
 call plug#begin()
 
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
 
   Plug 'sheerun/vim-polyglot'
 
@@ -53,8 +56,10 @@ call plug#begin()
 
 call plug#end()
 
-nnoremap <c-p> :Files<cr>
-nnoremap <leader>fg :Rg<cr>
+" nnoremap <c-p> :Files<cr>
+" nnoremap <leader>fg :Rg<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
