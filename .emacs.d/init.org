@@ -209,8 +209,8 @@ The only package we install directly from MELPA ourselves is use-package
     (package-install 'use-package))
 
   (require 'use-package)
-
   (setq use-package-always-ensure t)
+  ;; (setq use-package-verbose t)
 
 #+end_src
 
@@ -441,7 +441,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package evil-escape
     :after evil
     :init (setq-default evil-escape-key-sequence "jk")
-    :hook (evil-mode . evil-escape-mode))
+    :config (evil-escape-mode))
 
 #+end_src
 
