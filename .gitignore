@@ -15,3 +15,4 @@ tags
 /.emacs.d/.lsp-session-v1
 /.emacs.d/lsp-cache/
 .log/
+/.emacs.d/init-tangle.elc
