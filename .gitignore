@@ -16,3 +16,6 @@ tags
 /.emacs.d/lsp-cache/
 .log/
 /.emacs.d/init-tangle.elc
+/.emacs.d/.dap-breakpoints
+/.emacs.d/eclipse.jdt.ls/
+/.emacs.d/workspace/
