@@ -10,6 +10,8 @@
 
 * Startup Performance
 
+Turn down the garbage collection to let us start up faster.
+
 #+begin_src elisp
 
 (setq gc-cons-threshold (* 60 1000 1000))
@@ -290,7 +292,7 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 #+begin_src elisp
 
 (use-package lsp-mode
-  :after (:any js2-mode php-mode)
+  :after (:any js2-mode php-mode ruby-mode)
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
@@ -523,6 +525,9 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
   (use-package vterm
     :bind (("C-c e v" . vterm)))
+    
+  (use-package gcmh
+    :config (gcmh-mode 1))
 
   ;; @TODO: only install this on linux
   ;; (use-package pulseaudio-control
@@ -646,5 +651,14 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (put 'downcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil)
   (put 'erase-buffer 'disabled nil)
+
+#+end_src
+* Runtime Performance
+
+Above we set the gc-cons-threshold higher to get faster startup, we set it back to what it was before here
+
+#+begin_src elisp
+
+(setq gc-cons-threshold 800000)
 
 #+end_src
