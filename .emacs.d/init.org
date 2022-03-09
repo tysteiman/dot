@@ -287,12 +287,12 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 | Ruby | Solargraph   |
 | JS   | ts-ls        |
 | PHP  | Intelephense |
+| CSS  | css-ls       |
 |------+--------------|
 
 #+begin_src elisp
 
 (use-package lsp-mode
-  :after (:any js2-mode php-mode ruby-mode)
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
@@ -302,7 +302,8 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
   :hook
   (js2-mode  . lsp-deferred)
   (php-mode  . lsp-deferred)
-  (ruby-mode . lsp-deferred))
+  (ruby-mode . lsp-deferred)
+  (scss-mode . lsp-deferred))
   
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
