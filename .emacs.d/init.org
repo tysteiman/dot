@@ -535,9 +535,6 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
   (use-package vterm
     :bind (("C-c e v" . vterm)))
-    
-  (use-package gcmh
-    :config (gcmh-mode 1))
 
   ;; @TODO: only install this on linux
   ;; (use-package pulseaudio-control
