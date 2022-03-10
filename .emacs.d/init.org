@@ -402,6 +402,14 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
   (use-package diredfl
     :hook (dired-mode . diredfl-mode))
+    
+  (use-package tab-bar
+    :after doom-modeline
+    :init
+    (setq tab-bar-show 1)
+    :custom-face
+    (tab-bar-tab ((t (:inherit 'doom-modeline-panel :background nil :foreground nil))))
+    (tab-bar-tab-inactive ((t (:inherit 'doom-modeline-highlight :background nil :foreground nil)))))
 
 #+end_src
 
