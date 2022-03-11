@@ -237,7 +237,9 @@ The only package we install directly from MELPA ourselves is use-package
     :hook (yaml-mode . my/configure-prog-mode))
 
   (use-package js2-mode
-    :defer t)
+    :defer t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode)))
 
   (use-package rjsx-mode
     :defer t
@@ -245,7 +247,6 @@ The only package we install directly from MELPA ourselves is use-package
     (setq js2-mode-show-parse-errors nil)
     (setq js2-mode-show-strict-warnings nil)
     :config
-    (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode))
     (add-to-list 'auto-mode-alist '("\\.json"  . js-mode))
     (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode))
     (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line)
@@ -319,7 +320,7 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
     (setq company-dabbrev-downcase nil)
     :custom
     (company-minimum-prefix-length 1)
-    (company-idle-delay 1)
+    (company-idle-delay 0.5)
     :hook (prog-mode . company-mode))
     
   (use-package company-box
@@ -571,6 +572,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 #+begin_src elisp
 
   (use-package ivy
+    :init (setq ivy-height 30)
     :config (ivy-mode 1))
     
   (use-package ivy-rich
