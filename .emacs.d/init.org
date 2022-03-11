@@ -362,6 +362,17 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
 #+end_src
 
+**** Tree Sitter
+
+#+begin_src elisp
+
+(use-package tree-sitter
+  :hook (ruby-mode . tree-sitter-hl-mode))
+  
+(use-package tree-sitter-langs :defer t)
+
+#+end_src
+
 *** Theme
 
 #+begin_src elisp
