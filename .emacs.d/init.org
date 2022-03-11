@@ -405,7 +405,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :hook (dired-mode . diredfl-mode))
     
   (use-package tab-bar
-    :after doom-modeline
+    :defer
     :init
     (setq tab-bar-show 1)
     (setq tab-bar-close-button-show nil)
@@ -526,7 +526,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :defer t)
 
   (use-package rg
-    :after projectile)
+    :commands (projectile-ripgrep))
 
   (use-package ibuffer
     :bind (("C-x C-b" . ibuffer))
