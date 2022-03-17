@@ -12,9 +12,10 @@ if [ ! -d ~/.config ]; then
 fi
 
 # ln -s $PWD/.emacs.d ~/
-ln -s $PWD/.emacs-profiles.el ~/
+ln -s $PWD/.emacs.d/.emacs-profiles.el ~/
 ln -s $PWD/.ctags ~/
 ln -s $PWD/.gitconfig ~/
+ln -s $PWD/.bashrc ~/
 ln -s $PWD/.nanorc ~/
 ln -s $PWD/.tmux.conf ~/
 ln -s $PWD/.vimrc ~/
