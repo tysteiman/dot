@@ -296,21 +296,21 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
 
 #+begin_src elisp
 
-  ;; (use-package lsp-mode
-  ;;   :commands (lsp lsp-deferred)
-  ;;   :init
-  ;;   (setq lsp-keymap-prefix "C-c l")
-  ;;   (setq lsp-headerline-breadcrumb-enable nil)
-  ;;   :config
-  ;;   (lsp-enable-which-key-integration t)
-  ;;   :hook
-  ;;   (js2-mode  . lsp-deferred)
-  ;;   (php-mode  . lsp-deferred)
-  ;;   (ruby-mode . lsp-deferred)
-  ;;   (scss-mode . lsp-deferred))
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    (setq lsp-headerline-breadcrumb-enable nil)
+    :config
+    (lsp-enable-which-key-integration t)
+    :hook
+    (js2-mode  . lsp-deferred)
+    (rjsx-mode . lsp-deferred)
+    (php-mode  . lsp-deferred)
+    (scss-mode . lsp-deferred))
 
-  ;; (use-package lsp-ui
-  ;;   :hook (lsp-mode . lsp-ui-mode))
+  (use-package lsp-ui
+    :hook (lsp-mode . lsp-ui-mode))
 
 #+end_src
 
@@ -586,7 +586,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 #+begin_src elisp
 
   (use-package ivy
-    :init (setq ivy-height 30)
+    ;; :init (setq ivy-height 10)
     :config (ivy-mode 1))
 
   (use-package ivy-rich
@@ -599,16 +599,16 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :bind (("M-x"   . counsel-M-x)
            ("C-x b" . counsel-switch-buffer)))
 
-  ;; (when (display-graphic-p)
-  ;;   (use-package ivy-posframe
-  ;;     :after ivy
-  ;;     :init
-  ;;     (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-  ;;     (setq ivy-posframe-height-alist '((swiper . 20)))
-  ;;     (setq ivy-posframe-width 170)
-  ;;     (setq ivy-posframe-parameters '((left-fringe . 20)
-  ;;                                     (right-fringe . 20)))
-  ;;     :config (ivy-posframe-mode 1)))
+  (when (display-graphic-p)
+    (use-package ivy-posframe
+      :after ivy
+      :init
+      (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+      (setq ivy-posframe-height-alist '((swiper . 20)))
+      (setq ivy-posframe-width 170)
+      (setq ivy-posframe-parameters '((left-fringe . 20)
+                                      (right-fringe . 20)))
+      :config (ivy-posframe-mode 1)))
 
 #+end_src
 
