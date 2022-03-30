@@ -178,9 +178,6 @@ This passes the current absolute path as the argument to the shell command passe
     
 #+end_src
 
-*** Language Helpers
-**** Docker
-
 Send async commands to Docker containers.
 
 We assume our container we want to send to is 'app', so we target that... we could write more to handle other containers...
@@ -194,6 +191,7 @@ We assume our container we want to send to is 'app', so we target that... we cou
 
 #+end_src
 
+*** Language Helpers
 **** Ruby
 
 When in ruby, we want to be able to send the file to rubocop from a keybinding
