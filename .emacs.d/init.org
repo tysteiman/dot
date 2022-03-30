@@ -167,15 +167,13 @@ We also want to be able to send entire files to shell preferably async for opera
 
 This passes the current absolute path as the argument to the shell command passed in, i.e. /rubocop <current file>/
 
-This also takes a prefix to work easily with Docker containers by prefixing it with "docker-compose exec app <command>"
-
 #+begin_src elisp
 
-(defun my/async-shell-command-on-file (command &optional prefix-command)
+(defun my/async-shell-command-on-file (command)
   "Send current file as the argument to `command' i.e. <`command'> <current-file>"
   (interactive "sAsync shell command on file: ")
   (let* ((file (expand-file-name (buffer-file-name)))
-         (command-to-run (concat prefix-command " " command " " file)))
+         (command-to-run (concat command " " file)))
     (async-shell-command command-to-run)))
     
 #+end_src
