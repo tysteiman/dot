@@ -1,6 +1,5 @@
 syntax on
 
-set nonumber
 set noswapfile
 set nowrap
 set incsearch
@@ -13,7 +12,8 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set termguicolors
-set relativenumber
+set nonumber
+" set relativenumber
 set cursorline
 
 inoremap jk <esc>
@@ -44,7 +44,7 @@ call plug#begin()
 
   Plug 'vim-airline/vim-airline'
 
-  Plug 'airblade/vim-gitgutter'
+  " Plug 'airblade/vim-gitgutter'
 
   Plug 'tpope/vim-fugitive'
 
