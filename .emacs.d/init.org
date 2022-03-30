@@ -163,6 +163,42 @@ This comes in handy when looking at something like a bashrc or xinitrc file, etc
 
 #+end_src
 
+We also want to be able to send entire files to shell preferably async for operations like rubocop, or any other processing that we might want to run on an individual file.
+
+This passes the current absolute path as the argument to the shell command passed in, i.e. /rubocop <current file>/
+
+#+begin_src elisp
+
+(defun my/async-shell-command-on-file (command)
+  "Send current file as the argument to `command' i.e. <`command'> <current-file>"
+  (interactive "sAsync shell command on file: ")
+  (let* ((file (expand-file-name (buffer-file-name)))
+         (command-to-run (concat command " " file)))
+    (async-shell-command command-to-run)))
+    
+#+end_src
+
+*** Language Helpers
+**** Ruby
+
+When in ruby, we want to be able to send the file to rubocop from a keybinding
+
+#+begin_src elisp
+
+(defun my/async-shell-command-rubocop ()
+  (interactive)
+  (my/async-shell-command-on-file "rubocop"))
+
+#+end_src
+
+Add the keybinding to only be available on ruby mode via define-key
+
+#+begin_src elisp
+
+(define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)
+
+#+end_src
+
 ** Misc defuns
 
 #+begin_src elisp
@@ -177,7 +213,7 @@ This comes in handy when looking at something like a bashrc or xinitrc file, etc
   (defun my/configure-prog-mode ()
     (interactive)
     (setq show-trailing-whitespace t)
-    (display-line-numbers-mode 1)
+    ;; (display-line-numbers-mode 1)
     (diff-hl-margin-mode 1)
     (diff-hl-mode 1)
     (when (display-graphic-p)
@@ -306,7 +342,8 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
     :hook
     (js2-mode  . lsp-deferred)
     (rjsx-mode . lsp-deferred)
-    (php-mode  . lsp-deferred))
+    (php-mode  . lsp-deferred)
+    (ruby-mode . lsp-deferred))
 
   (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode))
