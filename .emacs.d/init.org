@@ -204,13 +204,15 @@ When in ruby, we want to be able to send the file to rubocop from a keybinding
 
 #+end_src
 
-Add the keybinding to only be available on ruby mode via define-key
+Add the keybinding to only be available on ruby mode via define-key.
+
+Doing /eval-after-load/ will make sure this doesn't run before the key map is ready.
 
 #+begin_src elisp
 
-(eval-after-load 'ruby (progn
-                         (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)
-                         (define-key ruby-mode-map (kbd "C-c r d") 'my/async-shell-command-docker)))
+(eval-after-load 'ruby-mode '(progn
+                               (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)
+                               (define-key ruby-mode-map (kbd "C-c r d") 'my/async-shell-command-docker)))
 
 #+end_src
 
