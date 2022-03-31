@@ -208,8 +208,9 @@ Add the keybinding to only be available on ruby mode via define-key
 
 #+begin_src elisp
 
-(define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)
-(define-key ruby-mode-map (kbd "C-c r d") 'my/async-shell-command-docker)
+(eval-after-load 'ruby (progn
+                         (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)
+                         (define-key ruby-mode-map (kbd "C-c r d") 'my/async-shell-command-docker)))
 
 #+end_src
 
