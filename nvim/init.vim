@@ -32,9 +32,6 @@ nnoremap <leader>gg :Git<cr>
 
 call plug#begin()
 
-  " Plug 'junegunn/fzf.vim'
-  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 
@@ -44,7 +41,7 @@ call plug#begin()
 
   Plug 'vim-airline/vim-airline'
 
-  " Plug 'airblade/vim-gitgutter'
+  Plug 'airblade/vim-gitgutter'
 
   Plug 'tpope/vim-fugitive'
 
@@ -56,8 +53,6 @@ call plug#begin()
 
 call plug#end()
 
-" nnoremap <c-p> :Files<cr>
-" nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
