@@ -14,7 +14,7 @@ vim.opt.number = false
 vim.opt.cursorline = true
 
 local function map(kind, lhs, rhs, opts)
-  vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
+    vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
 end
 
 local silentnoremap = {noremap = true, silent = true}
@@ -46,6 +46,14 @@ require('packer').startup(function()
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     -- use 'neovim/nvim-lspconfig'
     -- use 'kabouzeid/nvim-lspinstall' -- Install LSP servers on demand with :LSPInstall <name_of_language>
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -55,6 +63,8 @@ require'nvim-treesitter.configs'.setup {
         enable = true
     }
 }
+
+require('my-lsp')
 
 require('onedark').load()
 
