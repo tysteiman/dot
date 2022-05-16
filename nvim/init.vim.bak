@@ -51,6 +51,10 @@ call plug#begin()
 
   Plug 'prettier/vim-prettier'
 
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  " Plug 'neovim/nvim-lspconfig'
+
 call plug#end()
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -65,3 +69,8 @@ let g:prettier#autoformat_config_present = 1
 let g:prettier#autoformat_require_pragma = 0
 
 color onedark
+
+" lua << EOF
+" require'lspconfig'.intelephense.setup{}
+" require'lspconfig'.tsserver.setup{}
+" EOF

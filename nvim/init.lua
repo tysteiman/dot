@@ -1,0 +1,66 @@
+vim.opt.swapfile = false
+vim.opt.wrap = false
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smarttab = true
+vim.opt.expandtab = true
+vim.opt.laststatus = 2
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.termguicolors = true
+vim.opt.number = false
+vim.opt.cursorline = true
+
+local function map(kind, lhs, rhs, opts)
+  vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
+end
+
+local silentnoremap = {noremap = true, silent = true}
+
+map('i', 'jk', '<esc>', silentnoremap)
+map('n', '<c-k>', ':wincmd k<CR>', silentnoremap)
+map('n', '<c-j>', ':wincmd j<CR>', silentnoremap)
+map('n', '<c-h>', ':wincmd h<CR>', silentnoremap)
+map('n', '<c-l>', ':wincmd l<CR>', silentnoremap)
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', silentnoremap)
+map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', silentnoremap)
+map('n', '<leader>q', ':bnext<cr>', silentnoremap)
+map('n', '<leader>a', ':bprevious<cr>', silentnoremap)
+
+
+require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-telescope/telescope.nvim'
+    use 'sheerun/vim-polyglot'
+    use 'navarasu/onedark.nvim'
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+    use 'airblade/vim-gitgutter'
+    use 'tpope/vim-fugitive'
+    use 'mattn/emmet-vim'
+    use 'ntpeters/vim-better-whitespace'
+    use 'prettier/vim-prettier'
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- use 'neovim/nvim-lspconfig'
+    -- use 'kabouzeid/nvim-lspinstall' -- Install LSP servers on demand with :LSPInstall <name_of_language>
+end)
+
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = { "ruby", "javascript", "php" },
+    sync_install = false,
+    highlight = {
+        enable = true
+    }
+}
+
+require('onedark').load()
+
+vim.g['airline#extensions#tabline#enabled'] = 1
+vim.g['airline#extensions#tabline#formatter'] = 'unique_tail'
+
+vim.g['prettier#autoformat_config_present'] = 1
+vim.g['prettier#autoformat_require_pragma'] = 0
+

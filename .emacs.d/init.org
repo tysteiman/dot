@@ -359,8 +359,7 @@ lsp-mode will enable symbols, completion, syntax checking, etc.
     :hook
     (js2-mode  . lsp-deferred)
     (rjsx-mode . lsp-deferred)
-    (php-mode  . lsp-deferred)
-    (ruby-mode . lsp-deferred))
+    (php-mode  . lsp-deferred))
 
   (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode))
