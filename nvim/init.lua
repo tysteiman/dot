@@ -49,7 +49,7 @@ require('packer').startup(function()
 end)
 
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = { "ruby", "javascript", "php" },
+    ensure_installed = { "ruby", "javascript", "php", "lua" },
     sync_install = false,
     highlight = {
         enable = true
