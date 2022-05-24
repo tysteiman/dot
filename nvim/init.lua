@@ -27,8 +27,6 @@ map('n', '<c-l>', ':wincmd l<CR>', silentnoremap)
 map('n', '<leader>ff', '<cmd>Telescope git_files<cr>', silentnoremap)
 map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', silentnoremap)
 map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', silentnoremap)
-map('n', '<leader>fc', '<cmd>Telescope git_commits<cr>', silentnoremap)
-map('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>', silentnoremap)
 map('n', '<leader>q', ':bnext<cr>', silentnoremap)
 map('n', '<leader>a', ':bprevious<cr>', silentnoremap)
 
