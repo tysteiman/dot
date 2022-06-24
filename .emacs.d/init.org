@@ -434,7 +434,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 #+begin_src elisp
 
   (use-package doom-themes
-    :config (load-theme 'doom-one t))
+    :config (load-theme 'doom-one-light t))
 
 #+end_src
 
@@ -518,6 +518,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (org-mode         . turn-on-evil-mode)
     (conf-mode        . turn-on-evil-mode)
     (yaml-mode        . turn-on-evil-mode)
+    (slim-mode        . turn-on-evil-mode)
     (git-commit-setup . turn-on-evil-mode))
 
   (use-package evil-org
