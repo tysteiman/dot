@@ -433,8 +433,10 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
 #+begin_src elisp
 
-  (use-package doom-themes
-    :config (load-theme 'doom-one-light t))
+  ;; (use-package doom-themes
+  ;;   :config (load-theme 'doom-one-light t))
+  
+  (load-theme 'tango)
 
 #+end_src
 
@@ -445,12 +447,12 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 
-  (use-package doom-modeline
-    :init
-    (setq doom-modeline-height 50)
-    (setq doom-modeline-vcs-max-length 25)
-    (setq doom-modeline-buffer-file-name-style "file-name")
-    :config (doom-modeline-mode 1))
+  ;; (use-package doom-modeline
+  ;;   :init
+  ;;   (setq doom-modeline-height 50)
+  ;;   (setq doom-modeline-vcs-max-length 25)
+  ;;   (setq doom-modeline-buffer-file-name-style "file-name")
+  ;;   :config (doom-modeline-mode 1))
 
   (use-package swiper
     :bind (("C-M-s" . swiper)))
@@ -519,6 +521,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (conf-mode        . turn-on-evil-mode)
     (yaml-mode        . turn-on-evil-mode)
     (slim-mode        . turn-on-evil-mode)
+    (vterm-mode       . turn-on-evil-mode)
     (git-commit-setup . turn-on-evil-mode))
 
   (use-package evil-org
@@ -700,8 +703,14 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 
 Above we set the gc-cons-threshold higher to get faster startup, we set it back to what it was before here
 
+https://emacs-lsp.github.io/lsp-mode/page/performance/
+
 #+begin_src elisp
 
-  (setq gc-cons-threshold 800000)
+  ;; (setq gc-cons-threshold 800000)
+  
+  (setq gc-cons-threshold 100000000)
+  
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 #+end_src
