@@ -436,8 +436,11 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   ;; (use-package doom-themes
   ;;   :config (load-theme 'doom-one-light t))
   
-  (use-package zenburn-theme
-    :config (load-theme 'zenburn t))
+  ;; (use-package zenburn-theme
+  ;;   :config (load-theme 'zenburn t))
+    
+  (use-package dracula-theme
+    :config (load-theme 'dracula t))
 
 #+end_src
 
@@ -622,7 +625,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
 #+begin_src elisp
 
   (use-package ivy
-    ;; :init (setq ivy-height 30)
+    :init (setq ivy-height 30)
     :config (ivy-mode 1))
 
   (use-package ivy-rich
