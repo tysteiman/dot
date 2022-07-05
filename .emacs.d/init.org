@@ -436,7 +436,8 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   ;; (use-package doom-themes
   ;;   :config (load-theme 'doom-one-light t))
   
-  (load-theme 'tango)
+  (use-package zenburn-theme
+    :config (load-theme 'zenburn t))
 
 #+end_src
 
@@ -447,12 +448,12 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 
-  ;; (use-package doom-modeline
-  ;;   :init
-  ;;   (setq doom-modeline-height 50)
-  ;;   (setq doom-modeline-vcs-max-length 25)
-  ;;   (setq doom-modeline-buffer-file-name-style "file-name")
-  ;;   :config (doom-modeline-mode 1))
+  (use-package doom-modeline
+    :init
+    (setq doom-modeline-height 50)
+    (setq doom-modeline-vcs-max-length 25)
+    (setq doom-modeline-buffer-file-name-style "file-name")
+    :config (doom-modeline-mode 1))
 
   (use-package swiper
     :bind (("C-M-s" . swiper)))
@@ -522,6 +523,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     (yaml-mode        . turn-on-evil-mode)
     (slim-mode        . turn-on-evil-mode)
     (vterm-mode       . turn-on-evil-mode)
+    (eshell-mode      . turn-on-evil-mode)
     (git-commit-setup . turn-on-evil-mode))
 
   (use-package evil-org
