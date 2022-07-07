@@ -20,3 +20,4 @@ tags
 /.emacs.d/eclipse.jdt.ls/
 /.emacs.d/workspace/
 nvim/plugin/
+/.emacs.d/projectile.cache

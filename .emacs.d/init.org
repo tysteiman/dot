@@ -216,6 +216,18 @@ Doing /eval-after-load/ will make sure this doesn't run before the key map is re
 
 #+end_src
 
+** Search projectile
+
+Quick helper to search projectile with ripgrep for whatever is at point
+
+#+begin_src elisp
+
+(defun my/projectile-ripgrep-thing-at-point ()
+  (interactive)
+  (projectile-ripgrep (thing-at-point 'word t)))
+
+#+end_src
+
 ** Misc defuns
 
 #+begin_src elisp
@@ -566,7 +578,8 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
   (use-package projectile
     :config
     (projectile-mode 1)
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    :bind (("C-c s s" . my/projectile-ripgrep-thing-at-point)))
 
   (use-package org
     :init
