@@ -222,10 +222,21 @@ Quick helper to search projectile with ripgrep for whatever is at point
 
 #+begin_src elisp
 
+(defun my/projectile-ripgrep ()
+  (interactive)
+  (if (region-active-p)
+      (my/projectile-ripgrep-region)
+    (my/projectile-ripgrep-thing-at-point)))
+
+(defun my/projectile-ripgrep-region ()
+  (interactive)
+  (let ((grabbed (buffer-substring-no-properties (region-beginning) (region-end))))
+    (projectile-ripgrep grabbed)))
+
 (defun my/projectile-ripgrep-thing-at-point ()
   (interactive)
   (projectile-ripgrep (thing-at-point 'word t)))
-
+  
 #+end_src
 
 ** Misc defuns
@@ -579,7 +590,7 @@ When we enter a JS file we want to turn on prettier, but only if there is a .pre
     :config
     (projectile-mode 1)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-    :bind (("C-c s s" . my/projectile-ripgrep-thing-at-point)))
+    :bind (("C-c s s" . my/projectile-ripgrep)))
 
   (use-package org
     :init
