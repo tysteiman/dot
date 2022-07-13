@@ -194,6 +194,7 @@ default_border pixel 10
 
 # bindsym $mod+Shift+s exec rofi-screenshot
 # bindsym $mod+Shift+p exec pavucontrol
+bindsym $mod+Shift+m exec emacsclient -c -a "emacs"
 
 set_from_resource $bg i3wm.background
 set_from_resource $fg i3wm.color6
