@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 # exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
 
 gaps outer 0
-gaps inner 50
+gaps inner 20
 
 new_window 1pixel
 

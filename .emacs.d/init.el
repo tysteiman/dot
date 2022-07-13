@@ -50,9 +50,6 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-;; (when (display-graphic-p)
-;;   (set-face-attribute 'default nil :height 130))
-
 (add-to-list 'default-frame-alist '(font . "LiberationMono-13"))
 
 (defun my/trim-current-line-region ()
@@ -420,20 +417,19 @@
 (use-package dictionary
   :defer t)
 
-(when (display-graphic-p)
-  (use-package all-the-icons)
+(use-package all-the-icons)
 
-  (use-package all-the-icons-dired
-    :after all-the-icons
-    :init
-    (setq all-the-icons-dired-monochrome nil)
-    :hook
-    (dired-mode . all-the-icons-dired-mode))
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :init
+  (setq all-the-icons-dired-monochrome nil)
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
 
-  (use-package all-the-icons-ibuffer
-    :after all-the-icons
-    :hook
-    (ibuffer-mode . all-the-icons-ibuffer-mode)))
+(use-package all-the-icons-ibuffer
+  :after all-the-icons
+  :hook
+  (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package ivy
   :init (setq ivy-height 30)
