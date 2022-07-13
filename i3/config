@@ -52,7 +52,8 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run -theme ~/.cache/wal/colors-rofi-dark.rasi
+bindsym $mod+d exec --no-startup-id rofi -show run
+# bindsym $mod+d exec --no-startup-id rofi -show run -theme ~/.cache/wal/colors-rofi-dark.rasi
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -191,8 +192,8 @@ new_window 1pixel
 
 default_border pixel 10
 
-bindsym $mod+Shift+s exec rofi-screenshot
-bindsym $mod+Shift+p exec pavucontrol
+# bindsym $mod+Shift+s exec rofi-screenshot
+# bindsym $mod+Shift+p exec pavucontrol
 
 set_from_resource $bg i3wm.background
 set_from_resource $fg i3wm.color6
