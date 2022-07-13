@@ -36,6 +36,7 @@ fi
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .8 --primary
 # feh --bg-scale --randomize ~/dot/wallpaper/*
 # picom -b --experimental-backends
+emacs --daemon
 wal -i ~/dot/wallpaper
 # xsetroot -solid "#282828"
 # feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg

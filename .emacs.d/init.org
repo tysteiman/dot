@@ -59,8 +59,10 @@ Turn down the garbage collection to let us start up faster.
 
 #+begin_src elisp
 
-  (when (display-graphic-p)
-    (set-face-attribute 'default nil :height 130))
+  ;; (when (display-graphic-p)
+  ;;   (set-face-attribute 'default nil :height 130))
+
+  (add-to-list 'default-frame-alist '(font . "LiberationMono-13"))
 
 #+end_src
 
