@@ -292,13 +292,7 @@
 (use-package tree-sitter-langs :defer t)
 
 (use-package doom-themes
-    :config (load-theme 'doom-dracula t))
-  
-;; (use-package zenburn-theme
-;;   :config (load-theme 'zenburn t))
-    
-  ;; (use-package dracula-theme
-  ;;   :config (load-theme 'dracula t))
+  :config (load-theme 'doom-dracula t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -494,8 +488,6 @@
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
-
-;; (setq gc-cons-threshold 800000)
 
 (setq gc-cons-threshold 100000000)
 
