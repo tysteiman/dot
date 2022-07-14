@@ -191,6 +191,7 @@
 (require 'use-package)
 
 (setq use-package-always-ensure t)
+;; (setq use-package-verbose t)
 
 (use-package dockerfile-mode
   :defer t)
@@ -407,6 +408,15 @@
   :config
   (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
   (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
+
+(use-package eshell-info-banner
+  :defer t
+  :hook
+  (eshell-banner-load . eshell-info-banner-update-banner))
+
+(use-package eshell-git-prompt
+  :config
+  (eshell-git-prompt-use-theme 'multiline2))
 
 (use-package vterm
   :bind (("C-c e v" . vterm)))
