@@ -289,7 +289,7 @@
 (use-package tree-sitter-langs :defer t)
 
 (use-package doom-themes
-  :config (load-theme 'doom-dracula t))
+  :config (load-theme 'doom-palenight t))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
