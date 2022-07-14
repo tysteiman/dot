@@ -192,7 +192,7 @@ new_window 1pixel
 
 default_border pixel 10
 
-# bindsym $mod+Shift+s exec rofi-screenshot
+bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+Shift+m exec emacsclient -c -a "emacs"
 
