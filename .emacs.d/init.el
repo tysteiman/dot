@@ -201,8 +201,7 @@
 
 (use-package js2-mode
   :defer t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode)))
+  :config (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode)))
 
 (use-package rjsx-mode
   :defer t
@@ -248,8 +247,7 @@
 ;;   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package company
-  :init
-  (setq company-dabbrev-downcase nil)
+  :init (setq company-dabbrev-downcase nil)
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.5)
@@ -275,8 +273,7 @@
       (message ".prettierrc.json not detected in project root -- skipped loading."))))
 
 (use-package tree-sitter
-  :hook
-  (ruby-mode . tree-sitter-hl-mode))
+  :hook (ruby-mode . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs :defer t)
 
@@ -303,8 +300,7 @@
   :config
   (which-key-mode)
   :diminish which-key-mode
-  :init
-  (setq which-key-idle-delay 1))
+  :init (setq which-key-idle-delay 1))
 
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
@@ -352,8 +348,7 @@
 (use-package evil-org
   :after org
   :hook (org-mode . evil-org-mode)
-  :config
-  (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
+  :config (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
 
 (use-package evil-escape
   :after evil
@@ -368,8 +363,7 @@
 
 (use-package diff-hl
   :after magit
-  :hook
-  (magit-post-refresh . diff-hl-magit-post-refresh))
+  :hook (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package projectile
   :config
@@ -399,12 +393,10 @@
 
 (use-package eshell-info-banner
   :defer t
-  :hook
-  (eshell-banner-load . eshell-info-banner-update-banner))
+  :hook (eshell-banner-load . eshell-info-banner-update-banner))
 
 (use-package eshell-git-prompt
-  :config
-  (eshell-git-prompt-use-theme 'multiline2))
+  :config (eshell-git-prompt-use-theme 'multiline2))
 
 (use-package vterm
   :bind (("C-c e v" . vterm)))
@@ -419,15 +411,12 @@
 
 (use-package all-the-icons-dired
   :after all-the-icons
-  :init
-  (setq all-the-icons-dired-monochrome nil)
-  :hook
-  (dired-mode . all-the-icons-dired-mode))
+  :init (setq all-the-icons-dired-monochrome nil)
+  :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package all-the-icons-ibuffer
   :after all-the-icons
-  :hook
-  (ibuffer-mode . all-the-icons-ibuffer-mode))
+  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package ivy
   :init (setq ivy-height 30)
@@ -435,13 +424,11 @@
 
 (use-package ivy-rich
   :after ivy
-  :init
-  (ivy-rich-mode 1))
+  :init (ivy-rich-mode 1))
 
 (use-package ivy-posframe
-  :init
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-  (ivy-posframe-mode 1))
+  :init (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+  :config (ivy-posframe-mode 1))
 
 (use-package counsel
   :after ivy-rich
