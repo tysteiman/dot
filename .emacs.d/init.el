@@ -163,7 +163,7 @@
 (defun my/configure-prog-mode ()
   (interactive)
   (setq show-trailing-whitespace t)
-  ;; (display-line-numbers-mode 1)
+  (display-line-numbers-mode 1)
   (diff-hl-margin-mode 1)
   (diff-hl-mode 1)
   (when (display-graphic-p)
@@ -216,9 +216,6 @@
   (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
   (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
 
-(use-package typescript-mode
-  :defer t)
-
 (use-package php-mode
   :defer t)
 
@@ -232,14 +229,8 @@
 (use-package markdown-mode
   :defer t)
 
-(use-package vimrc-mode
-  :defer t)
-
 (use-package slim-mode
   :defer t)
-
-;; (use-package lua-mode
-;;   :defer t)
 
 ;; (use-package lsp-mode
 ;;   :commands (lsp lsp-deferred)
@@ -307,9 +298,6 @@
 
 (use-package window-numbering
   :config (window-numbering-mode 1))
-
-(use-package hide-mode-line
-  :bind (("C-c t m" . hide-mode-line-mode)))
 
 (use-package which-key
   :config
@@ -449,6 +437,11 @@
   :after ivy
   :init
   (ivy-rich-mode 1))
+
+(use-package ivy-posframe
+  :init
+  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+  (ivy-posframe-mode 1))
 
 (use-package counsel
   :after ivy-rich
