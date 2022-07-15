@@ -455,6 +455,9 @@
   :bind (("M-x"   . counsel-M-x)
          ("C-x b" . counsel-switch-buffer)))
 
+(use-package solaire-mode
+  :config (solaire-global-mode 1))
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
