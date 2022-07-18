@@ -39,7 +39,7 @@ fi
 
 
 emacs --daemon
-wal -i ~/dot/wallpaper/lake-mountain.jpg
+wal -i ~/dot/wallpaper
 xmodmap ~/dot/keys.map
 xset r rate 200 50
 exec i3

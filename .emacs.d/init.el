@@ -218,11 +218,13 @@
 (use-package php-mode
   :defer t)
 
+(use-package emmet-mode
+  :defer t)
+
 (use-package web-mode
-  :after emmet-mode
+  :mode "\\.erb\\'"
+  :mode "\\.php\\'"
   :config
-  (add-to-list 'auto-mode-alist '("\\.erb" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.php" . web-mode))
   (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package markdown-mode
@@ -255,9 +257,6 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
-
-(use-package emmet-mode
-  :defer t)
 
 (use-package prettier
   :after (:any js2-mode rjsx-mode)
