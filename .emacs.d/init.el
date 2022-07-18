@@ -276,10 +276,13 @@
 
 (use-package tree-sitter-langs :defer t)
 
+(defvar my/theme 'doom-one
+  "Theme to use")
+
 (use-package doom-themes
-  :config (load-theme 'doom-palenight t)
+  :config (load-theme my/theme t)
   :hook (server-after-make-frame . (lambda ()
-                                     (load-theme 'doom-palenight t))))
+                                     (load-theme my/theme t))))
 
 (use-package solaire-mode
   :config (solaire-global-mode +1))
@@ -430,9 +433,9 @@
   :after ivy
   :init (ivy-rich-mode 1))
 
-(use-package ivy-posframe
-  :init (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-  :config (ivy-posframe-mode 1))
+;; (use-package ivy-posframe
+;;   :init (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
+;;   :config (ivy-posframe-mode 1))
 
 (use-package counsel
   :after ivy-rich
