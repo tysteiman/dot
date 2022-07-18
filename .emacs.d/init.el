@@ -135,8 +135,7 @@
   (my/async-shell-command-on-file "rubocop"))
 
 (eval-after-load 'ruby-mode '(progn
-                               (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)
-                               (define-key ruby-mode-map (kbd "C-c r d") 'my/async-shell-command-docker)))
+                               (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)))
 
 (defun my/projectile-ripgrep ()
   (interactive)
@@ -201,16 +200,16 @@
 
 (use-package js2-mode
   :defer t
-  :config (add-to-list 'auto-mode-alist '("\\.js"  . js2-mode)))
+  :mode "\\.js\\'")
 
 (use-package rjsx-mode
   :defer t
   :init
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
+  :mode "\\.jsx\\'"
   :config
   (add-to-list 'auto-mode-alist '("\\.json"  . js-mode))
-  (add-to-list 'auto-mode-alist '("\\.jsx" . rjsx-mode))
   (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line)
   (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
   (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
@@ -233,20 +232,21 @@
 (use-package slim-mode
   :defer t)
 
-;; (use-package lsp-mode
-;;   :commands (lsp lsp-deferred)
-;;   :init
-;;   (setq lsp-keymap-prefix "C-c l")
-;;   (setq lsp-headerline-breadcrumb-enable nil)
-;;   :config
-;;   (lsp-enable-which-key-integration t)
-;;   :hook
-;;   (js2-mode  . lsp-deferred)
-;;   (rjsx-mode . lsp-deferred)
-;;   (php-mode  . lsp-deferred))
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-headerline-breadcrumb-enable nil)
+  :config
+  (lsp-enable-which-key-integration t)
+  ;; :hook
+  ;; (js2-mode  . lsp-deferred)
+  ;; (rjsx-mode . lsp-deferred)
+  ;; (php-mode  . lsp-deferred)
+  )
 
-;; (use-package lsp-ui
-;;   :hook (lsp-mode . lsp-ui-mode))
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode))
 
 (use-package company
   :init (setq company-dabbrev-downcase nil)
@@ -277,10 +277,12 @@
 (use-package tree-sitter-langs :defer t)
 
 (use-package doom-themes
-  :config (load-theme 'doom-palenight t))
+  :config (load-theme 'doom-palenight t)
+  :hook (server-after-make-frame . (lambda ()
+                                     (load-theme 'doom-palenight t))))
 
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
+(use-package solaire-mode
+  :config (solaire-global-mode +1))
 
 (use-package doom-modeline
   :init
@@ -288,6 +290,9 @@
   (setq doom-modeline-vcs-max-length 25)
   (setq doom-modeline-buffer-file-name-style "file-name")
   :config (doom-modeline-mode 1))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package swiper
   :bind (("C-M-s" . swiper)))
@@ -434,9 +439,6 @@
   :bind (("M-x"   . counsel-M-x)
          ("C-x b" . counsel-switch-buffer)))
 
-(use-package solaire-mode
-  :config (solaire-global-mode 1))
-
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
@@ -444,6 +446,7 @@
 (global-set-key (kbd "C-M-o")   'my/new-previous-line)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
+(global-set-key (kbd "C-c r d") 'my/async-shell-command-docker)
 
 (global-set-key (kbd "C-c f o") (lambda ()
                                   (interactive)
