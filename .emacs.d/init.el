@@ -181,14 +181,16 @@
   (async-shell-command "sync-notes"))
 
 (defun my/vterm (&optional bufname)
-  "Create a new VTERM buffer"
+  "Create a new VTERM buffer named `'bufname. Runs at projectile root when in a projectile directory."
   (interactive "sBuffer name: ")
   (message "Buffer name: %s" bufname)
-  (let ((target (if (string-empty-p bufname) "vterm" bufname)))
+  (let ((targetname (if (string-empty-p bufname) "vterm" bufname))
+        (projectp (projectile-project-p)))
     (split-window-sensibly)
-    ;; @TODO determine if we're in a project -- if so do projectile-run-vterm
-    (vterm)
-    (rename-buffer (concat "*" target "*"))))
+    (if projectp
+        (projectile-run-vterm)
+      (vterm))
+    (rename-buffer (concat "*" targetname "*"))))
 
 (require 'package)
 
