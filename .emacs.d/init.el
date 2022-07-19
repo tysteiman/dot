@@ -462,6 +462,9 @@
 (use-package flyspell
   :hook (org-mode . my/flyspell))
 
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
