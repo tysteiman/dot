@@ -172,25 +172,12 @@
   "Prompt the user if they're sure before closing Emacs."
   (interactive "cAre you sure you want to close Emacs? y/n ): ")
   (when (char-equal yn ?y)
-    ;; (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness .8")
     (save-buffers-kill-terminal)))
 
 (defun my/sync-notes ()
   "Run AWS sync-notes binary for my notes directory"
   (interactive)
   (async-shell-command "sync-notes"))
-
-(defun my/vterm (&optional bufname)
-  "Create a new VTERM buffer named `'bufname. Runs at projectile root when in a projectile directory."
-  (interactive "sBuffer name: ")
-  (message "Buffer name: %s" bufname)
-  (let ((targetname (if (string-empty-p bufname) "vterm" bufname))
-        (projectp (projectile-project-p)))
-    (split-window-sensibly)
-    (if projectp
-        (projectile-run-vterm)
-      (vterm))
-    (rename-buffer (concat "*" targetname "*"))))
 
 (require 'package)
 
@@ -422,6 +409,18 @@
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'multiline2))
 
+(defun my/vterm (&optional bufname)
+  "Create a new VTERM buffer named `'bufname. Runs at projectile root when in a projectile directory."
+  (interactive "sBuffer name: ")
+  (message "Buffer name: %s" bufname)
+  (let ((targetname (if (string-empty-p bufname) "vterm" bufname))
+        (projectp (projectile-project-p)))
+    (split-window-sensibly)
+    (if projectp
+        (projectile-run-vterm)
+      (vterm))
+    (rename-buffer (concat "*" targetname "*"))))
+
 (use-package vterm
   :bind (("C-c e v" . my/vterm)))
 
@@ -449,10 +448,6 @@
 (use-package ivy-rich
   :after ivy
   :init (ivy-rich-mode 1))
-
-;; (use-package ivy-posframe
-;;   :init (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-top-center)))
-;;   :config (ivy-posframe-mode 1))
 
 (use-package counsel
   :after ivy-rich
