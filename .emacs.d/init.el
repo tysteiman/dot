@@ -175,6 +175,11 @@
     ;; (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness .8")
     (save-buffers-kill-terminal)))
 
+(defun my/sync-notes ()
+  "Run AWS sync-notes binary for my notes directory"
+  (interactive)
+  (async-shell-command "sync-notes"))
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -449,6 +454,7 @@
 (global-set-key (kbd "C-M-o")   'my/new-previous-line)
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
+(global-set-key (kbd "C-c s n") 'my/sync-notes)
 (global-set-key (kbd "C-c r d") 'my/async-shell-command-docker)
 
 (global-set-key (kbd "C-c f o") (lambda ()
