@@ -388,6 +388,7 @@
   :config
   (require 'org-tempo)
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
+  (add-to-list 'org-structure-template-alist '("rb" . "src ruby"))
   :hook (org-mode . org-indent-mode))
 
 (use-package sudo-edit
