@@ -180,6 +180,16 @@
   (interactive)
   (async-shell-command "sync-notes"))
 
+(defun my/vterm (&optional bufname)
+  "Create a new VTERM buffer"
+  (interactive "sBuffer name: ")
+  (message "Buffer name: %s" bufname)
+  (let ((target (if (string-empty-p bufname) "vterm" bufname)))
+    (split-window-sensibly)
+    ;; @TODO determine if we're in a project -- if so do projectile-run-vterm
+    (vterm)
+    (rename-buffer (concat "*" target "*"))))
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -411,7 +421,7 @@
   :config (eshell-git-prompt-use-theme 'multiline2))
 
 (use-package vterm
-  :bind (("C-c e v" . vterm)))
+  :bind (("C-c e v" . my/vterm)))
 
 (use-package pulseaudio-control
   :config (pulseaudio-control-default-keybindings))
