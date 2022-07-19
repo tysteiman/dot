@@ -459,6 +459,14 @@
   :bind (("M-x"   . counsel-M-x)
          ("C-x b" . counsel-switch-buffer)))
 
+(defun my/flyspell ()
+  "Turn on flyspell mode for the whole buffer"
+  (flyspell-mode 1)
+  (flyspell-buffer))
+
+(use-package flyspell
+  :hook (org-mode . my/flyspell))
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
