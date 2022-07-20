@@ -51,6 +51,8 @@
 (setq-default sgml-basic-offset 4)
 
 (add-to-list 'default-frame-alist '(font . "LiberationMono-13"))
+(set-frame-parameter (selected-frame) 'alpha '(90 50))
+(add-to-list 'default-frame-alist '(alpha 90 50))
 
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
@@ -280,32 +282,32 @@
 
 (use-package tree-sitter-langs :defer t)
 
-;; (defvar my/theme 'doom-one
-;;   "Theme to use")
-;; 
-;; (use-package doom-themes
-;;   :config (load-theme my/theme t)
-;;   :hook (server-after-make-frame . (lambda ()
-;;                                      (load-theme my/theme t))))
-;; 
+(defvar my/theme 'doom-one
+  "Theme to use")
+
+(use-package doom-themes
+  :config (load-theme my/theme t)
+  :hook (server-after-make-frame . (lambda ()
+                                     (load-theme my/theme t))))
+
+;; (use-package emacs
+;;   :init
+;;   (setq modus-themes-bold-constructs t
+;;         modus-themes-mode-line '(borderless accented)
+;;         modus-themes-region '(accented)
+;;         modus-themes-syntax '(faint))
+;;   :config
+;;   (load-theme 'modus-vivendi t)
+;;   :hook
+;;   (server-after-make-frame . (lambda ()
+;;                                (load-theme 'modus-vivendi t))))
+
 (use-package doom-modeline
   :init
-  ;; (setq doom-modeline-height 50)
+  (setq doom-modeline-height 50)
   (setq doom-modeline-vcs-max-length 25)
   (setq doom-modeline-buffer-file-name-style "file-name")
   :config (doom-modeline-mode 1))
-
-(use-package emacs
-  :init
-  (setq modus-themes-bold-constructs t
-        modus-themes-mode-line '(borderless accented)
-        modus-themes-region '(accented)
-        modus-themes-syntax '(faint))
-  :config
-  (load-theme 'modus-vivendi t)
-  :hook
-  (server-after-make-frame . (lambda ()
-                               (load-theme 'modus-vivendi t))))
 
 (use-package solaire-mode
   :config (solaire-global-mode +1))
