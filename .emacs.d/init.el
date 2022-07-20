@@ -27,12 +27,11 @@
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
-(column-number-mode t)
 (scroll-bar-mode 0)
+(column-number-mode t)
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(column-number-mode t)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -399,10 +398,14 @@
 (use-package org
   :init
   (setq org-startup-folded t)
+  (setq org-todo-keywords '((sequence "TODO" "QUESTION" "OPTIONAL" "|" "DONE" "ANSWERED")))
+  (setq org-todo-keyword-faces '(("QUESTION" . (:foreground "indianred"))
+                                 ("OPTIONAL" . (:foreground "tan"))))
   :config
   (require 'org-tempo)
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
   (add-to-list 'org-structure-template-alist '("rb" . "src ruby"))
+  (add-to-list 'org-structure-template-alist '("js" . "src javascript"))
   :hook (org-mode . org-indent-mode))
 
 (use-package sudo-edit
