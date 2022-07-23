@@ -13,11 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:LiberationMono 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -52,7 +52,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show run -font "LiberationMono 14"
 # bindsym $mod+d exec --no-startup-id rofi -show run -theme ~/.cache/wal/colors-rofi-dark.rasi
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -181,16 +181,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# exec_always --no-startup-id ~/dot/polybar/launch.sh
 # exec_always --no-startup-id ~/.config/polybar/grayblocks/scripts/pywal.sh ~/dot/wallpaper/canvas.jpg
 # exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
+exec_always --no-startup-id emacs --daemon
+exec_always --no-startup-id xmodmap ~/dot/keys.map
+exec_always --no-startup-id xset r rate 200 50
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
 
 gaps outer 0
-gaps inner 50
+gaps inner 20
 
 new_window 1pixel
 
-default_border pixel 10
+# default_border pixel 10
+default_border pixel 1
 
 bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
@@ -207,11 +212,11 @@ set_from_resource $wal7 i3wm.color7
 
 # class                  #border  #background  #text    #indicator  #child_border
 # -------------------------------------------------------------------------------
-client.focused           $bg      $wal1        #ffffff  $wal5       $wal1
-client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
-client.unfocused         #333333  #222222      #888888  #292d2e     #222222
-client.urgent            #2f343a  #900000      #ffffff  #900000     #900000
-client.placeholder       #000000  #0c0c0c      #ffffff  #000000     #0c0c0c
+# client.focused           $bg      $wal1        #ffffff  $wal5       $wal1
+# client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
+# client.unfocused         #333333  #222222      #888888  #292d2e     #222222
+# client.urgent            #2f343a  #900000      #ffffff  #900000     #900000
+# client.placeholder       #000000  #0c0c0c      #ffffff  #000000     #0c0c0c
 
 # bar {
 #     status_command /usr/share/bumblebee-status/bumblebee-status \

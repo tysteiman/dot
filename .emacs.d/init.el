@@ -50,8 +50,8 @@
 (setq-default sgml-basic-offset 4)
 
 (add-to-list 'default-frame-alist '(font . "LiberationMono-13"))
-(set-frame-parameter (selected-frame) 'alpha '(90 50))
-(add-to-list 'default-frame-alist '(alpha 90 50))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 50))
+;; (add-to-list 'default-frame-alist '(alpha 90 50))
 
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
@@ -281,11 +281,10 @@
 
 (use-package tree-sitter-langs :defer t)
 
-(defvar my/theme 'doom-one
+(defvar my/theme 'doom-challenger-deep
   "Theme to use")
 
 (use-package doom-themes
-  :config (load-theme my/theme t)
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
 
@@ -460,7 +459,7 @@
   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package ivy
-  :init (setq ivy-height 30)
+  ;; :init (setq ivy-height 30)
   :config (ivy-mode 1))
 
 (use-package ivy-rich
@@ -482,6 +481,9 @@
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
+
+(use-package rainbow-mode
+  :defer t)
 
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)

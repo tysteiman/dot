@@ -38,13 +38,9 @@ alias duls="ls -A | xargs du -sh"
 # nvm
 # source /usr/share/nvm/init-nvm.sh
 
-# rvm
-# export PATH="$PATH:$HOME/.rvm/bin"
+# wal -Renq
 
-# reapply wal colors to terminal
-wal -Renq
-
-# neofetch
+neofetch
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION
