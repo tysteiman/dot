@@ -26,7 +26,7 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(add-to-list 'default-frame-alist '(font . "LiberationMono-13"))
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 50))
 ;; (add-to-list 'default-frame-alist '(alpha 90 50))
 

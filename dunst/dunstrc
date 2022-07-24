@@ -30,10 +30,11 @@
     height = 300
 
     # Position the notification in the top right corner
-    origin = top-center
+    origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    # offset = 10x50
+    offset = 10x10
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -74,7 +75,7 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 10
+    separator_height = 2
 
     # Padding between text and separator.
     padding = 20
@@ -87,10 +88,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 10
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#c792ea"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -104,7 +105,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = "#c792ea"
 
     # Sort messages by urgency.
     sort = yes
@@ -118,7 +119,7 @@
 
     ### Text ###
 
-    font = "LiberationSans 14"
+    font = "JetBrainsMono Nerd Font 12"
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -316,8 +317,8 @@
 
 [urgency_normal]
     # background = "#285577"
-    background = "#cd5c5c"
-    foreground = "#ffffff"
+    background = "#3C435E"
+    foreground = "#c792ea"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
