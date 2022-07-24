@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install chemacs
-# git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 
 # Plug for neovim
 # sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -11,8 +11,8 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-ln -s $PWD/.emacs.d ~/
-# ln -s $PWD/.emacs.d/.emacs-profiles.el ~/
+# ln -s $PWD/.emacs.d ~/
+ln -s $PWD/.emacs.d/.emacs-profiles.el ~/
 ln -s $PWD/.ctags ~/
 ln -s $PWD/.gitconfig ~/
 ln -s $PWD/.bashrc ~/

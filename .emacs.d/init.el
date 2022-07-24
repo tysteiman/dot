@@ -148,7 +148,7 @@
 
 (defun my/quit-emacs (yn)
   "Prompt the user if they're sure before closing Emacs."
-  (interactive "cAre you sure you want to close Emacs? y/n ): ")
+  (interactive "cAre you sure you want to close Emacs? (y/n): ")
   (when (char-equal yn ?y)
     (save-buffers-kill-terminal)))
 
