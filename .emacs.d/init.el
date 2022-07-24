@@ -448,7 +448,7 @@
   :hook (prog-mode . hl-todo-mode))
 
 (use-package rainbow-mode
-  :defer t)
+  :hook (prog-mode . rainbow-mode))
 
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
