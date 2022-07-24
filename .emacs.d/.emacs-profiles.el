@@ -1,1 +1,2 @@
-(("default" . ((user-emacs-directory . "~/dot/.emacs.d"))))
+(("default" . ((user-emacs-directory . "~/dot/.emacs.d")))
+ ("vanilla" . ((user-emacs-directory . "~/emacs-profiles/vanilla"))))
