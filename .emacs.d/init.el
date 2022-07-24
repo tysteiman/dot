@@ -1,26 +1,3 @@
-;; (defun my/compile-config ()
-;;   "Compile init.org into init.elc"
-;;   (interactive)
-;;   (let ((source-file (concat user-emacs-directory "init.org"))
-;;         (target-file (concat user-emacs-directory "init-tangle.el")))
-;;     (require 'org)
-;;     (org-babel-tangle-file source-file target-file)))
-;; 
-;; (defun my/setup-config-auto-compile-hook ()
-;;   (let ((config (concat user-emacs-directory "init.org")))
-;;     (when (string-equal
-;;            (expand-file-name (buffer-file-name))
-;;            (expand-file-name config))
-;;       (add-hook 'after-save-hook 'my/compile-config nil t))))
-;; 
-;; (let ((init (concat user-emacs-directory "init-tangle.el")))
-;;   (if (file-exists-p init)
-;;       (load-file init)
-;;     (progn
-;;       (my/compile-config)
-;;       (load-file init)))
-;;   (add-hook 'org-mode-hook 'my/setup-config-auto-compile-hook))
-
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
 (setq gc-cons-threshold (* 60 1000 1000))
@@ -244,9 +221,9 @@
   (setq lsp-headerline-breadcrumb-enable nil)
   :config
   (lsp-enable-which-key-integration t)
-  ;; :hook
-  ;; (js2-mode  . lsp-deferred)
-  ;; (rjsx-mode . lsp-deferred)
+  :hook
+  (js2-mode  . lsp-deferred)
+  (rjsx-mode . lsp-deferred)
   ;; (php-mode  . lsp-deferred)
   )
 
@@ -281,24 +258,12 @@
 
 (use-package tree-sitter-langs :defer t)
 
-(defvar my/theme 'doom-challenger-deep
+(defvar my/theme 'doom-palenight
   "Theme to use")
 
 (use-package doom-themes
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
-
-;; (use-package emacs
-;;   :init
-;;   (setq modus-themes-bold-constructs t
-;;         modus-themes-mode-line '(borderless accented)
-;;         modus-themes-region '(accented)
-;;         modus-themes-syntax '(faint))
-;;   :config
-;;   (load-theme 'modus-vivendi t)
-;;   :hook
-;;   (server-after-make-frame . (lambda ()
-;;                                (load-theme 'modus-vivendi t))))
 
 (use-package doom-modeline
   :init
