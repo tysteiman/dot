@@ -23,6 +23,7 @@ ln -s $PWD/.xinitrc ~/
 ln -s $PWD/i3 ~/.config/
 ln -s $PWD/kitty ~/.config/
 ln -s $PWD/herbstluftwm ~/.config/
+ln -s $PWD/rofi ~/.config/
 ln -s $PWD/dunst ~/.config/
 # ln -s $PWD/polybar ~/.config/
 ln -s $PWD/picom ~/.config/
