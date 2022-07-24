@@ -424,7 +424,7 @@
   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package ivy
-  ;; :init (setq ivy-height 30)
+  :init (setq ivy-height 20)
   :config (ivy-mode 1))
 
 (use-package ivy-rich
