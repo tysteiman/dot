@@ -25,6 +25,7 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn kitty
 hc keybind $Mod-d spawn rofi -show run -font "JetBrainsMono Nerd Font 12"
 hc keybind $Mod-Shift-m spawn emacsclient -c -a "emacs"
+hc keybind $Mod-Shift-p spawn pavucontrol
 
 vimLeft=j
 vimDown=k
