@@ -64,7 +64,7 @@ resizestep=0.02
 hc keybind $Mod-Control-$vimLeft       resize left +$resizestep
 hc keybind $Mod-Control-$vimDown       resize down +$resizestep
 hc keybind $Mod-Control-$vimUp       resize up +$resizestep
-hc keybind $Mod-Control-$vimRigth       resize right +$resizestep
+hc keybind $Mod-Control-$vimRight       resize right +$resizestep
 hc keybind $Mod-Control-Left    resize left +$resizestep
 hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
@@ -196,9 +196,9 @@ hc unlock
 # hc detect_monitors
 
 # find the panel
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
+# panel=~/.config/herbstluftwm/panel.sh
+# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+# for monitor in $(hc list_monitors | cut -d: -f1) ; do
+#     # start it on each monitor
+#     "$panel" "$monitor" &
+# done
