@@ -420,18 +420,16 @@
   :after all-the-icons
   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
-(use-package ivy
-  :init (setq ivy-height 20)
-  :config (ivy-mode 1))
+(use-package vertico
+  :config (vertico-mode 1))
 
-(use-package ivy-rich
-  :after ivy
-  :init (ivy-rich-mode 1))
+(use-package vertico-posframe
+  :after vertico
+  :init (setq vertico-posframe-width 100)
+  :config (vertico-posframe-mode 1))
 
-(use-package counsel
-  :after ivy-rich
-  :bind (("M-x"   . counsel-M-x)
-         ("C-x b" . counsel-switch-buffer)))
+(use-package orderless
+  :init (setq completion-styles '(orderless)))
 
 (defun my/flyspell ()
   "Turn on flyspell mode for the whole buffer"
