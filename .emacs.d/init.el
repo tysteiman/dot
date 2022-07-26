@@ -429,6 +429,10 @@
   :config (vertico-posframe-mode 1)
   :hook (server-after-make-frame . vertico-posframe-cleanup))
 
+(use-package marginalia
+  :after vertico
+  :init (marginalia-mode))
+
 (use-package orderless
   :init (setq completion-styles '(orderless)))
 
