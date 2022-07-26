@@ -222,10 +222,7 @@
   :config
   (lsp-enable-which-key-integration t)
   :hook
-  (js2-mode  . lsp-deferred)
-  (rjsx-mode . lsp-deferred)
-  ;; (php-mode  . lsp-deferred)
-  )
+  (rjsx-mode . lsp-deferred))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
