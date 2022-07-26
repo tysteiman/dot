@@ -426,7 +426,8 @@
 (use-package vertico-posframe
   :after vertico
   :init (setq vertico-posframe-width 100)
-  :config (vertico-posframe-mode 1))
+  :config (vertico-posframe-mode 1)
+  :hook (server-after-make-frame . vertico-posframe-cleanup))
 
 (use-package orderless
   :init (setq completion-styles '(orderless)))
