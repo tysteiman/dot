@@ -157,6 +157,10 @@
   (interactive)
   (async-shell-command "sync-notes"))
 
+(defun my/open-notes ()
+  (interactive)
+  (dired "~/notes"))
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -468,6 +472,8 @@
 (global-set-key (kbd "C-c f o") (lambda ()
                                   (interactive)
                                   (find-file (concat user-emacs-directory "init.el"))))
+
+(global-set-key (kbd "C-c f n") 'my/open-notes)
 
 (global-set-key (kbd "C-c f i") 'imenu)
 (global-set-key (kbd "C-c e s") 'eshell)
