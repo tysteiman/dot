@@ -450,6 +450,10 @@
 (use-package rainbow-mode
   :hook (prog-mode . rainbow-mode))
 
+(use-package csv-mode
+  :defer t
+  :hook (csv-mode . csv-align-mode))
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)

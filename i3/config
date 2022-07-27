@@ -197,18 +197,17 @@ new_window 1pixel
 # default_border pixel 10
 default_border pixel 1
 
-bindsym $mod+Shift+s exec rofi-screenshot
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+Shift+m exec emacsclient -c -a "emacs"
 
-set_from_resource $bg i3wm.background
-set_from_resource $fg i3wm.color6
-set_from_resource $wal1 i3wm.color1
-set_from_resource $wal2 i3wm.color2
-set_from_resource $wal3 i3wm.color3
-set_from_resource $wal4 i3wm.color4
-set_from_resource $wal5 i3wm.color5
-set_from_resource $wal7 i3wm.color7
+# set_from_resource $bg i3wm.background
+# set_from_resource $fg i3wm.color6
+# set_from_resource $wal1 i3wm.color1
+# set_from_resource $wal2 i3wm.color2
+# set_from_resource $wal3 i3wm.color3
+# set_from_resource $wal4 i3wm.color4
+# set_from_resource $wal5 i3wm.color5
+# set_from_resource $wal7 i3wm.color7
 
 # class                  #border  #background  #text    #indicator  #child_border
 # -------------------------------------------------------------------------------

@@ -21,3 +21,4 @@ tags
 /.emacs.d/workspace/
 nvim/plugin/
 /.emacs.d/projectile.cache
+/.emacs.d/image-dired/
