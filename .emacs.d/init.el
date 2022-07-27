@@ -27,8 +27,8 @@
 (setq-default sgml-basic-offset 4)
 
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
-(set-frame-parameter (selected-frame) 'alpha '(90 50))
-(add-to-list 'default-frame-alist '(alpha 90 50))
+(set-frame-parameter (selected-frame) 'alpha '(80 60))
+(add-to-list 'default-frame-alist '(alpha 80 60))
 
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
