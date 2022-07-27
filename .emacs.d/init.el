@@ -143,6 +143,7 @@
   (display-line-numbers-mode 1)
   (diff-hl-margin-mode 1)
   (diff-hl-mode 1)
+  (rainbow-mode)
   (when (display-graphic-p)
     (hl-line-mode 1)))
 
@@ -183,6 +184,9 @@
 
 (use-package yaml-mode
   :hook (yaml-mode . my/configure-prog-mode))
+
+(use-package conf-mode
+  :hook (conf-mode . my/configure-prog-mode))
 
 (use-package js2-mode
   :defer t
@@ -453,7 +457,7 @@
   :hook (prog-mode . hl-todo-mode))
 
 (use-package rainbow-mode
-  :hook (prog-mode . rainbow-mode))
+  :defer t)
 
 (use-package csv-mode
   :defer t
