@@ -52,7 +52,10 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run -font "LiberationMono 14"
+
+bindsym $mod+d exec --no-startup-id rofi -show run -font "JetBrainsMono Nerd Font 12"
+
+
 # bindsym $mod+d exec --no-startup-id rofi -show run -theme ~/.cache/wal/colors-rofi-dark.rasi
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -181,24 +184,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# exec_always --no-startup-id ~/.config/polybar/grayblocks/scripts/pywal.sh ~/dot/wallpaper/canvas.jpg
-# exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
-exec_always --no-startup-id emacs --daemon
-exec_always --no-startup-id xmodmap ~/dot/keys.map
-exec_always --no-startup-id xset r rate 200 50
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
-
 gaps outer 0
 gaps inner 20
 
 new_window 1pixel
 
 # default_border pixel 10
-default_border pixel 1
+default_border pixel 0
+
+border_radius 5
 
 bindsym $mod+Shift+p exec pavucontrol
-bindsym $mod+Shift+m exec emacsclient -c -a "emacs"
+bindsym $mod+Shift+m exec emacsclient -c -a emacs
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # set_from_resource $bg i3wm.background
 # set_from_resource $fg i3wm.color6

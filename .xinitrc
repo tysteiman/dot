@@ -37,11 +37,11 @@ fi
 
 
 
-
-
-# picom -b --experimental-backends
+picom -b --experimental-backends
 emacs --daemon
-# wal -i ~/dot/wallpaper/dark-beach.jpg
+feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 xmodmap ~/dot/keys.map
 xset r rate 200 50
-exec herbstluftwm
+exec i3
+
+# exec herbstluftwm
