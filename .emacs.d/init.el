@@ -328,7 +328,8 @@
   (slim-mode        . turn-on-evil-mode)
   (vterm-mode       . turn-on-evil-mode)
   (eshell-mode      . turn-on-evil-mode)
-  (git-commit-setup . turn-on-evil-mode))
+  (git-commit-setup . turn-on-evil-mode)
+  (csv-mode         . turn-on-evil-mode))
 
 (use-package evil-org
   :after org
