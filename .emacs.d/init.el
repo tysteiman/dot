@@ -467,6 +467,11 @@
 (use-package json-mode
   :defer t)
 
+(use-package helpful
+  :bind (("C-h f" . helpful-function)
+         ("C-h v" . helpful-variable)
+         ("C-h k" . helpful-key)))
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
