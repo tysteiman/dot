@@ -464,6 +464,9 @@
   :defer t
   :hook (csv-mode . csv-align-mode))
 
+(use-package json-mode
+  :defer t)
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-c t e") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
