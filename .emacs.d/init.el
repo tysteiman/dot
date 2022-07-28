@@ -213,6 +213,7 @@
 (use-package web-mode
   :mode "\\.erb\\'"
   :mode "\\.php\\'"
+  :mode "\\.html\\'"
   :config
   (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
