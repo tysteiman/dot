@@ -19,8 +19,8 @@
 [colors]
 ; background = #aa282A2E
 background = #292D3E
-background-alt = #373B41
-foreground = #C5C8C6
+background-alt = #3C435E
+foreground = #82aaff
 ; primary = #F0C674
 primary = #c792ea
 secondary = #8ABEB7
@@ -55,7 +55,7 @@ font-0 = Iosevka Nerd Font;2
 ; modules-left = xworkspaces xwindow
 modules-left = xworkspaces
 ; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date
-modules-right = filesystem pulseaudio memory cpu 
+modules-right = filesystem pulseaudio memory cpu
 modules-center = date
 
 cursor-click = pointer
@@ -164,7 +164,7 @@ label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 type = internal/date
 interval = 1
 
-date = %m/%d %I:%M %p
+date = %A %m/%d %I:%M %p
 ; date-alt = %Y-%m-%d %H:%M:%S
 
 label = %date%
