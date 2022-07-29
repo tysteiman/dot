@@ -11,7 +11,6 @@ set laststatus=2
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set termguicolors
 set number
 set cursorline
 
@@ -24,38 +23,3 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <leader>q :bnext<cr>
 nnoremap <leader>a :bprevious<cr>
 nnoremap <leader>vv :e $MYVIMRC<cr>
-nnoremap <leader>vb :e ~/.bashrc<cr>
-nnoremap <leader>vt :e ~/.tmux.conf<cr>
-
-call plug#begin()
-
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-  Plug 'sheerun/vim-polyglot'
-
-  Plug 'joshdick/onedark.vim'
-
-  Plug 'vim-airline/vim-airline'
-
-  Plug 'airblade/vim-gitgutter'
-
-  Plug 'tpope/vim-fugitive'
-
-  Plug 'mattn/emmet-vim'
-
-  Plug 'ntpeters/vim-better-whitespace'
-
-  " Plug 'junegunn/goyo.vim'
-
-  " Plug 'prettier/vim-prettier'
-
-  " Plug 'sotte/presenting.vim'
-
-call plug#end()
-
-nnoremap <c-p> :FZF<cr>
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-color onedark

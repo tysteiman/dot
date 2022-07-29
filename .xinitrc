@@ -42,6 +42,7 @@ emacs --daemon
 feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 xmodmap ~/dot/keys.map
 xset r rate 200 50
+xrandr --auto
 exec i3
 
 # exec herbstluftwm
