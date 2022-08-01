@@ -32,14 +32,15 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-# xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-0 --mode 2560x1440 --primary --right-of eDP-1
+# xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness .8 --primary
 
 
 
-picom -b --experimental-backends
+# picom -b --experimental-backends
 emacs --daemon
-feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+# feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+xsetroot -solid "#3C435E"
 xmodmap ~/dot/keys.map
 xset r rate 200 50
 xrandr --auto
