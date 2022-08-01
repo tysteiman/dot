@@ -374,9 +374,10 @@
                                  ("OPTIONAL" . (:foreground "tan"))))
   :config
   (require 'org-tempo)
-  (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
-  (add-to-list 'org-structure-template-alist '("rb" . "src ruby"))
-  (add-to-list 'org-structure-template-alist '("js" . "src javascript"))
+  (add-to-list 'org-structure-template-alist '("el"   . "src elisp"))
+  (add-to-list 'org-structure-template-alist '("rb"   . "src ruby"))
+  (add-to-list 'org-structure-template-alist '("js"   . "src javascript"))
+  (add-to-list 'org-structure-template-alist '("json" . "src json"))
   :bind (("C-c t i" . org-timer-set-timer))
   :hook (org-mode . org-indent-mode))
 
