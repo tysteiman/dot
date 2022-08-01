@@ -377,6 +377,7 @@
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
   (add-to-list 'org-structure-template-alist '("rb" . "src ruby"))
   (add-to-list 'org-structure-template-alist '("js" . "src javascript"))
+  :bind (("C-c t i" . org-timer-set-timer))
   :hook (org-mode . org-indent-mode))
 
 (use-package sudo-edit
