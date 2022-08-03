@@ -34,6 +34,7 @@ alias xcc="xclip -selection c"
 alias grep="grep --color"
 alias ll="ls -lA"
 alias duls="ls -A | xargs du -sh"
+alias stow="stow -v"
 
 # nvm
 # source /usr/share/nvm/init-nvm.sh
