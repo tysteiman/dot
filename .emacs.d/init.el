@@ -199,7 +199,6 @@
   (setq js2-mode-show-strict-warnings nil)
   :mode "\\.jsx\\'"
   :config
-  (add-to-list 'auto-mode-alist '("\\.json"  . js-mode))
   (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line)
   (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
   (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
@@ -230,8 +229,9 @@
   (setq lsp-headerline-breadcrumb-enable nil)
   :config
   (lsp-enable-which-key-integration t)
-  :hook
-  (rjsx-mode . lsp-deferred))
+  ;; :hook
+  ;; (rjsx-mode . lsp-deferred)
+  )
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
