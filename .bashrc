@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export TERM=xterm
+export TERM=xterm-256color
 export EDITOR="vim"
 
 git_branch() {
