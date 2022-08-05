@@ -11,7 +11,7 @@ export EDITOR="vim"
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
     if [ $br ]; then
-        echo " $br"
+        echo "  $br"
     fi
 }
 
