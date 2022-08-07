@@ -11,13 +11,13 @@ export EDITOR="vim"
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
     if [ $br ]; then
-        echo "  $br"
+        echo " $br"
     fi
 }
 
 # PS1='[\u@\h \W]\$ '
 # PS1='\e[1m\e[36m\W \e[35m>\e[0m '
-PS1='\e[1m\e[36m\W\e[34m$(git_branch) \e[35m\e[0m '
+PS1='\e[1m\e[36m\W\e[34m$(git_branch) \e[35m>\e[0m '
 
 alias ls='ls --color=auto'
 alias c="clear"
@@ -39,9 +39,9 @@ alias stow="stow -v"
 # nvm
 # source /usr/share/nvm/init-nvm.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export DENO_INSTALL="/home/tyler/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+# export DENO_INSTALL="/home/tyler/.deno"
+# export PATH="$DENO_INSTALL/bin:$PATH"

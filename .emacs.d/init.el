@@ -9,6 +9,7 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
+(toggle-frame-maximized)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -26,9 +27,9 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
-(set-frame-parameter (selected-frame) 'alpha '(80 60))
-(add-to-list 'default-frame-alist '(alpha 80 60))
+;; (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
+;; (set-frame-parameter (selected-frame) 'alpha '(80 60))
+;; (add-to-list 'default-frame-alist '(alpha 80 60))
 
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
@@ -264,12 +265,11 @@
 
 (use-package tree-sitter-langs :defer t)
 
-(defvar my/theme 'doom-palenight
-  "Theme to use")
-
 (use-package doom-themes
-  :hook (server-after-make-frame . (lambda ()
-                                     (load-theme my/theme t))))
+  :config (load-theme 'doom-one t))
+
+  ;; :hook (server-after-make-frame . (lambda ()
+  ;;                                    (load-theme my/theme t)))
 
 (use-package doom-modeline
   :init
@@ -436,11 +436,11 @@
 (use-package vertico
   :config (vertico-mode 1))
 
-(use-package vertico-posframe
-  :after vertico
-  :init (setq vertico-posframe-width 100)
-  :config (vertico-posframe-mode 1)
-  :hook (server-after-make-frame . vertico-posframe-cleanup))
+;; (use-package vertico-posframe
+;;   :after vertico
+;;   :init (setq vertico-posframe-width 100)
+;;   :config (vertico-posframe-mode 1)
+;;   :hook (server-after-make-frame . vertico-posframe-cleanup))
 
 (use-package marginalia
   :after vertico
