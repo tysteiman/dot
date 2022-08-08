@@ -27,10 +27,10 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 120 :family "JetBrainsMono Nerd Font")
 ;; (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
-;; (set-frame-parameter (selected-frame) 'alpha '(80 60))
-;; (add-to-list 'default-frame-alist '(alpha 80 60))
+(set-frame-parameter (selected-frame) 'alpha '(90 70))
+(add-to-list 'default-frame-alist '(alpha 90 70))
 
 (defun my/trim-current-line-region ()
   "Trim whitespace for the given line"
@@ -164,6 +164,14 @@
   (interactive)
   (dired "~/notes"))
 
+(defun my/laptop-on ()
+  (interactive)
+  (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
+
+(defun my/laptop-off ()
+  (interactive)
+  (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -267,7 +275,7 @@
 (use-package tree-sitter-langs :defer t)
 
 (use-package doom-themes
-  :config (load-theme 'doom-one t))
+  :config (load-theme 'doom-palenight t))
 
   ;; :hook (server-after-make-frame . (lambda ()
   ;;                                    (load-theme my/theme t)))
