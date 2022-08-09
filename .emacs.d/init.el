@@ -27,8 +27,8 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(set-face-attribute 'default nil :height 120 :family "JetBrainsMono Nerd Font")
-;; (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
+;; (set-face-attribute 'default nil :height 120 :family "JetBrainsMono Nerd Font")
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
 (set-frame-parameter (selected-frame) 'alpha '(90 70))
 (add-to-list 'default-frame-alist '(alpha 90 70))
 
@@ -274,11 +274,12 @@
 
 (use-package tree-sitter-langs :defer t)
 
-(use-package doom-themes
-  :config (load-theme 'doom-palenight t))
+(defvar my/theme 'doom-palenight)
 
-  ;; :hook (server-after-make-frame . (lambda ()
-  ;;                                    (load-theme my/theme t)))
+(use-package doom-themes
+  :config (load-theme my/theme t)
+  :hook (server-after-make-frame . (lambda ()
+                                     (load-theme my/theme t))))
 
 (use-package doom-modeline
   :init
