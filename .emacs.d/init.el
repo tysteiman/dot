@@ -378,7 +378,9 @@
   (add-to-list 'org-structure-template-alist '("js"   . "src javascript"))
   (add-to-list 'org-structure-template-alist '("json" . "src json"))
   :bind (("C-c t i" . org-timer-set-timer))
-  :hook (org-mode . org-indent-mode))
+  :hook
+  (org-mode . org-indent-mode)
+  (org-mode . toggle-truncate-lines))
 
 (use-package sudo-edit
   :defer t)
@@ -508,9 +510,6 @@
                                   (message "Buffer reverted.")))
 
 (add-hook 'prog-mode-hook 'my/configure-prog-mode)
-
-(add-hook 'org-mode-hook (lambda ()
-                           (toggle-truncate-lines)))
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
