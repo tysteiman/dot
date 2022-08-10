@@ -189,14 +189,13 @@ gaps inner 5
 
 new_window 1pixel
 
-# default_border pixel 10
-default_border pixel 2
+default_border pixel 1
 
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+Shift+m exec emacsclient -c -a emacs
 bindsym $mod+Shift+f exec pcmanfm
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # set_from_resource $bg i3wm.background
 # set_from_resource $fg i3wm.color6

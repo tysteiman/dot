@@ -9,7 +9,6 @@
 (show-paren-mode)
 (display-time-mode)
 (auto-revert-mode t)
-(toggle-frame-maximized)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
