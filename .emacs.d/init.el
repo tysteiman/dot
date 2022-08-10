@@ -116,13 +116,6 @@
 (eval-after-load 'ruby-mode '(progn
                                (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)))
 
-(defun my/load-config-file (file)
-  "Load configuration .el file"
-  (let ((full-path (concat user-emacs-directory file ".el")))
-    (if (file-exists-p full-path)
-        (load-file full-path)
-      (message "File [%s] does not exist." full-path))))
-
 (defun my/configure-prog-mode ()
   (interactive)
   (setq show-trailing-whitespace t)
@@ -435,12 +428,6 @@
 
 (use-package vertico
   :config (vertico-mode 1))
-
-;; (use-package vertico-posframe
-;;   :after vertico
-;;   :init (setq vertico-posframe-width 100)
-;;   :config (vertico-posframe-mode 1)
-;;   :hook (server-after-make-frame . vertico-posframe-cleanup))
 
 (use-package marginalia
   :after vertico
