@@ -157,7 +157,7 @@
 (defun my/sync-notes ()
   "Run AWS sync-notes binary for my notes directory"
   (interactive)
-  (async-shell-command "sync-notes"))
+  (async-shell-command "sync-notes" (get-buffer-create "*notes*")))
 
 (defun my/open-notes ()
   (interactive)
@@ -170,6 +170,11 @@
 (defun my/laptop-off ()
   (interactive)
   (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
+
+(defun my/update-arch ()
+  "Run async shell command to fetch for updates in yay"
+  (interactive)
+  (async-shell-command "yay -Syyu" (get-buffer-create "*yay*")))
 
 (require 'package)
 
@@ -491,6 +496,7 @@
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
 (global-set-key (kbd "C-c s n") 'my/sync-notes)
+(global-set-key (kbd "C-c s u") 'my/update-arch)
 (global-set-key (kbd "C-c r d") 'my/async-shell-command-docker)
 
 (global-set-key (kbd "C-c f o") (lambda ()
