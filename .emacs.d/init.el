@@ -116,21 +116,6 @@
 (eval-after-load 'ruby-mode '(progn
                                (define-key ruby-mode-map (kbd "C-c r r") 'my/async-shell-command-rubocop)))
 
-(defun my/projectile-ripgrep ()
-  (interactive)
-  (if (region-active-p)
-      (my/projectile-ripgrep-region)
-    (my/projectile-ripgrep-thing-at-point)))
-
-(defun my/projectile-ripgrep-region ()
-  (interactive)
-  (let ((grabbed (buffer-substring-no-properties (region-beginning) (region-end))))
-    (projectile-ripgrep grabbed)))
-
-(defun my/projectile-ripgrep-thing-at-point ()
-  (interactive)
-  (projectile-ripgrep (thing-at-point 'word t)))
-
 (defun my/load-config-file (file)
   "Load configuration .el file"
   (let ((full-path (concat user-emacs-directory file ".el")))
@@ -378,8 +363,7 @@
 (use-package projectile
   :config
   (projectile-mode 1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  :bind (("C-c s s" . my/projectile-ripgrep)))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package org
   :init
