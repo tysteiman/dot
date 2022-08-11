@@ -393,17 +393,44 @@
 (use-package eshell-git-prompt
   :config (eshell-git-prompt-use-theme 'multiline2))
 
-(defun my/vterm (&optional bufname)
-  "Create a new VTERM buffer named `'bufname. Runs at projectile root when in a projectile directory."
+(defun my/vterm (&optional bufname ignore-split)
+  "Create a new VTERM buffer named `bufname'. Runs at projectile root when in a projectile directory."
   (interactive "sBuffer name: ")
-  (message "Buffer name: %s" bufname)
   (let ((targetname (if (string-empty-p bufname) "vterm" bufname))
         (projectp (projectile-project-p)))
-    (split-window-sensibly)
+    (unless ignore-split
+      (split-window-right))
     (if projectp
         (projectile-run-vterm)
       (vterm))
     (rename-buffer (concat "*" targetname "*"))))
+
+(defun my/launch-vterm-with-command (bufname command)
+  "Launch vterm named `buffer-name' and run `command'."
+  (my/vterm bufname t)
+  (vterm-send-string command)
+  (vterm-send-return))
+
+(defun my/project-vterm-name (typename)
+  "Return target buffer name for project vterm buffer name e.g. foo-rails server"
+  (concat (if (projectile-project-p)
+              (projectile-project-name)
+            (projectile-default-project-name default-directory))
+          " " typename))
+
+(defun my/launch-docker-project ()
+  "Launch general docker project by running docker-compose up"
+  (interactive)
+  (split-window-right)
+  (my/launch-vterm-with-command (my/project-vterm-name "up") "docker-compose up"))
+
+(defun my/launch-rails-docker-project ()
+  "Launch rails docker project by launching docker-compose up and rails s inside of the app container"
+  (interactive)
+  (my/launch-docker-project)
+  (sit-for 5)
+  (split-window-below)
+  (my/launch-vterm-with-command (my/project-vterm-name "server") "docker-compose exec app rails s -b 0.0.0.0"))
 
 (use-package vterm
   :bind (("C-c e v" . my/vterm)))
@@ -461,22 +488,31 @@
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)))
 
+;; my misc defuns
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)
 (global-set-key (kbd "C-M-o")   'my/new-previous-line)
+
+;; shell commands
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
 (global-set-key (kbd "C-c s n") 'my/sync-notes)
 (global-set-key (kbd "C-c s u") 'my/update-arch)
-(global-set-key (kbd "C-c r d") 'my/async-shell-command-docker)
+(global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
 
+;; docker commands
+(global-set-key (kbd "C-c d r") 'my/launch-rails-docker-project)
+(global-set-key (kbd "C-c d u") 'my/launch-docker-project)
+
+;; file commands
 (global-set-key (kbd "C-c f o") (lambda ()
                                   (interactive)
                                   (find-file (concat user-emacs-directory "init.el"))))
 
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
+;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
 (global-set-key (kbd "C-c e s") 'eshell)
 (global-set-key (kbd "M-z")     'zap-up-to-char)
