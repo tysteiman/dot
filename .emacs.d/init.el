@@ -259,7 +259,6 @@
 (defvar my/theme 'doom-palenight)
 
 (use-package doom-themes
-  :config (load-theme my/theme t)
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
 
