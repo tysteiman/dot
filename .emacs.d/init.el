@@ -433,7 +433,9 @@
   (my/launch-vterm-with-command (my/project-vterm-name "server") "docker-compose exec app rails s -b 0.0.0.0"))
 
 (use-package vterm
-  :bind (("C-c e v" . my/vterm)))
+  :bind (("C-c e v" . my/vterm)
+         ("C-c d u" . my/launch-docker-project)
+         ("C-c d r" . my/launch-rails-docker-project)))
 
 (use-package pulseaudio-control
   :config (pulseaudio-control-default-keybindings))
@@ -500,10 +502,6 @@
 (global-set-key (kbd "C-c s n") 'my/sync-notes)
 (global-set-key (kbd "C-c s u") 'my/update-arch)
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
-
-;; docker commands
-(global-set-key (kbd "C-c d r") 'my/launch-rails-docker-project)
-(global-set-key (kbd "C-c d u") 'my/launch-docker-project)
 
 ;; file commands
 (global-set-key (kbd "C-c f o") (lambda ()
