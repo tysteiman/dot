@@ -497,6 +497,12 @@
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)))
 
+(use-package paredit
+  :hook
+  (emacs-lisp-mode       . enable-paredit-mode)
+  (lisp-interaction-mode . enable-paredit-mode)
+  (lisp-mode             . enable-paredit-mode))
+
 ;; my misc defuns
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
