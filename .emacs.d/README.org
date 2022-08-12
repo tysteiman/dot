@@ -988,7 +988,7 @@ A reusable function that allows you to open vterm and submit an initial command 
   ;; file commands
   (global-set-key (kbd "C-c f o") (lambda ()
                                     (interactive)
-                                    (find-file (concat user-emacs-directory "init.el"))))
+                                    (find-file (concat user-emacs-directory "README.org"))))
 
   (global-set-key (kbd "C-c f n") 'my/open-notes)
 
