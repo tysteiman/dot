@@ -23,3 +23,4 @@ tags
 nvim/plugin/
 /.emacs.d/projectile.cache
 /.emacs.d/image-dired/
+/.emacs.d/README.el
