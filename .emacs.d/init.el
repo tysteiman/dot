@@ -432,10 +432,17 @@
   (split-window-below)
   (my/launch-vterm-with-command (my/project-vterm-name "server") "docker-compose exec app rails s -b 0.0.0.0"))
 
+(defun my/launch-yarn-project ()
+  "Launch yarn project by launching yarn start"
+  (interactive)
+  (split-window-right)
+  (my/launch-vterm-with-command (my/project-vterm-name "yarn") "yarn start"))
+
 (use-package vterm
   :bind (("C-c e v" . my/vterm)
          ("C-c d u" . my/launch-docker-project)
-         ("C-c d r" . my/launch-rails-docker-project)))
+         ("C-c d r" . my/launch-rails-docker-project)
+         ("C-c d y" . my/launch-yarn-project)))
 
 (use-package pulseaudio-control
   :config (pulseaudio-control-default-keybindings))
