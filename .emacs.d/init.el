@@ -407,7 +407,7 @@
 
 (defun my/launch-vterm-with-command (bufname command)
   "Launch vterm named `buffer-name' and run `command'."
-  (my/vterm bufname t)
+  (my/vterm (my/project-vterm-name bufname) t)
   (vterm-send-string command)
   (vterm-send-return))
 
@@ -422,7 +422,7 @@
   "Launch general docker project by running docker-compose up"
   (interactive)
   (split-window-right)
-  (my/launch-vterm-with-command (my/project-vterm-name "up") "docker-compose up"))
+  (my/launch-vterm-with-command "up" "docker-compose up"))
 
 (defun my/launch-rails-docker-project ()
   "Launch rails docker project by launching docker-compose up and rails s inside of the app container"
@@ -430,13 +430,13 @@
   (my/launch-docker-project)
   (sit-for 5)
   (split-window-below)
-  (my/launch-vterm-with-command (my/project-vterm-name "server") "docker-compose exec app rails s -b 0.0.0.0"))
+  (my/launch-vterm-with-command "server" "docker-compose exec app rails s -b 0.0.0.0"))
 
 (defun my/launch-yarn-project ()
   "Launch yarn project by launching yarn start"
   (interactive)
   (split-window-right)
-  (my/launch-vterm-with-command (my/project-vterm-name "yarn") "yarn start"))
+  (my/launch-vterm-with-command "yarn" "yarn start"))
 
 (use-package vterm
   :bind (("C-c e v" . my/vterm)
