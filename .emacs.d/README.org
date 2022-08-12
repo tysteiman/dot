@@ -475,7 +475,6 @@ Quick helpers to generate ctags for common projects (rails, c.r.a, etc.)
   
 #+end_src
 
-
 *** Code Completion
 
 **** Company
