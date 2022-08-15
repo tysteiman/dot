@@ -619,6 +619,15 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
   
 #+end_src
 
+**** Smart Parens
+
+#+begin_src elisp
+
+  (use-package smartparens
+    :hook (prog-mode . smartparens-mode))
+
+#+end_src
+
 *** Themes & UI
 
 **** Doom Themes
@@ -996,27 +1005,44 @@ A reusable function that allows you to open vterm and submit an initial command 
 
 * Key bindings
 
+** My defuns
+
 #+begin_src elisp
 
-  ;; my misc defuns
   (global-set-key (kbd "C-c t r") 'my/rails-tags)
   (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
   (global-set-key (kbd "C-o")     'my/new-next-line)
   (global-set-key (kbd "C-M-o")   'my/new-previous-line)
 
-  ;; shell commands
+#+end_src
+
+*** Shell Commands
+
+#+begin_src elisp
+
   (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
   (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
   (global-set-key (kbd "C-c s n") 'my/sync-notes)
   (global-set-key (kbd "C-c s u") 'my/update-arch)
   (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
 
-  ;; file commands
+#+end_src
+
+*** Files
+
+#+begin_src elisp
+
   (global-set-key (kbd "C-c f o") (lambda ()
                                     (interactive)
                                     (find-file (concat user-emacs-directory "README.org"))))
 
   (global-set-key (kbd "C-c f n") 'my/open-notes)
+
+#+end_src
+
+** Others (emacs functions)
+
+#+begin_src elisp
 
   ;; other package commands
   (global-set-key (kbd "C-c f i") 'imenu)
@@ -1031,7 +1057,6 @@ A reusable function that allows you to open vterm and submit an initial command 
   (global-set-key (kbd "C-c i l") 'list-packages)
   (global-set-key (kbd "C-c t l") 'display-line-numbers-mode)
   (global-set-key (kbd "C-c b r") 'rename-buffer)
-
   (global-set-key (kbd "C-c b v") (lambda ()
                                     (interactive)
                                     (revert-buffer nil t)
