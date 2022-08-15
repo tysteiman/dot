@@ -154,6 +154,10 @@ Quick helpers to generate ctags for common projects (rails, c.r.a, etc.)
 
 ** Send Text to Shell Commands
 
+*** Send Region to Shell
+
+This is the main function for sending text from a buffer into a shell command. These are good for changing config files like xinitrc, bashrc, etc. and firing those commands from emacs.
+
 #+begin_src elisp
 
   (defun my/send-region-to-shell (&optional start end)
@@ -164,10 +168,24 @@ Quick helpers to generate ctags for common projects (rails, c.r.a, etc.)
                          (buffer-substring (region-beginning) (region-end)))))
       (shell-command region-text)))
 
+#+end_src
+
+*** Send Line to shell
+
+This uses the region function, just for the whole line.
+
+#+begin_src elisp
+
   (defun my/send-line-to-shell ()
     "Function to use my/send-region-to-shell, giving it the whole line to run"
     (interactive)
     (my/send-region-to-shell (line-beginning-position) (line-end-position)))
+
+#+end_src
+
+*** Send File to shell command
+
+#+begin_src elisp
 
   (defun my/async-shell-command-on-file (command)
     "Send current file as the argument to `command' i.e. <`command'> <current-file>"
@@ -175,19 +193,27 @@ Quick helpers to generate ctags for common projects (rails, c.r.a, etc.)
     (let* ((file (expand-file-name (buffer-file-name)))
            (command-to-run (concat command " " file)))
       (async-shell-command command-to-run)))
-
-  (defun my/async-shell-command-docker (command)
-    (interactive "sAsync Docker shell command: ")
-    (let ((command-to-run (concat "docker-compose exec app " command)))
-      (async-shell-command command-to-run)))
-
+  
   (defun my/async-shell-command-rubocop ()
     (interactive)
     (my/async-shell-command-on-file "rubocop"))
 
 #+end_src
 
-*** Key Bindings
+*** Send shell command inside docker container
+
+This is useful for using cli tools within docker containers e.g. /rails db:migrate/ etc.
+
+#+begin_src elisp
+
+  (defun my/async-shell-command-docker (command)
+    (interactive "sAsync Docker shell command: ")
+    (let ((command-to-run (concat "docker-compose exec app " command)))
+      (async-shell-command command-to-run)))
+
+#+end_src
+
+*** Shell command mode map key bindings
 
 #+begin_src elisp
 
