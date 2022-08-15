@@ -32,7 +32,7 @@ alias ga="git add ."
 alias gl="git log --graph"
 alias xcc="xclip -selection c"
 alias grep="grep --color"
-alias ll="ls -lA"
+alias ll="ls -lAh"
 alias duls="ls -A | xargs du -sh"
 alias stow="stow -v"
 

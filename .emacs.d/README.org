@@ -753,11 +753,12 @@ Solaire is used for darker secondary buffer backgrounds (e.g. darker terminal bu
     (add-to-list 'org-structure-template-alist '("rb"   . "src ruby"))
     (add-to-list 'org-structure-template-alist '("js"   . "src javascript"))
     (add-to-list 'org-structure-template-alist '("json" . "src json"))
-    :bind (("C-c t i" . org-timer-set-timer))
+    :bind (("C-c t i" . org-timer-set-timer)
+           ("C-c t s" . org-timer-stop))
     :hook
     (org-mode . org-indent-mode)
     (org-mode . toggle-truncate-lines))
-  
+
 #+end_src
 
 *** Evil
