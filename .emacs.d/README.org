@@ -821,8 +821,9 @@ Solaire is used for darker secondary buffer backgrounds (e.g. darker terminal bu
     :bind (("C-c e v" . my/vterm)
            ("C-c d u" . my/launch-docker-project)
            ("C-c d r" . my/launch-rails-docker-project)
-           ("C-c d y" . my/launch-yarn-project)))
-  
+           ("C-c d y" . my/launch-yarn-project)
+           ("C-c d c" . my/launch-rails-console)))
+
 #+end_src
 
 ***** Vterm Functions
@@ -861,7 +862,11 @@ A reusable function that allows you to open vterm and submit an initial command 
 
 #+end_src
 
-******* Project Type Launchers
+******* Project vterm name
+
+This helper will return the name of a vterm instance based on if we're in a projectile project or not
+
+When we are not in a projectile project, it will default to the name the project /would have been/.
 
 #+begin_src elisp
 
@@ -872,11 +877,29 @@ A reusable function that allows you to open vterm and submit an initial command 
               (projectile-default-project-name default-directory))
             " " typename))
 
+#+end_src
+
+******* Docker Commands
+
+Shared function to launch vterm with only /docker-compose up/
+
+#+begin_src elisp
+
   (defun my/launch-docker-project ()
     "Launch general docker project by running docker-compose up"
     (interactive)
     (split-window-right)
     (my/launch-vterm-with-command "up" "docker-compose up"))
+
+#+end_src
+
+******** Rails
+
+Launch vterm with rails commands such as /rails s/ or /rails c/.
+
+my/launch-rails-docker-project will launch the entire project with a server, whereas console will only launch a console.
+
+#+begin_src elisp
 
   (defun my/launch-rails-docker-project ()
     "Launch rails docker project by launching docker-compose up and rails s inside of the app container"
@@ -885,6 +908,20 @@ A reusable function that allows you to open vterm and submit an initial command 
     (sit-for 5)
     (split-window-below)
     (my/launch-vterm-with-command "server" "docker-compose exec app rails s -b 0.0.0.0"))
+
+  (defun my/launch-rails-console ()
+    "Launch a rails console in vterm"
+    (interactive)
+    (split-window-right)
+    (my/launch-vterm-with-command "console" "docker-compose exec app rails c"))
+
+#+end_src
+
+******** Yarn
+
+Launch a vterm instance with /yarn start/
+
+#+begin_src elisp
 
   (defun my/launch-yarn-project ()
     "Launch yarn project by launching yarn start"
