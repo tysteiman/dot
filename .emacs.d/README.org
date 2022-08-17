@@ -674,7 +674,7 @@ Solaire is used for darker secondary buffer backgrounds (e.g. darker terminal bu
   
 #+end_src
 
-*** Buffers
+*** Buffers & Windows
 
 **** Ibuffer
 
@@ -685,6 +685,24 @@ Solaire is used for darker secondary buffer backgrounds (e.g. darker terminal bu
     :config
     (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
     (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
+  
+#+end_src
+
+**** Winner Mode (Window History)
+
+#+begin_src elisp
+
+  (use-package winner
+    :config (winner-mode))
+
+#+end_src
+
+**** Window Numbering
+
+#+begin_src elisp
+
+  (use-package window-numbering
+    :config (window-numbering-mode 1))
   
 #+end_src
 
@@ -942,16 +960,7 @@ Launch a vterm instance with /yarn start/
   
 #+end_src
 
-*** Ripgrep
-
-#+begin_src elisp
-
-  (use-package rg
-    :commands (projectile-ripgrep))
-  
-#+end_src
-
-*** Navigation
+*** Searching
 
 **** Swiper
 
@@ -962,12 +971,12 @@ Launch a vterm instance with /yarn start/
   
 #+end_src
 
-**** Window Numbering
+**** Ripgrep
 
 #+begin_src elisp
 
-  (use-package window-numbering
-    :config (window-numbering-mode 1))
+  (use-package rg
+    :commands (projectile-ripgrep))
   
 #+end_src
 
