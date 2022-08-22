@@ -33,10 +33,11 @@ fi
 # ====================================================================================
 
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-# picom -b --experimental-backends
 emacs --daemon
-# feh --bg-scale ~/dot/wallpaper/firewatch.jpg
 xsetroot -solid "#3C435E"
 xmodmap ~/dot/keys.map
 xset r rate 200 50
+
 exec i3
+
+# exec /home/tyler/proj/home/xcbwm/bin/tinyxcbwm

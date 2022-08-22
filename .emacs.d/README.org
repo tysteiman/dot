@@ -565,10 +565,12 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
 #+begin_src elisp
 
   (use-package tree-sitter
-    :hook (ruby-mode . tree-sitter-hl-mode))
+    :hook
+    (ruby-mode . tree-sitter-hl-mode)
+    (c-mode    . tree-sitter-hl-mode))
 
   (use-package tree-sitter-langs :defer t)
-  
+
 #+end_src
 
 **** Rainbow Delimiters
@@ -689,6 +691,10 @@ Solaire is used for darker secondary buffer backgrounds (e.g. darker terminal bu
 #+end_src
 
 **** Winner Mode (Window History)
+
+Winner mode enables you to navigate window history with C-<left> and C-<right>.
+
+This is useful for when opening temporary buffers and opening and closing windows and going back, restoring those windows later.
 
 #+begin_src elisp
 
@@ -835,12 +841,13 @@ Solaire is used for darker secondary buffer backgrounds (e.g. darker terminal bu
 
 #+begin_src elisp
 
-  (use-package vterm
-    :bind (("C-c e v" . my/vterm)
-           ("C-c d u" . my/launch-docker-project)
-           ("C-c d r" . my/launch-rails-docker-project)
-           ("C-c d y" . my/launch-yarn-project)
-           ("C-c d c" . my/launch-rails-console)))
+    (use-package vterm
+      :bind (("C-c e v" . my/vterm)
+             ("C-c d u" . my/launch-docker-project)
+             ("C-c d r" . my/launch-rails-docker-project)
+             ("C-c d y" . my/launch-yarn-project)
+             ("C-c d c" . my/launch-rails-console)
+             ("C-c d a" . my/launch-rails-bash)))
 
 #+end_src
 
@@ -932,6 +939,12 @@ my/launch-rails-docker-project will launch the entire project with a server, whe
     (interactive)
     (split-window-right)
     (my/launch-vterm-with-command "console" "docker-compose exec app rails c"))
+  
+  (defun my/launch-rails-bash ()
+    "Launch a bash session in a rails container"
+    (interactive)
+    (split-window-right)
+    (my/launch-vterm-with-command "app" "docker-compose exec app bash"))
 
 #+end_src
 
