@@ -637,7 +637,7 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
 
   (use-package doom-themes
     :hook (server-after-make-frame . (lambda ()
-                                       (load-theme 'doom-gruvbox t))))
+                                       (load-theme 'doom-palenight t))))
   
 #+end_src
 
