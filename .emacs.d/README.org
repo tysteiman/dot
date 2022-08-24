@@ -70,8 +70,8 @@ This is just to keep the system startup fast, it is turned down at the end.
 
 #+begin_src elisp
 
-  (set-frame-parameter (selected-frame) 'alpha '(90 70))
-  (add-to-list 'default-frame-alist '(alpha 90 70))
+  (set-frame-parameter (selected-frame) 'alpha '(80 70))
+  (add-to-list 'default-frame-alist '(alpha 80 70))
   
 #+end_src
 
@@ -630,15 +630,6 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
 #+end_src
 
 *** Themes & UI
-
-**** Emacs 
-
-#+begin_src elisp
-
-  ;; (use-package emacs
-  ;;   :hook (server-after-make-frame . (lambda () (load-theme 'modus-vivendi t))))
-
-#+end_src
 
 **** Doom Themes
 
