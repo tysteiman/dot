@@ -530,9 +530,8 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
     (setq lsp-headerline-breadcrumb-enable nil)
     :config
     (lsp-enable-which-key-integration t)
-    ;; :hook
-    ;; (rjsx-mode . lsp-deferred)
-    )
+    :hook
+    (c-mode . lsp-deferred))
 
   (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode))
