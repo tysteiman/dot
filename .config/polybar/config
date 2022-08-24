@@ -18,60 +18,54 @@
 
 [colors]
 ; background = #aa282A2E
-
-background = #292D3E
-background-alt = #3C435E
+background = #77292D3E
+background-trans = #00292D3E
+background-alt = #773C435E
 foreground = #82aaff
-
 ; primary = #F0C674
 primary = #c792ea
 secondary = #8ABEB7
 alert = #A54242
 disabled = #707880
 
-[bar/mybar]
-width = 100%
+[bar/base]
+; override-redirect = true
 height = 20pt
-radius = 6
-
-; dpi = 96
-
-background = ${colors.background}
+radius = 10
 foreground = ${colors.foreground}
-
 line-size = 3pt
-
 border-size = 4pt
 border-color = #00000000
-
 padding-left = 0
 padding-right = 2
-
 module-margin = 2
-
 separator = |
 separator-foreground = ${colors.disabled}
-
 font-0 = JetBrainsMono Nerd Font;2
-
-; modules-left = xworkspaces xwindow
-modules-left = xworkspaces
-; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date
-modules-right = filesystem pulseaudio memory cpu
-modules-center = date
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
 enable-ipc = true
 
-; tray-position = right
+[bar/workspaces]
+inherit = bar/base
+width = 88%
+background = ${colors.background-trans}
+modules-left = xworkspaces
+; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date
+; modules-left = xworkspaces xwindow
 
+[bar/mybar]
+inherit = bar/base
+width = 12%
+offset-x = 88%
+background = ${colors.background}
+modules-center = date
+; modules-left = xworkspaces xwindow
+; modules-left = xworkspaces
+; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date
+; modules-right = filesystem pulseaudio memory cpu
+; tray-position = right
 ; wm-restack = generic
 ; wm-restack = bspwm
 ; wm-restack = i3
-
-; override-redirect = true
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -79,7 +73,7 @@ type = internal/xworkspaces
 ; label-active = %name%
 label-active = 
 ; label-active-background = ${colors.background-alt}
-label-active-background = ${colors.background}
+label-active-background = ${colors.background-trans}
 label-active-foreground = ${colors.secondary}
 ; label-active-underline= ${colors.primary}
 label-active-padding = 2
