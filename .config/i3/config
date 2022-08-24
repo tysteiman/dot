@@ -185,17 +185,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 gaps outer 0
-gaps inner 5
+gaps inner 20
 
 new_window 1pixel
 
-default_border pixel 1
+default_border pixel 2
 
 bindsym $mod+Shift+p exec pavucontrol
 bindsym $mod+Shift+m exec emacsclient -c -a emacs
 bindsym $mod+Shift+f exec pcmanfm
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # set_from_resource $bg i3wm.background
 # set_from_resource $fg i3wm.color6
@@ -209,7 +209,9 @@ bindsym $mod+Shift+f exec pcmanfm
 # class                  #border  #background  #text    #indicator  #child_border
 # -------------------------------------------------------------------------------
 # client.focused             $bg      $wal1        #ffffff  $wal5       $wal1
-client.focused             #292d2e  #c792ea      #ffffff  #c792ea     #c792ea
+# PALENIGHT
+# client.focused             #292d2e  #c792ea      #ffffff  #c792ea     #c792ea
+client.focused             #292d2e  #689d6a      #ffffff  #689d6a     #689d6a
 # client.focused_inactive  #333333  #5f676a      #ffffff  #484e50     #5f676a
 # client.unfocused         #333333  #222222      #888888  #292d2e     #222222
 # client.urgent            #2f343a  #900000      #ffffff  #900000     #900000

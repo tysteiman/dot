@@ -631,13 +631,22 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
 
 *** Themes & UI
 
+**** Emacs 
+
+#+begin_src elisp
+
+  ;; (use-package emacs
+  ;;   :hook (server-after-make-frame . (lambda () (load-theme 'modus-vivendi t))))
+
+#+end_src
+
 **** Doom Themes
 
 #+begin_src elisp
 
   (use-package doom-themes
     :hook (server-after-make-frame . (lambda ()
-                                       (load-theme 'doom-palenight t))))
+                                       (load-theme 'doom-gruvbox t))))
   
 #+end_src
 

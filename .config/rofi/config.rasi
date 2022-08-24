@@ -1,1 +1,2 @@
-@theme "~/.config/rofi/palenight.rasi"
+// @theme "~/.config/rofi/palenight.rasi"
+@theme "~/.config/rofi/gruvbox.rasi"

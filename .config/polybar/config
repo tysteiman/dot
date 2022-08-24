@@ -18,14 +18,14 @@
 
 [colors]
 ; background = #aa282A2E
-background = #292D3E
-background-alt = #3C435E
-foreground = #82aaff
+background = #282828
+background-alt = #a89984
+foreground = #ebdbb2
 ; primary = #F0C674
-primary = #c792ea
-secondary = #8ABEB7
-alert = #A54242
-disabled = #707880
+primary = #83a598
+secondary = #8ec07c
+alert = #cc241d
+disabled = #d65d0e
 
 [bar/mybar]
 width = 100%
