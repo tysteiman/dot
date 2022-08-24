@@ -2,8 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
-bspc monitor HDMI-1-0 -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d X
+bspc monitor HDMI-1-0 -d I II III IV V VI VII VIII IX
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -18,3 +18,5 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Emacs state=tiled
+
+~/dot/.config/polybar/launch.sh
