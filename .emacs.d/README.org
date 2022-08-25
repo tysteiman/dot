@@ -183,6 +183,14 @@ This uses the region function, just for the whole line.
 
 #+end_src
 
+Set this to C-M-x when in shell mode
+
+#+begin_src elisp
+
+  (define-key sh-mode-map (kbd "C-M-x") 'my/send-line-to-shell)
+
+#+end_src
+
 *** Send File to shell command
 
 #+begin_src elisp
@@ -274,6 +282,10 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
 #+end_src
 
 ** Laptop xrandr Helpers
+
+Basic helpers that can be extended for messing with using different monitors.
+
+With using BSPWM, these could be extended to also shuffle around workspaces if needed.
 
 #+begin_src elisp
 
