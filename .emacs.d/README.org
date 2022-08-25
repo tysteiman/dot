@@ -298,6 +298,24 @@ This is useful for using cli tools within docker containers e.g. /rails db:migra
   
 #+end_src
 
+** BSPWM
+
+These are small helper methods for setting bspwm configuration settings via bspc.
+
+#+begin_src elisp
+
+  (defun bspc (command)
+    "Run a command via bspc"
+    (start-process-shell-command "bspc" nil (concat "bspc " command)))
+
+  (defun bspc-config (command)
+    "Run a bspc config command"
+    (bspc (concat "config " command)))
+
+#+end_src
+
+The idea is to be able to configure bspwm in Emacs via /(bspc-config "border_width 20")/ or something along those lines.
+
 * Packages
 
 ** Add MELPA and install use-package
