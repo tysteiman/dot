@@ -490,6 +490,15 @@ The idea is to be able to configure bspwm in Emacs via /(bspc-config "border_wid
 
 #+end_src
 
+**** Fish
+
+#+begin_src elisp
+
+  (use-package fish-mode
+    :defer t)
+
+#+end_src
+
 *** Emacs Completion
 
 **** Vertico
