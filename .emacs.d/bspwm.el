@@ -12,7 +12,7 @@
 
 (defun bspc-rule (command)
   "Run a bspc rule command"
-  (bspc (concat "rule " command)))
+  (bspc (concat "rule -a " command)))
 
 (bspc-monitor "eDP-1 -r")
 (bspc-monitor "HDMI-1-0 -d I II III IV V")
@@ -24,8 +24,8 @@
 (bspc-config "borderless_monocle true")
 (bspc-config "gapless_monocle true")
 
-(bspc-rule "-a Chromium desktop='^2'")
-(bspc-rule "-a mplayer2 state=floating")
-(bspc-rule "-a Kupfer.py focus=on")
-(bspc-rule "-a Screenkey manage=off")
-(bspc-rule "-a Emacs state=tiled")
+(bspc-rule "Chromium desktop='^2'")
+(bspc-rule "mplayer2 state=floating")
+(bspc-rule "Kupfer.py focus=on")
+(bspc-rule "Screenkey manage=off")
+(bspc-rule "Emacs state=tiled")
