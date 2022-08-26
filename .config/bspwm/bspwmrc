@@ -3,7 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # emacs load bspwm file (will run bspc commands)
-emacs --batch --kill -l ~/dot/.emacs.d/bspwm.el
+emacs --daemon
 
 # polybar
 ~/dot/.config/polybar/launch.sh &
