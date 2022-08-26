@@ -543,6 +543,10 @@
                                   (interactive)
                                   (find-file (concat user-emacs-directory "init.el"))))
 
+(global-set-key (kbd "C-c f b") (lambda ()
+                                  (interactive)
+                                  (find-file (concat user-emacs-directory "bspwm.el"))))
+
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
 ;; other package commands
