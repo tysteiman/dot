@@ -2,22 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor eDP-1 -r
-bspc monitor HDMI-1-0 -d I II III IV V
+# emacs load bspwm file (will run bspc commands)
+emacs --batch --kill -l ~/dot/.emacs.d/bspwm.el
 
-bspc config focused_border_color "#FFCB6B"
-bspc config border_width         2
-bspc config window_gap          12
-
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
-bspc rule -a Emacs state=tiled
-
+# polybar
 ~/dot/.config/polybar/launch.sh &

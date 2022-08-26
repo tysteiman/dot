@@ -32,14 +32,18 @@ fi
 #                                      MY STUFF
 # ====================================================================================
 
-xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-emacs --daemon
+# xrandr
+xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+# feh
 feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+# picom
 picom -b --experimental-backends
+# xmodmap (keys)
 xmodmap ~/dot/keys.map
+# key repeat
 xset r rate 200 50
-
-# exec i3
+# emacs daemon
+emacs --daemon
 
 exec bspwm
 
