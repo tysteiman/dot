@@ -46,7 +46,7 @@ enable-ipc = true
 
 [bar/workspaces]
 inherit = bar/base
-width = 88%
+width = 87%
 background = ${colors.background-trans}
 modules-left = xworkspaces
 ; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date
@@ -54,10 +54,10 @@ modules-left = xworkspaces
 
 [bar/mybar]
 inherit = bar/base
-width = 12%
-offset-x = 88%
+width = 13%
+offset-x = 87%
 background = ${colors.background}
-modules-center = date
+modules-center = date xkeyboard
 ; modules-left = xworkspaces xwindow
 ; modules-left = xworkspaces
 ; modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date

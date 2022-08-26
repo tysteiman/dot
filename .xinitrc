@@ -38,6 +38,8 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 # picom
 picom -b --experimental-backends
+# set keyboard layouts for languages we use
+setxkbmap -layout us,iq,tr
 # xmodmap (keys)
 xmodmap ~/dot/keys.map
 # key repeat
