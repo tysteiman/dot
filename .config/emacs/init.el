@@ -406,7 +406,9 @@
   (vterm-mode       . turn-on-evil-mode)
   (eshell-mode      . turn-on-evil-mode)
   (git-commit-setup . turn-on-evil-mode)
-  (csv-mode         . turn-on-evil-mode))
+  (csv-mode         . turn-on-evil-mode)
+  (help-mode        . turn-on-evil-mode)
+  (helpful-mode     . turn-on-evil-mode))
 
 (use-package evil-org
   :after org
@@ -542,10 +544,6 @@
 (global-set-key (kbd "C-c f o") (lambda ()
                                   (interactive)
                                   (find-file (concat user-emacs-directory "init.el"))))
-
-(global-set-key (kbd "C-c f b") (lambda ()
-                                  (interactive)
-                                  (find-file (concat user-emacs-directory "bspwm.el"))))
 
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
