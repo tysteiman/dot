@@ -1,6 +1,15 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_c:clear
+SETUVAR _fish_abbr_ga:git\x20add\x20\x2e
+SETUVAR _fish_abbr_gb:git\x20branch
+SETUVAR _fish_abbr_gc:git\x20checkout
+SETUVAR _fish_abbr_gcm:git\x20commit\x20\x2dm
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gds:git\x20diff\x20\x2d\x2dstaged
+SETUVAR _fish_abbr_gl:git\x20log
+SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:blue
