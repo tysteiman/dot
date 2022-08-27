@@ -3,11 +3,12 @@
 (setq gc-cons-threshold (* 60 1000 1000))
 
 ;; Load bspwm configs if bspwm process is running.
-(dolist (pc (list-system-processes))
-  (let* ((psattr (process-attributes pc))
-         (psname (cdr (assoc 'comm psattr))))
-    (when (string= psname "bspwm")
-      (load-file (concat user-emacs-directory "bspwm.el")))))
+(when (string= system-type "gnu/linux")
+  (dolist (pc (list-system-processes))
+    (let* ((psattr (process-attributes pc))
+           (psname (cdr (assoc 'comm psattr))))
+      (when (string= psname "bspwm")
+        (load-file (concat user-emacs-directory "bspwm.el"))))))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
