@@ -577,7 +577,11 @@
 
 (defun bspc-config (command)
   "Run a bspc config command"
-  (bspc (concat "config " command)))
+  (let ((command-set (if (listp command)
+                         command
+                       (list command))))
+    (dolist (cmd command-set)
+      (bspc (concat "config " cmd)))))
 
 (defun bspc-monitor (command)
   "Run a bspc monitor command"
@@ -590,12 +594,14 @@
 (bspc-monitor "eDP-1 -r")
 (bspc-monitor "HDMI-1-0 -d I II III IV V")
 
-(bspc-config "focused_border_color '#FFCB6B'")
-(bspc-config "border_width 2")
-(bspc-config "window_gap 15")
-(bspc-config "split_ratio 0.52")
-(bspc-config "borderless_monocle true")
-(bspc-config "gapless_monocle true")
+(bspc-config '(
+               "focused_border_color '#FFCB6B'"
+               "border_width 2"
+               "window_gap 15"
+               "split_ratio 0.52"
+               "borderless_monocle true"
+               "gapless_monocle true"
+               ))
 
 (bspc-rule "Chromium desktop='^2'")
 (bspc-rule "mplayer2 state=floating")
