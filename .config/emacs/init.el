@@ -317,9 +317,6 @@
   (lisp-interaction-mode . enable-paredit-mode)
   (lisp-mode             . enable-paredit-mode))
 
-(use-package smartparens
-  :hook (prog-mode . smartparens-mode))
-
 (use-package doom-themes
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme 'doom-palenight t))))
