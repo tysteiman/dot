@@ -29,7 +29,7 @@ COMMAND is either a string of a command to run, or a list of strings."
 (bspc-config '("focused_border_color '#FFCB6B'"
                "border_width 2"
                "window_gap 15"
-               "split_ratio 0.52"
+               "split_ratio 0.50"
                "borderless_monocle true"
                "gapless_monocle true"))
 
