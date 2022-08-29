@@ -165,6 +165,9 @@
   (interactive)
   (async-shell-command "yay -Syyu" (get-buffer-create "*yay*")))
 
+(defun my/load-file-emacs (file)
+  (find-file (concat user-emacs-directory file ".el")))
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -552,7 +555,11 @@
 
 (global-set-key (kbd "C-c f o") (lambda ()
                                   (interactive)
-                                  (find-file (concat user-emacs-directory "init.el"))))
+                                  (my/load-file-emacs "init")))
+
+(global-set-key (kbd "C-c f b") (lambda ()
+                                  (interactive)
+                                  (my/load-file-emacs "bspwm")))
 
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
