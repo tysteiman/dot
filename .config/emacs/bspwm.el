@@ -27,7 +27,7 @@ COMMAND is either a string of a command to run, or a list of strings."
                 "HDMI-1-0 -d I II III IV V"))
 
 (bspc-config '("focused_border_color '#c792ea'"
-               "presel_feedback_color '#82aaff'"
+               "presel_feedback_color '#3C435E'"
                "border_width 1"
                "window_gap 5"
                "split_ratio 0.60"
