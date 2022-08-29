@@ -27,11 +27,13 @@ COMMAND is either a string of a command to run, or a list of strings."
                 "HDMI-1-0 -d I II III IV V"))
 
 (bspc-config '("focused_border_color '#FFCB6B'"
-               "border_width 2"
-               "window_gap 15"
-               "split_ratio 0.50"
+               "presel_feedback_color '#82aaff'"
+               "border_width 1"
+               "window_gap 10"
+               "split_ratio 0.60"
                "borderless_monocle true"
-               "gapless_monocle true"))
+               "gapless_monocle true"
+               "focus_follows_pointer true"))
 
 (bspc-rule '("Chromium desktop='^2'"
              "mplayer2 state=floating"
