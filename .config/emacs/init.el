@@ -27,6 +27,7 @@
 (setq dired-listing-switches "-lah")
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq create-lockfiles nil)
+(setq message-log-max 100)
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
