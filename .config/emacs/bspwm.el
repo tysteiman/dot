@@ -26,10 +26,10 @@ COMMAND is either a string of a command to run, or a list of strings."
 (bspc-monitor '("eDP-1 -r"
                 "HDMI-1-0 -d I II III IV V"))
 
-(bspc-config '("focused_border_color '#FFCB6B'"
+(bspc-config '("focused_border_color '#c792ea'"
                "presel_feedback_color '#82aaff'"
                "border_width 1"
-               "window_gap 10"
+               "window_gap 5"
                "split_ratio 0.60"
                "borderless_monocle true"
                "gapless_monocle true"
