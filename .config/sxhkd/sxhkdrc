@@ -53,13 +53,11 @@ super + {_,shift + }w
 #
 
 # set the window state
-super + t
-        ~/dot/.config/polybar/launch.sh; \
-	bspc node -t tiled
+# super + t
+# 	bspc node -t tiled
 
 super + f
-      killall -q polybar; \
-      bspc node -t fullscreen
+      bspc node -t {fullscreen,tiled}
 
 # set the node flags
 # super + ctrl + {m,x,y,z}

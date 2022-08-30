@@ -24,12 +24,12 @@ COMMAND is either a string of a command to run, or a list of strings."
 
 ;; fire bspwm configs
 (bspc-monitor '("eDP-1 -r"
-                "HDMI-1-0 -d I II III IV V"))
+                "HDMI-1-0 -d I II III IV V VI"))
 
-(bspc-config '("focused_border_color '#c792ea'"
-               "presel_feedback_color '#3C435E'"
+(bspc-config '("focused_border_color '#80cbc4'"
+               "presel_feedback_color '#717CB4'"
                "border_width 1"
-               "window_gap 5"
+               "window_gap 20"
                "split_ratio 0.60"
                "borderless_monocle true"
                "gapless_monocle true"

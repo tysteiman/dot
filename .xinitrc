@@ -33,13 +33,13 @@ fi
 # ====================================================================================
 
 # xrandr
-xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 
-# feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
 
-# picom -b --experimental-backends
+picom -b --experimental-backends
 
-xsetroot -solid "#3C435E"
+# xsetroot -solid "#3C435E"
 
 # set keyboard layouts for languages we use
 setxkbmap -layout us,iq,tr

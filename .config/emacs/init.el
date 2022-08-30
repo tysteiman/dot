@@ -35,7 +35,7 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-14"))
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-13"))
 
 (set-frame-parameter (selected-frame) 'alpha '(90 70))
 (add-to-list 'default-frame-alist '(alpha 90 70))
