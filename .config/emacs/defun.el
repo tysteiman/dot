@@ -81,6 +81,7 @@
     (async-shell-command command-to-run)))
 
 (defun my/configure-prog-mode ()
+  "Configure prog mode buffer"
   (interactive)
   (setq show-trailing-whitespace t)
   (display-line-numbers-mode 1)
@@ -102,14 +103,17 @@
   (async-shell-command "sync-notes" (get-buffer-create "*notes*")))
 
 (defun my/open-notes ()
+  "Open notes directory in dired"
   (interactive)
   (dired "~/notes"))
 
 (defun my/laptop-on ()
+  "Turn laptop screen on using xrandr"
   (interactive)
   (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
 
 (defun my/laptop-off ()
+  "Turn laptop screen off using xrandr"
   (interactive)
   (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
 
@@ -119,9 +123,11 @@
   (async-shell-command "yay -Syyu" (get-buffer-create "*yay*")))
 
 (defun my/find-file-emacs (file)
+  "Find file in user emacs directory matching `file'.el"
   (find-file (concat user-emacs-directory file ".el")))
 
 (defun my/reset-dunst ()
+  "Kill dunst and fire a test message using notify-send"
   (interactive)
   (shell-command "killall -q dunst && notify-send hello dunst"))
 

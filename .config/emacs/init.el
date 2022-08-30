@@ -3,6 +3,7 @@
 (setq gc-cons-threshold (* 60 1000 1000))
 
 (defun my/load-file-emacs (file)
+  "Load emacs file in user-emacs-directory matching `file'.el"
   (load-file (concat user-emacs-directory file ".el")))
 
 ;; Load bspwm configs if bspwm process is running.
