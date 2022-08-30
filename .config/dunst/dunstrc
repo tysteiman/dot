@@ -1,3 +1,5 @@
+# -*- mode: conf-space -*-
+#
 # See dunst(5) for all configuration options
 
 [global]
@@ -30,11 +32,11 @@
     height = 300
 
     # Position the notification in the top right corner
-    origin = top-right
+    origin = top-center
 
     # Offset from the origin
     # offset = 10x50
-    offset = 0x0
+    offset = 0x10
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -91,7 +93,7 @@
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#c792ea"
+    frame_color = "#80cbc4"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -105,7 +107,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#c792ea"
+    separator_color = "#80cbc4"
 
     # Sort messages by urgency.
     sort = yes
@@ -246,7 +248,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 7
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -318,7 +320,7 @@
 [urgency_normal]
     # background = "#285577"
     background = "#3C435E"
-    foreground = "#c792ea"
+    foreground = "#80cbc4"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon

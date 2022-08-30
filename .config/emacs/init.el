@@ -168,6 +168,10 @@
 (defun my/load-file-emacs (file)
   (find-file (concat user-emacs-directory file ".el")))
 
+(defun my/reset-dunst ()
+  (interactive)
+  (shell-command "killall -q dunst && notify-send hello dunst"))
+
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
