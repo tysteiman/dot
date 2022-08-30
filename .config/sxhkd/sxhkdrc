@@ -24,6 +24,12 @@ super + shift + p
 super + shift + f
       pcmanfm
 
+super + shift + k
+      dunstctl close-all
+
+super + shift + h
+      dunstctl history-pop
+
 #
 # bspwm hotkeys
 #
