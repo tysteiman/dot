@@ -22,17 +22,8 @@ COMMAND is either a string of a command to run, or a list of strings."
   "Run a bspc rule command"
   (bspc "rule -a" command))
 
-;; fire bspwm configs
-;; (bspc-monitor '("eDP-1 -r"
-;;                 "HDMI-1-0 -d I II III IV V VI"))
-
-;; if we only have 1 monitor, use our laptop identifier, otherwise with monitor.
-(let* ((monnum (length (display-monitor-attributes-list)))
-       (monconf (if (= monnum 1)
-                    '("eDP-1 -d I II III IV V VI")
-                  '("eDP-1 -r"
-                    "HDMI-1-0 -d I II III IV V VI"))))
-  (bspc-monitor monconf))
+(bspc-monitor '("eDP-1 -r"
+                "HDMI-1-0 -d I II III IV V VI"))
 
 (bspc-config '("focused_border_color '#80cbc4'"
                "presel_feedback_color '#717CB4'"
