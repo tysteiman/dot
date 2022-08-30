@@ -1,0 +1,38 @@
+(global-set-key (kbd "C-c t r") 'my/rails-tags)
+(global-set-key (kbd "C-x C-c") 'my/quit-emacs)
+(global-set-key (kbd "C-o")     'my/new-next-line)
+(global-set-key (kbd "C-M-o")   'my/new-previous-line)
+
+(global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
+(global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
+(global-set-key (kbd "C-c s n") 'my/sync-notes)
+(global-set-key (kbd "C-c s u") 'my/update-arch)
+(global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
+
+(global-set-key (kbd "C-c f o") (lambda ()
+                                  (interactive)
+                                  (my/find-file-emacs "init")))
+
+(global-set-key (kbd "C-c f b") (lambda ()
+                                  (interactive)
+                                  (my/find-file-emacs "bspwm")))
+
+(global-set-key (kbd "C-c f n") 'my/open-notes)
+
+;; other package commands
+(global-set-key (kbd "C-c f i") 'imenu)
+(global-set-key (kbd "C-c e s") 'eshell)
+(global-set-key (kbd "M-z")     'zap-up-to-char)
+(global-set-key (kbd "C-M-\\")  'split-window-right)
+(global-set-key (kbd "C-M--")   'split-window-below)
+(global-set-key (kbd "C-M-0")   'delete-window)
+(global-set-key (kbd "C-M-1")   'delete-other-windows)
+(global-set-key (kbd "C-M-=")   'balance-windows)
+(global-set-key (kbd "C-c i i") 'package-install)
+(global-set-key (kbd "C-c i l") 'list-packages)
+(global-set-key (kbd "C-c t l") 'display-line-numbers-mode)
+(global-set-key (kbd "C-c b r") 'rename-buffer)
+(global-set-key (kbd "C-c b v") (lambda ()
+                                  (interactive)
+                                  (revert-buffer nil t)
+                                  (message "Buffer reverted.")))
