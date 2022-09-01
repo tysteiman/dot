@@ -17,6 +17,14 @@
                                   (interactive)
                                   (my/find-file-emacs "bspwm")))
 
+(global-set-key (kbd "C-c f p") (lambda ()
+                                  (interactive)
+                                  (my/find-file-emacs "packages")))
+
+(global-set-key (kbd "C-c f k") (lambda ()
+                                  (interactive)
+                                  (my/find-file-emacs "keys")))
+
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
 ;; other package commands
