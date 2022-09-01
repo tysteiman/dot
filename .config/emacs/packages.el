@@ -201,15 +201,6 @@
                                     (interactive)
                                     (switch-to-buffer "*dashboard*"))))
 
-(use-package tab-bar
-  :defer
-  :init
-  (setq tab-bar-show 1)
-  (setq tab-bar-close-button-show nil)
-  :custom-face
-  (tab-bar-tab ((t (:inherit 'doom-modeline-panel :background nil :foreground nil))))
-  (tab-bar-tab-inactive ((t (:inherit 'doom-modeline-highlight :background nil :foreground nil)))))
-
 (use-package org
   :init
   (setq org-startup-folded t)
@@ -240,7 +231,32 @@
   (git-commit-setup . turn-on-evil-mode)
   (csv-mode         . turn-on-evil-mode)
   (help-mode        . turn-on-evil-mode)
-  (helpful-mode     . turn-on-evil-mode))
+  (helpful-mode     . turn-on-evil-mode)
+  (evil-after-load  . (lambda ()
+                        (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+                        (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+                        (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+                        (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right))))
+
+;; (use-package centaur-tabs
+;;   :config (centaur-tabs-mode)
+;;   :init
+;;   (setq centaur-tabs-style "bar")
+;;   (setq centaur-tabs-height 32)
+;;   (setq centaur-tabs-set-icons t)
+;;   :hook
+;;   (evil-after-load . (lambda ()
+;;                        (evil-define-key 'normal 'global "gt" 'centaur-tabs-forward-tab)
+;;                        (evil-define-key 'normal 'global "gT" 'centaur-tabs-backward-tab))))
+;;
+;; (use-package tab-bar
+;;   :defer
+;;   :init
+;;   (setq tab-bar-show 1)
+;;   (setq tab-bar-close-button-show nil)
+;;   :custom-face
+;;   (tab-bar-tab ((t (:inherit 'doom-modeline-panel :background nil :foreground nil))))
+;;   (tab-bar-tab-inactive ((t (:inherit 'doom-modeline-highlight :background nil :foreground nil)))))
 
 (use-package evil-org
   :after org
