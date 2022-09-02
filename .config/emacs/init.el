@@ -6,13 +6,14 @@
   "Load emacs file in user-emacs-directory matching `file'.el"
   (load-file (concat user-emacs-directory file ".el")))
 
+;; TODO not used but useful, maybe put into a defun
 ;; Load bspwm configs if bspwm process is running.
-(when (string= system-type "gnu/linux")
-  (dolist (pc (list-system-processes))
-    (let* ((psattr (process-attributes pc))
-           (psname (cdr (assoc 'comm psattr))))
-      (when (string= psname "bspwm")
-        (my/load-file-emacs "bspwm")))))
+;; (when (string= system-type "gnu/linux")
+;;   (dolist (pc (list-system-processes))
+;;     (let* ((psattr (process-attributes pc))
+;;            (psname (cdr (assoc 'comm psattr))))
+;;       (when (string= psname "bspwm")
+;;         (my/load-file-emacs "bspwm")))))
 
 ;; Load emacs config files
 (let ((files '(conf defun packages keys hook put)))

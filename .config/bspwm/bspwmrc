@@ -2,8 +2,11 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-# emacs load bspwm file (will run bspc commands)
-emacs --daemon
+# main bspwm configuration is elisp, found in bspwm.el
+emacs --script ~/dot/.config/emacs/bspwm.el &
 
 # polybar
 ~/dot/.config/polybar/launch.sh &
+
+# flameshot (tray icon)
+flameshot &

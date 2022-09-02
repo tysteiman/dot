@@ -50,6 +50,8 @@ xmodmap ~/dot/keys.map
 # key repeat
 xset r rate 200 50
 
+emacs --daemon
+
 exec bspwm
 
 # exec /home/tyler/proj/home/xcbwm/bin/tinyxcbwm
