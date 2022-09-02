@@ -8,9 +8,9 @@ COMMAND is either a string of a command to run, or a list of strings."
                          command
                        (list command))))
     (dolist (cmd command-set)
-      ;; im not sure why but doing start process shell command doesnt execute the entire file...
-      ;; maybe it has to be blocking for it to work properly with bspwmrc?
-      (shell-command (concat "bspc " cmd-group " " cmd)))))
+      (let* ((setting (symbol-name (car cmd)))
+             (value (format "%s" (cdr cmd))))
+        (shell-command (concat "bspc " cmd-group " " setting " " value))))))
 
 (defun bspc-config (command)
   "Run a bspc config command"
@@ -24,20 +24,14 @@ COMMAND is either a string of a command to run, or a list of strings."
   "Run a bspc rule command"
   (bspc "rule -a" command))
 
-(bspc-monitor '("eDP-1 -r"
-                "HDMI-1-0 -d I II III IV V VI"))
+(bspc-monitor '((eDP-1    . "-r")
+                (HDMI-1-0 . "-d I II III IV V VI")))
 
-(bspc-config '("focused_border_color '#ffcb6b'"
-               "presel_feedback_color '#717CB4'"
-               "border_width 1"
-               "window_gap 15"
-               "split_ratio 0.60"
-               "borderless_monocle true"
-               "gapless_monocle true"
-               "focus_follows_pointer true"))
+(bspc-config '((focused_border_color  . "#ffcb6b")
+               (presel_feedback_color . "#717CB4")
+               (border_width          . 1)
+               (window_gap            . 100)
+               (split_ratio           . 0.60)
+               (focus_follows_pointer . false)))
 
-(bspc-rule '("Chromium desktop='^2'"
-             "mplayer2 state=floating"
-             "Kupfer.py focus=on"
-             "Screenkey manage=off"
-             "Emacs state=tiled"))
+(bspc-rule '((Emacs . state=tiled)))
