@@ -8,8 +8,8 @@ COMMAND is either a string of a command to run, or a list of strings."
                          command
                        (list command))))
     (dolist (cmd command-set)
-      (let* ((setting (symbol-name (car cmd)))
-             (value (format "%s" (cdr cmd))))
+      (let ((setting (symbol-name (car cmd)))
+            (value (format "%s" (cdr cmd))))
         (shell-command (concat "bspc " cmd-group " " setting " " value))))))
 
 (defun bspc-config (command)
