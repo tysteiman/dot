@@ -118,7 +118,8 @@
 (use-package tree-sitter
   :hook
   (ruby-mode . tree-sitter-hl-mode)
-  (c-mode    . tree-sitter-hl-mode))
+  (c-mode    . tree-sitter-hl-mode)
+  (php-mode  . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs :defer t)
 
