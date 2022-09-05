@@ -199,3 +199,15 @@
   "Turn on flyspell mode for the whole buffer"
   (flyspell-mode 1)
   (flyspell-buffer))
+
+(defun my/process-running-p (procname)
+  "Helper to check system processes for PROCNAME (string).
+
+If PROCNAME is running, return t, otherwise nil."
+  (let ((runningp nil))
+    (dolist (pc (list-system-processes))
+      (let* ((psattr (process-attributes pc))
+             (psname (cdr (assoc 'comm psattr))))
+        (when (string= psname procname)
+          (setq runningp t))))
+    runningp))
