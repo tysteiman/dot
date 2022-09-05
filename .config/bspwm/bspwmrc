@@ -7,6 +7,3 @@ emacs --script ~/dot/.config/emacs/bspwm.el &
 
 # polybar
 ~/dot/.config/polybar/launch.sh &
-
-# flameshot (tray icon)
-flameshot &

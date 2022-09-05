@@ -25,12 +25,12 @@ COMMAND is either a string of a command to run, or a list of strings."
   (bspc "rule -a" command))
 
 (bspc-monitor '((eDP-1    . "-r")
-                (HDMI-1-0 . "-d I II III IV V VI")))
+                (HDMI-1-0 . "-d 1 2 3 4 5")))
 
 (bspc-config '((focused_border_color  . "'#ffcb6b'")
                (presel_feedback_color . "'#717CB4'")
                (border_width          . 1)
-               (window_gap            . 100)
+               (window_gap            . 1)
                (split_ratio           . 0.60)
                (focus_follows_pointer . false)))
 
