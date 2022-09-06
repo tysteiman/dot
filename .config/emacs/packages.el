@@ -319,3 +319,6 @@
 
 (use-package dictionary
   :defer t)
+
+(use-package docker
+  :defer t)
