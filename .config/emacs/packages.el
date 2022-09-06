@@ -46,6 +46,7 @@
   :mode "\\.erb\\'"
   :mode "\\.php\\'"
   :mode "\\.html\\'"
+  :mode "\\.ctp\\'"
   :config
   (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
