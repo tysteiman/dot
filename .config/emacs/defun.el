@@ -107,6 +107,7 @@
   (interactive)
   (dired "~/notes"))
 
+;; TODO this should also configure bspwm workspaces, same was laptop-off below...
 (defun my/laptop-on ()
   "Turn laptop screen on using xrandr"
   (interactive)

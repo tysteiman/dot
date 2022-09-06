@@ -25,6 +25,10 @@
                                   (interactive)
                                   (my/find-file-emacs "keys")))
 
+(global-set-key (kbd "C-c f j") (lambda ()
+                                  (interactive)
+                                  (dired "~/proj")))
+
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
 ;; other package commands
