@@ -274,7 +274,7 @@
   :hook (eshell-banner-load . eshell-info-banner-update-banner))
 
 (use-package eshell-git-prompt
-  :config (eshell-git-prompt-use-theme 'multiline2))
+  :config (eshell-git-prompt-use-theme 'git-radar))
 
 (use-package vterm
   :bind (("C-c e v" . my/vterm)
