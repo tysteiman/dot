@@ -26,6 +26,9 @@ super + shift + p
 super + shift + f
       pcmanfm
 
+super + shift + s
+      flameshot gui
+
 # notifications
 super + shift + k
       dunstctl close-all
