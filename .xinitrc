@@ -45,7 +45,7 @@ picom -b --experimental-backends
 setxkbmap -layout us,iq,tr
 
 # xmodmap (keys)
-xmodmap ~/dot/keys.map
+# xmodmap ~/dot/keys.map
 
 # key repeat
 xset r rate 200 50
