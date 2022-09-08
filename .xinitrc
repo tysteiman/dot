@@ -37,7 +37,7 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0.8 --output HDMI-1-0 --mode
 
 feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
 
-picom -b --experimental-backends
+# picom -b --experimental-backends
 
 # xsetroot -solid "#3C435E"
 
