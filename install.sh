@@ -14,6 +14,8 @@ rm -rf yay
 yay -S emacs                  \
     stow                      \
     firefox                   \
+    xorg                      \
+    xorg-xinit                \
     docker                    \
     docker-compose            \
     rofi                      \
@@ -45,3 +47,5 @@ if [ -f ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc.original; fi
 
 # run stow!
 stow -v .
+
+emacs --daemon
