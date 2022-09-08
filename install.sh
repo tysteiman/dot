@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S base-devel
+sudo pacman -S base-devel
 
 # install yay
 git clone https://aur.archlinux.org/yay.git
