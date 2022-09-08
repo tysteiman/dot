@@ -7,10 +7,15 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
+cd ..
+rm -rf yay
+
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup...)
 yay -S emacs                  \
     stow                      \
     firefox                   \
+    docker                    \
+    docker-compose            \
     rofi                      \
     pavucontrol               \
     pulseaudio                \
