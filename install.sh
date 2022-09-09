@@ -30,6 +30,7 @@ yay -S emacs                  \
     sxhkd                     \
     docker                    \
     docker-compose            \
+    htop                      \
     rofi                      \
     pavucontrol               \
     pulseaudio                \
