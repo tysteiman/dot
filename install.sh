@@ -1,5 +1,14 @@
 #!/bin/bash
+#
+# --------------------------------------------------------------------------------------------------
+#
+# Script to install arch environment after installing arch itself. This script will install a window
+# manager, xorg, firefox, terminal, emacs, font(s), etc... the stuff i install almost every time
+# when installing arch for work/daily use.
+#
+# --------------------------------------------------------------------------------------------------
 
+# install base-devel needed to run makepkg
 sudo pacman -S base-devel
 
 # install yay
@@ -7,22 +16,23 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
+# go back to dot root and remove tmp yay dir
 cd ..
 rm -rf yay
 
-# INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup...)
+# INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
 yay -S emacs                  \
     stow                      \
     firefox                   \
     xorg                      \
     xorg-xinit                \
+    bspwm                     \
+    sxhkd                     \
     docker                    \
     docker-compose            \
     rofi                      \
     pavucontrol               \
     pulseaudio                \
-    bspwm                     \
-    sxhkd                     \
     picom                     \
     fish                      \
     nerd-fonts-jetbrains-mono \
@@ -33,7 +43,6 @@ yay -S emacs                  \
     feh                       \
     polybar                   \
     ripgrep                   \
-    sudo                      \
     openssh                   \
     slack-desktop             \
     flameshot
@@ -48,4 +57,5 @@ if [ -f ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc.original; fi
 # run stow!
 stow -v .
 
+# launch emacs daemon to install all packages
 emacs --daemon
