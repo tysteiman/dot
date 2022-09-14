@@ -280,6 +280,7 @@
   :config (eshell-git-prompt-use-theme 'git-radar))
 
 (use-package vterm
+  :init (setq vterm-shell "/usr/bin/fish")
   :bind (("C-c e v" . my/vterm)
          ("C-c d u" . my/launch-docker-project)
          ("C-c d r" . my/launch-rails-docker-project)
