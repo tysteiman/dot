@@ -51,7 +51,8 @@
   (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package markdown-mode
-  :defer t)
+  :defer t
+  :hook (markdown-mode . my/configure-prog-mode))
 
 (use-package slim-mode
   :defer t)
