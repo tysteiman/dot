@@ -22,6 +22,7 @@ rm -rf yay
 
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
 yay -S emacs                  \
+    ispell                    \
     stow                      \
     firefox                   \
     xorg                      \
