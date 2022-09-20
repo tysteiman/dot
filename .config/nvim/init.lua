@@ -37,6 +37,7 @@ require('packer').startup(function()
     use 'nvim-telescope/telescope.nvim'
     use 'sheerun/vim-polyglot'
     use 'navarasu/onedark.nvim'
+    use 'kyazdani42/nvim-palenight.lua'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
@@ -55,7 +56,7 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-require('onedark').load()
+require('palenight').load()
 
 vim.g['airline#extensions#tabline#enabled'] = 1
 vim.g['airline#extensions#tabline#formatter'] = 'unique_tail'

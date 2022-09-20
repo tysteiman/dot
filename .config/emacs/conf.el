@@ -25,5 +25,5 @@
 
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-13"))
 
-(set-frame-parameter (selected-frame) 'alpha '(90 70))
-(add-to-list 'default-frame-alist '(alpha 90 70))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 70))
+;; (add-to-list 'default-frame-alist '(alpha 90 70))

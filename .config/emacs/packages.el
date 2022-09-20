@@ -235,6 +235,7 @@
   (csv-mode         . turn-on-evil-mode)
   (help-mode        . turn-on-evil-mode)
   (helpful-mode     . turn-on-evil-mode)
+  (markdown-mode    . turn-on-evil-mode)
   (evil-after-load  . (lambda ()
                         (evil-define-key 'normal 'global "gw" 'winner-undo)
                         (evil-define-key 'normal 'global "gW" 'winner-redo)

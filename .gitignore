@@ -24,3 +24,4 @@ nvim/plugin/
 /.config/emacs/projectile.cache
 /.config/emacs/image-dired/
 /.config/emacs/README.el
+/.config/nvim/plugin/

@@ -38,7 +38,6 @@ yay -S emacs                  \
     fish                      \
     nerd-fonts-jetbrains-mono \
     kitty                     \
-    macchina                  \
     pcmanfm                   \
     dunst                     \
     libnotify                 \
