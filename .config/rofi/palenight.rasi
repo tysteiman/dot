@@ -31,9 +31,9 @@
 window {
     background-color: @background;
     border:           1;
-    padding:          5;
-    width: 25%;
-    height: 15%;
+    padding:          20;
+    width: 30%;
+    height: 25%;
 }
 mainbox {
     border:           0;
@@ -61,7 +61,7 @@ element-text, element-icon {
 }
 element {
     border:           0;
-    padding:          1px ;
+    padding:          2;
 }
 element normal.normal {
     background-color: @normal-background;

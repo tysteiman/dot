@@ -34,6 +34,7 @@ fi
 
 # xrandr
 xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+# xrandr --output eDP-1 --mode 1920x1080 --brightness 1
 
 # feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
 
@@ -45,7 +46,7 @@ xsetroot -solid "#3C435E"
 setxkbmap -layout us,iq,tr
 
 # xmodmap (keys)
-# xmodmap ~/dot/keys.map
+xmodmap ~/dot/keys.map
 
 # key repeat
 xset r rate 200 50
