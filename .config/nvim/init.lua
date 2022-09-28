@@ -30,6 +30,7 @@ map('n', '<leader>ff', '<cmd>Telescope git_files<cr>', silentnoremap)
 map('n', '<leader>gg', '<cmd>Telescope live_grep<cr>', silentnoremap)
 map('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find<cr>', silentnoremap)
 map('n', '<leader>bb', '<cmd>Telescope buffers<cr>', silentnoremap)
+map('n', '<leader>vv', ':e $MYVIMRC<cr>', silentnoremap)
 map('n', '<leader>q', ':bnext<cr>', silentnoremap)
 map('n', '<leader>a', ':bprevious<cr>', silentnoremap)
 
@@ -38,7 +39,7 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-    -- use 'sheerun/vim-polyglot'
+    use 'sheerun/vim-polyglot'
     use 'navarasu/onedark.nvim'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
