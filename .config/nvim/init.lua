@@ -50,6 +50,7 @@ require('packer').startup(function()
     use 'ntpeters/vim-better-whitespace'
     use 'prettier/vim-prettier'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- use 'neovim/nvim-lspconfig'
 end)
 
 require'nvim-treesitter.configs'.setup {

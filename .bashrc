@@ -33,6 +33,7 @@ alias gl="git log --graph"
 alias xcc="xclip -selection c"
 alias grep="grep --color"
 alias ll="ls -lAh"
+alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
 
 export NVM_DIR="$HOME/.nvm"
