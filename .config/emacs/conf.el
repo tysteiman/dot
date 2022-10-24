@@ -1,6 +1,10 @@
-(tool-bar-mode 0)
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode 0)
+      (scroll-bar-mode 0)))
+
 (menu-bar-mode 0)
-(scroll-bar-mode 0)
+
 (show-paren-mode)
 (column-number-mode t)
 (display-time-mode)
@@ -23,7 +27,7 @@
 (setq-default js-indent-level 4)
 (setq-default sgml-basic-offset 4)
 
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-13"))
+;; (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-13"))
 
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 70))
 ;; (add-to-list 'default-frame-alist '(alpha 90 70))

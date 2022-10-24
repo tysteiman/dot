@@ -137,15 +137,20 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
-(use-package paredit
-  :hook
-  (emacs-lisp-mode       . enable-paredit-mode)
-  (lisp-interaction-mode . enable-paredit-mode)
-  (lisp-mode             . enable-paredit-mode))
+;; (use-package paredit
+;;   :hook
+;;   (emacs-lisp-mode       . enable-paredit-mode)
+;;   (lisp-interaction-mode . enable-paredit-mode)
+;;   (lisp-mode             . enable-paredit-mode))
 
-(use-package doom-themes
-  :hook (server-after-make-frame . (lambda ()
-                                     (load-theme 'doom-palenight t))))
+;; (use-package doom-themes
+;;   :hook (server-after-make-frame . (lambda ()
+;;                                      (load-theme 'doom-one t))))
+
+(use-package emacs
+  :init
+  :config
+  (load-theme 'modus-vivendi))
 
 (use-package doom-modeline
   :init
@@ -173,16 +178,16 @@
 (use-package window-numbering
   :config (window-numbering-mode 1))
 
-(use-package all-the-icons)
-
-(use-package all-the-icons-dired
-  :after all-the-icons
-  :init (setq all-the-icons-dired-monochrome nil)
-  :hook (dired-mode . all-the-icons-dired-mode))
-
-(use-package all-the-icons-ibuffer
-  :after all-the-icons
-  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
+;; (use-package all-the-icons)
+;; 
+;; (use-package all-the-icons-dired
+;;   :after all-the-icons
+;;   :init (setq all-the-icons-dired-monochrome nil)
+;;   :hook (dired-mode . all-the-icons-dired-mode))
+;; 
+;; (use-package all-the-icons-ibuffer
+;;   :after all-the-icons
+;;   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package dashboard
   :init
@@ -239,6 +244,7 @@
   (evil-after-load  . (lambda ()
                         (evil-define-key 'normal 'global "gw" 'winner-undo)
                         (evil-define-key 'normal 'global "gW" 'winner-redo)
+                        (define-key evil-normal-state-map (kbd "SPC") 'projectile-find-file)
                         (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
                         (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
                         (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
@@ -254,15 +260,15 @@
   :init (setq-default evil-escape-key-sequence "jk")
   :config (evil-escape-mode))
 
-(use-package eshell-info-banner
-  :defer t
-  :hook (eshell-banner-load . eshell-info-banner-update-banner))
+;; (use-package eshell-info-banner
+;;   :defer t
+;;   :hook (eshell-banner-load . eshell-info-banner-update-banner))
 
-(use-package eshell-git-prompt
-  :config (eshell-git-prompt-use-theme 'git-radar))
+;; (use-package eshell-git-prompt
+;;   :config (eshell-git-prompt-use-theme 'git-radar))
 
 (use-package vterm
-  :init (setq vterm-shell "/usr/bin/fish")
+  ;; :init (setq vterm-shell "/usr/bin/fish")
   :bind (("C-c e v" . my/vterm)
          ("C-c d u" . my/launch-docker-project)
          ("C-c d r" . my/launch-rails-docker-project)
