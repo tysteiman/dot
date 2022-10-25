@@ -20,6 +20,8 @@
 (setq initial-scratch-message ";; scratch buffer\n\n")
 (setq create-lockfiles nil)
 (setq message-log-max 100)
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
