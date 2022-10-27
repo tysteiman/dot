@@ -106,7 +106,9 @@
   :config
   (lsp-enable-which-key-integration t)
   :hook
-  (c-mode . lsp-deferred))
+  (c-mode    . lsp-deferred)
+  (js2-mode  . lsp-deferred)
+  (php-mode  . lsp-deferred))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
@@ -311,3 +313,8 @@
 
 (use-package docker
   :defer t)
+
+(use-package windmove
+  :config
+  (windmove-default-keybindings)
+  (windmove-mode 1))
