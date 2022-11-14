@@ -25,3 +25,5 @@ nvim/plugin/
 /.config/emacs/image-dired/
 /.config/emacs/README.el
 /.config/nvim/plugin/
+
+dump-prod.sh

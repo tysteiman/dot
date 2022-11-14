@@ -145,14 +145,15 @@
 ;;   (lisp-interaction-mode . enable-paredit-mode)
 ;;   (lisp-mode             . enable-paredit-mode))
 
-;; (use-package doom-themes
-;;   :hook (server-after-make-frame . (lambda ()
-;;                                      (load-theme 'doom-one t))))
+(use-package doom-themes
+  :config (load-theme 'doom-one t)
+  :hook (server-after-make-frame . (lambda ()
+                                     (load-theme 'doom-one t))))
 
-(use-package emacs
-  :init
-  :config
-  (load-theme 'modus-vivendi))
+;; (use-package emacs
+;;   :init
+;;   :config
+;;   (load-theme 'modus-vivendi))
 
 (use-package doom-modeline
   :init

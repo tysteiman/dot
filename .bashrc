@@ -37,6 +37,8 @@ alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
 alias emd="emacs --daemon"
 alias emc="emacsclient -nw -c"
+alias dc="docker-compose"
+alias de="docker-compose exec"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
