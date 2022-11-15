@@ -38,6 +38,7 @@ yay -S emacs                  \
     pulseaudio                \
     picom                     \
     fish                      \
+    xclip                     \
     nerd-fonts-jetbrains-mono \
     kitty                     \
     pcmanfm                   \

@@ -181,36 +181,36 @@
 (use-package window-numbering
   :config (window-numbering-mode 1))
 
-;; (use-package all-the-icons)
+(use-package all-the-icons)
+
+(use-package all-the-icons-dired
+  :after all-the-icons
+  :init (setq all-the-icons-dired-monochrome nil)
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package all-the-icons-ibuffer
+  :after all-the-icons
+  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
+
+;; (use-package dashboard
+;;   :init
+;;   ;; (setq dashboard-startup-banner 'logo)
+;;   (setq dashboard-startup-banner (if (display-graphic-p) 'logo (concat user-emacs-directory "banner.txt")))
+;;   (setq dashboard-set-heading-icons t)
 ;; 
-;; (use-package all-the-icons-dired
-;;   :after all-the-icons
-;;   :init (setq all-the-icons-dired-monochrome nil)
-;;   :hook (dired-mode . all-the-icons-dired-mode))
+;;   (setq initial-buffer-choice (lambda ()
+;;                                 (get-buffer "*dashboard*")))
 ;; 
-;; (use-package all-the-icons-ibuffer
-;;   :after all-the-icons
-;;   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
-
-(use-package dashboard
-  :init
-  ;; (setq dashboard-startup-banner 'logo)
-  (setq dashboard-startup-banner (if (display-graphic-p) 'logo (concat user-emacs-directory "banner.txt")))
-  (setq dashboard-set-heading-icons t)
-
-  (setq initial-buffer-choice (lambda ()
-                                (get-buffer "*dashboard*")))
-
-  (setq dashboard-items '((recents . 20)
-                          (projects . 20)))
-
-  :config
-  (dashboard-setup-startup-hook)
-  (dashboard-modify-heading-icons '((projects . "repo")
-                                    (recents  . "squirrel")))
-  (global-set-key (kbd "C-c f d") (lambda ()
-                                    (interactive)
-                                    (switch-to-buffer "*dashboard*"))))
+;;   (setq dashboard-items '((recents . 20)
+;;                           (projects . 20)))
+;; 
+;;   :config
+;;   (dashboard-setup-startup-hook)
+;;   (dashboard-modify-heading-icons '((projects . "repo")
+;;                                     (recents  . "squirrel")))
+;;   (global-set-key (kbd "C-c f d") (lambda ()
+;;                                     (interactive)
+;;                                     (switch-to-buffer "*dashboard*"))))
 
 (use-package org
   :init

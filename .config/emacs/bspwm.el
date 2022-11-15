@@ -33,7 +33,7 @@ COMMAND is either a string of a command to run, or a list of strings."
                (presel_feedback_color . "'#717CB4'")
                (border_width          . 1)
                (window_gap            . 7)
-               (split_ratio           . 0.60)
+               (split_ratio           . 0.50)
                (focus_follows_pointer . false)))
 
 (bspc-rule '((Emacs . state=tiled)))
