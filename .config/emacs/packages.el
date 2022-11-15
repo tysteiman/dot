@@ -146,9 +146,9 @@
 ;;   (lisp-mode             . enable-paredit-mode))
 
 (use-package doom-themes
-  :config (load-theme 'doom-one t)
+  :config (load-theme 'doom-palenight t)
   :hook (server-after-make-frame . (lambda ()
-                                     (load-theme 'doom-one t))))
+                                     (load-theme 'doom-palenight t))))
 
 ;; (use-package emacs
 ;;   :init
