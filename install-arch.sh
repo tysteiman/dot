@@ -31,6 +31,7 @@ yay -S emacs                  \
     sxhkd                     \
     docker                    \
     docker-compose            \
+    aws-cli                   \
     htop                      \
     rofi                      \
     pavucontrol               \
