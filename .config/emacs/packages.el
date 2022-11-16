@@ -263,12 +263,12 @@
   :init (setq-default evil-escape-key-sequence "jk")
   :config (evil-escape-mode))
 
-;; (use-package eshell-info-banner
-;;   :defer t
-;;   :hook (eshell-banner-load . eshell-info-banner-update-banner))
+(use-package eshell-info-banner
+  :defer t
+  :hook (eshell-banner-load . eshell-info-banner-update-banner))
 
-;; (use-package eshell-git-prompt
-;;   :config (eshell-git-prompt-use-theme 'git-radar))
+(use-package eshell-git-prompt
+  :config (eshell-git-prompt-use-theme 'git-radar))
 
 (use-package vterm
   :init (setq vterm-shell "/usr/bin/fish")
