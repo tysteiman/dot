@@ -23,6 +23,8 @@ rm -rf yay
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
 yay -S emacs                  \
     cmake                     \
+    vim                       \
+    tmux                      \
     ispell                    \
     stow                      \
     firefox                   \
