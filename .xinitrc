@@ -33,8 +33,8 @@ fi
 # ====================================================================================
 
 # xrandr
-xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-# xrandr --output eDP-1 --mode 1920x1080 --brightness 1
+# xrandr --output eDP-1 --mode 1920x1080 --brightness 0.9 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
 
 # feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
 

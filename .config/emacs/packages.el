@@ -245,8 +245,6 @@
   (helpful-mode     . turn-on-evil-mode)
   (markdown-mode    . turn-on-evil-mode)
   (evil-after-load  . (lambda ()
-                        (evil-define-key 'normal 'global "gw" 'winner-undo)
-                        (evil-define-key 'normal 'global "gW" 'winner-redo)
                         (define-key evil-normal-state-map (kbd "SPC") 'projectile-find-file)
                         (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
                         (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
