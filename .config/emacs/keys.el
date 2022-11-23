@@ -31,6 +31,8 @@
 
 (global-set-key (kbd "C-c f n") 'my/open-notes)
 
+(global-set-key (kbd "C-M-t") 'my/increment)
+
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
 (global-set-key (kbd "C-c e s") 'eshell)

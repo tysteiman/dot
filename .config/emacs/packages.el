@@ -22,7 +22,8 @@
   :hook (yaml-mode . my/configure-prog-mode))
 
 (use-package conf-mode
-  :hook (conf-mode . my/configure-prog-mode))
+  :hook (conf-mode . my/configure-prog-mode)
+  :mode "\\.env\\'")
 
 (use-package js2-mode
   :defer t
@@ -108,10 +109,14 @@
   :hook
   (c-mode    . lsp-deferred)
   (js2-mode  . lsp-deferred)
+  (rust-mode . lsp-deferred)
   (php-mode  . lsp-deferred))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
+
+(use-package lsp-treemacs
+  :after lsp)
 
 (use-package prettier
   :after (:any js2-mode rjsx-mode)
@@ -317,3 +322,5 @@
   :config
   (windmove-default-keybindings)
   (windmove-mode 1))
+
+(use-package rust-mode)

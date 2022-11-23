@@ -1,0 +1,9 @@
+[[language]]
+name = "php"
+scope = "source.php"
+injection-regex = "php"
+file-types = ["php", "inc"]
+shebangs = ["php"]
+roots = ["composer.json", "index.php"]
+language-server = { command = "intelephense", args = ["--stdio"] }
+indent = { tab-width = 4, unit = "    " }

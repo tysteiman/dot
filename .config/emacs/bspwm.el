@@ -24,10 +24,10 @@ COMMAND is either a string of a command to run, or a list of strings."
   "Run a bspc rule command"
   (bspc "rule -a" command))
 
-;; (bspc-monitor '((eDP-1    . "-d 9")
-;;                 (HDMI-1-0 . "-d 1 2 3 4 5")))
+(bspc-monitor '((eDP-1    . "-d 9")
+                (HDMI-1-0 . "-d 1 2 3 4 5")))
 
-(bspc-monitor '((eDP-1 . "-d 1 2 3 4 5")))
+;; (bspc-monitor '((eDP-1 . "-d 1 2 3 4 5")))
 
 ;; yel #ffcb6b
 ;; pur #c792ea
