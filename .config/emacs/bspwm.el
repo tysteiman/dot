@@ -34,7 +34,7 @@ COMMAND is either a string of a command to run, or a list of strings."
 (bspc-config '((focused_border_color  . "'#ffcb6b'")
                (presel_feedback_color . "'#717CB4'")
                (border_width          . 1)
-               (window_gap            . 7)
+               (window_gap            . 20)
                (split_ratio           . 0.50)
                (focus_follows_pointer . false)))
 
