@@ -27,3 +27,4 @@ nvim/plugin/
 /.config/nvim/plugin/
 
 dump-prod.sh
+/.config/emacs/network-security.data
