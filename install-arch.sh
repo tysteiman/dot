@@ -39,7 +39,6 @@ yay -S emacs                  \
     rofi                      \
     pavucontrol               \
     pulseaudio                \
-    picom                     \
     fish                      \
     xclip                     \
     nerd-fonts-jetbrains-mono \
@@ -52,6 +51,8 @@ yay -S emacs                  \
     ripgrep                   \
     openssh                   \
     slack-desktop             \
+    isync                     \
+    mu                        \
     flameshot
 
 # make config directory if it doesnt exist
