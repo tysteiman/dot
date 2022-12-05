@@ -174,7 +174,11 @@
   :config (doom-modeline-mode 1))
 
 (use-package solaire-mode
-  :config (solaire-global-mode +1))
+  :init (solaire-global-mode +1))
+
+(use-package dimmer
+  :config (setq dimmer-fraction 0.5)
+  :init (dimmer-mode t))
 
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
@@ -255,11 +259,7 @@
   (helpful-mode     . turn-on-evil-mode)
   (markdown-mode    . turn-on-evil-mode)
   (evil-after-load  . (lambda ()
-                        (define-key evil-normal-state-map (kbd "SPC") 'projectile-find-file)
-                        (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-                        (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-                        (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-                        (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right))))
+                        (define-key evil-normal-state-map (kbd "SPC") 'projectile-find-file))))
 
 (use-package evil-org
   :after org
