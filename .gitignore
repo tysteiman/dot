@@ -29,3 +29,4 @@ nvim/plugin/
 dump-prod.sh
 /.config/emacs/network-security.data
 /.config/emacs/eww-bookmarks
+/.config/emacs/.mc-lists.el
