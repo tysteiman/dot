@@ -321,7 +321,8 @@
   (windmove-default-keybindings)
   (windmove-mode 1))
 
-(use-package rust-mode)
+(use-package rust-mode
+  :defer t)
 
 (use-package mu4e
   :ensure nil
