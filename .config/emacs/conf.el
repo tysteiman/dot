@@ -20,6 +20,9 @@
 (setq message-log-max 100)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
+(setq shr-use-colors nil) ;; turn off eww colors and images etc
+(setq shr-inhibit-images nil)
+(setq shr-use-fonts nil)
 
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
