@@ -334,6 +334,7 @@
   :ensure nil
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
   :config
+  (setq smtpmail-smtp-server "smtp.gmail.com")
   (setq user-mail-address "tsteiman@switchboxinc.com")
   (setq mu4e-change-filenames-when-moving t)
   (setq mu4e-update-interval (* 5 60))
