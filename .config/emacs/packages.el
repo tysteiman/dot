@@ -73,7 +73,14 @@
 
 (use-package marginalia
   :after vertico
-  :init (marginalia-mode))
+  :config (marginalia-mode)
+  :init (setq marginalia-align 'right))
+
+(use-package vertico-posframe
+  :init (setq vertico-posframe-width 100)
+  :config (vertico-posframe-mode)
+  :hook (server-after-make-frame . (lambda ()
+                                     (posframe-delete-all))))
 
 (use-package orderless
   :init (setq completion-styles '(orderless)))
@@ -155,10 +162,14 @@
 ;;   (lisp-interaction-mode . enable-paredit-mode)
 ;;   (lisp-mode             . enable-paredit-mode))
 
+(defvar my/theme 'doom-tokyo-night
+  "Theme to use")
+
 (use-package doom-themes
-  :config (load-theme 'doom-palenight t)
+  :defer t
+  ;; :config (load-theme 'doom-palenight t)
   :hook (server-after-make-frame . (lambda ()
-                                     (load-theme 'doom-palenight t))))
+                                     (load-theme my/theme t))))
 
 ;; (use-package emacs
 ;;   :init
@@ -177,7 +188,7 @@
   :init (solaire-global-mode +1))
 
 (use-package dimmer
-  :config (setq dimmer-fraction 0.5)
+  :config (setq dimmer-fraction 0.4)
   :init (dimmer-mode t))
 
 (use-package diredfl
@@ -351,3 +362,6 @@
          ("C-<"     . mc/mark-previous-like-this)
          ("C-c C->" . mc/mark-all-like-this)
          ("C-c m l" . mc/edit-lines)))
+
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))

@@ -38,13 +38,14 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
 
 # feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
+feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 
 # picom -b --experimental-backends
 
-xsetroot -solid "#3C435E"
+# xsetroot -solid "#3C435E"
 
 # set keyboard layouts for languages we use
-setxkbmap -layout us,iq,tr
+# setxkbmap -layout us,iq,tr
 
 # xmodmap (keys)
 # xmodmap ~/dot/keys.map
