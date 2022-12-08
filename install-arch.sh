@@ -29,6 +29,7 @@ yay -S emacs                  \
     stow                      \
     firefox                   \
     xorg                      \
+    picom                     \
     xorg-xinit                \
     bspwm                     \
     sxhkd                     \
