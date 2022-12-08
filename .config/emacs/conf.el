@@ -21,7 +21,7 @@
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
 (setq shr-use-colors nil) ;; turn off eww colors and images etc
-(setq shr-inhibit-images nil)
+(setq shr-inhibit-images t)
 (setq shr-use-fonts nil)
 
 (setq-default truncate-lines t)
