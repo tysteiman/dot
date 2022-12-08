@@ -77,7 +77,10 @@
   :init (setq marginalia-align 'right))
 
 (use-package vertico-posframe
-  :init (setq vertico-posframe-width 100)
+  :init
+  (setq vertico-posframe-width 100)
+  (setq vertico-posframe-parameters '((left-fringe . 10)
+                                      (right-fringe . 20)))
   :config (vertico-posframe-mode)
   :hook (server-after-make-frame . (lambda ()
                                      (posframe-delete-all))))
@@ -162,7 +165,7 @@
 ;;   (lisp-interaction-mode . enable-paredit-mode)
 ;;   (lisp-mode             . enable-paredit-mode))
 
-(defvar my/theme 'doom-tokyo-night
+(defvar my/theme 'doom-one
   "Theme to use")
 
 (use-package doom-themes
@@ -350,7 +353,8 @@
   (setq mu4e-refile-folder "/[Gmail].All Mail")
   (setq mu4e-trash-folder "/[Gmail].Trash")
   (setq mu4e-compose-format-flowed t)
-  :bind (("C-c m m" . mu4e)))
+  :bind (("C-c m m" . mu4e))
+  :hook (mu4e-compose-mode . turn-off-auto-fill))
 
 (use-package mu4e-alert
   :after mu4e
