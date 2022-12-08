@@ -6,4 +6,4 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 emacs --script ~/dot/.config/emacs/bspwm.el &
 
 # polybar
-~/dot/.config/polybar/launch.sh &
+# ~/dot/.config/polybar/launch.sh &
