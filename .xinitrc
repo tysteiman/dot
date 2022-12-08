@@ -38,9 +38,9 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
 
 # feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
-feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
 
-# picom -b --experimental-backends
+picom -b
 
 # xsetroot -solid "#3C435E"
 
