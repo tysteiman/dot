@@ -4,7 +4,7 @@
     lightfg:                     #6C5689;
     lightbg:                     #9783b1;
     foreground:                  #c4b8d3;
-    background:                  #251D2F;
+    background:                  #1A1521;
     background-color:            rgba ( 41, 45, 62, 0 % );
     separatorcolor:              @foreground;
     border-color:                #7A619A;
