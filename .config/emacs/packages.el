@@ -104,7 +104,8 @@
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.5)
-  :hook (prog-mode . company-mode))
+  :hook (prog-mode . company-mode)
+  :bind (("C-M-c" . company-complete)))
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
@@ -159,12 +160,6 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
-;; (use-package paredit
-;;   :hook
-;;   (emacs-lisp-mode       . enable-paredit-mode)
-;;   (lisp-interaction-mode . enable-paredit-mode)
-;;   (lisp-mode             . enable-paredit-mode))
-
 (defvar my/theme 'doom-one
   "Theme to use")
 
@@ -173,11 +168,6 @@
   ;; :config (load-theme 'doom-palenight t)
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
-
-;; (use-package emacs
-;;   :init
-;;   :config
-;;   (load-theme 'modus-vivendi))
 
 (use-package doom-modeline
   :init

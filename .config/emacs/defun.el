@@ -212,11 +212,3 @@ If PROCNAME is running, return t, otherwise nil."
         (when (string= psname procname)
           (setq runningp t))))
     runningp))
-
-(defun my/increment ()
-  "Increment word at point"
-  (interactive)
-  (let ((number (string-to-number (thing-at-point 'word t)))
-        (thingpos (bounds-of-thing-at-point 'word)))
-    (delete-region (car thingpos) (cdr thingpos))
-    (insert (format "%s" (+ number 1)))))
