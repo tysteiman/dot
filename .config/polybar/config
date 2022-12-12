@@ -18,7 +18,7 @@
 
 [colors]
 ; background = #aa282A2E
-background = #292D3E
+background = #1A1521
 ; background-trans = #00292D3E
 background-alt = #773C435E
 foreground = #82aaff

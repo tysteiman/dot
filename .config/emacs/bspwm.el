@@ -31,8 +31,8 @@ COMMAND is either a string of a command to run, or a list of strings."
 
 ;; yel #ffcb6b
 ;; pur #c792ea
-(bspc-config '((focused_border_color  . "'#ffcb6b'")
-               (presel_feedback_color . "'#717CB4'")
+(bspc-config '((focused_border_color  . "'#7A619A'")
+               (presel_feedback_color . "'#6C5689'")
                (border_width          . 1)
                (window_gap            . 2)
                (split_ratio           . 0.60)
