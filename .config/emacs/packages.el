@@ -68,26 +68,6 @@
 (use-package fish-mode
   :defer t)
 
-(use-package vertico
-  :config (vertico-mode 1))
-
-(use-package marginalia
-  :after vertico
-  :config (marginalia-mode)
-  :init (setq marginalia-align 'right))
-
-(use-package vertico-posframe
-  :init
-  (setq vertico-posframe-width 100)
-  (setq vertico-posframe-parameters '((left-fringe . 10)
-                                      (right-fringe . 20)))
-  :config (vertico-posframe-mode)
-  :hook (server-after-make-frame . (lambda ()
-                                     (posframe-delete-all))))
-
-(use-package orderless
-  :init (setq completion-styles '(orderless)))
-
 (use-package which-key
   :config
   (which-key-mode)
@@ -98,36 +78,6 @@
   :bind (("C-h f" . helpful-function)
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)))
-
-(use-package company
-  :init (setq company-dabbrev-downcase nil)
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.5)
-  :hook (prog-mode . company-mode)
-  :bind (("C-M-c" . company-complete)))
-
-(use-package company-box
-  :hook (company-mode . company-box-mode))
-
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  (setq lsp-headerline-breadcrumb-enable nil)
-  :config
-  (lsp-enable-which-key-integration t)
-  :hook
-  (c-mode    . lsp-deferred)
-  (js2-mode  . lsp-deferred)
-  (rust-mode . lsp-deferred)
-  (php-mode  . lsp-deferred))
-
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode))
-
-(use-package lsp-treemacs
-  :after lsp)
 
 (use-package prettier
   :after (:any js2-mode rjsx-mode)
@@ -266,16 +216,6 @@
 
 (use-package rg
   :commands (projectile-ripgrep))
-
-(use-package magit
-  :commands magit-status
-  :bind (("C-c m s" . magit-status)
-         ("C-M-i"   . magit-status)
-         ("C-c m b" . magit-blame)))
-
-(use-package diff-hl
-  :after magit
-  :hook (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package flyspell
   :hook (org-mode . my/flyspell))
