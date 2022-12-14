@@ -13,10 +13,7 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "modules"))
 
-(require 'my-evil)
-(require 'my-git)
-(require 'my-completion)
-(require 'my-lsp)
+(require 'my-packages)
 
 ;; TODO This is really only for lsp -- put there?
 (setq gc-cons-threshold 100000000)

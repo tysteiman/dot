@@ -1,20 +1,3 @@
-(require 'package)
-
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
-(package-initialize)
-
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-
-(setq use-package-always-ensure t)
-;; (setq use-package-verbose t)
-
 (use-package dockerfile-mode
   :defer t)
 
@@ -68,17 +51,6 @@
 (use-package fish-mode
   :defer t)
 
-(use-package which-key
-  :config
-  (which-key-mode)
-  :diminish which-key-mode
-  :init (setq which-key-idle-delay 1))
-
-(use-package helpful
-  :bind (("C-h f" . helpful-function)
-         ("C-h v" . helpful-variable)
-         ("C-h k" . helpful-key)))
-
 (use-package prettier
   :after (:any js2-mode rjsx-mode)
   :hook
@@ -97,67 +69,6 @@
   (php-mode  . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs :defer t)
-
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
-(use-package emmet-mode
-  :defer t)
-
-(use-package rainbow-mode
-  :defer t)
-
-(use-package hl-todo
-  :hook (prog-mode . hl-todo-mode))
-
-(defvar my/theme 'doom-feather-dark
-  "Theme to use")
-
-(use-package doom-themes
-  :config (load-theme my/theme t)
-  :hook (server-after-make-frame . (lambda ()
-                                     (load-theme my/theme t))))
-
-(use-package doom-modeline
-  :init
-  (setq doom-modeline-height 50)
-  (setq doom-modeline-bar-width 5)
-  (setq doom-modeline-vcs-max-length 25)
-  (setq doom-modeline-buffer-file-name-style "file-name")
-  :config (doom-modeline-mode 1))
-
-(use-package solaire-mode
-  :init (solaire-global-mode +1))
-
-(use-package dimmer
-  :config (setq dimmer-fraction 0.4)
-  :init (dimmer-mode t))
-
-(use-package diredfl
-  :hook (dired-mode . diredfl-mode))
-
-(use-package ibuffer
-  :bind (("C-x C-b" . ibuffer))
-  :config
-  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
-  (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
-
-(use-package winner
-  :config (winner-mode))
-
-(use-package window-numbering
-  :config (window-numbering-mode 1))
-
-(use-package all-the-icons)
-
-(use-package all-the-icons-dired
-  :after all-the-icons
-  :init (setq all-the-icons-dired-monochrome nil)
-  :hook (dired-mode . all-the-icons-dired-mode))
-
-(use-package all-the-icons-ibuffer
-  :after all-the-icons
-  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 ;; (use-package dashboard
 ;;   :init
@@ -179,44 +90,6 @@
 ;;                                     (interactive)
 ;;                                     (switch-to-buffer "*dashboard*"))))
 
-(use-package org
-  :init
-  (setq org-startup-folded t)
-  (setq org-todo-keywords '((sequence "TODO" "QUESTION" "OPTIONAL" "|" "DONE" "ANSWERED")))
-  (setq org-todo-keyword-faces '(("QUESTION" . (:foreground "indianred"))
-                                 ("OPTIONAL" . (:foreground "tan"))))
-  :config
-  (require 'org-tempo)
-  (add-to-list 'org-structure-template-alist '("el"   . "src elisp"))
-  (add-to-list 'org-structure-template-alist '("rb"   . "src ruby"))
-  (add-to-list 'org-structure-template-alist '("js"   . "src javascript"))
-  (add-to-list 'org-structure-template-alist '("json" . "src json"))
-  :bind (("C-c t i" . org-timer-set-timer)
-         ("C-c t s" . org-timer-stop))
-  :hook
-  (org-mode . org-indent-mode)
-  (org-mode . toggle-truncate-lines))
-
-(use-package vterm
-  :init (setq vterm-shell "/usr/bin/fish")
-  :bind (("C-c e v" . my/vterm)
-         ("C-c d u" . my/launch-docker-project)
-         ("C-c d r" . my/launch-rails-docker-project)
-         ("C-c d y" . my/launch-yarn-project)
-         ("C-c d c" . my/launch-rails-console)
-         ("C-c d a" . my/launch-rails-bash)))
-
-(use-package projectile
-  :config
-  (projectile-mode 1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-
-(use-package swiper
-  :bind (("C-M-s" . swiper)))
-
-(use-package rg
-  :commands (projectile-ripgrep))
-
 (use-package flyspell
   :hook (org-mode . my/flyspell))
 
@@ -232,43 +105,5 @@
 (use-package docker
   :defer t)
 
-(use-package windmove
-  :config
-  (windmove-default-keybindings)
-  (windmove-mode 1))
-
 (use-package rust-mode
   :defer t)
-
-(use-package mu4e
-  :ensure nil
-  :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  :config
-  (setq smtpmail-smtp-server "smtp.gmail.com")
-  (setq user-mail-address "tsteiman@switchboxinc.com")
-  (setq mu4e-change-filenames-when-moving t)
-  (setq mu4e-update-interval (* 5 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/Mail")
-  (setq mu4e-drafts-folder "/[Gmail].Drafts")
-  (setq mu4e-sent-folder "/[Gmail].Sent Mail")
-  (setq mu4e-refile-folder "/[Gmail].All Mail")
-  (setq mu4e-trash-folder "/[Gmail].Trash")
-  (setq mu4e-compose-format-flowed t)
-  :bind (("C-c m m" . mu4e))
-  :hook (mu4e-compose-mode . turn-off-auto-fill))
-
-(use-package mu4e-alert
-  :after mu4e
-  :config
-  (mu4e-alert-enable-notifications)
-  (mu4e-alert-enable-mode-line-display))
-
-(use-package multiple-cursors
-  :bind (("C->"     . mc/mark-next-like-this)
-         ("C-<"     . mc/mark-previous-like-this)
-         ("C-c C->" . mc/mark-all-like-this)
-         ("C-c m l" . mc/edit-lines)))
-
-(use-package smartparens
-  :hook (prog-mode . smartparens-mode))

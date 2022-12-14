@@ -31,3 +31,9 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))
+
+(use-package emmet-mode
+  :defer t)
+
