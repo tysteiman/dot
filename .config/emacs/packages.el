@@ -262,7 +262,7 @@
   (helpful-mode     . turn-on-evil-mode)
   (markdown-mode    . turn-on-evil-mode)
   (evil-after-load  . (lambda ()
-                        (evil-define-key nil evil-normal-state-map "SPC" 'projectile-find-file)
+                        (evil-define-key nil evil-normal-state-map " " 'projectile-find-file)
                         (evil-define-key nil evil-normal-state-map "t" 'evil-next-line)
                         (evil-define-key nil evil-normal-state-map "n" 'evil-previous-line)
                         (evil-define-key nil evil-normal-state-map "s" 'evil-forward-char))))
