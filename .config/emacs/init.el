@@ -11,6 +11,11 @@
   (dolist (f files)
     (my/load-file-emacs (symbol-name f))))
 
+(add-to-list 'load-path (concat user-emacs-directory "modules"))
+
+(require 'my-evil)
+
 ;; TODO This is really only for lsp -- put there?
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
+
