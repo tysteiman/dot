@@ -1,3 +1,5 @@
+(provide 'my-keys)
+
 (global-set-key (kbd "C-c t r") 'my/rails-tags)
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)

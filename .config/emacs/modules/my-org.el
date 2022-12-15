@@ -18,3 +18,12 @@
   :hook
   (org-mode . org-indent-mode)
   (org-mode . toggle-truncate-lines))
+
+
+(defun my/flyspell ()
+  "Turn on flyspell mode for the whole buffer"
+  (flyspell-mode 1)
+  (flyspell-buffer))
+
+(use-package flyspell
+  :hook (org-mode . my/flyspell))

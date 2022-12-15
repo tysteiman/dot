@@ -1,3 +1,5 @@
+(provide 'my-hooks)
+
 (add-hook 'prog-mode-hook 'my/configure-prog-mode)
 
 (add-hook 'sh-mode-hook (lambda ((define-key sh-mode-map (kbd "C-M-x") 'my/send-line-to-shell)) ()))

@@ -44,13 +44,12 @@ require('packer').startup(function()
     use 'navarasu/onedark.nvim'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
-    -- use 'airblade/vim-gitgutter'
+    use 'airblade/vim-gitgutter'
     use 'tpope/vim-fugitive'
     use 'mattn/emmet-vim'
     use 'ntpeters/vim-better-whitespace'
     use 'prettier/vim-prettier'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    -- use 'neovim/nvim-lspconfig'
 end)
 
 require'nvim-treesitter.configs'.setup {

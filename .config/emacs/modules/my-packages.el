@@ -28,3 +28,16 @@
 (require 'my-ui)
 (require 'my-icons)
 (require 'my-navigation)
+(require 'my-languages)
+(require 'my-prettier)
+(require 'my-ts)
+;; (require 'my-dashboard)
+
+(use-package pulseaudio-control
+  :config (pulseaudio-control-default-keybindings))
+
+(use-package sudo-edit
+  :defer t)
+
+(use-package dictionary
+  :defer t)
