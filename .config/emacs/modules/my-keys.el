@@ -4,36 +4,11 @@
 (global-set-key (kbd "C-x C-c") 'my/quit-emacs)
 (global-set-key (kbd "C-o")     'my/new-next-line)
 (global-set-key (kbd "C-M-o")   'my/new-previous-line)
-
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
 (global-set-key (kbd "C-c s n") 'my/sync-notes)
 (global-set-key (kbd "C-c s u") 'my/update-arch)
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
-
-(global-set-key (kbd "C-c f o") (lambda ()
-                                  (interactive)
-                                  (my/find-file-emacs "init")))
-
-(global-set-key (kbd "C-c f b") (lambda ()
-                                  (interactive)
-                                  (my/find-file-emacs "bspwm")))
-
-(global-set-key (kbd "C-c f p") (lambda ()
-                                  (interactive)
-                                  (my/find-file-emacs "packages")))
-
-(global-set-key (kbd "C-c f k") (lambda ()
-                                  (interactive)
-                                  (my/find-file-emacs "keys")))
-
-(global-set-key (kbd "C-c f j") (lambda ()
-                                  (interactive)
-                                  (dired "~/proj")))
-
-(global-set-key (kbd "C-c f n") 'my/open-notes)
-
-(global-set-key (kbd "C-M-t") 'my/increment)
 
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)

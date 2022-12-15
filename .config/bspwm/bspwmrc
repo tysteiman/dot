@@ -3,7 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 # main bspwm configuration is elisp, found in bspwm.el
-emacs --script ~/dot/.config/emacs/bspwm.el &
+emacs --script ~/dot/.config/emacs/scripts/bspwm.el &
 
 # polybar
 ~/dot/.config/polybar/launch.sh &
