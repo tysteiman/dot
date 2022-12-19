@@ -8,15 +8,6 @@
   :config (marginalia-mode)
   :init (setq marginalia-align 'right))
 
-(use-package vertico-posframe
-  :init
-  (setq vertico-posframe-width 100)
-  (setq vertico-posframe-parameters '((left-fringe . 10)
-                                      (right-fringe . 20)))
-  :config (vertico-posframe-mode)
-  :hook (server-after-make-frame . (lambda ()
-                                     (posframe-delete-all))))
-
 (use-package orderless
   :init (setq completion-styles '(orderless)))
 
