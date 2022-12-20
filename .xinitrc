@@ -37,12 +37,11 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0.9 --output HDMI-1-0 --mode
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
 
-# feh --bg-fill ~/dot/wallpaper/palenight-plants.jpg
-# feh --bg-scale ~/dot/wallpaper/dark-beach.jpg
+feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 
-# picom -b
+picom -b
 
-xsetroot -solid "#251D2F"
+# xsetroot -solid "#251D2F"
 
 # set keyboard layouts for languages we use
 # setxkbmap -layout us,iq,tr
@@ -53,7 +52,7 @@ xsetroot -solid "#251D2F"
 # key repeat
 xset r rate 200 50
 
-emacs --daemon
+# emacs --daemon
 
 exec bspwm
 

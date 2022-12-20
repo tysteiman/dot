@@ -7,7 +7,7 @@ require('packer').startup(function()
     use 'nvim-telescope/telescope.nvim'
 
     -- Theme
-    use 'navarasu/onedark.nvim'
+    use 'folke/tokyonight.nvim'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -27,4 +27,7 @@ require('packer').startup(function()
 
     -- LSP
     use 'neovim/nvim-lspconfig'
+
+    -- Color Codes
+    use 'norcalli/nvim-colorizer.lua'
 end)
