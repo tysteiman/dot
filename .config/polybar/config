@@ -1,4 +1,4 @@
-;==========================================================
+;=========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -18,10 +18,10 @@
 
 [colors]
 ; background = #aa282A2E
-background = #1A1521
+background = #24283b
 ; background-trans = #00292D3E
 background-alt = #773C435E
-foreground = #82aaff
+foreground = #c0caf5
 ; primary = #F0C674
 primary = #8ABEB7
 secondary = #c792ea
@@ -48,7 +48,8 @@ wm-restack = bspwm
 background = ${colors.background}
 
 modules-left = xworkspaces
-modules-right = date xkeyboard
+; modules-right = date xkeyboard
+modules-right = date
 tray-position = center
 width = 100%
 
