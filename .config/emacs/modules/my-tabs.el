@@ -11,6 +11,6 @@
   :config
   (centaur-tabs-mode t)
   :bind
-  ("C-<left>" . centaur-tabs-backward)
-  ("C-<right>" . centaur-tabs-forward)
+  ("C-<left>" . centaur-tabs-backward-tab)
+  ("C-<right>" . centaur-tabs-forward-tab)
   ("C-<up>" . centaur-tabs-switch-group))
