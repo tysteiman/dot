@@ -4,13 +4,13 @@
   :config (vertico-mode 1))
 
 (use-package vertico-posframe
-  :after vertico
+  :defer t
   :init
   (setq vertico-posframe-width 100)
   (setq vertico-posframe-parameters '((left-fringe . 10)
                                       (right-fringe . 20)))
-  :config (vertico-posframe-mode)
   :hook (server-after-make-frame . (lambda ()
+                                     (vertico-posframe-mode 1)
                                      (posframe-delete-all))))
 
 (use-package marginalia
