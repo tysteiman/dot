@@ -29,6 +29,8 @@
 (require 'my-languages)
 (require 'my-prettier)
 (require 'my-ts)
+(require 'my-icons)
+(require 'my-tabs)
 ;; (require 'my-dashboard)
 
 (use-package pulseaudio-control

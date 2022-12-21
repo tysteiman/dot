@@ -37,9 +37,9 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0.9 --output HDMI-1-0 --mode
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
 
-feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+# feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 
-picom -b
+# picom -b
 
 # xsetroot -solid "#251D2F"
 
@@ -52,7 +52,7 @@ picom -b
 # key repeat
 xset r rate 200 50
 
-# emacs --daemon
+emacs --daemon
 
 exec bspwm
 

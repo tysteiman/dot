@@ -9,7 +9,7 @@
 (require 'my-keys)
 (require 'my-hooks)
 (require 'my-packages)
-;; (require 'my-gui)
+(require 'my-gui)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
