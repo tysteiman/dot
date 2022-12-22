@@ -21,13 +21,6 @@ require('packer').startup(function()
     -- Whitespace
     use 'ntpeters/vim-better-whitespace'
 
-    -- Git
-    use 'airblade/vim-gitgutter'
-    use 'tpope/vim-fugitive'
-
     -- LSP
     use 'neovim/nvim-lspconfig'
-
-    -- Color Codes
-    use 'norcalli/nvim-colorizer.lua'
 end)
