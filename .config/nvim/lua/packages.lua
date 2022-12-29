@@ -32,4 +32,10 @@ require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
+
+    -- Lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 end)

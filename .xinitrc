@@ -52,7 +52,7 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2
 # key repeat
 xset r rate 200 50
 
-emacs --daemon
+# emacs --daemon
 
 exec bspwm
 
