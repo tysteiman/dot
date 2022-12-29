@@ -31,6 +31,7 @@
 (require 'my-ts)
 (require 'my-icons)
 (require 'my-tabs)
+;; (require 'my-treemacs)
 ;; (require 'my-dashboard)
 
 (use-package pulseaudio-control
