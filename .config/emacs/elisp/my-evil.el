@@ -15,7 +15,7 @@
   (helpful-mode     . turn-on-evil-mode)
   (markdown-mode    . turn-on-evil-mode)
   (evil-after-load  . (lambda ()
-                        (evil-define-key nil evil-normal-state-map " " 'projectile-find-file))))
+                        (evil-define-key nil evil-normal-state-map " f" 'projectile-find-file))))
 
 (use-package evil-org
   :after org

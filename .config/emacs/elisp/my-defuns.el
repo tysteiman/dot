@@ -104,22 +104,6 @@
   (interactive)
   (async-shell-command "sync-notes" (get-buffer-create "*notes*")))
 
-(defun my/open-notes ()
-  "Open notes directory in dired"
-  (interactive)
-  (dired "~/notes"))
-
-;; TODO this should also configure bspwm workspaces, same was laptop-off below...
-(defun my/laptop-on ()
-  "Turn laptop screen on using xrandr"
-  (interactive)
-  (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
-
-(defun my/laptop-off ()
-  "Turn laptop screen off using xrandr"
-  (interactive)
-  (shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1"))
-
 (defun my/update-arch ()
   "Run async shell command to fetch for updates in yay"
   (interactive)

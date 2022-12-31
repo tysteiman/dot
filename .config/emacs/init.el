@@ -2,7 +2,7 @@
 
 (setq gc-cons-threshold (* 60 1000 1000))
 
-(add-to-list 'load-path (concat user-emacs-directory "modules"))
+(add-to-list 'load-path (concat user-emacs-directory "elisp"))
 
 (require 'my-conf)
 (require 'my-defuns)

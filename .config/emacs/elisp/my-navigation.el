@@ -14,8 +14,7 @@
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer))
   :config
-  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer)
-  (define-key ibuffer-mode-map (kbd "q")       'kill-buffer-and-window))
+  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
 
 (use-package winner
   :config (winner-mode))
@@ -39,8 +38,8 @@
   (windmove-default-keybindings)
   (windmove-mode 1))
 
-(use-package multiple-cursors
-  :bind (("C->"     . mc/mark-next-like-this)
-         ("C-<"     . mc/mark-previous-like-this)
-         ("C-c C->" . mc/mark-all-like-this)
-         ("C-c m l" . mc/edit-lines)))
+;; (use-package multiple-cursors
+;;   :bind (("C->"     . mc/mark-next-like-this)
+;;          ("C-<"     . mc/mark-previous-like-this)
+;;          ("C-c C->" . mc/mark-all-like-this)
+;;          ("C-c m l" . mc/edit-lines)))

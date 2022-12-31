@@ -1,4 +1,4 @@
-(provide 'my-ts)
+(provide 'my-treesitter)
 
 (use-package tree-sitter
   :hook

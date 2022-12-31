@@ -19,6 +19,7 @@
 
 (require 'my-evil)
 (require 'my-git)
+(require 'my-vertico)
 (require 'my-completion)
 (require 'my-lsp)
 (require 'my-org)
@@ -28,7 +29,7 @@
 (require 'my-navigation)
 (require 'my-languages)
 (require 'my-prettier)
-(require 'my-ts)
+(require 'my-treesitter)
 (require 'my-icons)
 (require 'my-tabs)
 ;; (require 'my-treemacs)
