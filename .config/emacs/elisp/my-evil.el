@@ -1,10 +1,13 @@
 (provide 'my-evil)
 
+(defun my--evil-key-entry (key func)
+  (evil-define-key nil evil-normal-state-map key func))
+
 (defun my/set-evil-keys ()
-  (evil-define-key nil evil-normal-state-map " f" 'projectile-find-file)
-  (evil-define-key nil evil-normal-state-map " b" 'switch-to-buffer)
-  (evil-define-key nil evil-normal-state-map " s" 'projectile-ripgrep)
-  (evil-define-key nil evil-normal-state-map " g" 'magit-status))
+  (my--evil-key-entry " f" 'projectile-find-file)
+  (my--evil-key-entry " b" 'switch-to-buffer)
+  (my--evil-key-entry " s" 'projectile-ripgrep)
+  (my--evil-key-entry " g" 'magit-status))
 
 (use-package evil
   :hook
