@@ -7,7 +7,9 @@
   (my--evil-key-entry " f" 'projectile-find-file)
   (my--evil-key-entry " b" 'switch-to-buffer)
   (my--evil-key-entry " s" 'projectile-ripgrep)
-  (my--evil-key-entry " g" 'magit-status))
+  (my--evil-key-entry " g" 'magit-status)
+  (my--evil-key-entry " l" 'eshell)
+  (my--evil-key-entry " d" 'dired-jump))
 
 (use-package evil
   :hook
