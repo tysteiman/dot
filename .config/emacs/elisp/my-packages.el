@@ -43,3 +43,6 @@
 
 (use-package dictionary
   :defer t)
+
+(use-package restart-emacs
+  :defer t)

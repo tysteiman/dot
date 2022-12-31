@@ -1,11 +1,5 @@
 (provide 'my-navigation)
 
-(use-package which-key
-  :config
-  (which-key-mode)
-  :diminish which-key-mode
-  :init (setq which-key-idle-delay 1))
-
 (use-package helpful
   :bind (("C-h f" . helpful-function)
          ("C-h v" . helpful-variable)

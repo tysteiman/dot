@@ -1,5 +1,11 @@
 (provide 'my-evil)
 
+(defun my/set-evil-keys ()
+  (evil-define-key nil evil-normal-state-map " f" 'projectile-find-file)
+  (evil-define-key nil evil-normal-state-map " b" 'switch-to-buffer)
+  (evil-define-key nil evil-normal-state-map " s" 'projectile-ripgrep)
+  (evil-define-key nil evil-normal-state-map " g" 'magit-status))
+
 (use-package evil
   :hook
   (prog-mode        . turn-on-evil-mode)
@@ -15,7 +21,7 @@
   (helpful-mode     . turn-on-evil-mode)
   (markdown-mode    . turn-on-evil-mode)
   (evil-after-load  . (lambda ()
-                        (evil-define-key nil evil-normal-state-map " f" 'projectile-find-file))))
+                        (my/set-evil-keys))))
 
 (use-package evil-org
   :after org
