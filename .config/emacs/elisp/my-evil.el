@@ -9,7 +9,8 @@
   (my--evil-key-entry " s" 'projectile-ripgrep)
   (my--evil-key-entry " g" 'magit-status)
   (my--evil-key-entry " l" 'eshell)
-  (my--evil-key-entry " d" 'dired-jump))
+  (my--evil-key-entry " d" 'dired-jump)
+  (my--evil-key-entry " j" 'projectile-switch-project))
 
 (use-package evil
   :hook
