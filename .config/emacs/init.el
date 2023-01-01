@@ -57,58 +57,11 @@
 ;; --------------------------------------------------------------------
 ;;+ DEFUNS
 ;; --------------------------------------------------------------------
-(defun my/trim-current-line-region ()
-  "Trim whitespace for the given line"
-  (let ((end (point))
-        (beg (save-excursion
-               (move-beginning-of-line 1)
-               (point))))
-    (whitespace-cleanup-region beg end)))
-
-(defun my/new-next-line ()
-  "Create a new line under the current one"
+(defun my/list-config ()
+  "Open our init file and run occur on the sections"
   (interactive)
-  (move-end-of-line 1)
-  (my/trim-current-line-region)
-  (newline)
-  (indent-for-tab-command))
-
-(defun my/new-previous-line ()
-  "Create a new line above the current one"
-  (interactive)
-  (my/trim-current-line-region)
-  (move-beginning-of-line 1)
-  (newline)
-  (previous-line)
-  (indent-for-tab-command))
-
-(defun my/project-tags (dir &optional excludes)
-  "Generate etags for the current project (if in one). This will only generate tags for the app (rails) directory."
-  (interactive "sCode dir to generate tags for: ")
-  (let* ((project (projectile-project-root))
-         (target-dir (concat project dir))
-         (tags-file (concat project "TAGS")))
-    (if project
-        (if (file-exists-p target-dir)
-            ;; are never that big...
-            (progn
-              ;; it may be possible that this command is not finished by the time we reun visit-tags-table....
-              ;; if we ever notice that we could probably just switch this to being a sync exec since our files
-              (async-shell-command (concat "ctags " (or excludes "") " -eR -f " tags-file " " target-dir))
-              ;; TODO: might not need to do this -- i was generating the tags in the wrong dir previously
-              (visit-tags-table tags-file))
-          (message "Directory [%s] does not exist." dir))
-      (message "Not in a project."))))
-
-(defun my/rails-tags ()
-  "Generate etags for rails projects (src)"
-  (interactive)
-  (my/project-tags "app" "--exclude=*css --exclude=*scss --exclude=*.erb"))
-
-(defun my/react-tags ()
-  "Generate ctags for React (create-react-app) projects"
-  (interactive)
-  (my/project-tags "src"))
+  (find-file "~/dot/.config/emacs/init.el")
+  (occur ";;[+]"))
 
 (defun my/send-region-to-shell (&optional start end)
   "Simple function to send the contents of a region to a shell command -- useful for debugging configs."
@@ -123,16 +76,12 @@
   (interactive)
   (my/send-region-to-shell (line-beginning-position) (line-end-position)))
 
-(defun my/async-shell-command-on-file (command)
-  "Send current file as the argument to `command' i.e. <`command'> <current-file>"
-  (interactive "sAsync shell command on file: ")
-  (let* ((file (expand-file-name (buffer-file-name)))
-         (command-to-run (concat command " " file)))
-    (async-shell-command command-to-run)))
-
-(defun my/async-shell-command-rubocop ()
-  (interactive)
-  (my/async-shell-command-on-file "rubocop"))
+;; (defun my/async-shell-command-on-file (command)
+;;   "Send current file as the argument to `command' i.e. <`command'> <current-file>"
+;;   (interactive "sAsync shell command on file: ")
+;;   (let* ((file (expand-file-name (buffer-file-name)))
+;;          (command-to-run (concat command " " file)))
+;;     (async-shell-command command-to-run)))
 
 (defun my/async-shell-command-docker (command)
   (interactive "sAsync Docker shell command: ")
@@ -146,14 +95,7 @@
   ;; (display-line-numbers-mode 1)
   (diff-hl-margin-mode 1)
   (diff-hl-mode 1)
-  (rainbow-mode)
   (hl-line-mode 1))
-
-(defun my/quit-emacs (yn)
-  "Prompt the user if they're sure before closing Emacs."
-  (interactive "cAre you sure you want to close Emacs? (y/n): ")
-  (when (char-equal yn ?y)
-    (save-buffers-kill-terminal)))
 
 (defun my/sync-notes ()
   "Run AWS sync-notes binary for my notes directory"
@@ -165,39 +107,29 @@
   (interactive)
   (async-shell-command "yay -Syyu" (get-buffer-create "*yay*")))
 
-(defun my/find-file-emacs (file)
-  "Find file in user emacs directory matching `file'.el"
-  (find-file (concat user-emacs-directory file ".el")))
-
-(defun my/reset-dunst ()
-  "Kill dunst and fire a test message using notify-send"
-  (interactive)
-  (shell-command "killall -q dunst && notify-send hello dunst"))
-
-(defun my/process-running-p (procname)
-  "Helper to check system processes for PROCNAME (string).
-
-If PROCNAME is running, return t, otherwise nil."
-  (let ((runningp nil))
-    (dolist (pc (list-system-processes))
-      (let* ((psattr (process-attributes pc))
-             (psname (cdr (assoc 'comm psattr))))
-        (when (string= psname procname)
-          (setq runningp t))))
-    runningp))
+;; (defun my/process-running-p (procname)
+;;   "Helper to check system processes for PROCNAME (string).
+;;
+;; If PROCNAME is running, return t, otherwise nil."
+;;   (let ((runningp nil))
+;;     (dolist (pc (list-system-processes))
+;;       (let* ((psattr (process-attributes pc))
+;;              (psname (cdr (assoc 'comm psattr))))
+;;         (when (string= psname procname)
+;;           (setq runningp t))))
+;;     runningp))
 
 ;; --------------------------------------------------------------------
-;;+ BIND KEYS
+;;+ SET & UNSET KEYS
 ;; --------------------------------------------------------------------
-(global-set-key (kbd "C-c t r") 'my/rails-tags)
-(global-set-key (kbd "C-x C-c") 'my/quit-emacs)
-(global-set-key (kbd "C-o")     'my/new-next-line)
-(global-set-key (kbd "C-M-o")   'my/new-previous-line)
+(global-unset-key (kbd "C-x C-c"))
+
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
 (global-set-key (kbd "C-c s l") 'my/send-line-to-shell)
 (global-set-key (kbd "C-c s n") 'my/sync-notes)
 (global-set-key (kbd "C-c s u") 'my/update-arch)
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
+(global-set-key (kbd "C-c f c") 'my/list-config)
 
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
@@ -282,17 +214,19 @@ If PROCNAME is running, return t, otherwise nil."
   (evil-after-load  . (lambda ()
                         (my/set-evil-keys))))
 
-(use-package evil-org
-  :after org
-  :hook (org-mode . evil-org-mode)
-  :config (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
+;; (use-package evil-org
+;;   :after org
+;;   :hook (org-mode . evil-org-mode)
+;;   :config (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
 
 (use-package evil-escape
+  :defer 1
   :after evil
   :init (setq-default evil-escape-key-sequence "jk")
   :config (evil-escape-mode))
 
 (use-package magit
+  :defer t
   :commands magit-status
   :bind (("C-c m s" . magit-status)
          ("C-M-i"   . magit-status)
@@ -303,17 +237,18 @@ If PROCNAME is running, return t, otherwise nil."
   :hook (magit-post-refresh . diff-hl-magit-post-refresh))
 
 (use-package vertico
+  :defer 1
   :config (vertico-mode 1))
 
-(use-package vertico-posframe
-  :defer t
-  :init
-  (setq vertico-posframe-width 100)
-  (setq vertico-posframe-parameters '((left-fringe . 10)
-                                      (right-fringe . 20)))
-  :hook (server-after-make-frame . (lambda ()
-                                     (vertico-posframe-mode 1)
-                                     (posframe-delete-all))))
+;; (use-package vertico-posframe
+;;   :defer t
+;;   :init
+;;   (setq vertico-posframe-width 100)
+;;   (setq vertico-posframe-parameters '((left-fringe . 10)
+;;                                       (right-fringe . 20)))
+;;   :hook (server-after-make-frame . (lambda ()
+;;                                      (vertico-posframe-mode 1)
+;;                                      (posframe-delete-all))))
 
 (use-package marginalia
   :after vertico
@@ -321,26 +256,32 @@ If PROCNAME is running, return t, otherwise nil."
   :init (setq marginalia-align 'right))
 
 (use-package orderless
+  :after vertico
   :init (setq completion-styles '(orderless)))
 
 (use-package company
   :init (setq company-dabbrev-downcase nil)
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay 0.5)
-  :hook (prog-mode . company-mode)
+  (company-idle-delay nil) ;; turn off auto completion until C-n is pressed.
+  :hook
+  (prog-mode . company-mode)
+  (evil-after-load . (lambda ()
+                       (evil-define-key nil evil-insert-state-map "\C-n" 'company-complete)))
   :bind (("C-M-c" . company-complete)))
 
-(use-package company-box
-  :hook (company-mode . company-box-mode))
+;; (use-package company-box
+;;   :after company
+;;   :hook (company-mode . company-box-mode))
 
-(use-package smartparens
-  :hook (prog-mode . smartparens-mode))
+;; (use-package smartparens
+;;   :hook (prog-mode . smartparens-mode))
 
 (use-package emmet-mode
   :defer t)
 
 (use-package which-key
+  :defer 1
   :config
   (which-key-mode)
   :diminish which-key-mode
@@ -362,8 +303,8 @@ If PROCNAME is running, return t, otherwise nil."
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
-(use-package lsp-treemacs
-  :after lsp)
+;; (use-package lsp-treemacs
+;;   :after lsp)
 
 (use-package org
   :defer t
@@ -384,34 +325,31 @@ If PROCNAME is running, return t, otherwise nil."
   (org-mode . org-indent-mode)
   (org-mode . toggle-truncate-lines))
 
-(defun my/flyspell ()
-  "Turn on flyspell mode for the whole buffer"
-  (flyspell-mode 1)
-  (flyspell-buffer))
+;; (defun my/flyspell ()
+;;   "Turn on flyspell mode for the whole buffer"
+;;   (flyspell-mode 1)
+;;   (flyspell-buffer))
 
-(use-package flyspell
-  :hook (org-mode . my/flyspell))
+;; (use-package flyspell
+;;   :defer t
+;;   :hook (org-mode . my/flyspell))
 
-(defvar my/theme 'doom-wilmersdorf
-  "Theme to use")
-
-(defvar my/term-theme 'doom-tokyo-night
+(defvar my/theme 'doom-tokyo-night
   "Terminal theme to use")
 
 (use-package doom-themes
   :init
-  (setq doom-themes-treemacs-theme "doom-colors")
   ;; :config (load-theme my/theme t)
   :config (when
               (and
                (not (daemonp))
                (not (display-graphic-p)))
-            (load-theme my/term-theme t))
+            (load-theme my/theme t))
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
 
 (use-package vterm
-  :init (setq vterm-shell "/usr/bin/fish")
+  :defer t
   :bind (("C-c e v" . my/vterm)
          ("C-c d u" . my/launch-docker-project)
          ("C-c d r" . my/launch-rails-docker-project)
@@ -488,23 +426,27 @@ If PROCNAME is running, return t, otherwise nil."
 
 (use-package doom-modeline
   :init
-  (setq doom-modeline-height 50)
-  (setq doom-modeline-bar-width 5)
-  (setq doom-modeline-vcs-max-length 25)
-  (setq doom-modeline-buffer-file-name-style "file-name")
+  (setq doom-modeline-height 20
+        doom-modeline-bar-width 5
+        doom-modeline-vcs-max-length 25
+        doom-modeline-icon nil
+        doom-modeline-buffer-file-name-style "file-name")
   :config (doom-modeline-mode 1))
 
 (use-package solaire-mode
+  :defer 1
   :init (solaire-global-mode +1))
 
-(use-package dimmer
-  :config (setq dimmer-fraction 0.4)
-  :init (dimmer-mode t))
+;; (use-package dimmer
+;;   :config (setq dimmer-fraction 0.4)
+;;   :init (dimmer-mode t))
 
 (use-package diredfl
+  :defer t
   :hook (dired-mode . diredfl-mode))
 
 (use-package helpful
+  :defer t
   :bind (("C-h f" . helpful-function)
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)))
@@ -515,12 +457,15 @@ If PROCNAME is running, return t, otherwise nil."
   (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
 
 (use-package winner
+  :defer 1
   :config (winner-mode))
 
 (use-package window-numbering
+  :defer 1
   :config (window-numbering-mode 1))
 
 (use-package projectile
+  :defer 1
   :config
   (projectile-mode 1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
@@ -534,6 +479,7 @@ If PROCNAME is running, return t, otherwise nil."
   :commands (projectile-ripgrep))
 
 (use-package windmove
+  :defer 1
   :config
   (windmove-default-keybindings)
   (windmove-mode 1))
@@ -629,41 +575,42 @@ If PROCNAME is running, return t, otherwise nil."
   :after tree-sitter
   :defer t)
 
-(use-package all-the-icons :defer t)
+;; (use-package all-the-icons
+;;   :defer t)
 
-(use-package all-the-icons-dired
-  :after all-the-icons
-  :init (setq all-the-icons-dired-monochrome nil)
-  :hook (dired-mode . all-the-icons-dired-mode))
+;; (use-package all-the-icons-dired
+;;   :after all-the-icons
+;;   :init (setq all-the-icons-dired-monochrome nil)
+;;   :hook (dired-mode . all-the-icons-dired-mode))
 
-(use-package all-the-icons-ibuffer
-  :after all-the-icons
-  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
+;; (use-package all-the-icons-ibuffer
+;;   :after all-the-icons
+;;   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
-(use-package centaur-tabs
-  :defer t
-  :init
-  (setq centaur-tabs-style "bar")
-  (setq centaur-tabs-height 32)
-  (setq centaur-tabs-set-icons t)
-  (setq centaur-tabs-gray-out-icons 'buffer)
-  (setq centaur-tabs-set-bar 'left)
-  :bind
-  ("C-<left>" . centaur-tabs-backward-tab)
-  ("C-<right>" . centaur-tabs-forward-tab)
-  ("C-<up>" . centaur-tabs-switch-group)
-  :hook
-  (server-after-make-frame . (lambda()
-                               (centaur-tabs-mode t))))
+;; (use-package centaur-tabs
+;;   :defer t
+;;   :init
+;;   (setq centaur-tabs-style "bar")
+;;   (setq centaur-tabs-height 32)
+;;   (setq centaur-tabs-set-icons nil)
+;;   (setq centaur-tabs-gray-out-icons 'buffer)
+;;   (setq centaur-tabs-set-bar 'left)
+;;   :bind
+;;   ("C-<left>" . centaur-tabs-backward-tab)
+;;   ("C-<right>" . centaur-tabs-forward-tab)
+;;   ("C-<up>" . centaur-tabs-switch-group)
+;;   :hook
+;;   (server-after-make-frame . (lambda()
+;;                                (centaur-tabs-mode t))))
 
-(use-package pulseaudio-control
-  :config (pulseaudio-control-default-keybindings))
+;;(use-package pulseaudio-control
+;;  :config (pulseaudio-control-default-keybindings))
 
 (use-package sudo-edit
   :defer t)
 
-(use-package dictionary
-  :defer t)
+;; (use-package dictionary
+;;   :defer t)
 
 (use-package restart-emacs
   :defer t)
