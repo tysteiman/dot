@@ -86,12 +86,11 @@
   "Configure prog mode buffer"
   (interactive)
   (setq show-trailing-whitespace t)
-  (display-line-numbers-mode 1)
+  ;; (display-line-numbers-mode 1)
   (diff-hl-margin-mode 1)
   (diff-hl-mode 1)
   (rainbow-mode)
-  (when (display-graphic-p)
-    (hl-line-mode 1)))
+  (hl-line-mode 1))
 
 (defun my/quit-emacs (yn)
   "Prompt the user if they're sure before closing Emacs."

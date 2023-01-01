@@ -19,7 +19,8 @@
 
 (require 'my-evil)
 (require 'my-git)
-(require 'my-vertico)
+;; (require 'my-vertico)
+(require 'my-ivy)
 (require 'my-completion)
 (require 'my-lsp)
 (require 'my-org)
