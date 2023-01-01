@@ -4,13 +4,6 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (setq gc-cons-threshold (* 60 1000 1000))
 
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;; eval below to find all sections!
-;; TODO make a defun to jump to this buffer and run this occur!
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;; (occur ";;[+]")
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 ;; --------------------------------------------------------------------
 ;;+ CONFIGURE EMACS
 ;; --------------------------------------------------------------------
