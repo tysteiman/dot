@@ -408,6 +408,7 @@
         doom-modeline-buffer-file-name-style "file-name")
   :config
   (doom-modeline-mode 1)
+  (set-face-attribute 'doom-modeline-time nil :foreground "#e0af68")
   (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#7aa2f7" :foreground "black")
   (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#73daca" :foreground "black")
   (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#e0af68" :foreground "black")
