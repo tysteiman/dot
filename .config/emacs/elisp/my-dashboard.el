@@ -1,3 +1,5 @@
+(provide 'my-dashboard)
+
 (use-package dashboard
   :init
   ;; (setq dashboard-startup-banner 'logo)

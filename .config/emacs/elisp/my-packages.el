@@ -33,7 +33,7 @@
 (require 'my-icons)
 (require 'my-tabs)
 ;; (require 'my-treemacs)
-;; (require 'my-dashboard)
+(require 'my-dashboard)
 
 (use-package pulseaudio-control
   :config (pulseaudio-control-default-keybindings))

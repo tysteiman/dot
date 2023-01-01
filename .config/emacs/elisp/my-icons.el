@@ -1,6 +1,6 @@
 (provide 'my-icons)
 
-(use-package all-the-icons)
+(use-package all-the-icons :defer t)
 
 (use-package all-the-icons-dired
   :after all-the-icons

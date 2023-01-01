@@ -1,8 +1,5 @@
 (provide 'my-completion)
 
-(use-package orderless
-  :init (setq completion-styles '(orderless)))
-
 (use-package company
   :init (setq company-dabbrev-downcase nil)
   :custom

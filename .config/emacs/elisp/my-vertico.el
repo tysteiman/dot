@@ -17,3 +17,7 @@
   :after vertico
   :config (marginalia-mode)
   :init (setq marginalia-align 'right))
+
+(use-package orderless
+  :init (setq completion-styles '(orderless)))
+
