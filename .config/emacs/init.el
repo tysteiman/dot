@@ -14,6 +14,7 @@
 (column-number-mode t)
 (display-time-mode)
 (auto-revert-mode t)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (setq make-backup-files nil)
 (setq ns-pop-up-frames nil)
@@ -190,6 +191,11 @@
   (my--evil-key-entry " j" 'projectile-switch-project))
 
 (use-package evil
+  :config
+  (setq evil-normal-state-cursor '("#7aa2f7" box))
+  (setq evil-insert-state-cursor '("#73daca" (bar . 2)))
+  (setq evil-visual-state-cursor '("#e0af68" box))
+  (setq evil-emacs-state-cursor '("#bb9af7" box))
   :hook
   (prog-mode        . turn-on-evil-mode)
   (org-mode         . turn-on-evil-mode)
@@ -396,11 +402,16 @@
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 20
-        doom-modeline-bar-width 5
+        doom-modeline-bar-width 0
         doom-modeline-vcs-max-length 25
         doom-modeline-icon nil
         doom-modeline-buffer-file-name-style "file-name")
-  :config (doom-modeline-mode 1))
+  :config
+  (doom-modeline-mode 1)
+  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#7aa2f7" :foreground "black")
+  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#73daca" :foreground "black")
+  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#e0af68" :foreground "black")
+  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#bb9af7" :foreground "black"))
 
 (use-package solaire-mode
   :defer 1
