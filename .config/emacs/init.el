@@ -85,7 +85,6 @@
   "Configure prog mode buffer"
   (interactive)
   (setq show-trailing-whitespace t)
-  ;; (display-line-numbers-mode 1)
   (diff-hl-margin-mode 1)
   (diff-hl-mode 1)
   (hl-line-mode 1))
@@ -207,6 +206,9 @@
   (evil-after-load  . (lambda ()
                         (my/set-evil-keys))))
 
+;; ---------------------------------------
+;; TODO i dont remember what this was for
+;; ---------------------------------------
 ;; (use-package evil-org
 ;;   :after org
 ;;   :hook (org-mode . evil-org-mode)
@@ -233,16 +235,6 @@
   :defer 1
   :config (vertico-mode 1))
 
-;; (use-package vertico-posframe
-;;   :defer t
-;;   :init
-;;   (setq vertico-posframe-width 100)
-;;   (setq vertico-posframe-parameters '((left-fringe . 10)
-;;                                       (right-fringe . 20)))
-;;   :hook (server-after-make-frame . (lambda ()
-;;                                      (vertico-posframe-mode 1)
-;;                                      (posframe-delete-all))))
-
 (use-package marginalia
   :after vertico
   :config (marginalia-mode)
@@ -256,19 +248,15 @@
   :init (setq company-dabbrev-downcase nil)
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay nil) ;; turn off auto completion until C-n is pressed.
+  (company-idle-delay nil)
   :hook
   (prog-mode . company-mode)
   (evil-after-load . (lambda ()
                        (evil-define-key nil evil-insert-state-map "\C-n" 'company-complete)))
   :bind (("C-M-c" . company-complete)))
 
-;; (use-package company-box
-;;   :after company
-;;   :hook (company-mode . company-box-mode))
-
-;; (use-package smartparens
-;;   :hook (prog-mode . smartparens-mode))
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))
 
 (use-package emmet-mode
   :defer t)
@@ -296,9 +284,6 @@
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
-;; (use-package lsp-treemacs
-;;   :after lsp)
-
 (use-package org
   :defer t
   :init
@@ -317,15 +302,6 @@
   :hook
   (org-mode . org-indent-mode)
   (org-mode . toggle-truncate-lines))
-
-;; (defun my/flyspell ()
-;;   "Turn on flyspell mode for the whole buffer"
-;;   (flyspell-mode 1)
-;;   (flyspell-buffer))
-
-;; (use-package flyspell
-;;   :defer t
-;;   :hook (org-mode . my/flyspell))
 
 (defvar my/theme 'doom-tokyo-night
   "Terminal theme to use")
@@ -430,10 +406,6 @@
   :defer 1
   :init (solaire-global-mode +1))
 
-;; (use-package dimmer
-;;   :config (setq dimmer-fraction 0.4)
-;;   :init (dimmer-mode t))
-
 (use-package diredfl
   :defer t
   :hook (dired-mode . diredfl-mode))
@@ -476,12 +448,6 @@
   :config
   (windmove-default-keybindings)
   (windmove-mode 1))
-
-;; (use-package multiple-cursors
-;;   :bind (("C->"     . mc/mark-next-like-this)
-;;          ("C-<"     . mc/mark-previous-like-this)
-;;          ("C-c C->" . mc/mark-all-like-this)
-;;          ("C-c m l" . mc/edit-lines)))
 
 (use-package dockerfile-mode
   :defer t)
@@ -568,42 +534,8 @@
   :after tree-sitter
   :defer t)
 
-;; (use-package all-the-icons
-;;   :defer t)
-
-;; (use-package all-the-icons-dired
-;;   :after all-the-icons
-;;   :init (setq all-the-icons-dired-monochrome nil)
-;;   :hook (dired-mode . all-the-icons-dired-mode))
-
-;; (use-package all-the-icons-ibuffer
-;;   :after all-the-icons
-;;   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
-
-;; (use-package centaur-tabs
-;;   :defer t
-;;   :init
-;;   (setq centaur-tabs-style "bar")
-;;   (setq centaur-tabs-height 32)
-;;   (setq centaur-tabs-set-icons nil)
-;;   (setq centaur-tabs-gray-out-icons 'buffer)
-;;   (setq centaur-tabs-set-bar 'left)
-;;   :bind
-;;   ("C-<left>" . centaur-tabs-backward-tab)
-;;   ("C-<right>" . centaur-tabs-forward-tab)
-;;   ("C-<up>" . centaur-tabs-switch-group)
-;;   :hook
-;;   (server-after-make-frame . (lambda()
-;;                                (centaur-tabs-mode t))))
-
-;;(use-package pulseaudio-control
-;;  :config (pulseaudio-control-default-keybindings))
-
 (use-package sudo-edit
   :defer t)
-
-;; (use-package dictionary
-;;   :defer t)
 
 (use-package restart-emacs
   :defer t)
