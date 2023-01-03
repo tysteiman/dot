@@ -44,7 +44,7 @@
 ;; --------------------------------------------------------------------
 ;;+ FONT & SIZE
 ;; --------------------------------------------------------------------
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
 (set-frame-parameter (selected-frame) 'alpha '(90 85))
 (add-to-list 'default-frame-alist '(alpha 90 85))
 
