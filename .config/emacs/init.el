@@ -283,6 +283,7 @@
   (lsp-enable-which-key-integration t)
   :hook
   (c-mode    . lsp-deferred)
+  (typescript-mode    . lsp-deferred)
   (js2-mode  . lsp-deferred)
   (rust-mode . lsp-deferred)
   (php-mode  . lsp-deferred)
@@ -491,6 +492,9 @@
   (define-key rjsx-mode-map (kbd "M-.") 'xref-find-definitions)
   (define-key js2-mode-map (kbd "M-.") 'xref-find-definitions))
 
+(use-package typescript-mode
+  :defer t)
+
 (use-package php-mode
   :defer t)
 
@@ -539,6 +543,7 @@
   :defer t
   :hook
   (ruby-mode . tree-sitter-hl-mode)
+  (typescript-mode . tree-sitter-hl-mode)
   (java-mode . tree-sitter-hl-mode)
   (css-mode  . tree-sitter-hl-mode)
   (rust-mode . tree-sitter-hl-mode)
