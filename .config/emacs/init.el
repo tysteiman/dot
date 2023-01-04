@@ -120,7 +120,7 @@
         (end (line-number-at-pos (region-end)))
         (file (buffer-file-name)))
     (if (region-active-p)
-        (shell-command (format "git blame -L%s,%s %s" beg end file))
+        (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
 
 ;; (defun my/process-running-p (procname)
