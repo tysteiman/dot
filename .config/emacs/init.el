@@ -220,13 +220,10 @@
   (evil-after-load  . (lambda ()
                         (my/set-evil-keys))))
 
-;; ---------------------------------------
-;; TODO i dont remember what this was for
-;; ---------------------------------------
-;; (use-package evil-org
-;;   :after org
-;;   :hook (org-mode . evil-org-mode)
-;;   :config (evil-org-set-key-theme '(navigation insert textobjects additional claendar)))
+(use-package evil-org
+  :after org
+  :hook (org-mode . evil-org-mode)
+  :config (evil-org-set-key-theme '(navigation insert textobjects additional calendar)))
 
 (use-package evil-escape
   :defer 1
