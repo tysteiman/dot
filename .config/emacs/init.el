@@ -130,7 +130,7 @@
 (global-set-key (kbd "C-c s u") 'my/update-arch)
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
 (global-set-key (kbd "C-c f c") 'my/list-config)
-(global-set-key (kbd "C-c m a") 'my/git-blame-line)
+(global-set-key (kbd "C-c m l") 'my/git-blame-line)
 
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
