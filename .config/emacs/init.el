@@ -105,13 +105,13 @@
   (interactive)
   (let ((linum (line-number-at-pos))
         (file (buffer-file-name)))
-    (shell-command (format "git blame -L%s,%s %s" linum linum file))))
+    (shell-command (format "git blame -L%s,%s %s" linum linum file) "*Git blame*")))
 
 (defun my/git-blame-file ()
   "Run git blame on current file"
   (interactive)
   (let ((file (buffer-file-name)))
-    (shell-command (format "git blame %s" file))))
+    (shell-command (format "git blame %s" file) "*Git blame*")))
 
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
