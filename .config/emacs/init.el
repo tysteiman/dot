@@ -100,6 +100,13 @@
   (interactive)
   (async-shell-command "yay -Syyu" (get-buffer-create "*yay*")))
 
+(defun my/git-blame-line ()
+  "Run git blame on current line in file"
+  (interactive)
+  (let ((linum (line-number-at-pos))
+        (file (buffer-file-name)))
+    (shell-command (format "git blame -L%s,%s %s" linum linum file))))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;
@@ -123,6 +130,7 @@
 (global-set-key (kbd "C-c s u") 'my/update-arch)
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
 (global-set-key (kbd "C-c f c") 'my/list-config)
+(global-set-key (kbd "C-c m a") 'my/git-blame-line)
 
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
