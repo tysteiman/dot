@@ -27,7 +27,7 @@ super + shift + p
 super + shift + f
       pcmanfm
 
-super + shift + o
+super + shift + s
       flameshot gui
 
 # quit/restart bspwm
