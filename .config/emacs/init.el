@@ -113,6 +113,16 @@
   (let ((file (buffer-file-name)))
     (shell-command (format "git blame %s" file) "*Git blame*")))
 
+(defun my/git-blame-region ()
+  "Run git blame on active region"
+  (interactive)
+  (let ((beg (line-number-at-pos (region-beginning)))
+        (end (line-number-at-pos (region-end)))
+        (file (buffer-file-name)))
+    (if (region-active-p)
+        (shell-command (format "git blame -L%s,%s %s" beg end file))
+      (message "No active region."))))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;
@@ -138,6 +148,7 @@
 (global-set-key (kbd "C-c f c") 'my/list-config)
 (global-set-key (kbd "C-c m l") 'my/git-blame-line)
 (global-set-key (kbd "C-c m f") 'my/git-blame-file)
+(global-set-key (kbd "C-c m r") 'my/git-blame-region)
 
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
