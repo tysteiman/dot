@@ -107,6 +107,12 @@
         (file (buffer-file-name)))
     (shell-command (format "git blame -L%s,%s %s" linum linum file))))
 
+(defun my/git-blame-file ()
+  "Run git blame on current file"
+  (interactive)
+  (let ((file (buffer-file-name)))
+    (shell-command (format "git blame %s" file))))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;
@@ -131,6 +137,7 @@
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
 (global-set-key (kbd "C-c f c") 'my/list-config)
 (global-set-key (kbd "C-c m l") 'my/git-blame-line)
+(global-set-key (kbd "C-c m f") 'my/git-blame-file)
 
 ;; other package commands
 (global-set-key (kbd "C-c f i") 'imenu)
