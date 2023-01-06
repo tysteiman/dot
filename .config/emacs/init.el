@@ -157,6 +157,7 @@
 (global-set-key (kbd "C-c i i") 'package-install)
 (global-set-key (kbd "C-c i l") 'list-packages)
 (global-set-key (kbd "C-c t l") 'display-line-numbers-mode)
+(global-set-key (kbd "C-c t m") 'hide-mode-line-mode)
 (global-set-key (kbd "C-c b r") 'rename-buffer)
 (global-set-key (kbd "C-c b v") (lambda ()
                                   (interactive)
@@ -363,8 +364,8 @@
   (interactive "sBuffer name: ")
   (let ((targetname (if (string-empty-p bufname) "vterm" bufname))
         (projectp (projectile-project-p)))
-    (unless ignore-split
-      (split-window-right))
+    ;; (unless ignore-split
+    ;;   (split-window-right))
     (if projectp
         (projectile-run-vterm)
       (vterm))
@@ -584,6 +585,9 @@
 
 (use-package restart-emacs
   :defer t)
+
+(use-package hide-mode-line
+  :hook (vterm-mode . hide-mode-line-mode))
 
 ;; --------------------------------------------------------------------
 ;;+ PUTS
