@@ -602,7 +602,7 @@
   (setq exwm-input-global-keys `(
                                  ([?\s-d] . (lambda (command)
                                               (interactive (list (read-shell-command "$ ")))
-                                              (start-process-shell-command command (concat "*" command "*") command)))
+                                              (start-process-shell-command command nil command)))
                                  ([?\s-w] . exwm-workspace-switch)
                                  ([s-left] . windmove-left)
                                  ([s-right] . windmove-right)
