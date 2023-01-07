@@ -615,6 +615,7 @@
                                  ([?\s-=] . balance-windows)
                                  ([?\s-r] . rename-buffer)
                                  ([?\s-f] . exwm-layout-toggle-fullscreen)
+                                 ([?\s-e] . eshell)
                                  ,@(mapcar (lambda (i)
                                              `(,(kbd (format "s-%d" i)) .
                                                (lambda ()
@@ -622,13 +623,11 @@
                                                  (exwm-workspace-switch-create ,i))))
                                            (number-sequence 0 9))
                                  ))
-  ;; (add-hook 'exwm-update-class-hook #'efs/exwm-update-class)
   (require 'exwm-randr)
   (exwm-randr-enable)
   (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
   (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/canvas.jpg")
   (start-process-shell-command "picom" nil "picom -b")
-  (exwm-workspace-switch-create 1)
   (exwm-enable))
 
 ;; --------------------------------------------------------------------
