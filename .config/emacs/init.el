@@ -132,8 +132,9 @@
 
 (setq-default mode-line-format
               '((:eval (my/format-mode-line
-                        (format-mode-line " %b : %l")
-                        (format-mode-line (car (split-string display-time-string " ")))))))
+                        (format-mode-line "%b")
+                        ;; (format-mode-line " %b : %l")
+                        (format-mode-line (car (split-string display-time-string)))))))
 
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
