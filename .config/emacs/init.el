@@ -45,8 +45,8 @@
 ;;+ FONT & SIZE
 ;; --------------------------------------------------------------------
 (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
-(set-frame-parameter (selected-frame) 'alpha '(90 85))
-(add-to-list 'default-frame-alist '(alpha 90 85))
+(set-frame-parameter (selected-frame) 'alpha '(90 90))
+(add-to-list 'default-frame-alist '(alpha 90 90))
 
 ;; --------------------------------------------------------------------
 ;;+ DEFUNS
@@ -341,12 +341,7 @@
 
 (use-package doom-themes
   :init
-  ;; :config (load-theme my/theme t)
-  :config (when
-              (and
-               (not (daemonp))
-               (not (display-graphic-p)))
-            (load-theme my/theme t))
+  (load-theme my/theme t)
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
 
@@ -588,6 +583,53 @@
 
 (use-package hide-mode-line
   :hook (vterm-mode . hide-mode-line-mode))
+
+(use-package exwm
+  :config
+  (setq exwm-workspace-number 5)
+  (setq exwm-input-prefix-keys
+        '(?\C-x
+          ?\C-u
+          ?\C-h
+          ?\M-x
+          ?\M-`
+          ?\M-&
+          ?\M-:
+          ?\C-\M-j
+          ?\C-\ 
+          ))
+  (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
+  (setq exwm-input-global-keys `(
+                                 ([?\s-d] . (lambda (command)
+                                              (interactive (list (read-shell-command "$ ")))
+                                              (start-process-shell-command command (concat "*" command "*") command)))
+                                 ([?\s-w] . exwm-workspace-switch)
+                                 ([s-left] . windmove-left)
+                                 ([s-right] . windmove-right)
+                                 ([s-up] . windmove-up)
+                                 ([s-down] . windmove-down)
+                                 ([?\s-h] . windmove-left)
+                                 ([?\s-l] . windmove-right)
+                                 ([?\s-k] . windmove-up)
+                                 ([?\s-j] . windmove-down)
+                                 ([?\s-=] . balance-windows)
+                                 ([?\s-r] . rename-buffer)
+                                 ([?\s-f] . exwm-layout-toggle-fullscreen)
+                                 ,@(mapcar (lambda (i)
+                                             `(,(kbd (format "s-%d" i)) .
+                                               (lambda ()
+                                                 (interactive)
+                                                 (exwm-workspace-switch-create ,i))))
+                                           (number-sequence 0 9))
+                                 ))
+  ;; (add-hook 'exwm-update-class-hook #'efs/exwm-update-class)
+  (require 'exwm-randr)
+  (exwm-randr-enable)
+  (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
+  (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/canvas.jpg")
+  (start-process-shell-command "picom" nil "picom -b")
+  (exwm-workspace-switch-create 1)
+  (exwm-enable))
 
 ;; --------------------------------------------------------------------
 ;;+ PUTS

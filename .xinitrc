@@ -33,13 +33,13 @@ fi
 # ====================================================================================
 
 # xrandr
-xrandr --output eDP-1 --mode 1920x1080 --brightness 0.9 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1 &
+# xrandr --output eDP-1 --mode 1920x1080 --brightness 0.9 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1 &
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
 
 # feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
 # feh --bg-scale ~/dot/wallpaper/dark-leaves.jpg
-feh --bg-scale ~/dot/wallpaper/moon-road.jpg &
+# feh --bg-scale ~/dot/wallpaper/moon-road.jpg &
 
 # picom -b
 
@@ -54,8 +54,10 @@ feh --bg-scale ~/dot/wallpaper/moon-road.jpg &
 # key repeat
 xset r rate 200 50 &
 
-emacs --daemon &
+# emacs --daemon &
 
-exec bspwm
+# exec bspwm
+
+exec emacs
 
 # exec /home/tyler/proj/home/xcbwm/bin/tinyxcbwm
