@@ -601,7 +601,9 @@
   :defer t)
 
 (use-package hide-mode-line
-  :hook (vterm-mode . hide-mode-line-mode))
+  :hook
+  (vterm-mode . hide-mode-line-mode)
+  (eshell-mode . hide-mode-line-mode))
 
 (load-file (concat user-emacs-directory "exwm.el"))
 
