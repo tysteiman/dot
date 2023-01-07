@@ -481,9 +481,9 @@
   :defer 1
   :config (winner-mode))
 
-(use-package window-numbering
-  :defer 1
-  :config (window-numbering-mode 1))
+;; (use-package window-numbering
+;;   :defer 1
+;;   :config (window-numbering-mode 1))
 
 (use-package projectile
   :defer 1
