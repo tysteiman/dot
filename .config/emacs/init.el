@@ -605,6 +605,9 @@
   (vterm-mode . hide-mode-line-mode)
   (eshell-mode . hide-mode-line-mode))
 
+(use-package consult
+  :defer t)
+
 (load-file (concat user-emacs-directory "exwm.el"))
 
 ;; --------------------------------------------------------------------
