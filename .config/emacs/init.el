@@ -123,6 +123,18 @@
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
 
+;; --------------------------------------------------------------------
+;;+ MODELINE
+;; --------------------------------------------------------------------
+(defun my/format-mode-line (left right)
+  (let* ((available-width (- (window-width) (length left) 2)))
+    (format (format " %%s %%%ds " available-width) left right)))
+
+(setq-default mode-line-format
+              '((:eval (my/format-mode-line
+                        (format-mode-line " %b : %l")
+                        (format-mode-line (car (split-string display-time-string " ")))))))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;
@@ -336,14 +348,20 @@
   (org-mode . org-indent-mode)
   (org-mode . toggle-truncate-lines))
 
-(defvar my/theme 'doom-tokyo-night
-  "Terminal theme to use")
+;; (defvar my/theme 'doom-tokyo-night
+;;   "Terminal theme to use")
+;; 
+;; (use-package doom-themes
+;;   :config
+;;   (load-theme my/theme t)
+;;   :hook (server-after-make-frame . (lambda ()
+;;                                      (load-theme my/theme t))))
 
-(use-package doom-themes
+(use-package emacs
   :init
-  (load-theme my/theme t)
-  :hook (server-after-make-frame . (lambda ()
-                                     (load-theme my/theme t))))
+  (require-theme 'modus-themes)
+  :config
+  (load-theme 'modus-vivendi))
 
 (use-package vterm
   :defer t
@@ -584,51 +602,7 @@
 (use-package hide-mode-line
   :hook (vterm-mode . hide-mode-line-mode))
 
-(use-package exwm
-  :config
-  (setq exwm-workspace-number 5)
-  (setq exwm-input-prefix-keys
-        '(?\C-x
-          ?\C-u
-          ?\C-h
-          ?\M-x
-          ?\M-`
-          ?\M-&
-          ?\M-:
-          ?\C-\M-j
-          ?\C-\ 
-          ))
-  (define-key exwm-mode-map [?\C-q] 'exwm-input-send-next-key)
-  (setq exwm-input-global-keys `(
-                                 ([?\s-d] . (lambda (command)
-                                              (interactive (list (read-shell-command "$ ")))
-                                              (start-process-shell-command command nil command)))
-                                 ([?\s-w] . exwm-workspace-switch)
-                                 ([s-left] . windmove-left)
-                                 ([s-right] . windmove-right)
-                                 ([s-up] . windmove-up)
-                                 ([s-down] . windmove-down)
-                                 ([?\s-h] . windmove-left)
-                                 ([?\s-l] . windmove-right)
-                                 ([?\s-k] . windmove-up)
-                                 ([?\s-j] . windmove-down)
-                                 ([?\s-=] . balance-windows)
-                                 ([?\s-r] . rename-buffer)
-                                 ([?\s-f] . exwm-layout-toggle-fullscreen)
-                                 ([?\s-e] . eshell)
-                                 ,@(mapcar (lambda (i)
-                                             `(,(kbd (format "s-%d" i)) .
-                                               (lambda ()
-                                                 (interactive)
-                                                 (exwm-workspace-switch-create ,i))))
-                                           (number-sequence 0 9))
-                                 ))
-  (require 'exwm-randr)
-  (exwm-randr-enable)
-  (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
-  (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/canvas.jpg")
-  (start-process-shell-command "picom" nil "picom -b")
-  (exwm-enable))
+(load-file (concat user-emacs-directory "exwm.el"))
 
 ;; --------------------------------------------------------------------
 ;;+ PUTS
