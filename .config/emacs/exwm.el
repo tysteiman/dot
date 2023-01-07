@@ -30,6 +30,7 @@
                                  ([?\s-r] . rename-buffer)
                                  ([?\s-f] . exwm-layout-toggle-fullscreen)
                                  ([?\s-e] . eshell)
+                                 ([s-return] . vterm)
                                  ,@(mapcar (lambda (i)
                                              `(,(kbd (format "s-%d" i)) .
                                                (lambda ()
