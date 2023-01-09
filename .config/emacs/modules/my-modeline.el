@@ -3,7 +3,7 @@
 (use-package doom-modeline
   :init
   (setq doom-modeline-height 30
-        doom-modeline-bar-width 5
+        doom-modeline-bar-width 3
         doom-modeline-vcs-max-length 25
         doom-modeline-buffer-file-name-style "file-name")
   :config
