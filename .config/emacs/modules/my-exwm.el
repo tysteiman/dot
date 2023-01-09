@@ -44,7 +44,7 @@
                                       (exwm-workspace-rename-buffer (format "*%s*" exwm-class-name))))
   (require 'exwm-randr)
   (exwm-randr-enable)
-  (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0.5 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
+  (start-process-shell-command "xrandr" nil "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
   (start-process-shell-command "feh" nil "feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg")
   (start-process-shell-command "picom" nil "picom -b")
   (exwm-enable))
