@@ -37,7 +37,7 @@
 (defun my/launch-docker-project ()
   "Launch general docker project by running docker-compose up"
   (interactive)
-  (split-window-right)
+  ;; (split-window-right)
   (my/launch-vterm-with-command "up" "docker-compose up"))
 
 (defun my/launch-rails-docker-project ()
@@ -45,23 +45,23 @@
   (interactive)
   (my/launch-docker-project)
   (sit-for 5)
-  (split-window-below)
+  ;; (split-window-below)
   (my/launch-vterm-with-command "server" "docker-compose exec app rails s -b 0.0.0.0"))
 
 (defun my/launch-rails-console ()
   "Launch a rails console in vterm"
   (interactive)
-  (split-window-right)
+  ;; (split-window-right)
   (my/launch-vterm-with-command "console" "docker-compose exec app rails c"))
 
 (defun my/launch-rails-bash ()
   "Launch a bash session in a rails container"
   (interactive)
-  (split-window-right)
+  ;; (split-window-right)
   (my/launch-vterm-with-command "app" "docker-compose exec app bash"))
 
 (defun my/launch-yarn-project ()
   "Launch yarn project by launching yarn start"
   (interactive)
-  (split-window-right)
+  ;; (split-window-right)
   (my/launch-vterm-with-command "yarn" "yarn start"))

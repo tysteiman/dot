@@ -54,10 +54,9 @@ fi
 # key repeat
 xset r rate 200 50 &
 
-# emacs --daemon &
+emacs --daemon &
+exec bspwm
 
-# exec bspwm
-
-exec emacs
+# exec emacs
 
 # exec /home/tyler/proj/home/xcbwm/bin/tinyxcbwm

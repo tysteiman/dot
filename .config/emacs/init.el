@@ -24,7 +24,7 @@
 (require 'my-ui)
 (require 'my-navigation)
 (require 'my-system)
-(require 'my-exwm)
+;; (require 'my-exwm)
 
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
