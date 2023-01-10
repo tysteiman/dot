@@ -14,4 +14,5 @@
          ("C-h k" . helpful-key)))
 
 (use-package consult
-  :defer t)
+  :defer t
+  :bind (("C-x b" . consult-buffer)))
