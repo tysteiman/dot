@@ -17,6 +17,7 @@
 (require 'my-vterm)
 (require 'my-modeline)
 (require 'my-langs)
+(require 'my-company)
 (require 'my-completion)
 (require 'my-help)
 (require 'my-treesitter)
