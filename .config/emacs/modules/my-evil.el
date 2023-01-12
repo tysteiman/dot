@@ -9,6 +9,7 @@
   (my--evil-key-entry " g" 'magit-status)
   (my--evil-key-entry " l" 'eshell)
   (my--evil-key-entry " k" 'projectile-compile-project)
+  (my--evil-key-entry " o" 'delete-other-windows)
   (my--evil-key-entry " j" 'projectile-switch-project))
 
 (use-package evil
