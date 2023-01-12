@@ -5,9 +5,7 @@
 
 (defun my/set-evil-keys ()
   (my--evil-key-entry " f" 'projectile-find-file)
-  (my--evil-key-entry " b" 'consult-buffer)
   (my--evil-key-entry " s" 'projectile-ripgrep)
-  (my--evil-key-entry " c" 'consult-ripgrep)
   (my--evil-key-entry " g" 'magit-status)
   (my--evil-key-entry " l" 'eshell)
   (my--evil-key-entry " k" 'projectile-compile-project)
