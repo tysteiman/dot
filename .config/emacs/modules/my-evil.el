@@ -31,8 +31,7 @@
   (help-mode        . turn-on-evil-mode)
   (helpful-mode     . turn-on-evil-mode)
   (markdown-mode    . turn-on-evil-mode)
-  (evil-after-load  . (lambda ()
-                        (my/set-evil-keys))))
+  (evil-after-load  . my/set-evil-keys))
 
 (use-package evil-org
   :after org
