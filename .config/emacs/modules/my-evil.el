@@ -2,10 +2,6 @@
 
 (use-package evil
   :init
-  (setq evil-normal-state-cursor '("#7aa2f7" box))
-  (setq evil-insert-state-cursor '("#73daca" (bar . 2)))
-  (setq evil-visual-state-cursor '("#e0af68" box))
-  (setq evil-emacs-state-cursor '("#bb9af7" box))
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   :config
