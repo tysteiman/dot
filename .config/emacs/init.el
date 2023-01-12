@@ -6,6 +6,7 @@
 (require 'my-conf)
 (require 'my-defun)
 (require 'my-keys)
+(require 'my-general)
 (require 'my-hooks)
 (require 'my-use-package)
 (require 'my-evil)
