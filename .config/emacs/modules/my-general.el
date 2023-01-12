@@ -8,4 +8,5 @@
    :states 'normal
    "f" 'projectile-find-file
    "b" 'switch-to-buffer
-   "d" 'dired-jump))
+   "d" 'dired-jump
+   "o" 'delete-other-windows))
