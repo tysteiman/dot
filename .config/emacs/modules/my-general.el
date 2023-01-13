@@ -53,4 +53,9 @@
    :prefix "SPC"
    :keymaps '(eshell-mode-map vterm-mode-map)
    :states 'normal
-   "r" 'rename-buffer))
+   "r" 'rename-buffer)
+  ;; LSP
+  (general-define-key
+   :keymaps '(lsp-mode-map override)
+   :states 'normal
+   "K" 'lsp-ui-doc-glance))
