@@ -16,6 +16,7 @@
 (require 'my-org)
 (require 'my-theme)
 (require 'my-vterm)
+(require 'my-eshell)
 (require 'my-modeline)
 (require 'my-langs)
 (require 'my-company)

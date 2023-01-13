@@ -11,7 +11,8 @@
   (c-mode    . tree-sitter-hl-mode)
   (sh-mode   . tree-sitter-hl-mode)
   (yaml-mode . tree-sitter-hl-mode)
-  (php-mode  . tree-sitter-hl-mode))
+  (php-mode  . tree-sitter-hl-mode)
+  (lua-mode  . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs
   :after tree-sitter

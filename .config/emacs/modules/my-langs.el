@@ -58,3 +58,6 @@
 
 (use-package rust-mode
   :defer t)
+
+(use-package lua-mode
+  :defer t)

@@ -9,6 +9,9 @@
          ("C-c d c" . my/launch-rails-console)
          ("C-c d a" . my/launch-rails-bash)))
 
+(use-package vterm-toggle
+  :defer t)
+
 (defun my/vterm (&optional bufname ignore-split)
   "Create a new VTERM buffer named `bufname'. Runs at projectile root when in a projectile directory."
   (interactive "sBuffer name: ")
