@@ -17,4 +17,6 @@
                              (my--evil-key-entry "K" 'lsp-ui-doc-glance))))
 
 (use-package lsp-ui
+  :init
+  (setq lsp-ui-doc-position 'at-point)
   :hook (lsp-mode . lsp-ui-mode))
