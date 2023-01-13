@@ -38,4 +38,7 @@ require('packer').startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+    -- Blade
+    use 'jwalton512/vim-blade'
 end)
