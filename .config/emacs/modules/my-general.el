@@ -11,7 +11,7 @@
    "F" 'projectile-find-file-other-window
    "b" 'switch-to-buffer
    "B" 'ibuffer
-   "d" 'dired-jump
+   "d" 'dired
    "D" 'projectile-find-dir
    "o" 'delete-other-windows
    "/" 'swiper
