@@ -17,8 +17,6 @@
    "/" 'swiper
    "g" 'magit-status
    "j" 'projectile-switch-project
-   "e" 'projectile-run-eshell
-   "v" 'projectile-run-vterm
    "s" 'projectile-ripgrep
    "q" 'delete-window
    "," '(execute-extended-command :which-key "M-x")
@@ -40,8 +38,10 @@
    :states 'normal
    "l" 'display-line-numbers-mode
    "m" 'hide-mode-line-mode
-   "t" 'vterm-toggle
-   "e" 'eshell-toggle)
+   "t" 'projectile-run-vterm
+   "e" 'projectile-run-eshell
+   "s" 'window-toggle-side-windows
+   "P" 'my/pop-side-window)
   ;; BASH SCRIPTS
   (general-define-key
    :prefix "SPC"

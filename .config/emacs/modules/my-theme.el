@@ -3,15 +3,15 @@
 (defvar my/theme 'doom-tokyo-night
   "Theme to use")
 
-(use-package doom-themes
-  :config
-  (load-theme my/theme t)
-  ;; :hook (server-after-make-frame . (lambda ()
-  ;;                                    (load-theme my/theme t)))
-  )
-
-;; (use-package emacs
-;;   :init
-;;   (require-theme 'modus-themes)
+;; (use-package doom-themes
 ;;   :config
-;;   (load-theme 'modus-vivendi))
+;;   (load-theme my/theme t)
+;;   ;; :hook (server-after-make-frame . (lambda ()
+;;   ;;                                    (load-theme my/theme t)))
+;;   )
+
+(use-package emacs
+  :init
+  (require-theme 'modus-themes)
+  :config
+  (load-theme 'modus-vivendi))

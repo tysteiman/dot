@@ -1,0 +1,23 @@
+(provide 'my-buffers)
+
+(setq display-buffer-alist
+      `(("\\*\\(eshell.*\\|vterm.*\\)\\*"
+         (display-buffer-in-side-window)
+         (side . bottom)
+         (window-height . 0.25)
+         (slot . -1))
+        ("\\*\\(helpful.*\\|[hH]elp\\|Messages\\)\\*"
+         (display-buffer-in-side-window)
+         (side . left)
+         (window-height . 0.25)
+         (slot . 0))))
+
+(defun my/pop-side-window ()
+  "Transform the current window into a bottom buffer. This is useful
+for side windows that we want to transform/treat like normal windows instead."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (with-current-buffer buffer
+      (delete-window)
+      (display-buffer-at-bottom
+       buffer `(())))))

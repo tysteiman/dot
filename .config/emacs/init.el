@@ -4,6 +4,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "modules"))
 
 (require 'my-conf)
+(require 'my-buffers)
 (require 'my-defun)
 (require 'my-keys)
 (require 'my-general)
@@ -16,7 +17,6 @@
 (require 'my-org)
 (require 'my-theme)
 (require 'my-vterm)
-(require 'my-eshell)
 (require 'my-modeline)
 (require 'my-langs)
 (require 'my-company)
