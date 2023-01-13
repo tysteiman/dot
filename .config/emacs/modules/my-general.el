@@ -60,4 +60,12 @@
   (general-define-key
    :keymaps '(lsp-mode-map override)
    :states 'normal
-   "K" 'lsp-ui-doc-glance))
+   "K" 'lsp-ui-doc-glance)
+  ;; WINDMOVE (Meta + Vim)
+  (general-define-key
+   :keymaps '(override)
+   :states 'normal
+   "M-h" 'windmove-left
+   "M-j" 'windmove-down
+   "M-k" 'windmove-up
+   "M-l" 'windmove-right))

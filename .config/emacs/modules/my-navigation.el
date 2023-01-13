@@ -9,10 +9,6 @@
   :defer 1
   :config (winner-mode))
 
-;; (use-package window-numbering
-;;   :defer 1
-;;   :config (window-numbering-mode 1))
-
 (use-package projectile
   :defer 1
   :config
@@ -29,6 +25,4 @@
 
 (use-package windmove
   :defer 1
-  :config
-  (windmove-default-keybindings)
-  (windmove-mode 1))
+  :config (windmove-mode 1))
