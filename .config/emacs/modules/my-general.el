@@ -39,7 +39,9 @@
    "l" 'display-line-numbers-mode
    "m" 'hide-mode-line-mode
    "t" 'projectile-run-vterm
+   "T" 'vterm
    "e" 'projectile-run-eshell
+   "E" 'eshell
    "s" 'window-toggle-side-windows
    "P" 'my/pop-side-window)
   ;; BASH SCRIPTS
