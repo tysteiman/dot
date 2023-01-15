@@ -38,4 +38,10 @@ require('packer').startup(function()
 
     -- Blade
     use 'jwalton512/vim-blade'
+
+    -- Slim
+    use 'slim-template/vim-slim'
+
+    -- Harpoon
+    use 'ThePrimeagen/harpoon'
 end)
