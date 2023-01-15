@@ -2,8 +2,7 @@
 
 # terminal emulator
 super + Return
-        kitty
-	# kitty /usr/bin/fish
+        kitty fish
 
 # program launcher
 super + d

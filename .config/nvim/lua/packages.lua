@@ -34,10 +34,7 @@ require('packer').startup(function()
     use 'saadparwaiz1/cmp_luasnip'
 
     -- Lualine
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    use 'nvim-lualine/lualine.nvim'
 
     -- Blade
     use 'jwalton512/vim-blade'

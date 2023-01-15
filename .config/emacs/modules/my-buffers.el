@@ -9,12 +9,12 @@
         ("\\*\\(helpful.*\\|[hH]elp\\|Messages\\)\\*"
          (display-buffer-in-side-window)
          (side . left)
-         (window-height . 0.25)
+         (window-width . 0.30)
          (slot . 0))
         ("magit\\:.*"
          (display-buffer-in-side-window)
          (side . right)
-         (window-height . 0.25)
+         (window-width . 0.30)
          (slot . 0))))
 
 (defun my/pop-side-window ()

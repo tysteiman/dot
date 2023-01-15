@@ -2,6 +2,8 @@
 
 (use-package vterm
   :defer t
+  :init
+  (setq vterm-shell "fish")
   :bind (("C-c e v" . my/vterm)
          ("C-c d u" . my/launch-docker-project)
          ("C-c d r" . my/launch-rails-docker-project)
