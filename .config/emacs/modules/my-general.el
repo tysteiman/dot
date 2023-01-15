@@ -2,6 +2,7 @@
 
 (use-package general
   :init
+
   ;; Global space
   (general-define-key
    :prefix "SPC"
@@ -12,7 +13,7 @@
    "b" 'switch-to-buffer
    "B" 'ibuffer
    "d" 'dired
-   "D" 'projectile-find-dir
+   "D" 'dired-jump
    "o" 'delete-other-windows
    "/" 'swiper
    "g" 'magit-status
@@ -22,6 +23,7 @@
    "," '(execute-extended-command :which-key "M-x")
    "k" '(:ignore t :which-key "Bookmarks")
    "t" '(:ignore t :which-key "Toggle"))
+
   ;; SPC+k (Bookmarks)
   (general-define-key
    :prefix "SPC k"
@@ -31,6 +33,7 @@
    "s" 'bookmark-set
    "x" 'bookmark-delete
    "!" 'bookmark-delete-all)
+
   ;; SPC+t (Toggle)
   (general-define-key
    :prefix "SPC t"
@@ -44,23 +47,27 @@
    "E" 'eshell
    "s" 'window-toggle-side-windows
    "P" 'my/pop-side-window)
+
   ;; BASH SCRIPTS
   (general-define-key
    :prefix "SPC"
    :keymaps '(shell-mode-map sh-mode-map)
    :states 'normal
    "!" 'my/send-line-to-shell)
+
   ;; SHELLS (eshell/vterm)
   (general-define-key
    :prefix "SPC"
    :keymaps '(eshell-mode-map vterm-mode-map)
    :states 'normal
    "r" 'rename-buffer)
+
   ;; LSP
   (general-define-key
    :keymaps '(lsp-mode-map override)
    :states 'normal
    "K" 'lsp-ui-doc-glance)
+
   ;; WINDMOVE (Meta + Vim)
   (general-define-key
    :keymaps '(override)
