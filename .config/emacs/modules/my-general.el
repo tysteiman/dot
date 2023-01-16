@@ -55,6 +55,13 @@
    :states 'normal
    "!" 'my/send-line-to-shell)
 
+  ;; LISP
+  (general-define-key
+   :prefix "SPC"
+   :keymaps '(lisp-interaction-mode-map emacs-lisp-mode-map)
+   :states 'normal
+   "!" 'eval-buffer)
+
   ;; SHELLS (eshell/vterm)
   (general-define-key
    :prefix "SPC"
