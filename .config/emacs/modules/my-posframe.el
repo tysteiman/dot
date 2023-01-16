@@ -10,7 +10,7 @@
 
 (defun my/eshell-posframe--init ()
   "Initialize callback"
-  (with-current-buffer (get-buffer my-posframe-buffer)
+  (with-current-buffer (get-buffer my/eshell-posframe-buffer)
     (erase-buffer)
     (require 'eshell)
     (eshell-mode)))
@@ -19,7 +19,7 @@
   "Open `eshell-mode' inside of a posframe window"
   (interactive)
   (when (posframe-workable-p)
-    (let ((pos (posframe-show my-posframe-buffer
+    (let ((pos (posframe-show my/eshell-posframe-buffer
                               :poshandler #'posframe-poshandler-frame-center
                               :height (/ (frame-height) 2)
                               :width (/ (frame-width) 2)
