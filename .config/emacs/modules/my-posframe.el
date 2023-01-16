@@ -19,8 +19,8 @@
   (when (posframe-workable-p)
     (let ((pos (posframe-show my-posframe-buffer
                               :poshandler #'posframe-poshandler-frame-center
-                              :height 30
-                              :width 100
+                              :height (/ (frame-height) 2)
+                              :width (/ (frame-width) 2)
                               :border-width 3
                               :border-color "indianred"
                               :accept-focus t
