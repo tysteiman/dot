@@ -1,5 +1,7 @@
 (provide 'my-posframe)
 
+;; TODO check out vterm-exit-functions for vterm implementation
+
 ;; use posframe
 (use-package posframe :defer t)
 
