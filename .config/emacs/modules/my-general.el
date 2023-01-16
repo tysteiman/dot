@@ -21,8 +21,17 @@
    "s" 'projectile-ripgrep
    "q" 'delete-window
    "," '(execute-extended-command :which-key "M-x")
+   "c" '(:ignore t :which-key "Config")
    "k" '(:ignore t :which-key "Bookmarks")
    "t" '(:ignore t :which-key "Toggle"))
+
+  ;; SPC+c (Config)
+  (general-define-key
+   :prefix "SPC c"
+   :keymaps 'override
+   :states 'normal
+   "c" 'my/open-init
+   "m" 'my/open-module)
 
   ;; SPC+k (Bookmarks)
   (general-define-key
