@@ -73,6 +73,13 @@
    :states 'normal
    "!" 'eval-buffer)
 
+  ;; C
+  (general-define-key
+   :prefix "SPC"
+   :keymaps '(c-mode-map)
+   :states 'normal
+   "!" 'compile)
+
   ;; SHELLS (eshell/vterm)
   (general-define-key
    :prefix "SPC"

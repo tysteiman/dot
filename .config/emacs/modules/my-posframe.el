@@ -69,6 +69,8 @@
       (end-of-buffer)
       (setq-local vterm-exit-functions '(my/exit-vterm)))))
 
+;; TODO make defun for toggling on/off without blowing up
+
 ;; (posframe-delete-all)
 ;; (posframe-hide-all)
 
