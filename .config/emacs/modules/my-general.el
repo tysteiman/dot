@@ -56,7 +56,8 @@
    "E" 'eshell
    "s" 'window-toggle-side-windows
    "P" 'my/pop-side-window
-   "o" 'my/eshell-posframe)
+   "o" 'my/eshell-posframe
+   "O" 'my/vterm-posframe)
 
   ;; BASH SCRIPTS
   (general-define-key
