@@ -46,7 +46,8 @@
    "e" 'projectile-run-eshell
    "E" 'eshell
    "s" 'window-toggle-side-windows
-   "P" 'my/pop-side-window)
+   "P" 'my/pop-side-window
+   "o" 'my/eshell-posframe)
 
   ;; BASH SCRIPTS
   (general-define-key

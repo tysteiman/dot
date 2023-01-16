@@ -27,6 +27,7 @@
 (require 'my-ui)
 (require 'my-navigation)
 (require 'my-system)
+(require 'my-posframe)
 ;; (require 'my-exwm)
 
 (setq gc-cons-threshold 100000000)
