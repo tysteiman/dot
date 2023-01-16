@@ -11,6 +11,12 @@
          (side . left)
          (window-width . 0.30)
          (slot . 0))
+        ("\\*compilation\\*"
+         (display-buffer-in-side-window)
+         (side . left)
+         (window-width . 0.30)
+         (window-height . 0.30)
+         (slot . 1))
         ("magit\\:.*"
          (display-buffer-in-side-window)
          (side . right)
