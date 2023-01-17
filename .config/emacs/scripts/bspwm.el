@@ -25,7 +25,7 @@ COMMAND is either a string of a command to run, or a list of strings."
   (bspc "rule -a" command))
 
 ;; TODO refactor this, build something to merge in our bspc-monitor calls below, maybe a list with monitors and configs
-(shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 0.8 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
+(shell-command "xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1")
 (shell-command "feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg")
 (shell-command "picom -b")
 

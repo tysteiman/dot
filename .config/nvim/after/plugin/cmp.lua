@@ -65,3 +65,6 @@ require('lspconfig')['intelephense'].setup {
 require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities
 }
+require('lspconfig')['clangd'].setup {
+    capabilities = capabilities
+}
