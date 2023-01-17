@@ -6,7 +6,6 @@
 (require 'my-conf)
 (require 'my-buffers)
 (require 'my-defun)
-(require 'my-keys)
 (require 'my-general)
 (require 'my-hooks)
 (require 'my-use-package)

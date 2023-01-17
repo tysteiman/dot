@@ -81,6 +81,12 @@
   (interactive)
   (async-shell-command "yay -Syyu" (get-buffer-create "*yay*")))
 
+(defun my/revert-buffer ()
+  "Revert buffer without prompting and message"
+  (interactive)
+  (revert-buffer nil t)
+  (message "Buffer reverted."))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;

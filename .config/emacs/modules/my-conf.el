@@ -38,3 +38,6 @@
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+
+;; remove exit kbd
+(global-unset-key (kbd "C-x C-c"))

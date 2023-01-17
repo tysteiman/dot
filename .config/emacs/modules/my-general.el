@@ -20,6 +20,7 @@
    "j" 'projectile-switch-project
    "s" 'projectile-ripgrep
    "q" 'delete-window
+   "V" 'my/revert-buffer
    "," '(execute-extended-command :which-key "M-x")
    "c" '(:ignore t :which-key "Config")
    "k" '(:ignore t :which-key "Bookmarks")
@@ -94,15 +95,6 @@
    :states 'normal
    "K" 'lsp-ui-doc-glance)
 
-  ;; WINDMOVE (Meta + Vim)
-  (general-define-key
-   :keymaps '(override)
-   :states 'normal
-   "M-h" 'windmove-left
-   "M-j" 'windmove-down
-   "M-k" 'windmove-up
-   "M-l" 'windmove-right)
-
   ;; Notes (SPC + n)
   (general-define-key
    :prefix "SPC n"
@@ -112,4 +104,22 @@
    "d" 'my/dired-notes
    "f" 'my/find-note
    "w" 'my/find-work-note
-   "h" 'my/find-home-note))
+   "h" 'my/find-home-note)
+
+  ;; WINDMOVE (Meta + Vim)
+  (general-define-key
+   :keymaps 'override
+   :states 'normal
+   "M-h" 'windmove-left
+   "M-j" 'windmove-down
+   "M-k" 'windmove-up
+   "M-l" 'windmove-right)
+
+  ;; MISC (Unscoped)
+  (general-define-key
+   :keymaps 'override
+   :states 'normal
+   "C-c s r" 'my/send-region-to-shell
+   "C-c s d" 'my/async-shell-command-docker
+   "C-c i i" 'package-install
+   "C-c i l" 'list-packages))
