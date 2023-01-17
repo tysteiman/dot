@@ -25,12 +25,12 @@
   (interactive)
   (my/send-region-to-shell (line-beginning-position) (line-end-position)))
 
-;; (defun my/async-shell-command-on-file (command)
-;;   "Send current file as the argument to `command' i.e. <`command'> <current-file>"
-;;   (interactive "sAsync shell command on file: ")
-;;   (let* ((file (expand-file-name (buffer-file-name)))
-;;          (command-to-run (concat command " " file)))
-;;     (async-shell-command command-to-run)))
+(defun my/async-shell-command-on-file (command)
+  "Send current file as the argument to `command' i.e. <`command'> <current-file>"
+  (interactive "sAsync shell command on file: ")
+  (let* ((file (expand-file-name (buffer-file-name)))
+         (command-to-run (concat command " " file)))
+    (async-shell-command command-to-run)))
 
 (defun my/async-shell-command-docker (command)
   (interactive "sAsync Docker shell command: ")
