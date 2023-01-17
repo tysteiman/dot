@@ -87,6 +87,11 @@
   (revert-buffer nil t)
   (message "Buffer reverted."))
 
+(defun my/open-bspwm-config ()
+  "Open bspwm configuration file"
+  (interactive)
+  (find-file "~/.config/bspwm/bspwmrc"))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;

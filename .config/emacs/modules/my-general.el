@@ -33,7 +33,8 @@
    :keymaps 'override
    :states 'normal
    "c" 'my/open-init
-   "m" 'my/open-module)
+   "m" 'my/open-module
+   "b" 'my/open-bspwm-config)
 
   ;; SPC+k (Bookmarks)
   (general-define-key
