@@ -19,7 +19,7 @@ require('packer').startup(function()
     use 'prettier/vim-prettier'
 
     -- Whitespace
-    use 'ntpeters/vim-better-whitespace'
+    -- use 'ntpeters/vim-better-whitespace'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -27,8 +27,8 @@ require('packer').startup(function()
     -- CMP
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
+    -- use 'hrsh7th/cmp-path'
+    -- use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
@@ -43,5 +43,8 @@ require('packer').startup(function()
     use 'slim-template/vim-slim'
 
     -- Harpoon
-    use 'ThePrimeagen/harpoon'
+    -- use 'ThePrimeagen/harpoon'
+    
+    -- Org
+    use 'nvim-orgmode/orgmode'
 end)

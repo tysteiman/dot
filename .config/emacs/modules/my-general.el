@@ -23,6 +23,7 @@
    "," '(execute-extended-command :which-key "M-x")
    "c" '(:ignore t :which-key "Config")
    "k" '(:ignore t :which-key "Bookmarks")
+   "n" '(:ignore t :which-key "Notes")
    "t" '(:ignore t :which-key "Toggle"))
 
   ;; SPC+c (Config)
@@ -100,4 +101,15 @@
    "M-h" 'windmove-left
    "M-j" 'windmove-down
    "M-k" 'windmove-up
-   "M-l" 'windmove-right))
+   "M-l" 'windmove-right)
+
+  ;; Notes (SPC + n)
+  (general-define-key
+   :prefix "SPC n"
+   :keymaps 'override
+   :states 'normal
+   "s" 'my/sync-notes
+   "d" 'my/dired-notes
+   "f" 'my/find-note
+   "w" 'my/find-work-note
+   "h" 'my/find-home-note))

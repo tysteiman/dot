@@ -5,7 +5,6 @@
 
 ;; SET
 (global-set-key (kbd "C-c s r") 'my/send-region-to-shell)
-(global-set-key (kbd "C-c s n") 'my/sync-notes)
 (global-set-key (kbd "C-c s d") 'my/async-shell-command-docker)
 (global-set-key (kbd "C-c i i") 'package-install)
 (global-set-key (kbd "C-c i l") 'list-packages)

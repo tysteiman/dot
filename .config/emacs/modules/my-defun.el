@@ -50,6 +50,32 @@
   (interactive)
   (async-shell-command "sync-notes" (get-buffer-create "*notes*")))
 
+(defun my/dired-notes ()
+  "Open notes directory with dired"
+  (interactive)
+  (dired "~/notes"))
+
+(defun my/find-note (note)
+  "Find note (all dirs)"
+  (interactive
+   (list
+    (read-file-name "Note: " "~/notes/")))
+  (find-file note))
+
+(defun my/find-work-note (note)
+  "Find work note"
+  (interactive
+   (list
+    (read-file-name "Note: " "~/notes/work/switchbox/")))
+  (find-file note))
+
+(defun my/find-home-note (note)
+  "Find home note"
+  (interactive
+   (list
+    (read-file-name "Note: " "~/notes/home/")))
+  (find-file note))
+
 (defun my/update-arch ()
   "Run async shell command to fetch for updates in yay"
   (interactive)
