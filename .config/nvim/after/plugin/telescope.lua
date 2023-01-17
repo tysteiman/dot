@@ -4,7 +4,7 @@ local builtin = require('telescope.builtin')
 local default_layout = {
     layout_strategy = 'vertical',
     layout_config = {
-        width = 0.333,
+        width = 0.45,
         height = 0.4
     },
     previewer = false
