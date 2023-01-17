@@ -54,7 +54,7 @@ fi
 # key repeat
 xset r rate 200 50 &
 
-emacs --daemon &
+# emacs --daemon &
 
 exec bspwm
 

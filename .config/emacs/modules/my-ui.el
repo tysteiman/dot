@@ -18,5 +18,4 @@
   :defer t)
 
 (use-package solaire-mode
-  :defer 1
-  :init (solaire-global-mode +1))
+  :config (solaire-global-mode +1))
