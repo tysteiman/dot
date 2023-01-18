@@ -21,6 +21,7 @@
    "s" 'projectile-ripgrep
    "q" 'delete-window
    "V" 'my/revert-buffer
+   "x" 'kill-this-buffer
    "," '(execute-extended-command :which-key "M-x")
    "c" '(:ignore t :which-key "Config")
    "k" '(:ignore t :which-key "Bookmarks")

@@ -35,3 +35,4 @@ dump-prod.sh
 .config/emacs/*/default/.lsp-session-v1
 .config/emacs/*/default/bookmarks
 .config/emacs/*/default/auto-save-list/
+/.config/emacs/doom/

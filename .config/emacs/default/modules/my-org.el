@@ -4,9 +4,10 @@
   :defer t
   :init
   (setq org-startup-folded t)
-  (setq org-todo-keywords '((sequence "TODO" "QUESTION" "OPTIONAL" "|" "DONE" "ANSWERED")))
+  (setq org-todo-keywords '((sequence "TODO" "IN PROGRESS" "QUESTION" "OPTIONAL" "|" "DONE" "ANSWERED")))
   (setq org-todo-keyword-faces '(("QUESTION" . (:foreground "indianred"))
-                                 ("OPTIONAL" . (:foreground "tan"))))
+                                 ("OPTIONAL" . (:foreground "tan"))
+                                 ("IN PROGRESS" . (:foreground "aqua"))))
   :config
   (require 'org-tempo)
   (add-to-list 'org-structure-template-alist '("el"   . "src elisp"))
