@@ -17,8 +17,9 @@
 
 (use-package hide-mode-line
   :hook
-  (vterm-mode . hide-mode-line-mode)
-  (eshell-mode . hide-mode-line-mode))
+  (vterm-mode  . hide-mode-line-mode)
+  (eshell-mode . hide-mode-line-mode)
+  (org-mode    . hide-mode-line-mode))
 
 ;; (defun my/format-mode-line (left right)
 ;;   (let* ((available-width (- (window-width) (length left) 2)))

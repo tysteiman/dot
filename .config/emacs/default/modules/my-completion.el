@@ -5,3 +5,5 @@
 
 (use-package smartparens
   :hook (prog-mode . smartparens-mode))
+
+(use-package counsel)

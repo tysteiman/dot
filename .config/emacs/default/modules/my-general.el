@@ -19,6 +19,7 @@
    "g" 'magit-status
    "j" 'projectile-switch-project
    "s" 'projectile-ripgrep
+   "S" 'counsel-rg
    "q" 'delete-window
    "V" 'my/revert-buffer
    "x" 'kill-this-buffer
@@ -52,6 +53,7 @@
    :prefix "SPC t"
    :keymaps 'override
    :states 'normal
+   "b" 'centaur-tabs-mode
    "l" 'display-line-numbers-mode
    "m" 'hide-mode-line-mode
    "t" 'projectile-run-vterm
