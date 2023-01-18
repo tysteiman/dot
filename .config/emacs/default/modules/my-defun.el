@@ -10,7 +10,7 @@
 (defun my/open-init ()
   "Open our init file and run occur on the sections"
   (interactive)
-  (find-file "~/dot/.config/emacs/init.el"))
+  (find-file (concat user-emacs-directory "init.el")))
 
 (defun my/send-region-to-shell (&optional start end)
   "Simple function to send the contents of a region to a shell command -- useful for debugging configs."
