@@ -1,5 +1,3 @@
-(load-theme 'modus-vivendi t)
-
 (set-face-attribute 'default nil :height 130)
 
 ;; set some variables
@@ -30,6 +28,7 @@
 ;; ----- PRETTIER -----
 (defun prettier--eval-load ()
   "Initialize prettier if we are in a project"
+  (require 'project)
   (if (project-current)
       (prettier--initialize)
     (message "Not in a project. Skipping prettier.")))
@@ -66,4 +65,4 @@ but who cares, it works!"
 ;; the buffer, however there is probably a faster implementation."
 ;;   (revert-buffer nil t))
 
-(add-hook 'js-mode-hook 'prettier--initialize)
+(add-hook 'js-mode-hook 'prettier--eval-load)
