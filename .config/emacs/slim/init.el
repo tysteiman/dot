@@ -1,3 +1,5 @@
+(load-theme 'modus-vivendi t)
+
 (set-face-attribute 'default nil :height 130)
 
 ;; set some variables
