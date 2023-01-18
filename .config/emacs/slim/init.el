@@ -19,6 +19,8 @@
 (windmove-default-keybindings)
 (winner-mode)
 
+;; if we want ivy/vertico type stuff, we can actually use fido-mode!
+
 ;; write some defuns
 (defun open-config ()
   "Open Emacs init.el"
