@@ -1,7 +1,7 @@
 (provide 'my-general)
 
 (use-package general
-  :init
+  :config
 
   ;; Global space
   (general-define-key
