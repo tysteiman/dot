@@ -18,7 +18,6 @@
 (display-time-mode)
 (windmove-default-keybindings)
 (winner-mode)
-(fido-vertical-mode)
 
 ;; if we want ivy/vertico type stuff, we can actually use fido-mode!
 
