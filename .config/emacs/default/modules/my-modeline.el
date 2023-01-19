@@ -30,6 +30,12 @@
 ;;                         (format-mode-line "%b")
 ;;                         (format-mode-line (car (split-string display-time-string)))))))
 
+(defun my/modeline--readonly ()
+  "Modeline configuration if the file is read only"
+  (if buffer-read-only
+      (propertize "  " 'face '(:foreground "OrangeRed" :height 150))
+    ""))
+
 (defun my/modeline--vim ()
   "Modeline configuration for vim (evil) state"
   (require 'evil)
@@ -67,7 +73,7 @@
 (defun my/modeline--format ()
   "Modeline format using `format-mode-line', regardless of what is consuming it i.e. mini-modeline
 or default `mode-line-format'."
-  '(:eval (format-mode-line `(
+  '(:eval (format-mode-line `(,(my/modeline--readonly)
                               "  "
                               ,(my/modeline--vim)
                               "  "
