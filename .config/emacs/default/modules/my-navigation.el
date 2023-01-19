@@ -6,11 +6,9 @@
   (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
 
 (use-package winner
-  :defer 1
   :config (winner-mode))
 
 (use-package projectile
-  :defer 1
   :config
   (projectile-mode 1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
@@ -24,5 +22,4 @@
   :commands (projectile-ripgrep))
 
 (use-package windmove
-  :defer 1
   :config (windmove-mode 1))

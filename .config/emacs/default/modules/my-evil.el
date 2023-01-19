@@ -17,7 +17,6 @@
   :config (evil-org-set-key-theme '(navigation insert textobjects additional calendar)))
 
 (use-package evil-escape
-  :defer 1
   :after evil
   :init (setq-default evil-escape-key-sequence "jk")
   :config (evil-escape-mode))
