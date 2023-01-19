@@ -24,6 +24,7 @@
    "V" 'my/revert-buffer
    "x" 'kill-this-buffer
    "," '(execute-extended-command :which-key "M-x")
+   ";" 'my/comment-current-line
    "c" '(:ignore t :which-key "Config")
    "k" '(:ignore t :which-key "Bookmarks")
    "n" '(:ignore t :which-key "Notes")

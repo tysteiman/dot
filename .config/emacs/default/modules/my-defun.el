@@ -92,6 +92,12 @@
   (interactive)
   (find-file "~/.config/bspwm/bspwmrc"))
 
+(defun my/comment-current-line ()
+  "Comment current line while keeping point the same."
+  (interactive)
+  (save-excursion
+    (comment-line 1)))
+
 ;; (defun my/process-running-p (procname)
 ;;   "Helper to check system processes for PROCNAME (string).
 ;;
