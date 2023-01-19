@@ -30,17 +30,56 @@
 ;;                         (format-mode-line "%b")
 ;;                         (format-mode-line (car (split-string display-time-string)))))))
 
-(defun my/modeline--format ()
+(defun my/modeline--vim ()
+  "Modeline configuration for vim (evil) state"
+  (require 'evil)
+  (propertize "" 'face `(
+                          :foreground ,(cond ((string= "insert" evil-state) "MediumSpringGreen")
+                                             ((string= "visual" evil-state) "DodgerBlue")
+                                             ((string= "emacs" evil-state) "MediumPurple")
+                                             (t "LightYellow"))
+                          :height 150)))
+
+(defun my/modeline--file ()
+  "Modeline counfiguration for displaying current file information"
+  (propertize "%b" 'face '(:foreground "indianred")))
+
+(defun my/modeline--git ()
+  "Modeline configuration for displaying git information"
   (require 'vc-git)
   (require 'projectile)
-  '(:eval (format-mode-line `(,(propertize "%b" 'face '(:foreground "indianred"))
-                              ,(let ((branch (car (vc-git-branches))))
-                                 (when branch
-                                   (propertize (format " [%s:%s]" (projectile-project-name) branch) 'face '(:foreground "MediumPurple"))))
-                              " "
-                              ,(propertize (car (split-string display-time-string)) 'face '(:foreground "CadetBlue"))))))
+  (let ((branch (car (vc-git-branches))))
+    (when branch
+      (propertize
+       (format
+        "  [%s:%s]"
+        (projectile-project-name)
+        branch)
+       'face '(:foreground "MediumPurple")))))
 
-(use-package mini-modeline
-  :init (setq mini-modeline-r-format (my/modeline--format))
-  :config
-  (mini-modeline-mode))
+(defun my/modeline--time ()
+  "Modeline configuration for displaying the time"
+  (require 'vc-git)
+  (propertize
+   (car (split-string display-time-string))
+   'face '(:foreground "CadetBlue")))
+
+(defun my/modeline--format ()
+  "Modeline format using `format-mode-line', regardless of what is consuming it i.e. mini-modeline
+or default `mode-line-format'."
+  '(:eval (format-mode-line `(
+                              "  "
+                              ,(my/modeline--vim)
+                              "  "
+                              ,(my/modeline--file)
+                              ,(my/modeline--git)
+                              "  "
+                              ,(my/modeline--time)))))
+
+(setq-default mode-line-format (my/modeline--format))
+
+;; (use-package mini-modeline
+;;   :init
+;;   (setq mini-modeline-r-format (my/modeline--format))
+;;   :config
+;;   (mini-modeline-mode))
