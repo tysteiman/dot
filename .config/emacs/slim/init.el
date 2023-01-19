@@ -1,4 +1,6 @@
-(load-theme 'deeper-blue)
+(set-background-color "black")
+(set-foreground-color "darkgrey")
+(set-cursor-color "indianred")
 
 (set-face-attribute 'default nil :height 130)
 

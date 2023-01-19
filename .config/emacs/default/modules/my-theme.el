@@ -1,6 +1,6 @@
 (provide 'my-theme)
 
-(defvar my/theme 'doom-feather-dark
+(defvar my/theme 'doom-one
   "Theme to use")
 
 (defvar my/themes '(doom-one
@@ -16,7 +16,7 @@
 
 (use-package doom-themes
   :config
-  (my/set-and-load-random-theme)
+  (load-theme my/theme t)
   :hook (server-after-make-frame . (lambda ()
                                      (load-theme my/theme t))))
 

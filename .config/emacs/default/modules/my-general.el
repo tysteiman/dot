@@ -3,6 +3,13 @@
 (use-package general
   :config
 
+  ;; Layer 1
+  (general-define-key
+   :keymaps 'override
+   :states 'normal
+   "," 'previous-buffer
+   "<" 'next-buffer)
+
   ;; Global space
   (general-define-key
    :prefix "SPC"
