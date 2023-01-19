@@ -14,6 +14,8 @@
   (add-to-list 'org-structure-template-alist '("rb"   . "src ruby"))
   (add-to-list 'org-structure-template-alist '("js"   . "src javascript"))
   (add-to-list 'org-structure-template-alist '("json" . "src json"))
+  (add-to-list 'org-structure-template-alist '("html" . "src html"))
+  (add-to-list 'org-structure-template-alist '("php" . "src php"))
   :bind (("C-c t i" . org-timer-set-timer)
          ("C-c t s" . org-timer-stop))
   :hook

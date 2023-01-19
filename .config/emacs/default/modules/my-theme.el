@@ -10,7 +10,8 @@
                     doom-nord
                     doom-rouge
                     doom-ayu-dark
-                    doom-moonlight)
+                    doom-moonlight
+                    doom-shades-of-purple)
   "Themes to be selected from when randomly selecting themes")
 
 (use-package doom-themes
@@ -28,10 +29,12 @@
     theme))
 
 (defun my/set-random-theme ()
+  "Set `my/theme' variable to result of selecting a random theme"
   (let ((theme (my/select-random-theme)))
     (setq my/theme theme)))
 
 (defun my/set-and-load-random-theme ()
+  "Set random theme and load it"
   (interactive)
   (my/set-random-theme)
   (load-theme my/theme t))
