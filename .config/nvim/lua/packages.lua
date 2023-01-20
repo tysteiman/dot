@@ -41,4 +41,10 @@ require('packer').startup(function()
 
     -- Slim
     use 'slim-template/vim-slim'
+
+    -- Org
+    use 'nvim-orgmode/orgmode'
+
+    -- Git signs
+    use 'lewis6991/gitsigns.nvim'
 end)
