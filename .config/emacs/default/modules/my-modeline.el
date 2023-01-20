@@ -53,3 +53,9 @@ or default `mode-line-format'."
                               ,(my/modeline--time)))))
 
 (setq-default mode-line-format (my/modeline--format))
+
+(use-package hide-mode-line
+  :hook
+  (vterm-mode  . hide-mode-line-mode)
+  (eshell-mode . hide-mode-line-mode)
+  (org-mode    . hide-mode-line-mode))
