@@ -59,3 +59,30 @@ or default `mode-line-format'."
   (vterm-mode  . hide-mode-line-mode)
   (eshell-mode . hide-mode-line-mode)
   (org-mode    . hide-mode-line-mode))
+
+(defvar my/modeline--change-with-evil nil
+  "Should the modeline change background colors along with evil the current state")
+
+(defvar my/modeline--initials nil
+  "Initial modeline values we want to set back to")
+
+;; TODO this is just a POC, find better colors for this.
+(let ((initbg (face-attribute 'mode-line :background))
+      (initfg (face-attribute 'mode-line :foreground)))
+  (setq my/modeline--initials `(,initbg ,initfg))
+  (add-hook 'evil-insert-state-entry-hook (lambda ()
+                                            (interactive)
+                                            (when my/modeline--change-with-evil
+                                              (set-face-attribute 'mode-line nil :background "DarkSlateGrey" :foreground "LightYellow"))))
+
+  (add-hook 'evil-visual-state-entry-hook (lambda ()
+                                            (interactive)
+                                            (when my/modeline--change-with-evil
+                                              (set-face-attribute 'mode-line nil :background "MidnightBlue" :foreground "LightYellow"))))
+
+  (add-hook 'evil-normal-state-entry-hook (lambda ()
+                                            (interactive)
+                                            (when (and my/modeline--initials my/modeline--change-with-evil)
+                                              (set-face-attribute 'mode-line nil :background (car my/modeline--initials) :foreground (car (cdr my/modeline--initials)))))))
+
+
