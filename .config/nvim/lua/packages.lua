@@ -19,7 +19,7 @@ require('packer').startup(function()
     use 'prettier/vim-prettier'
 
     -- Whitespace
-    -- use 'ntpeters/vim-better-whitespace'
+    use 'ntpeters/vim-better-whitespace'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -41,10 +41,4 @@ require('packer').startup(function()
 
     -- Slim
     use 'slim-template/vim-slim'
-
-    -- Harpoon
-    -- use 'ThePrimeagen/harpoon'
-    
-    -- Org
-    use 'nvim-orgmode/orgmode'
 end)

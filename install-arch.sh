@@ -22,10 +22,10 @@ rm -rf yay
 
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
 yay -S emacs                  \
+    neovim                    \
+    nvim-packer-git           \
     cmake                     \
-    vim                       \
     tmux                      \
-    ispell                    \
     stow                      \
     firefox                   \
     xorg                      \
@@ -52,8 +52,6 @@ yay -S emacs                  \
     ripgrep                   \
     openssh                   \
     slack-desktop             \
-    isync                     \
-    mu                        \
     flameshot
 
 # make config directory if it doesnt exist
