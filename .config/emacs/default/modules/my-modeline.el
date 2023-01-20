@@ -1,9 +1,12 @@
 (provide 'my-modeline)
 
+(defvar my/modeline--spaces "  "
+  "Spaces to inject between modeline items")
+
 (defun my/modeline--readonly ()
   "Modeline configuration if the file is read only"
   (if buffer-read-only
-      (propertize "  " 'face '(:foreground "OrangeRed" :height 150))
+      (propertize (concat my/modeline--spaces "") 'face '(:foreground "OrangeRed" :height 150))
     ""))
 
 (defun my/modeline--vim ()
@@ -27,10 +30,7 @@
   (let ((branch (car (vc-git-branches))))
     (when branch
       (propertize
-       (format
-        "  [%s:%s]"
-        (projectile-project-name)
-        branch)
+       (concat my/modeline--spaces (format "[%s:%s]" (projectile-project-name) branch))
        'face '(:foreground "MediumPurple")))))
 
 (defun my/modeline--time ()
@@ -44,12 +44,12 @@
   "Modeline format using `format-mode-line', regardless of what is consuming it i.e. mini-modeline
 or default `mode-line-format'."
   '(:eval (format-mode-line `(,(my/modeline--readonly)
-                              "  "
+                              my/modeline--spaces
                               ,(my/modeline--vim)
-                              "  "
+                              my/modeline--spaces
                               ,(my/modeline--file)
                               ,(my/modeline--git)
-                              "  "
+                              my/modeline--spaces
                               ,(my/modeline--time)))))
 
 (setq-default mode-line-format (my/modeline--format))
