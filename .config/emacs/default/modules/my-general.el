@@ -36,6 +36,7 @@
    "c" '(:ignore t :which-key "Config")
    "k" '(:ignore t :which-key "Bookmarks")
    "n" '(:ignore t :which-key "Notes")
+   "p" '(:ignore t :which-key "Packages")
    "t" '(:ignore t :which-key "Toggle"))
 
   ;; SPC+c (Config)
