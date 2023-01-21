@@ -37,6 +37,7 @@
    "k" '(:ignore t :which-key "Bookmarks")
    "n" '(:ignore t :which-key "Notes")
    "p" '(:ignore t :which-key "Packages")
+   "w" '(:ignore t :which-key "EWW")
    "t" '(:ignore t :which-key "Toggle"))
 
   ;; SPC+c (Config)
@@ -133,6 +134,14 @@
    :states 'normal
    "i" 'package-install
    "l" 'list-packages)
+
+  ;; EWW (SPC + w)
+  (general-define-key
+   :prefix "SPC w"
+   :keymaps 'override
+   :states 'normal
+   "w" 'eww
+   "l" 'eww-list-bookmarks)
 
   ;; WINDMOVE (Meta + Vim)
   (general-define-key
