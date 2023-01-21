@@ -24,7 +24,7 @@
 
 This will set the file color based on file save state, etc."
   (propertize "%b" 'face `(:foreground ,(if (and (buffer-modified-p)
-                                                  (buffer-file-name))
+                                                 (buffer-file-name))
                                             "indianred"
                                           "LightYellow"))))
 
