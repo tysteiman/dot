@@ -14,9 +14,7 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package swiper
-  :bind (("C-M-s" . swiper))
-  :hook (evil-after-load . (lambda ()
-                             (my--evil-key-entry "/" 'swiper))))
+  :bind (("C-M-s" . swiper)))
 
 (use-package rg
   :commands (projectile-ripgrep))
