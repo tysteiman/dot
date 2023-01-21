@@ -125,6 +125,14 @@
    "w" 'my/find-work-note
    "h" 'my/find-home-note)
 
+  ;; Packages (SPC + p)
+  (general-define-key
+   :prefix "SPC p"
+   :keymaps 'override
+   :states 'normal
+   "i" 'package-install
+   "l" 'list-packages)
+
   ;; WINDMOVE (Meta + Vim)
   (general-define-key
    :keymaps 'override
@@ -140,6 +148,4 @@
    :states 'normal
    "C-c s r" 'my/send-region-to-shell
    "C-c s d" 'my/async-shell-command-docker
-   "C-c s f" 'my/async-shell-command-on-file
-   "C-c i i" 'package-install
-   "C-c i l" 'list-packages))
+   "C-c s f" 'my/async-shell-command-on-file))
