@@ -107,6 +107,12 @@
    :keymaps '(lsp-mode-map override)
    :states 'normal
    "K" 'lsp-ui-doc-glance)
+  ;; LSP
+  (general-define-key
+   :prefix "SPC"
+   :keymaps '(lsp-mode-map override)
+   :states 'normal
+   "=" 'lsp-format-buffer)
 
   ;; Notes (SPC + n)
   (general-define-key
