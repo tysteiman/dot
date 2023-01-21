@@ -20,8 +20,13 @@
                           :height 150)))
 
 (defun my/modeline--file ()
-  "Modeline counfiguration for displaying current file information"
-  (propertize "%b" 'face '(:foreground "indianred")))
+  "Modeline counfiguration for displaying current file information.
+
+This will set the file color based on file save state, etc."
+  (propertize "%b" 'face `(:foreground ,(if (and (buffer-modified-p)
+                                                  (buffer-file-name))
+                                            "indianred"
+                                          "LightYellow"))))
 
 (defun my/modeline--git ()
   "Modeline configuration for displaying git information"
