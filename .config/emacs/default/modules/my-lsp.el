@@ -16,6 +16,9 @@
   :hook (evil-after-load . (lambda ()
                              (my--evil-key-entry "K" 'lsp-ui-doc-glance))))
 
+(use-package lsp-java
+  :hook (java-mode . lsp-deferred))
+
 (use-package lsp-ui
   :init
   (setq lsp-ui-doc-position 'at-point)
