@@ -30,5 +30,6 @@ fi
 
 # setxkbmap -layout us,iq,tr
 # xmodmap ~/dot/keys.map
+emacs --daemon &
 xset r rate 200 50 &
 exec bspwm
