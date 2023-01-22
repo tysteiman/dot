@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# Quick script to cat our ssh config entries, and hand over the host name blocks to fzf for selction.
+# That selection is then run directly with ssh since it's a named HostName entry.
 TARGET=$(cat $HOME/.ssh/config | grep -i -G "Host\ " | awk '{print $2}' | fzf --border=rounded)
 
+# return if cancelled
 if [ ! $TARGET ]; then
     exit 1
 fi
 
+# connect to fzf selection with ssh
 ssh $TARGET
