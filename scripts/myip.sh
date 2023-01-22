@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl ipinfo.io/ip; echo
+curl --silent ipinfo.io/ip; echo
