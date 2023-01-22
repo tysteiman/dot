@@ -41,7 +41,6 @@ alias dc="docker-compose"
 alias de="docker-compose exec"
 alias vim="nvim"
 
-export PATH=~/.emacs.d/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
