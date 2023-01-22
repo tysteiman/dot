@@ -7,7 +7,8 @@ require('packer').startup(function()
     use 'nvim-telescope/telescope.nvim'
 
     -- Theme
-    use 'folke/tokyonight.nvim'
+    -- use 'folke/tokyonight.nvim'
+    use 'navarasu/onedark.nvim'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
