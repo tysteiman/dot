@@ -2,10 +2,6 @@ require('packer').startup(function()
     -- Packer manages itself
     use 'wbthomason/packer.nvim'
 
-    -- Telescope
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
-
     -- Theme
     -- use 'folke/tokyonight.nvim'
     use 'navarasu/onedark.nvim'
@@ -51,4 +47,8 @@ require('packer').startup(function()
 
     -- Git signs
     use 'lewis6991/gitsigns.nvim'
+
+    -- Fzf
+    use 'junegunn/fzf'
+    use 'junegunn/fzf.vim'
 end)

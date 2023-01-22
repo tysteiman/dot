@@ -14,3 +14,10 @@ map('n', '<c-l>', ':wincmd l<CR>', silentnoremap)
 map('n', '<leader>d', ':Ex<cr>', silentnoremap)
 map('n', '<leader>.', ':bn<cr>', silentnoremap)
 map('n', '<leader>,', ':bp<cr>', silentnoremap)
+
+-- TODO move into own file if possible...
+-- Fzf keys (not lua)
+vim.keymap.set('n', '<leader>f', ":GitFiles<CR>", {})
+vim.keymap.set('n', '<leader>F', ":Files<CR>", {})
+vim.keymap.set('n', '<leader>b', ":Buffers<CR>", {})
+vim.keymap.set('n', '<leader>g', ":Rg<CR>", {})
