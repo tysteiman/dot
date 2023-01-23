@@ -33,9 +33,6 @@ require('packer').startup(function()
     -- Lualine
     use 'nvim-lualine/lualine.nvim'
 
-    -- Bufferline
-    use 'akinsho/bufferline.nvim'
-
     -- Blade
     use 'jwalton512/vim-blade'
 

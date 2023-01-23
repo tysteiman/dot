@@ -1,6 +1,6 @@
 (provide 'my-theme)
 
-(defvar my/theme 'doom-moonlight
+(defvar my/theme 'doom-one
   "Theme to use")
 
 (defvar my/themes '(doom-one
