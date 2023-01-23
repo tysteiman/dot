@@ -15,7 +15,5 @@ fi
 # we use the base name as the tmux session name
 BASE="$(basename $OUTPUT)"
 
-tmux new -c $OUTPUT -s $BASE
-
-
-
+# try to attach to a session with this name, if that fails create a new session
+tmux a -t $BASE || tmux new -c $OUTPUT -s $BASE
