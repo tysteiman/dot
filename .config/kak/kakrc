@@ -1,0 +1,11 @@
+colorscheme solarized-dark
+
+hook global WinSetOption filetype=(ruby) %{
+    set-option buffer indentwidth 2
+    set-option buffer softtabstop 2
+}
+
+hook global InsertChar k %{ try %{
+    exec -draft hH <a-k>jk<ret> d
+    exec <esc>
+}}

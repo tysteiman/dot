@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="vim"
+export EDITOR="kak"
 
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
@@ -37,7 +37,6 @@ alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
 alias dc="docker-compose"
 alias de="docker-compose exec"
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

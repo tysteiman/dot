@@ -4,7 +4,8 @@ require('packer').startup(function()
 
     -- Theme
     -- use 'folke/tokyonight.nvim'
-    use 'navarasu/onedark.nvim'
+    -- use 'navarasu/onedark.nvim'
+    use 'Shatur/neovim-ayu'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
