@@ -5,7 +5,7 @@ require('packer').startup(function()
     -- Theme
     -- use 'folke/tokyonight.nvim'
     -- use 'navarasu/onedark.nvim'
-    use 'Shatur/neovim-ayu'
+    -- use 'Shatur/neovim-ayu'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -15,9 +15,6 @@ require('packer').startup(function()
 
     -- Prettier
     use 'prettier/vim-prettier'
-
-    -- Whitespace
-    use 'ntpeters/vim-better-whitespace'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -31,17 +28,11 @@ require('packer').startup(function()
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
-    -- Lualine
-    use 'nvim-lualine/lualine.nvim'
-
     -- Blade
     use 'jwalton512/vim-blade'
 
     -- Slim
     use 'slim-template/vim-slim'
-
-    -- Org
-    use 'nvim-orgmode/orgmode'
 
     -- Git signs
     use 'lewis6991/gitsigns.nvim'

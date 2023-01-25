@@ -1,4 +1,4 @@
-colorscheme solarized-dark
+colorscheme red-phoenix
 
 hook global WinSetOption filetype=(ruby) %{
     set-option buffer indentwidth 2
