@@ -1,4 +1,7 @@
-colorscheme red-phoenix
+colorscheme palenight
+
+# line numbers if we want them
+add-highlighter global/ number-lines -hlcursor
 
 # set ruby-specific settings
 hook global WinSetOption filetype=(ruby) %{

@@ -8,6 +8,8 @@
 export TERM=xterm-256color
 export EDITOR="kak"
 
+export PATH=$HOME/dot/scripts:$PATH
+
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
     if [ $br ]; then
@@ -17,7 +19,7 @@ git_branch() {
 
 # PS1='[\u@\h \W]\$ '
 # PS1='\e[1m\e[36m\W \e[35m>\e[0m '
-PS1='\e[1m\e[36m\W\e[34m$(git_branch) \e[35m>\e[0m '
+PS1='\e[31m[SSH]: \e[1m\e[36m\W\e[34m$(git_branch) \e[35m>\e[0m '
 
 alias ls='ls --color=auto'
 alias c="clear"
