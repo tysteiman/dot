@@ -1,11 +1,20 @@
 colorscheme red-phoenix
 
+# set ruby-specific settings
 hook global WinSetOption filetype=(ruby) %{
     set-option buffer indentwidth 2
     set-option buffer softtabstop 2
 }
 
+# after typing k, check if the preceding char was j.
+# we use jk to exit insert mode instead of <esc>.
+# Use \ in normal mode if needing to type jk into the buffer.
 hook global InsertChar k %{ try %{
     exec -draft hH <a-k>jk<ret> d
     exec <esc>
 }}
+
+# PRETTIER!
+# hook global BufWritePost .*[.]js %{
+#     exec -draft gg%|kak<minus>prettier<space><c-r>%<ret>
+# }

@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="vim"
+export EDITOR="kak"
 
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)
