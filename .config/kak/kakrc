@@ -1,4 +1,4 @@
-colorscheme palenight
+colorscheme tokyonight
 
 # line numbers if we want them
 add-highlighter global/ number-lines -hlcursor
@@ -16,6 +16,20 @@ hook global InsertChar k %{ try %{
     exec -draft hH <a-k>jk<ret> d
     exec <esc>
 }}
+
+# Tmux helpers for splitting screens and opening file pickers
+define-command -docstring "Create new tmux terminal to the right containing new fzf file picker." vertical-split %{
+    tmux-terminal-horizontal ff
+}
+
+alias global vs vertical-split
+
+define-command -docstring "Create new tmux terminal below containing new fzf file picker." horizontal-split %{
+    tmux-terminal-vertical ff
+}
+
+unalias global sp spell
+alias global sp horizontal-split
 
 # PRETTIER!
 # hook global BufWritePost .*[.]js %{
