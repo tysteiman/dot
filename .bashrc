@@ -6,11 +6,12 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="kak"
+export EDITOR="vim"
 export FZF_DEFAULT_OPTS="--reverse --border=rounded"
 
 # just put all our scripts in our path instead of symlinking every new script we make...
 export PATH=$HOME/dot/scripts:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 git_branch() {
     br=$(git branch 2> /dev/null | grep "* " | sed s/*\ //)

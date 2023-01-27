@@ -46,4 +46,4 @@ require('packer').startup(function()
     use 'xiyaowong/nvim-transparent'
 end)
 
-require('tokyonight').load()
+require('gruvbox').load()
