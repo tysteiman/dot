@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE=$(git ls-files | fzf --border=rounded)
+FILE=$(git ls-files | fzf)
 
 if [ ! $FILE ]; then
     exit 1

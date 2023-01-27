@@ -5,6 +5,6 @@ require 'nvim-treesitter.configs'.setup {
     ignore_install = { "php" },
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = true,
     }
 }

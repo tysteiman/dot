@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE=$(rg "$@" | fzf --border=rounded | awk -F : '{print $1}')
+FILE=$(rg "$@" | fzf | awk -F : '{print $1}')
 
 if [ ! $FILE ]; then
     exit 1
