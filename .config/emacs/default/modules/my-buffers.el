@@ -6,6 +6,11 @@
          (side . bottom)
          (window-height . 0.25)
          (slot . -1))
+        ("\\*notes\\*"
+         (display-buffer-in-side-window)
+         (side . bottom)
+         (window-height . 0.15)
+         (slot . -1))
         ("\\*\\(helpful.*\\|[hH]elp\\|Messages\\)\\*"
          (display-buffer-in-side-window)
          (side . left)

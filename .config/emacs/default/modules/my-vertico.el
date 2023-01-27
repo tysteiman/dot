@@ -2,7 +2,9 @@
 
 (use-package vertico
   :init (setq vertico-count 20)
-  :config (vertico-mode 1))
+  :config
+  (vertico-mode 1)
+  (vertico-reverse-mode))
 
 ;; (use-package vertico-posframe
 ;;   :init (setq vertico-posframe-width 120

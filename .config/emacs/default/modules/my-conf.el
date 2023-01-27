@@ -26,6 +26,10 @@
 
 (setq compilation-scroll-output t)
 
+;; (setq server-host "34.239.189.247")
+;; (setq server-port 8000)
+;; (setq server-use-tcp t)
+
 (setq-default truncate-lines t)
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)

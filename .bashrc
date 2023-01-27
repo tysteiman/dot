@@ -20,9 +20,11 @@ git_branch() {
     fi
 }
 
-# PS1='[\u@\h \W]\$ '
+# NOTE customized weaponizations break TRAMP connections if we're not careful...
+# TRAMP does regex matches for "typical" prompts it expects to get back from the server.
+PS1='[\u@\h \W]\$ '
 # PS1='\e[1m\e[36m\W \e[35m>\e[0m '
-PS1='\e[31m[SSH]: \e[1m\e[36m\W\e[34m$(git_branch) \e[35m>\e[0m '
+# PS1='\e[31m[SSH]: \e[1m\e[36m\W\e[34m$(git_branch) \e[35m>\e[0m '
 
 alias ls='ls --color=auto'
 alias c="clear"
