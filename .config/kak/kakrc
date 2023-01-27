@@ -1,4 +1,4 @@
-colorscheme tokyonight
+colorscheme gruvbox-dark
 
 # line numbers if we want them
 add-highlighter global/ number-lines -hlcursor
