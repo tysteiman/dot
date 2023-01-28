@@ -7,6 +7,13 @@
     (read-file-name "Emacs Module: " (concat user-emacs-directory "modules/"))))
   (find-file module))
 
+(defun my/work ()
+    "Open TRAMP session for work box.
+
+Expects a 'work' item in ~/.ssh/config"
+  (interactive)
+  (dired "/ssh:work:/home/admin/proj"))
+
 (defun my/open-init ()
   "Open our init file and run occur on the sections"
   (interactive)

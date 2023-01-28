@@ -1,5 +1,7 @@
 (provide 'my-conf)
 
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
 (menu-bar-mode 0)
 (show-paren-mode)
 (column-number-mode t)
