@@ -2,10 +2,7 @@
 
 (use-package magit
   :defer t
-  :commands magit-status
-  :bind (("C-c m s" . magit-status)
-         ("C-M-i"   . magit-status)
-         ("C-c m b" . magit-blame)))
+  :commands magit-status)
 
 (use-package diff-hl
   :after magit
@@ -33,7 +30,3 @@
     (if (region-active-p)
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
-
-(global-set-key (kbd "C-c m l") 'my/git-blame-line)
-(global-set-key (kbd "C-c m f") 'my/git-blame-file)
-(global-set-key (kbd "C-c m r") 'my/git-blame-region)

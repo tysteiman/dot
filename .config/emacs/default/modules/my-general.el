@@ -23,7 +23,6 @@
    "D" 'dired-jump
    "o" 'delete-other-windows
    "/" 'swiper
-   "g" 'magit-status
    "j" 'projectile-switch-project
    "s" 'projectile-ripgrep
    "S" 'counsel-rg
@@ -34,10 +33,12 @@
    "<" 'counsel-linux-app
    ";" 'my/comment-current-line
    "c" '(:ignore t :which-key "Config")
+   "g" '(:ignore t :which-key "Git")
    "k" '(:ignore t :which-key "Bookmarks")
    "n" '(:ignore t :which-key "Notes")
    "p" '(:ignore t :which-key "Packages")
    "w" '(:ignore t :which-key "EWW")
+   "v" '(:ignore t :which-key "Vterm Launchers")
    "t" '(:ignore t :which-key "Toggle"))
 
   ;; SPC+c (Config)
@@ -48,6 +49,17 @@
    "c" 'my/open-init
    "m" 'my/open-module
    "b" 'my/open-bspwm-config)
+
+  ;; SPC+g (Git)
+  (general-define-key
+   :prefix "SPC g"
+   :keymaps 'override
+   :states 'normal
+   "s" 'magit-status
+   "b" 'magit-blame
+   "l" 'my/git-blame-line
+   "f" 'my/git-blame-file
+   "r" 'my/git-blame-region)
 
   ;; SPC+k (Bookmarks)
   (general-define-key
@@ -108,12 +120,7 @@
   (general-define-key
    :keymaps '(lsp-mode-map override)
    :states 'normal
-   "K" 'lsp-ui-doc-glance)
-  ;; LSP
-  (general-define-key
-   :prefix "SPC"
-   :keymaps '(lsp-mode-map override)
-   :states 'normal
+   "K" 'lsp-ui-doc-glance
    "=" 'lsp-format-buffer)
 
   ;; Notes (SPC + n)
@@ -134,6 +141,18 @@
    :states 'normal
    "i" 'package-install
    "l" 'list-packages)
+
+  ;; Vterm launchers (SPC + v)
+  (general-define-key
+   :prefix "SPC v"
+   :keymaps 'override
+   :states 'normal
+   "v" 'my/vterm
+   "u" 'my/launch-docker-project
+   "r" 'my/launch-rails-docker-project
+   "y" 'my/launch-yarn-project
+   "c" 'my/launch-rails-console
+   "a" 'my/launch-rails-bash)
 
   ;; EWW (SPC + w)
   (general-define-key
