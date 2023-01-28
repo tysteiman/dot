@@ -116,6 +116,13 @@
    :states 'normal
    "r" 'rename-buffer)
 
+  ;; Enable Ctrl+p/n in eshell without evil overwriting it.
+  (general-define-key
+   :keymaps '(eshell-mode-map override)
+   :states '(normal insert)
+   "C-p" 'eshell-previous-matching-input-from-input
+   "C-n" 'eshell-next-matching-input-from-input)
+
   ;; LSP
   (general-define-key
    :keymaps '(lsp-mode-map override)
