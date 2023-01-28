@@ -1,20 +1,16 @@
 (provide 'my-navigation)
 
 (use-package ibuffer
-  :bind (("C-x C-b" . ibuffer))
-  :config
-  (define-key ibuffer-mode-map (kbd "C-x C-b") 'previous-buffer))
+  :bind (("C-x C-b" . ibuffer)))
 
 (use-package winner
   :config (winner-mode))
 
 (use-package projectile
   :config
-  (projectile-mode 1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  (projectile-mode 1))
 
-(use-package swiper
-  :bind (("C-M-s" . swiper)))
+(use-package swiper :defer t)
 
 (use-package rg
   :commands (projectile-ripgrep))
