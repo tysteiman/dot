@@ -2,22 +2,10 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-# emacs --script ~/dot/.config/emacs/scripts/bspwm.el &
+xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+feh --bg-scale ~/dot/wallpaper/road.jpg
 
-#xrandr --output eDP-1 --mode 1920x1080 --brightness 1 --primary
-xrandr --output eDP-1 --mode 1920x1080 --brightness 0 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
-picom -b
-
-#bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
 bspc monitor eDP-1 -d 9
 bspc monitor HDMI-1-0 -d 1 2 3 4 5 6 7 8
-
-bspc config focused_border_color '#ffcb6b'
-bspc config presel_feedback_color '#6C5689'
-bspc config border_width 5
-bspc config window_gap 10
-bspc config split_ratio 0.6
-bspc config focus_follows_pointer false
 
 bspc rule -a Emacs state=tiled

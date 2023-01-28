@@ -2,13 +2,11 @@
 
 # terminal emulator
 super + Return
-        kitty fish
+        alacritty
 
 # program launcher
 super + d
-	rofi -show drun -font "JetBrainsMono Nerd Font 12" -show-icons
-super + shift + d
-	rofi -show run -font "JetBrainsMono Nerd Font 12"
+	dmenu_run
 
 # text editor (emacs)
 super + shift + m
