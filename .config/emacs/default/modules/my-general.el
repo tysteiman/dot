@@ -8,7 +8,7 @@
    :keymaps 'override
    :states 'normal
    "," 'previous-buffer
-   "<" 'next-buffer)
+   "." 'next-buffer)
 
   ;; Global space
   (general-define-key
