@@ -1,4 +1,4 @@
-colorscheme palenight
+colorscheme red-phoenix
 
 # line numbers if we want them
 add-highlighter global/ number-lines -hlcursor
