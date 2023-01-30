@@ -5,8 +5,8 @@ require('packer').startup(function()
     -- Theme
     -- use 'folke/tokyonight.nvim'
     -- use 'navarasu/onedark.nvim'
-    -- use 'Shatur/neovim-ayu'
-    use 'ellisonleao/gruvbox.nvim'
+    use 'Shatur/neovim-ayu'
+    -- use 'ellisonleao/gruvbox.nvim'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -46,4 +46,4 @@ require('packer').startup(function()
     -- use 'xiyaowong/nvim-transparent'
 end)
 
-require('gruvbox').load()
+require('ayu').colorscheme()
