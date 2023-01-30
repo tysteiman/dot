@@ -3,10 +3,10 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- Theme
-    use 'folke/tokyonight.nvim'
-    use 'navarasu/onedark.nvim'
-    use 'Shatur/neovim-ayu'
-    use 'ellisonleao/gruvbox.nvim'
+    -- use 'folke/tokyonight.nvim'
+    -- use 'navarasu/onedark.nvim'
+    -- use 'Shatur/neovim-ayu'
+    -- use 'ellisonleao/gruvbox.nvim'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -43,7 +43,7 @@ require('packer').startup(function()
     use 'junegunn/fzf.vim'
 
     -- Transparency lol
-    use 'xiyaowong/nvim-transparent'
+    -- use 'xiyaowong/nvim-transparent'
 end)
 
-require('gruvbox').load()
+-- require('gruvbox').load()

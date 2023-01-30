@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="emacsclient -c -a kak"
+export EDITOR="kak"
 export FZF_DEFAULT_OPTS="--reverse --border=rounded"
 
 # just put all our scripts in our path instead of symlinking every new script we make...
