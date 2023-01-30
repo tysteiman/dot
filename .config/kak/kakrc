@@ -1,4 +1,4 @@
-colorscheme gruvbox-dark
+colorscheme palenight
 
 # line numbers if we want them
 add-highlighter global/ number-lines -hlcursor
