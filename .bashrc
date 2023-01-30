@@ -42,11 +42,4 @@ alias grep="grep --color"
 alias ll="ls -lAh"
 alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
-alias dc="docker-compose"
-alias de="docker-compose exec"
-alias em="emacsclient -c -a emacs"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
