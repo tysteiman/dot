@@ -55,6 +55,9 @@ require('packer').startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons' }
     }
+
+    -- Fugitive
+    use 'tpope/vim-fugitive'
 end)
 
 require('ayu').colorscheme()
