@@ -42,8 +42,19 @@ require('packer').startup(function()
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
-    -- Transparency lol
-    -- use 'xiyaowong/nvim-transparent'
+    -- Tree
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        },
+    }
+
+    -- Lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons' }
+    }
 end)
 
 require('ayu').colorscheme()
