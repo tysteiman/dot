@@ -58,6 +58,9 @@ require('packer').startup(function()
 
     -- Fugitive
     use 'tpope/vim-fugitive'
+
+    -- Bufferline
+    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 end)
 
 require('ayu').colorscheme()

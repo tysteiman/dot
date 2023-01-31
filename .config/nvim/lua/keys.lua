@@ -14,6 +14,8 @@ map('n', '<c-l>', ':wincmd l<CR>', silentnoremap)
 map('n', '<leader>d', ':Ex<cr>', silentnoremap)
 map('n', '<leader>.', ':bn<cr>', silentnoremap)
 map('n', '<leader>,', ':bp<cr>', silentnoremap)
+map('n', 'gh', '0', silentnoremap)
+map('n', 'gl', '$', silentnoremap)
 
 -- TODO move into own file if possible...
 -- Fzf keys (not lua)
