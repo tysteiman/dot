@@ -10,6 +10,14 @@
    "," 'previous-buffer
    "." 'next-buffer)
 
+  ;; Layer 1 Kakoune movements
+  (general-define-key
+   :keymaps 'override
+   :states 'normal
+   "g h" 'evil-beginning-of-line
+   "g l" 'evil-end-of-line
+   "g i" 'evil-first-non-blank)
+
   ;; Global space
   (general-define-key
    :prefix "SPC"
