@@ -25,8 +25,9 @@
 (require 'my-dired)
 (require 'my-ui)
 (require 'my-navigation)
-;; (require 'my-tabs)
 (require 'my-system)
+(require 'my-sshfs)
+;; (require 'my-tabs)
 ;; (require 'my-posframe)
 ;; (require 'my-exwm)
 
