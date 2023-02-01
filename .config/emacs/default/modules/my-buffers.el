@@ -25,7 +25,7 @@
         ("\\(magit\\:.*\\|magit\\-log\\:.*\\)"
          (display-buffer-in-side-window)
          (side . right)
-         (window-width . 0.30)
+         (window-width . 0.40)
          (slot . 0))))
 
 (defun my/pop-side-window ()

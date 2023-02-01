@@ -3,12 +3,20 @@
 (use-package general
   :config
 
-  ;; Layer 1
+  ;; Buffer Navigation (ALT)
   (general-define-key
    :keymaps 'override
    :states 'normal
-   "," 'previous-buffer
-   "." 'next-buffer)
+   "M-," 'previous-buffer
+   "M-." 'next-buffer)
+
+  ;; Layer 1 Kakoune movements
+  (general-define-key
+   :keymaps 'override
+   :states 'normal
+   "g h" 'evil-beginning-of-line
+   "g l" 'evil-end-of-line
+   "g i" 'evil-first-non-blank)
 
   ;; Global space
   (general-define-key
@@ -19,8 +27,8 @@
    "F" 'projectile-find-file-other-window
    "b" 'switch-to-buffer
    "B" 'ibuffer
-   "d" 'dired
-   "D" 'dired-jump
+   "d" 'dired-jump
+   "D" 'dired
    "o" 'delete-other-windows
    "/" 'swiper
    "j" 'projectile-switch-project

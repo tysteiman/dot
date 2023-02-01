@@ -31,4 +31,6 @@ fi
 # setxkbmap -layout us,iq,tr
 # xmodmap ~/dot/keys.map
 xset r rate 200 50 &
+lxsession &
+1password --silent &
 exec bspwm
