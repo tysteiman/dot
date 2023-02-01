@@ -3,12 +3,12 @@
 (use-package general
   :config
 
-  ;; Layer 1
+  ;; Buffer Navigation (ALT)
   (general-define-key
    :keymaps 'override
    :states 'normal
-   "," 'previous-buffer
-   "." 'next-buffer)
+   "M-," 'previous-buffer
+   "M-." 'next-buffer)
 
   ;; Layer 1 Kakoune movements
   (general-define-key
