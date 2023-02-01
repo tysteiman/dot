@@ -27,11 +27,6 @@ Expects a 'work' item in ~/.ssh/config"
                        (buffer-substring (region-beginning) (region-end)))))
     (shell-command region-text)))
 
-(defun my/send-line-to-shell ()
-  "Function to use my/send-region-to-shell, giving it the whole line to run"
-  (interactive)
-  (my/send-region-to-shell (line-beginning-position) (line-end-position)))
-
 (defun my/async-shell-command-on-file (command)
   "Send current file as the argument to `command' i.e. <`command'> <current-file>"
   (interactive "sAsync shell command on file: ")
