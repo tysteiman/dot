@@ -66,4 +66,8 @@ or default `mode-line-format'."
   (org-mode    . hide-mode-line-mode))
 
 (use-package doom-modeline
-  :config (doom-modeline-mode 1))
+  :config
+  (doom-modeline-mode 1)
+  (let ((fmt mode-line-format))
+    (setq-default header-line-format fmt)
+    (setq-default mode-line-format nil)))
