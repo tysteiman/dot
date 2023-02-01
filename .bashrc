@@ -37,9 +37,13 @@ alias gcb="git checkout -b"
 alias gcm="git commit -m"
 alias ga="git add ."
 alias gl="git log --graph --decorate"
+alias gf="git fetch --all"
 alias gpa="git push --all"
 alias grep="grep --color"
 alias ll="ls -lAh"
 alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
