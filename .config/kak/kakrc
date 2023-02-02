@@ -1,4 +1,4 @@
-colorscheme red-phoenix
+colorscheme tomorrow-night
 
 define-command -docstring "Open file with all git files as options" git-files %{
     prompt -menu -shell-script-candidates %{ git ls-files } "Open Git File: " %{ e %val{text} }
@@ -37,6 +37,7 @@ unalias global sp spell
 alias global sp horizontal-split
 
 # PRETTIER!
+# TODO clean this up to use inline commands without relying on an external program...
 # hook global BufWritePost .*[.]js %{
 #     exec -draft gg%|kak<minus>prettier<space><c-r>%<ret>
 # }
