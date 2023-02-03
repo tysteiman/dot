@@ -38,6 +38,9 @@ alias global sp horizontal-split
 
 # PRETTIER!
 # TODO clean this up to use inline commands without relying on an external program...
+# TODO im tinking instead here we do something like just call a method directly
+# and depending on that we change or replace or something? There should be a cleaner
+# way to do it here i would imagine.
 # hook global BufWritePost .*[.]js %{
 #     exec -draft gg%|kak<minus>prettier<space><c-r>%<ret>
 # }

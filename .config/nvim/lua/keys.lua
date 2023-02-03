@@ -16,6 +16,7 @@ map('n', '<leader>.', ':bn<cr>', silentnoremap)
 map('n', '<leader>,', ':bp<cr>', silentnoremap)
 map('n', 'gh', '0', silentnoremap)
 map('n', 'gl', '$', silentnoremap)
+map('n', 'gi', '^', silentnoremap)
 
 -- TODO move into own file if possible...
 -- Fzf keys (not lua)

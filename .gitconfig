@@ -2,7 +2,7 @@
     name = Tyler Steiman
     email = tsteiman@switchboxinc.com
 [core]
-    editor = "kak"
+    editor = "vim"
     excludesfile = "~/.gitignore"
 [alias]
     co = checkout
