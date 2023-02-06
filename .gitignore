@@ -2,7 +2,8 @@ TAGS
 node_modules
 tags
 .log/
-nvim/plugin/
+/.config/nvim/plugin/
+/.config/lvim/plugin/
 /.config/emacs/*/auto-save-list/
 /.config/emacs/*/elpa/
 /.config/emacs/*/projectile-bookmarks.eld

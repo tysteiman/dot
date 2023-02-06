@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Create a new session, create code, up, and git windows, select code, and attach.
+setup() {
+  tmux new -c $1 -s $2 -d
+  tmux rename-window -t $2 code
+  tmux new-window -n up -t $2 -c $1
+  tmux new-window -n git -t $2 -c $1
+  tmux select-window -t $2:0
+  tmux attach -t $2
+}
+
 # Script for finding .git directories in our ~/proj folder, piping that into fzf for search/selection,
 # and opening that directory as a new tmux session with that as the name and pwd.
 
@@ -16,4 +26,5 @@ fi
 BASE="$(basename $OUTPUT)"
 
 # try to attach to a session with this name, if that fails create a new session
-tmux a -t $BASE || tmux new -c $OUTPUT -s $BASE
+# tmux a -t $BASE || tmux new -c $OUTPUT -s $BASE -d
+tmux a -t $BASE || setup $OUTPUT $BASE

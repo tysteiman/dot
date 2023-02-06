@@ -1,8 +1,4 @@
-(set-background-color "black")
-(set-foreground-color "darkgrey")
-(set-cursor-color "indianred")
-
-(set-face-attribute 'default nil :height 130)
+(setq custom-file (concat user-emacs-directory "custom.el"))
 
 ;; set some variables
 (setq make-backup-files nil
@@ -22,8 +18,10 @@
 (display-time-mode)
 (windmove-default-keybindings)
 (winner-mode)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
+(when (display-graphic-p)
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0))
+
 (menu-bar-mode 0)
 
 ;; ORG MODE
@@ -32,6 +30,8 @@
 (setq org-todo-keyword-faces '(("QUESTION" . (:foreground "indianred"))
                                ("OPTIONAL" . (:foreground "tan"))
                                ("IN PROGRESS" . (:foreground "aqua"))))
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 ;; if we want ivy/vertico type stuff, we can actually use fido-mode!
 
