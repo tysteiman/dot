@@ -27,3 +27,12 @@ nnoremap gi ^
 nnoremap ge G
 
 inoremap jk <esc>
+
+function Set_2_Spaces()
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+endfunction
+
+au Filetype ruby call Set_2_Spaces()
+au Filetype yaml call Set_2_Spaces()

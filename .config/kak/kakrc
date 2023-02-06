@@ -1,4 +1,4 @@
-colorscheme tomorrow-night
+colorscheme red-phoenix
 
 define-command -docstring "Open file with all git files as options" git-files %{
     prompt -menu -shell-script-candidates %{ git ls-files } "Open Git File: " %{ e %val{text} }
@@ -6,7 +6,7 @@ define-command -docstring "Open file with all git files as options" git-files %{
 alias global E git-files
 
 # line numbers if we want them
-add-highlighter global/ number-lines -hlcursor
+# add-highlighter global/ number-lines -hlcursor
 
 # set ruby-specific settings
 hook global WinSetOption filetype=(ruby) %{
