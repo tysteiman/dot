@@ -7,6 +7,8 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+lvim.builtin.indentlines.active = false
+lvim.builtin.breadcrumbs.active = false
 
 -- general
 lvim.log.level = "warn"
