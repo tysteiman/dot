@@ -9,6 +9,7 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 lvim.builtin.indentlines.active = false
 lvim.builtin.breadcrumbs.active = false
+lvim.builtin.nvimtree.setup.view.width = 50
 
 -- general
 lvim.log.level = "warn"
