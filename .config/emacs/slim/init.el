@@ -1,9 +1,5 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
-(set-frame-parameter (selected-frame) 'alpha '(95 90))
-(add-to-list 'default-frame-alist '(alpha 95 90))
-
 ;; set some variables
 (setq make-backup-files nil
       create-lockfiles nil
@@ -34,11 +30,17 @@
 (if (display-graphic-p)
     (progn
       (tool-bar-mode 0)
-      (scroll-bar-mode 0))
+      (scroll-bar-mode 0)
+      (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
+      (set-frame-parameter (selected-frame) 'alpha '(95 90))
+      (add-to-list 'default-frame-alist '(alpha 95 90)))
   (progn
     (load-theme 'modus-vivendi t)))
 
 (menu-bar-mode 0)
+
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq show-trailing-whitespace t)))
 
 ;; ORG MODE
 (setq org-startup-folded t)
@@ -47,9 +49,26 @@
                                ("OPTIONAL" . (:foreground "tan"))
                                ("IN PROGRESS" . (:foreground "aqua"))))
 
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; get ready for emacs 29!
+(unless (package-installed-p 'use-package)
+  ;; TODO when looking to emacs 29, if use-package really is built in, we can use that OOTB.
+  (package-install 'use-package))
+
+(require 'use-package)
+
+(setq use-package-always-ensure t)
+;; (setq use-package-verbose t)
+
+(use-package magit)
+(use-package vterm)
+
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
                '(php-mode . ("intelephense" "--stdio"))))
