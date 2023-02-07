@@ -1,10 +1,12 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
+(load-theme 'modus-vivendi t)
+
 ;; set some variables
 (setq make-backup-files nil
       create-lockfiles nil
       vc-follow-symlinks t
-      dired-listing-switches "-lah"
+      dired-listing-switches "-lAh"
       shr-use-colors nil   ;; eww
       shr-inhibit-images t ;; eww
       shr-use-fonts nil    ;; eww
@@ -33,7 +35,12 @@
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; if we want ivy/vertico type stuff, we can actually use fido-mode!
+;; get ready for emacs 29!
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(php-mode . ("intelephense" "--stdio"))))
+
+(global-set-key (kbd "C-x C-b") 'ibuffer) ;; use ibuffer instead of default
 
 ;; write some defuns
 (defun open-config ()
