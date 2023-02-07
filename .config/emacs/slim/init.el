@@ -39,8 +39,18 @@
 
 (menu-bar-mode 0)
 
+(defface extra-whitespace-face
+  '((t (:background "pale green")))
+  "Highlight rule used for tabs and special chars we want to see.")
+
+(defvar my-extra-keywords
+  '(("\t" . 'extra-whitespace-face))
+  "Define keywords that are counted as extra and will be highlighted with `extra-whitespace-face'.")
+
+;; configure prog mode
 (add-hook 'prog-mode-hook (lambda ()
-                            (setq show-trailing-whitespace t)))
+                            (setq show-trailing-whitespace t)
+                            (font-lock-add-keywords nil my-extra-keywords)))
 
 ;; ORG MODE
 (setq org-startup-folded t)
@@ -85,3 +95,27 @@
   "Connect to work via TRAMP"
   (interactive)
   (dired "/ssh:work:/home/admin"))
+(put 'narrow-to-region 'disabled nil)
+
+(defun my/git-blame-line ()
+  "Run git blame on current line in file"
+  (interactive)
+  (let ((linum (line-number-at-pos))
+        (file (buffer-file-name)))
+    (shell-command (format "git blame -L%s,%s %s" linum linum file) "*Git blame*")))
+
+(defun my/git-blame-file ()
+  "Run git blame on current file"
+  (interactive)
+  (let ((file (buffer-file-name)))
+    (shell-command (format "git blame %s" file) "*Git blame*")))
+
+(defun my/git-blame-region ()
+  "Run git blame on active region"
+  (interactive)
+  (let ((beg (line-number-at-pos (region-beginning)))
+        (end (line-number-at-pos (region-end)))
+        (file (buffer-file-name)))
+    (if (region-active-p)
+        (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
+      (message "No active region."))))
