@@ -22,10 +22,7 @@ rm -rf yay
 
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
 yay -S emacs                  \
-    neovim                    \
-    nvim-packer-git           \
     cmake                     \
-    tmux                      \
     stow                      \
     firefox                   \
     xorg                      \
