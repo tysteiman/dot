@@ -11,6 +11,7 @@
       compilation-scroll-output t
       visible-bell nil
       ring-bell-function 'ignore
+      org-startup-folded t
       remote-file-name-inhibit-cache nil
       tramp-verbose 0
       vc-ignore-dir-regexp
@@ -51,13 +52,6 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
                             (font-lock-add-keywords nil my-extra-keywords)))
-
-;; ORG MODE
-(setq org-startup-folded t)
-(setq org-todo-keywords '((sequence "TODO" "IN PROGRESS" "QUESTION" "OPTIONAL" "|" "DONE" "ANSWERED")))
-(setq org-todo-keyword-faces '(("QUESTION" . (:foreground "indianred"))
-                               ("OPTIONAL" . (:foreground "tan"))
-                               ("IN PROGRESS" . (:foreground "aqua"))))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
