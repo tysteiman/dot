@@ -43,6 +43,7 @@ alias grep="grep --color"
 alias ll="ls -lAh"
 alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
+alias em="emacsclient -c -a emacs"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
