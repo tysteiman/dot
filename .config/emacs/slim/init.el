@@ -27,7 +27,7 @@
 (windmove-default-keybindings)
 (winner-mode)
 
-(if (display-graphic-p)
+(if (or (display-graphic-p) (daemonp))
     (progn
       (tool-bar-mode 0)
       (scroll-bar-mode 0)
