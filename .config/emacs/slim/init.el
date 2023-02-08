@@ -119,3 +119,5 @@
     (if (region-active-p)
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
