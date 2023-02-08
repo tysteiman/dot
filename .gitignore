@@ -37,3 +37,4 @@ dump-prod.sh
 .config/emacs/*/default/bookmarks
 .config/emacs/*/default/auto-save-list/
 /.config/emacs/doom/
+/.config/emacs/slim/eln-cache/
