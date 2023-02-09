@@ -12,6 +12,7 @@
       visible-bell nil
       ring-bell-function 'ignore
       org-startup-folded t
+      set-mark-command-repeat-pop t
       remote-file-name-inhibit-cache nil
       tramp-verbose 0
       vc-ignore-dir-regexp
@@ -21,6 +22,10 @@
 
 (setq-default truncate-lines t
               indent-tabs-mode nil)
+
+(let ((format mode-line-format))
+  (setq-default header-line-format format)
+  (setq-default mode-line-format nil))
 
 ;; only stuff built into emacs!
 (column-number-mode)
