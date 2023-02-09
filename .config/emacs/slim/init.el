@@ -20,7 +20,7 @@
               tramp-file-name-regexp))
 
 (setq-default truncate-lines t
-	      indent-tabs-mode nil)
+              indent-tabs-mode nil)
 
 ;; only stuff built into emacs!
 (column-number-mode)
@@ -52,6 +52,9 @@
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
                             (font-lock-add-keywords nil my-extra-keywords)))
+
+(add-hook 'org-mode-hook (lambda ()
+                           (setq truncate-lines nil)))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -113,5 +116,6 @@
     (if (region-active-p)
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
+
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
