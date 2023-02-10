@@ -1,5 +1,7 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
+(load-theme 'modus-vivendi t)
+
 ;; set some variables
 (setq make-backup-files nil
       create-lockfiles nil
@@ -23,25 +25,17 @@
 (setq-default truncate-lines t
               indent-tabs-mode nil)
 
-(let ((format mode-line-format))
-  (setq-default header-line-format format)
-  (setq-default mode-line-format nil))
-
-;; only stuff built into emacs!
 (column-number-mode)
 (display-time-mode)
 (windmove-default-keybindings)
 (winner-mode)
 
-(if (or (display-graphic-p) (daemonp))
-    (progn
-      (tool-bar-mode 0)
-      (scroll-bar-mode 0)
-      (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
-      (set-frame-parameter (selected-frame) 'alpha '(95 90))
-      (add-to-list 'default-frame-alist '(alpha 95 90)))
-  (progn
-    (load-theme 'modus-vivendi t)))
+(when (or (display-graphic-p) (daemonp))
+  (tool-bar-mode 0)
+  (scroll-bar-mode 0)
+  (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
+  (set-frame-parameter (selected-frame) 'alpha '(90 90))
+  (add-to-list 'default-frame-alist '(alpha 90 90)))
 
 (menu-bar-mode 0)
 
