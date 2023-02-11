@@ -38,3 +38,5 @@ dump-prod.sh
 .config/emacs/*/default/auto-save-list/
 /.config/emacs/doom/
 /.config/emacs/slim/eln-cache/
+
+hardware-configuration.nix
