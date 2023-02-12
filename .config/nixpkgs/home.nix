@@ -16,12 +16,16 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  home.packages = [ pkgs.slack ];
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   programs.git.enable = true;
   programs.git.userEmail = "tsteiman@switchboxinc.com";
   programs.git.userName = "Tyler Steiman";
+
+  programs.firefox.enable = true;
 
   programs.vim.enable = true;
   programs.vim.extraConfig = ''
