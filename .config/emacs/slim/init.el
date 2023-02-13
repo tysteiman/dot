@@ -1,7 +1,5 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(load-theme 'modus-vivendi t)
-
 ;; set some variables
 (setq make-backup-files nil
       create-lockfiles nil
@@ -74,10 +72,6 @@
 
 (use-package magit)
 (use-package vterm)
-
-(with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs
-               '(php-mode . ("intelephense" "--stdio"))))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer) ;; use ibuffer instead of default
 

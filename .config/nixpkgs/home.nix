@@ -16,7 +16,11 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
-  home.packages = [ pkgs.slack pkgs.nerdfonts ];
+  home.packages = [
+    pkgs.slack
+    pkgs.nerdfonts
+    pkgs.libreoffice
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -26,6 +30,9 @@
   programs.git.userName = "Tyler Steiman";
 
   programs.firefox.enable = true;
+  # programs.ssh.enable = true;
+
+  programs.tmux.enable = true;
 
   programs.vim.enable = true;
   programs.vim.extraConfig = ''
@@ -44,10 +51,6 @@
   set autoindent
   set path+=**
   set wildmenu
-  
-  nnoremap gl $
-  nnoremap gh 0
-  nnoremap gi ^
   
   inoremap jk <esc>
   
