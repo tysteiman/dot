@@ -16,7 +16,7 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
-  home.packages = [ pkgs.slack ];
+  home.packages = [ pkgs.slack pkgs.nerdfonts ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
