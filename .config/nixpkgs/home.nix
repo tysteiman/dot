@@ -20,6 +20,7 @@
     pkgs.slack
     pkgs.nerdfonts
     pkgs.libreoffice
+    pkgs.vscode
   ];
 
   # Let Home Manager install and manage itself.
