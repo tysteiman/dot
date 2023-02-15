@@ -3,7 +3,7 @@
 # Create a new session, create code, up, and git windows, select code, and attach.
 setup() {
   tmux new -c $1 -s $2 -d
-  tmux rename-window -t $2 code
+  tmux rename-window -t $2 vim
   tmux new-window -n up -t $2 -c $1
   tmux new-window -n git -t $2 -c $1
   tmux select-window -t $2:0
@@ -15,7 +15,7 @@ setup() {
 
 # this command will run realpath on the git directory up 1 level to get to the actual project directory.
 # that result is then piped through fzf
-OUTPUT="$(find $HOME/proj -maxdepth 3 -name '.git' -exec realpath {}/../ \; | fzf)"
+OUTPUT="$(find $HOME/proj -maxdepth 3 -name '.git' -exec realpath {}/../ \; | fzf --border=rounded --reverse --height 25)"
 
 # Handle entering Ctrl+c and exiting out -- don't try to open a tmux session with that
 if [ ! $OUTPUT ]; then

@@ -28,6 +28,9 @@ nnoremap gh 0
 nnoremap gi ^
 nnoremap ge G
 
+nnoremap H :bp<cr>
+nnoremap L :bn<cr>
+
 inoremap jk <esc>
 
 function Set_2_Spaces()

@@ -2,14 +2,10 @@ require('packer').startup(function()
     -- Packer manages itself
     use 'wbthomason/packer.nvim'
 
-    -- Theme
-    -- use 'folke/tokyonight.nvim'
-    -- use 'navarasu/onedark.nvim'
-    use 'Shatur/neovim-ayu'
-    -- use 'ellisonleao/gruvbox.nvim'
-
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    
+    use 'Shatur/neovim-ayu'
 
     -- Emmet
     use 'mattn/emmet-vim'
@@ -38,29 +34,6 @@ require('packer').startup(function()
     -- Git signs
     use 'lewis6991/gitsigns.nvim'
 
-    -- Fzf
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
-
-    -- Tree
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons',
-        },
-    }
-
-    -- Lualine
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' }
-    }
-
-    -- Fugitive
+    -- Fugitive (only for blame)
     use 'tpope/vim-fugitive'
-
-    -- Bufferline
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 end)
-
-require('ayu').colorscheme()
