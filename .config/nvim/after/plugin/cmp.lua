@@ -39,3 +39,6 @@ require('lspconfig')['rust_analyzer'].setup {
 require('lspconfig')['clangd'].setup {
     capabilities = capabilities
 }
+require('lspconfig')['dockerls'].setup {
+    capabilities = capabilities
+}

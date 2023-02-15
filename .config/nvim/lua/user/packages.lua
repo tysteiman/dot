@@ -36,4 +36,8 @@ require('packer').startup(function()
 
     -- Fugitive (only for blame)
     use 'tpope/vim-fugitive'
+
+    -- Telescope
+    use  'nvim-lua/plenary.nvim'
+    use 'nvim-telescope/telescope.nvim'
 end)

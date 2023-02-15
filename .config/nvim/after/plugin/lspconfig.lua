@@ -44,6 +44,11 @@ require('lspconfig')['intelephense'].setup{
     flags = lsp_flags,
 }
 
+require('lspconfig')['dockerls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
