@@ -6,15 +6,16 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show drun -show-icons -font "JetBrainsMono Nerd Font 12"
+	dmenu_run
+	# rofi -show drun -show-icons -font "JetBrainsMono Nerd Font 12"
 
 # text editor (emacs)
-super + shift + m
-	emacsclient -c -a emacs
+# super + shift + m
+# 	emacsclient -c -a emacs
 
 # 1Password quick access
-super + shift + w
-	1password --quick-access
+# super + shift + w
+# 	1password --quick-access
 
 # make sxhkd reload its configuration files:
 super + Escape
