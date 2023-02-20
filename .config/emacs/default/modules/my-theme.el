@@ -1,6 +1,6 @@
 (provide 'my-theme)
 
-(defvar my/theme 'modus-vivendi
+(defvar my/theme 'doom-one
   "Theme to use")
 
 (use-package doom-themes

@@ -11,6 +11,7 @@
       compilation-scroll-output t
       visible-bell nil
       ring-bell-function 'ignore
+      ruby-insert-encoding-magic-comment nil
       org-startup-folded t
       set-mark-command-repeat-pop t
       remote-file-name-inhibit-cache nil
@@ -21,7 +22,10 @@
               tramp-file-name-regexp))
 
 (setq-default truncate-lines t
-              indent-tabs-mode nil)
+              indent-tabs-mode nil
+              c-basic-offset 4
+              js-indent-level 4
+              sgml-basic-offset 4)
 
 (column-number-mode)
 (display-time-mode)
@@ -31,7 +35,7 @@
 (when (or (display-graphic-p) (daemonp))
   (tool-bar-mode 0)
   (scroll-bar-mode 0)
-  (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-11"))
+  (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
   (set-frame-parameter (selected-frame) 'alpha '(90 90))
   (add-to-list 'default-frame-alist '(alpha 90 90)))
 
@@ -85,7 +89,6 @@
   "Connect to work via TRAMP"
   (interactive)
   (dired "/ssh:work:/home/admin"))
-(put 'narrow-to-region 'disabled nil)
 
 (defun my/git-blame-line ()
   "Run git blame on current line in file"
@@ -112,3 +115,4 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)

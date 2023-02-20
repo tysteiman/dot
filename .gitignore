@@ -40,3 +40,4 @@ dump-prod.sh
 /.config/emacs/slim/eln-cache/
 
 hardware-configuration.nix
+/.config/emacs/eshell/
