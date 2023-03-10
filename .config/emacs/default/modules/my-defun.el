@@ -45,7 +45,8 @@ Expects a 'work' item in ~/.ssh/config"
   (setq show-trailing-whitespace t)
   (diff-hl-margin-mode 1)
   (diff-hl-mode 1)
-  (hl-line-mode 1))
+  ;; (hl-line-mode 1)
+  )
 
 (defun my/sync-notes ()
   "Run AWS sync-notes binary for my notes directory"

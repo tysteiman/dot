@@ -22,8 +22,8 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
-(use-package all-the-icons
-  :defer t)
+;; (use-package all-the-icons
+;;   :defer t)
 
-(use-package solaire-mode
-  :config (solaire-global-mode +1))
+;; (use-package solaire-mode
+;;   :config (solaire-global-mode +1))

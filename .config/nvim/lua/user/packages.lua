@@ -40,4 +40,7 @@ require('packer').startup(function()
     -- Telescope
     use  'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
+
+    -- Transparent Background
+    use 'xiyaowong/nvim-transparent'
 end)

@@ -1,12 +1,7 @@
 (provide 'my-buffers)
 
 (setq display-buffer-alist
-      `(("\\*\\(eshell.*\\|vterm.*\\)\\*"
-         (display-buffer-in-side-window)
-         (side . bottom)
-         (window-height . 0.25)
-         (slot . -1))
-        ("\\*notes\\*"
+      `(("\\*notes\\*"
          (display-buffer-in-side-window)
          (side . bottom)
          (window-height . 0.15)

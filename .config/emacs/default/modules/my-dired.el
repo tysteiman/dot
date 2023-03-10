@@ -4,7 +4,7 @@
   :defer t
   :hook (dired-mode . diredfl-mode))
 
-(defvar my/dired-hide-details 1
+(defvar my/dired-hide-details 0
   "Whether or not to show dired details")
 
 ;; dired hook

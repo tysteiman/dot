@@ -1,7 +1,5 @@
 syntax on
 
-color desert
-
 set nonumber
 set noswapfile
 set nowrap
