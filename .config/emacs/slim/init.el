@@ -1,5 +1,10 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
+(set-face-attribute 'default nil :height 110)
+
+(load-theme 'adwaita-dark t)
+(set-cursor-color "indianred")
+
 ;; set some variables
 (setq make-backup-files nil
       create-lockfiles nil
@@ -13,13 +18,7 @@
       ring-bell-function 'ignore
       ruby-insert-encoding-magic-comment nil
       org-startup-folded t
-      set-mark-command-repeat-pop t
-      remote-file-name-inhibit-cache nil
-      tramp-verbose 0
-      vc-ignore-dir-regexp
-      (format "\\(%s\\)\\|\\(%s\\)"
-              vc-ignore-dir-regexp
-              tramp-file-name-regexp))
+      set-mark-command-repeat-pop t)
 
 (setq-default truncate-lines t
               indent-tabs-mode nil
@@ -35,14 +34,15 @@
 (when (or (display-graphic-p) (daemonp))
   (tool-bar-mode 0)
   (scroll-bar-mode 0)
-  (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
-  (set-frame-parameter (selected-frame) 'alpha '(90 90))
-  (add-to-list 'default-frame-alist '(alpha 90 90)))
+  ;; (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
+  ;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
+  ;; (add-to-list 'default-frame-alist '(alpha 90 90))
+  )
 
 (menu-bar-mode 0)
 
 (defface extra-whitespace-face
-  '((t (:background "pale green")))
+  '((t (:background "grey")))
   "Highlight rule used for tabs and special chars we want to see.")
 
 (defvar my-extra-keywords
@@ -84,11 +84,6 @@
   "Open Emacs init.el"
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
-
-(defun work ()
-  "Connect to work via TRAMP"
-  (interactive)
-  (dired "/ssh:work:/home/admin"))
 
 (defun my/git-blame-line ()
   "Run git blame on current line in file"
