@@ -2,9 +2,6 @@
 
 (set-face-attribute 'default nil :height 110)
 
-(load-theme 'adwaita-dark t)
-(set-cursor-color "indianred")
-
 ;; set some variables
 (setq make-backup-files nil
       create-lockfiles nil
@@ -30,16 +27,12 @@
 (display-time-mode)
 (windmove-default-keybindings)
 (winner-mode)
-
-(when (or (display-graphic-p) (daemonp))
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0)
-  ;; (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
-  ;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
-  ;; (add-to-list 'default-frame-alist '(alpha 90 90))
-  )
-
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
 (menu-bar-mode 0)
+;; (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
+;; (add-to-list 'default-frame-alist '(alpha 90 90))
 
 (defface extra-whitespace-face
   '((t (:background "grey")))
@@ -55,6 +48,7 @@
                             (font-lock-add-keywords nil my-extra-keywords)))
 
 (add-hook 'org-mode-hook (lambda ()
+                           (org-indent-mode)
                            (setq truncate-lines nil)))
 
 (require 'package)
@@ -76,6 +70,13 @@
 
 (use-package magit)
 (use-package vterm)
+
+(use-package vertico
+  :config (vertico-mode 1))
+
+(use-package orderless
+  :after vertico
+  :init (setq completion-styles '(orderless)))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer) ;; use ibuffer instead of default
 
