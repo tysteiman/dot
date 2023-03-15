@@ -51,6 +51,9 @@
                            (org-indent-mode)
                            (setq truncate-lines nil)))
 
+(add-hook 'compilation-filter-hook (lambda ()
+                                     (ansi-color-apply-on-region (point-min) (point-max))))
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -68,8 +71,11 @@
 (setq use-package-always-ensure t)
 ;; (setq use-package-verbose t)
 
-(use-package magit)
-(use-package vterm)
+(use-package magit
+  :bind (("C-c m" . magit-status)))
+
+(use-package vterm
+  :defer t)
 
 (use-package vertico
   :config (vertico-mode 1))
@@ -77,6 +83,13 @@
 (use-package orderless
   :after vertico
   :init (setq completion-styles '(orderless)))
+
+(use-package swiper
+  :bind (("M-S" . swiper)))
+
+(use-package which-key
+  :config (which-key-mode)
+  :init (setq which-key-idle-delay 0.5))
 
 (global-set-key (kbd "C-x C-b") 'ibuffer) ;; use ibuffer instead of default
 
