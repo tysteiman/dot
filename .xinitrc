@@ -31,5 +31,6 @@ fi
 # setxkbmap -layout us,iq,tr
 # xmodmap ~/dot/keys.map
 xset r rate 200 50 &
-xrandr --output eDP-1 --mode 1920x1080 --brightness 0.8 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
-exec dwm
+# xrandr --output eDP-1 --mode 1920x1080 --brightness 0.8 --output HDMI-1-0 --mode 2560x1440 --primary --right-of eDP-1
+export DESKTOP_SESSION=plasma
+exec startplasma-x11
