@@ -1,8 +1,27 @@
+;;; CUSTOM FILE
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(set-face-attribute 'default nil :height 110)
+;;; APPEARANCE
+(set-face-attribute 'default nil :height 130 :family "agave Nerd Font")
 
-;; set some variables
+;; swap mode line with header line
+(let ((format mode-line-format))
+  (setq-default header-line-format format)
+  (setq-default mode-line-format nil))
+
+;; (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
+;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
+;; (add-to-list 'default-frame-alist '(alpha 90 90))
+
+(column-number-mode)
+(display-time-mode)
+(windmove-default-keybindings)
+(winner-mode)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(menu-bar-mode 0)
+
+;;; SET VARIABLES
 (setq make-backup-files nil
       create-lockfiles nil
       vc-follow-symlinks t
@@ -25,17 +44,8 @@
               js-indent-level 4
               sgml-basic-offset 4)
 
-(column-number-mode)
-(display-time-mode)
-(windmove-default-keybindings)
-(winner-mode)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(menu-bar-mode 0)
-;; (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
-;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
-;; (add-to-list 'default-frame-alist '(alpha 90 90))
 
+;;; DISPLAY \t IN GREY
 (defface extra-whitespace-face
   '((t (:background "grey")))
   "Highlight rule used for tabs and special chars we want to see.")
@@ -44,6 +54,7 @@
   '(("\t" . 'extra-whitespace-face))
   "Define keywords that are counted as extra and will be highlighted with `extra-whitespace-face'.")
 
+;;; HOOKS
 ;; configure prog mode
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
@@ -56,6 +67,7 @@
 (add-hook 'compilation-filter-hook (lambda ()
                                      (ansi-color-apply-on-region (point-min) (point-max))))
 
+;;; INSTALL USE-PACKAGE
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -73,6 +85,7 @@
 (setq use-package-always-ensure t)
 ;; (setq use-package-verbose t)
 
+;;; INSTALL PACKAGES
 (use-package magit
   :bind (("C-c m" . magit-status)))
 
@@ -93,8 +106,10 @@
   :config (which-key-mode)
   :init (setq which-key-idle-delay 0.5))
 
+;;; KEY BINDINGS
 (global-set-key (kbd "C-x C-b") 'ibuffer) ;; use ibuffer instead of default
 
+;;; DEFUNS
 ;; write some defuns
 (defun open-config ()
   "Open Emacs init.el"
@@ -124,6 +139,7 @@
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
 
+;;; PUTS
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
