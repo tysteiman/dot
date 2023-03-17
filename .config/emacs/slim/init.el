@@ -2,14 +2,10 @@
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
 ;;; APPEARANCE
+(load-theme 'wombat t)
+
 (set-face-attribute 'default nil :height 130 :family "agave Nerd Font")
 
-;; swap mode line with header line
-(let ((format mode-line-format))
-  (setq-default header-line-format format)
-  (setq-default mode-line-format nil))
-
-;; (add-to-list 'default-frame-alist '(font . "Mononoki Nerd Font-11"))
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
 ;; (add-to-list 'default-frame-alist '(alpha 90 90))
 
@@ -138,6 +134,12 @@
     (if (region-active-p)
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
+
+;; swap mode line with header line
+;; i do this at the end so any packages (evil etc) will show in modeline...
+(let ((format mode-line-format))
+  (setq-default header-line-format format)
+  (setq-default mode-line-format nil))
 
 ;;; PUTS
 (put 'downcase-region 'disabled nil)
