@@ -1,9 +1,6 @@
 ;;; CUSTOM FILE
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-;;; APPEARANCE
-(load-theme 'wombat t)
-
 (set-face-attribute 'default nil :height 130 :family "agave Nerd Font")
 
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
@@ -11,7 +8,7 @@
 
 (column-number-mode)
 (display-time-mode)
-(windmove-default-keybindings)
+;; (windmove-default-keybindings)
 (winner-mode)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
@@ -101,6 +98,103 @@
 (use-package which-key
   :config (which-key-mode)
   :init (setq which-key-idle-delay 0.5))
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
+
+(use-package evil-escape
+  :after evil
+  :init (setq-default evil-escape-key-sequence "jk")
+  :config (evil-escape-mode))
+
+(use-package company
+  :init (setq company-dabbrev-downcase nil)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.5)
+  :hook
+  (prog-mode . company-mode))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+(defun my/configure-prettier ()
+  "Configure Prettier by turning it on only if there is a pretterrc file in the projectile root"
+  (let ((prettier-rc (concat (projectile-project-root) ".prettierrc.json")))
+    (if (file-exists-p prettier-rc)
+        (prettier-mode 1)
+      (message ".prettierrc.json not detected in project root -- skipped loading."))))
+
+(use-package prettier
+  :after (:any js2-mode rjsx-mode)
+  :hook
+  (js2-mode  . my/configure-prettier)
+  (rjsx-mode . my/configure-prettier))
+
+(use-package projectile
+  :config
+  (projectile-mode 1))
+
+(use-package rg
+  :commands (projectile-ripgrep))
+
+(use-package general
+  :config
+
+  (general-define-key
+   :keymaps 'override
+   :states 'normal
+   "M-h" 'windmove-left
+   "M-j" 'windmove-down
+   "M-k" 'windmove-up
+   "M-l" 'windmove-right)
+
+  ;; SHELLS (eshell/vterm)
+  (general-define-key
+   :prefix "SPC"
+   :keymaps '(eshell-mode-map vterm-mode-map)
+   :states 'normal
+   "r" 'rename-buffer)
+
+  ;; SPC+k (Bookmarks)
+  (general-define-key
+   :prefix "SPC k"
+   :keymaps 'override
+   :states 'normal
+   "j" 'bookmark-jump
+   "s" 'bookmark-set
+   "x" 'bookmark-delete
+   "!" 'bookmark-delete-all)
+
+  ;; Global space
+  (general-define-key
+   :prefix "SPC"
+   :keymaps 'override
+   :states 'normal
+   "f" 'projectile-find-file
+   "F" 'projectile-find-file-other-window
+   "g" 'magit-status
+   "b" 'switch-to-buffer
+   "B" 'ibuffer
+   "d" 'dired-jump
+   "D" 'dired
+   "o" 'delete-other-windows
+   "/" 'swiper
+   "j" 'projectile-switch-project
+   "s" 'projectile-ripgrep
+   "q" 'delete-window
+   "V" 'revert-buffer-quick
+   "!" 'shell-command
+   "," '(execute-extended-command :which-key "M-x")
+   "k" '(:ignore t :which-key "Bookmarks")))
 
 ;;; KEY BINDINGS
 (global-set-key (kbd "C-x C-b") 'ibuffer) ;; use ibuffer instead of default
