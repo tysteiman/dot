@@ -82,6 +82,12 @@
 (use-package magit
   :bind (("C-c m" . magit-status)))
 
+(use-package diff-hl
+  :hook
+  (magit-post-refresh . diff-hl-magit-post-refresh)
+  (prog-mode . diff-hl-margin-mode)
+  (prog-mode . diff-hl-mode))
+
 (use-package vterm
   :defer t)
 
@@ -146,6 +152,28 @@
 (use-package rg
   :commands (projectile-ripgrep))
 
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-headerline-breadcrumb-enable nil)
+  :config
+  (lsp-enable-which-key-integration t)
+  :hook
+  (typescript-mode . lsp-deferred)
+  (js2-mode        . lsp-deferred)
+  (php-mode        . lsp-deferred))
+
+(use-package lsp-ui
+  :init
+
+  (setq lsp-ui-doc-position 'at-point)
+  :hook (lsp-mode . lsp-ui-mode))
+
+(use-package doom-modeline
+  :init (setq doom-modeline-height 40)
+  :config (doom-modeline-mode))
+
 (use-package general
   :config
 
@@ -173,6 +201,12 @@
    "s" 'bookmark-set
    "x" 'bookmark-delete
    "!" 'bookmark-delete-all)
+
+  (general-define-key
+   :keymaps '(lsp-mode-map override)
+   :states 'normal
+   "K" 'lsp-ui-doc-glance
+   "=" 'lsp-format-buffer)
 
   ;; Global space
   (general-define-key
@@ -228,12 +262,6 @@
     (if (region-active-p)
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
-
-;; swap mode line with header line
-;; i do this at the end so any packages (evil etc) will show in modeline...
-(let ((format mode-line-format))
-  (setq-default header-line-format format)
-  (setq-default mode-line-format nil))
 
 ;;; PUTS
 (put 'downcase-region 'disabled nil)
