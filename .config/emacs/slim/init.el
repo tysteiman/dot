@@ -172,6 +172,8 @@
 
 (use-package doom-modeline
   :init (setq doom-modeline-height 40)
+        (setq doom-modeline-buffer-file-name-style "file-name")
+        (setq doom-modeline-vcs-max-length 40)
   :config (doom-modeline-mode))
 
 (use-package general
