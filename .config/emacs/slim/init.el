@@ -221,7 +221,7 @@
    "d" 'dired-jump
    "D" 'dired
    "o" 'delete-other-windows
-   "/" 'swiper
+   "/" 'swiper-thing-at-point
    "j" 'projectile-switch-project
    "s" 'projectile-ripgrep
    "q" 'delete-window
