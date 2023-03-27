@@ -37,21 +37,10 @@
               js-indent-level 4
               sgml-basic-offset 4)
 
-
-;;; DISPLAY \t IN GREY
-(defface extra-whitespace-face
-  '((t (:background "grey")))
-  "Highlight rule used for tabs and special chars we want to see.")
-
-(defvar my-extra-keywords
-  '(("\t" . 'extra-whitespace-face))
-  "Define keywords that are counted as extra and will be highlighted with `extra-whitespace-face'.")
-
 ;;; HOOKS
 ;; configure prog mode
 (add-hook 'prog-mode-hook (lambda ()
-                            (setq show-trailing-whitespace t)
-                            (font-lock-add-keywords nil my-extra-keywords)))
+                            (setq show-trailing-whitespace t)))
 
 (add-hook 'org-mode-hook (lambda ()
                            (org-indent-mode)
@@ -109,8 +98,7 @@
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
+  :config (evil-mode 1))
 
 (use-package evil-collection
   :after evil
@@ -126,8 +114,7 @@
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.5)
-  :hook
-  (prog-mode . company-mode))
+  :hook (prog-mode . company-mode))
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
@@ -146,8 +133,7 @@
   (rjsx-mode . my/configure-prettier))
 
 (use-package projectile
-  :config
-  (projectile-mode 1))
+  :config (projectile-mode 1))
 
 (use-package rg
   :commands (projectile-ripgrep))
@@ -157,17 +143,14 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   (setq lsp-headerline-breadcrumb-enable nil)
-  :config
-  (lsp-enable-which-key-integration t)
+  :config (lsp-enable-which-key-integration t)
   :hook
   (typescript-mode . lsp-deferred)
   (js2-mode        . lsp-deferred)
   (php-mode        . lsp-deferred))
 
 (use-package lsp-ui
-  :init
-
-  (setq lsp-ui-doc-position 'at-point)
+  :init (setq lsp-ui-doc-position 'at-point)
   :hook (lsp-mode . lsp-ui-mode))
 
 (use-package doom-modeline
@@ -175,6 +158,9 @@
         (setq doom-modeline-buffer-file-name-style "file-name")
         (setq doom-modeline-vcs-max-length 40)
   :config (doom-modeline-mode))
+
+(use-package doom-themes
+  :config (load-theme 'doom-one t))
 
 (use-package general
   :config
