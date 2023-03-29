@@ -40,7 +40,8 @@
 ;;; HOOKS
 ;; configure prog mode
 (add-hook 'prog-mode-hook (lambda ()
-                            (setq show-trailing-whitespace t)))
+                            (setq show-trailing-whitespace t)
+                            (hl-line-mode)))
 
 (add-hook 'org-mode-hook (lambda ()
                            (org-indent-mode)
@@ -116,6 +117,9 @@
   (company-idle-delay 0.5)
   :hook (prog-mode . company-mode))
 
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
+
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
@@ -131,6 +135,21 @@
   :hook
   (js2-mode  . my/configure-prettier)
   (rjsx-mode . my/configure-prettier))
+
+(use-package js2-mode
+  :defer t
+  :mode "\\.js\\'")
+
+(use-package emmet)
+
+(use-package rjsx-mode
+  :defer t
+  :init
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
+  :mode "\\.jsx\\'"
+  :config
+  (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package projectile
   :config (projectile-mode 1))
@@ -210,11 +229,14 @@
    "D" 'dired
    "o" 'delete-other-windows
    "/" 'swiper-thing-at-point
+   "?" 'swiper
    "j" 'projectile-switch-project
    "s" 'projectile-ripgrep
    "q" 'delete-window
-   "V" 'revert-buffer-quick
+   "Q" 'my/delete-and-balance-windows
+   "v" 'revert-buffer-quick
    "!" 'shell-command
+   ";" 'my/comment-current-line
    "," '(execute-extended-command :which-key "M-x")
    "k" '(:ignore t :which-key "Bookmarks")))
 
@@ -227,6 +249,18 @@
   "Open Emacs init.el"
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
+
+(defun my/delete-and-balance-windows ()
+  "Delete current window and balance windows"
+  (interactive)
+  (delete-window)
+  (balance-windows))
+
+(defun my/comment-current-line ()
+  "Comment current line while keeping point the same."
+  (interactive)
+  (save-excursion
+    (comment-line 1)))
 
 (defun my/git-blame-line ()
   "Run git blame on current line in file"
