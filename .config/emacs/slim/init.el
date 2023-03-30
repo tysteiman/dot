@@ -140,7 +140,8 @@
   :defer t
   :mode "\\.js\\'")
 
-(use-package emmet)
+(use-package emmet-mode
+  :defer t)
 
 (use-package rjsx-mode
   :defer t
@@ -199,6 +200,16 @@
    :states 'normal
    "r" 'rename-buffer)
 
+  ;; SPC+g (Git)
+  (general-define-key
+   :prefix "SPC g"
+   :keymaps 'override
+   :states 'normal
+   "m" 'magit-status
+   "l" 'my/git-blame-line
+   "f" 'my/git-blame-file
+   "r" 'my/git-blame-region)
+
   ;; SPC+k (Bookmarks)
   (general-define-key
    :prefix "SPC k"
@@ -222,7 +233,6 @@
    :states 'normal
    "f" 'projectile-find-file
    "F" 'projectile-find-file-other-window
-   "g" 'magit-status
    "b" 'switch-to-buffer
    "B" 'ibuffer
    "d" 'dired-jump
@@ -238,6 +248,7 @@
    "!" 'shell-command
    ";" 'my/comment-current-line
    "," '(execute-extended-command :which-key "M-x")
+   "g" '(:ignore t :which-key "Git")
    "k" '(:ignore t :which-key "Bookmarks")))
 
 ;;; KEY BINDINGS
