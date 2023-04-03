@@ -39,12 +39,6 @@ require('packer').startup(function()
     use  'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
 
-    -- Theme
-    use 'rose-pine/neovim'
-
-    -- Lualine
-    use 'nvim-lualine/lualine.nvim'
-
     -- Bufferline
     use 'akinsho/bufferline.nvim'
 end)
