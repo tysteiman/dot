@@ -44,6 +44,7 @@ alias ll="ls -lAh"
 alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
 alias em="emacsclient -c -a emacs"
+alias lg="lazygit"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
