@@ -6,8 +6,8 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="emacsclient -c -a emacs"
-# export FZF_DEFAULT_OPTS="--reverse --border=rounded"
+export EDITOR="nvim"
+export FZF_DEFAULT_OPTS="--reverse --border=rounded"
 
 # just put all our scripts in our path instead of symlinking every new script we make...
 # export PATH=$HOME/dot/scripts:$PATH
@@ -48,5 +48,7 @@ alias em="emacsclient -c -a emacs"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+PATH=$HOME/dot/scripts:$PATH
 
 pfetch
