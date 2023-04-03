@@ -4,8 +4,6 @@ require('packer').startup(function()
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    
-    use 'Shatur/neovim-ayu'
 
     -- Emmet
     use 'mattn/emmet-vim'
@@ -41,6 +39,12 @@ require('packer').startup(function()
     use  'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
 
-    -- Transparent Background
-    use 'xiyaowong/nvim-transparent'
+    -- Theme
+    use 'rose-pine/neovim'
+
+    -- Lualine
+    use 'nvim-lualine/lualine.nvim'
+
+    -- Bufferline
+    use 'akinsho/bufferline.nvim'
 end)
