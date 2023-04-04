@@ -41,4 +41,7 @@ require('packer').startup(function()
 
     -- Bufferline
     use 'akinsho/bufferline.nvim'
+
+    -- Theme
+    use 'rose-pine/neovim'
 end)
