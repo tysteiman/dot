@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="nvim"
+export EDITOR="vim"
 export FZF_DEFAULT_OPTS="--reverse --border=rounded"
 export TERMINAL=kitty
 
@@ -46,12 +46,12 @@ alias la="ls -A"
 alias duls="ls -A | xargs du -sh"
 alias em="emacsclient -c -a emacs"
 alias lg="lazygit"
-alias vim="nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 PATH=$HOME/dot/scripts:$PATH
+PATH=$HOME/.local/bin:$PATH
 
 pfetch

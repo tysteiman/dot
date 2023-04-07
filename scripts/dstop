@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CONTAINER="$(docker container ls | fzf | awk '{print $1}')"
+
+if [ ! $CONTAINER ]; then
+    exit 1
+fi
+
+docker stop $CONTAINER

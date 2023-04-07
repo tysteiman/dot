@@ -6,18 +6,20 @@ xrandr --output eDP-1 --mode 1920x1080 --brightness 0.8 --output HDMI-1-0 --mode
 
 # xrandr --output eDP-1 --mode 1920x1080 --brightness 0.8 --primary
 
-feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg
+feh --bg-scale ~/dot/wallpaper/bright-mountains.jpg &
+
+picom -b &
 
 xset r rate 200 50 &
 
-bash ~/.config/polybar/launch.sh
+bash ~/.config/polybar/launch.sh &
 
 bspc monitor eDP-1 -d 1
 bspc monitor HDMI-1-0 -d 2 3 4 5
 
+bspc config border_width 5
+
 bspc rule -a Emacs state=tiled
 bspc rule -a android-studio state=floating border=off follow=on
-
-bspc config border_width 5
 
 # wmname LG3D &
