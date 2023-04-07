@@ -11,7 +11,7 @@ cd ..
 rm -rf yay
 
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
-yay -S nvim                   \
+yay -S neovim                 \
     stow                      \
     chromium                  \
     xorg                      \
