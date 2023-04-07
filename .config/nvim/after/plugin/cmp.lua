@@ -42,6 +42,6 @@ require('lspconfig')['clangd'].setup {
 require('lspconfig')['dockerls'].setup {
     capabilities = capabilities
 }
-require('lspconfig')['solargraph'].setup {
-    capabilities = capabilities
-}
+-- require('lspconfig')['solargraph'].setup {
+--     capabilities = capabilities
+-- }

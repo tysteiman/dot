@@ -2,12 +2,11 @@
 
 # terminal emulator
 super + Return
-        kitty fish
+        kitty
 
 # program launcher
 super + d
-	dmenu_run
-	# rofi -show drun -show-icons -font "JetBrainsMono Nerd Font 12"
+	rofi -show drun -show-icons -font "Mononoki Nerd Font 12"
 
 # text editor (emacs)
 # super + shift + m
@@ -44,6 +43,9 @@ super + shift + x
 # full screen
 super + f
       bspc node -t {fullscreen,tiled}
+
+super + t
+    bspc node -t {floating,tiled}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}

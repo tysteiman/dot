@@ -1,13 +1,3 @@
-#!/bin/bash
-#
-# --------------------------------------------------------------------------------------------------
-#
-# Script to install arch environment after installing arch itself. This script will install a window
-# manager, xorg, firefox, terminal, emacs, font(s), etc... the stuff i install almost every time
-# when installing arch for work/daily use.
-#
-# --------------------------------------------------------------------------------------------------
-
 # install base-devel needed to run makepkg
 sudo pacman -S base-devel
 
@@ -21,10 +11,9 @@ cd ..
 rm -rf yay
 
 # INSTALL BASE PACKAGES NEEDED (Defaults to my bspwm setup for work...)
-yay -S emacs                  \
-    cmake                     \
+yay -S nvim                   \
     stow                      \
-    firefox                   \
+    chromium                  \
     xorg                      \
     picom                     \
     xorg-xinit                \
@@ -37,9 +26,8 @@ yay -S emacs                  \
     rofi                      \
     pavucontrol               \
     pulseaudio                \
-    fish                      \
     xclip                     \
-    nerd-fonts-jetbrains-mono \
+    nerd-fonts-meta           \
     kitty                     \
     pcmanfm                   \
     dunst                     \
@@ -58,8 +46,11 @@ if [ ! -d $CONF ]; then mkdir $CONF; fi
 # move bashrc around if it exists
 if [ -f ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc.original; fi
 
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # run stow!
 stow -v .
 
 # launch emacs daemon to install all packages
-emacs --daemon
+# emacs --daemon
