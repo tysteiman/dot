@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 export TERM=xterm-256color
-export EDITOR="vim"
+export EDITOR="kak"
 export FZF_DEFAULT_OPTS="--reverse --border=rounded"
 export TERMINAL=kitty
 

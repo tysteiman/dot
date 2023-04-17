@@ -44,4 +44,7 @@ require('packer').startup(function()
 
     -- Theme
     use 'rose-pine/neovim'
+
+    -- Lualine
+    use 'nvim-lualine/lualine.nvim'
 end)

@@ -9,8 +9,8 @@ super + d
 	rofi -show drun -show-icons -font "Mononoki Nerd Font 12"
 
 # text editor (emacs)
-# super + shift + m
-# 	emacsclient -c -a emacs
+super + shift + m
+	emacsclient -c -a emacs
 
 # 1Password quick access
 # super + shift + w

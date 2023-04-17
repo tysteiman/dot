@@ -1,41 +1,13 @@
 ;;; CUSTOM FILE
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(set-face-attribute 'default nil :height 130 :family "agave Nerd Font")
+(setq gc-cons-threshold (* 60 1000 1000))
 
-;; (set-frame-parameter (selected-frame) 'alpha '(90 90))
-;; (add-to-list 'default-frame-alist '(alpha 90 90))
+(add-to-list 'load-path (concat user-emacs-directory "modules"))
 
-(column-number-mode)
-(display-time-mode)
-;; (windmove-default-keybindings)
-(winner-mode)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(menu-bar-mode 0)
-
-;;; SET VARIABLES
-(setq make-backup-files nil
-      create-lockfiles nil
-      vc-follow-symlinks t
-      dired-listing-switches "-lAh"
-      shr-use-colors nil   ;; eww
-      shr-inhibit-images t ;; eww
-      shr-use-fonts nil    ;; eww
-      compilation-scroll-output t
-      visible-bell nil
-      ring-bell-function 'ignore
-      ruby-insert-encoding-magic-comment nil
-      org-startup-folded t
-      set-mark-command-repeat-pop t
-      mark-ring-max 8
-      global-mark-ring-max 8)
-
-(setq-default truncate-lines t
-              indent-tabs-mode nil
-              c-basic-offset 4
-              js-indent-level 4
-              sgml-basic-offset 4)
+;; TODO modules ftw
+(require 'my-conf)
+(require 'my-defuns)
 
 ;;; HOOKS
 ;; configure prog mode
@@ -95,6 +67,10 @@
   :config (which-key-mode)
   :init (setq which-key-idle-delay 0.5))
 
+(use-package diredfl
+  :defer t
+  :hook (dired-mode . diredfl-mode))
+
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -141,7 +117,9 @@
   :mode "\\.js\\'")
 
 (use-package emmet-mode
-  :defer t)
+  :defer t
+  :config
+  (define-key web-mode-map (kbd "C-j") 'emmet-expand-line))
 
 (use-package rjsx-mode
   :defer t
@@ -151,6 +129,10 @@
   :mode "\\.jsx\\'"
   :config
   (define-key rjsx-mode-map (kbd "C-j") 'emmet-expand-line))
+
+(use-package web-mode
+  :defer t
+  :mode "\\.erb\\'")
 
 (use-package projectile
   :config (projectile-mode 1))
@@ -181,6 +163,14 @@
 
 (use-package doom-themes
   :config (load-theme 'doom-one t))
+
+(use-package tree-sitter
+  :hook
+  (ruby-mode . tree-sitter-hl-mode)
+  (php-mode . tree-sitter-hl-mode))
+
+(use-package solaire-mode
+  :config (solaire-global-mode +1))
 
 (use-package general
   :config
@@ -231,6 +221,7 @@
    :prefix "SPC"
    :keymaps 'override
    :states 'normal
+   "e" 'find-file
    "f" 'projectile-find-file
    "F" 'projectile-find-file-other-window
    "b" 'switch-to-buffer
@@ -241,6 +232,8 @@
    "/" 'swiper-thing-at-point
    "?" 'swiper
    "j" 'projectile-switch-project
+   "m" 'my/open-module
+   "M" 'evil-emacs-state
    "s" 'projectile-ripgrep
    "q" 'delete-window
    "Q" 'my/delete-and-balance-windows
@@ -296,7 +289,6 @@
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
 
-;;; PUTS
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
+;; Recommended by LSP mode
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
