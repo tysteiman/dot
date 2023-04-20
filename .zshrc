@@ -1,0 +1,19 @@
+alias c="clear"
+alias gs="git status"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gc="git checkout"
+alias gb="git branch"
+alias gcb="git checkout -b"
+alias gcm="git commit -m"
+alias ga="git add ."
+alias gl="git log --graph --decorate"
+alias gf="git fetch --all"
+alias grep="grep --color"
+alias ll="ls -lAh"
+alias lg="lazygit"
+alias ni="nix-env --install"
+alias installed="nix-env --query --installed"
+
+export PATH=$HOME/dot/scripts:$PATH
+export EDITOR=vim
