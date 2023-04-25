@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE=$(fzf --border=rounded --reverse)
+FILE=$(find . -type f | fzf --border=rounded --reverse)
 
 if [ ! $FILE ]; then
     exit 1

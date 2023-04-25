@@ -10,10 +10,11 @@ alias ga="git add ."
 alias gl="git log --graph --decorate"
 alias gf="git fetch --all"
 alias grep="grep --color"
-alias ll="ls -lAh"
 alias lg="lazygit"
 alias ni="nix-env --install"
 alias installed="nix-env --query --installed"
+alias ctags="$HOME/.nix-profile/bin/ctags"
+alias ls="exa"
 
 export PATH=$HOME/dot/scripts:$PATH
 export EDITOR=vim

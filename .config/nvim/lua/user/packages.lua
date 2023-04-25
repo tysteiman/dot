@@ -43,7 +43,7 @@ require('packer').startup(function()
     use 'akinsho/bufferline.nvim'
 
     -- Theme
-    use 'rose-pine/neovim'
+    -- use 'rose-pine/neovim'
 
     -- Lualine
     use 'nvim-lualine/lualine.nvim'

@@ -16,11 +16,15 @@ set autoindent
 set path+=**
 set path-=/usr/include
 set wildmenu
+set relativenumber
 
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
+
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
 
 inoremap jk <esc>
 
