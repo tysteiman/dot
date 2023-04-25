@@ -2,7 +2,7 @@
 
 read -p 'Node version: ' version
 
-echo $version
+echo Launching docker container for node:$version
 
 # spin up docker container with that version
 docker run --rm \
