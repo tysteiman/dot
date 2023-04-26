@@ -15,6 +15,8 @@ alias ni="nix-env --install"
 alias installed="nix-env --query --installed"
 alias ctags="$HOME/.nix-profile/bin/ctags"
 alias ls="exa"
+alias ll="ls -lah"
+alias cat="bat"
 
 export PATH=$HOME/dot/scripts:$PATH
-export EDITOR=vim
+export EDITOR=kak

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+read -p 'Image to run (node,php,ruby,etc.): ' image
+read -p 'Image version (for node 12 enter "12", etc.): ' version
+
+echo Launching docker container for $image:$version
+
+# spin up docker container with that version
+docker run --rm \
+           -it \
+           -v $PWD:/app \
+           -w /app \
+           $image:$version \
+           bash
