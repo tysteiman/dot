@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FILE=$(git ls-files | fzf --border=rounded --reverse)
+
+if [ ! $FILE ]; then
+    exit 1
+fi
+
+git blame $FILE
