@@ -17,6 +17,8 @@ alias ctags="$HOME/.nix-profile/bin/ctags"
 alias ls="exa"
 alias ll="ls -lah"
 alias cat="bat"
+alias vff="EDITOR=vim ff"
+alias kff="EDITOR=kak ff"
 
 export PATH=$HOME/dot/scripts:$PATH
 export EDITOR=kak

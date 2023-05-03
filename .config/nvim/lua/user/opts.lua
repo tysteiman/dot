@@ -11,5 +11,3 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.termguicolors = false
 vim.opt.number = false
-
-vim.cmd('colorscheme habamax')
