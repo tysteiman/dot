@@ -1,3 +1,3 @@
-require('user.opts')
+require('user.lazy')
 require('user.keys')
-require('user.packages')
+require('user.opts')

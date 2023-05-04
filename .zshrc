@@ -21,4 +21,4 @@ alias vff="EDITOR=vim ff"
 alias kff="EDITOR=kak ff"
 
 export PATH=$HOME/dot/scripts:$PATH
-export EDITOR=kak
+export EDITOR=nvim

@@ -44,3 +44,4 @@ hardware-configuration.nix
 /.config/emacs/default/eln-cache/
 .kak.tags.namecache
 .DS_Store
+lazy-lock.json
