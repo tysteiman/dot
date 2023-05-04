@@ -83,5 +83,12 @@ require("lazy").setup({
             }
         end,
     },
+    {
+        'neovim/nvim-lspconfig',
+        lazy = false,
+        config = function()
+            require'user.packages.lsp'
+        end,
+    },
     "lukoshkin/trailing-whitespace"
 })
