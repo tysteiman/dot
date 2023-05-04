@@ -19,6 +19,7 @@ alias ll="ls -lah"
 alias cat="bat"
 alias vff="EDITOR=vim ff"
 alias kff="EDITOR=kak ff"
+alias v="nvim"
 
 export PATH=$HOME/dot/scripts:$PATH
 export EDITOR=nvim
