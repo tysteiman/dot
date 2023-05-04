@@ -22,3 +22,7 @@ vim.api.nvim_set_keymap('n', '<leader>F', ':Telescope find_files<cr>', { noremap
 vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope grep_string<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>/', ':Telescope current_buffer_fuzzy_find<cr>', { noremap = true, silent = true })
+
+-- Bufferline
+vim.api.nvim_set_keymap('n', '<leader>p', ':bp<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>n', ':bn<cr>', { noremap = true, silent = true })
