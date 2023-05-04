@@ -39,5 +39,6 @@ require("lazy").setup({
                 }
             }
         end
-    }
+    },
+    "lukoshkin/trailing-whitespace"
 })
