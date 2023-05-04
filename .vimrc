@@ -23,9 +23,6 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 
-nnoremap H :bp<CR>
-nnoremap L :bn<CR>
-
 inoremap jk <esc>
 
 function Set_2_Spaces()
