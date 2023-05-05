@@ -19,7 +19,11 @@ alias ll="ls -lahF --git --icons"
 alias cat="bat"
 alias vff="EDITOR=vim ff"
 alias kff="EDITOR=kak ff"
-alias v="nvim"
+alias v="$EDITOR"
 
 export PATH=$HOME/dot/scripts:$PATH
 export EDITOR=nvim
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

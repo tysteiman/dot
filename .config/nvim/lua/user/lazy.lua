@@ -16,7 +16,17 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         config = function()
-            require'user.packages.treesitter'
+            require'nvim-treesitter.configs'.setup {
+                ensure_installed = { "ruby", "lua", "javascript", "php", "html" },
+                sync_install = false,
+                auto_install = false,
+                ignore_install = {},
+                highlight = {
+                    enable = true,
+                    disable = {},
+                    additional_vim_regex_highlighting = false,
+                },
+            }
         end,
     },
     {
@@ -123,23 +133,11 @@ require("lazy").setup({
             }
         end,
     },
-    -- {
-    --     "williamboman/mason.nvim",
-    --     dependencies = { "williamboman/mason-lspconfig.nvim" },
-    --     config = function()
-    --         require('mason').setup()
-    --         require("mason-lspconfig").setup()
-    --     end,
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        config = function()
+            vim.cmd[[colorscheme tokyonight-night]]
+        end,
+    },
     "lukoshkin/trailing-whitespace",
-    { "rose-pine/neovim", lazy = true },
-    { "Shatur/neovim-ayu", lazy = true },
-    { "ellisonleao/gruvbox.nvim", lazy = true },
-    { "folke/tokyonight.nvim", lazy = true },
-    -- {
-    --     "Shatur/neovim-ayu",
-    --     config = function()
-    --         vim.cmd([[colorscheme ayu]])
-    --     end,
-    -- },
 })
