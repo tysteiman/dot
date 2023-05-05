@@ -135,6 +135,7 @@ require("lazy").setup({
     { "rose-pine/neovim", lazy = true },
     { "Shatur/neovim-ayu", lazy = true },
     { "ellisonleao/gruvbox.nvim", lazy = true },
+    { "folke/tokyonight.nvim", lazy = true },
     -- {
     --     "Shatur/neovim-ayu",
     --     config = function()
