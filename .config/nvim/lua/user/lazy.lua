@@ -105,5 +105,28 @@ require("lazy").setup({
             require'user.packages.cmp'
         end,
     },
+    {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end,
+    },
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require('nvim-autopairs').setup()
+        end,
+    },
+    {
+        "mrjones2014/nvim-ts-rainbow",
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                rainbow = {
+                    enable = true,
+                    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+                },
+            }
+        end,
+    },
     "lukoshkin/trailing-whitespace"
 })
