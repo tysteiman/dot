@@ -31,4 +31,5 @@ vim.api.nvim_set_keymap('n', '<leader>p', ':bp<cr>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>n', ':bn<cr>', { noremap = true, silent = true })
 
 -- Lazy
-vim.api.nvim_set_keymap('n', '<leader>l', ':Lazy sync<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>l', ':Lazy<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>L', ':Lazy sync<cr>', { noremap = true, silent = true })
