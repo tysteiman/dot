@@ -11,3 +11,4 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.number = false
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
