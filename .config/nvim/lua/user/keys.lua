@@ -16,6 +16,9 @@ vim.api.nvim_set_keymap('n', 'gc', 'M', { noremap = true, silent = true })
 -- Enter directory of file
 vim.api.nvim_set_keymap('n', '<leader>d', ':Ex<cr>', { noremap = true, silent = true })
 
+-- Run NOH
+vim.api.nvim_set_keymap('n', '<leader>,', ':noh<cr>', { noremap = true, silent = true })
+
 -- Telescope
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope git_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>F', ':Telescope find_files<cr>', { noremap = true, silent = true })
