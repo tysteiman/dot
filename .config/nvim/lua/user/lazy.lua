@@ -13,14 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "Shatur/neovim-ayu",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme ayu]])
-        end,
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         config = function()
@@ -44,6 +36,9 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         lazy = false,
+        config = function()
+            require('telescope').setup()
+        end,
     },
     {
         'akinsho/bufferline.nvim',
@@ -136,5 +131,14 @@ require("lazy").setup({
     --         require("mason-lspconfig").setup()
     --     end,
     -- },
-    "lukoshkin/trailing-whitespace"
+    "lukoshkin/trailing-whitespace",
+    { "rose-pine/neovim", lazy = true },
+    { "Shatur/neovim-ayu", lazy = true },
+    { "ellisonleao/gruvbox.nvim", lazy = true },
+    -- {
+    --     "Shatur/neovim-ayu",
+    --     config = function()
+    --         vim.cmd([[colorscheme ayu]])
+    --     end,
+    -- },
 })
