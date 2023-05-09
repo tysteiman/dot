@@ -1,7 +1,8 @@
 return {
     {
         'folke/which-key.nvim',
-        lazy = false,
+        lazy = true,
+        keys = "<space>", -- don't need until we hit space and wait... hitting a key before the timeout keeps it from loading.
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
