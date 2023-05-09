@@ -1,6 +1,8 @@
 return {
     {
         "mrjones2014/nvim-ts-rainbow",
+        lazy = true,
+        event = "BufRead",
         config = function()
             require('nvim-treesitter.configs').setup {
                 rainbow = {

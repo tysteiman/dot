@@ -1,1 +1,5 @@
-return { "lukoshkin/trailing-whitespace", }
+return {
+    "lukoshkin/trailing-whitespace",
+    lazy = true,
+    event = "BufRead",
+}
