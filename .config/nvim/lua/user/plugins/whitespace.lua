@@ -1,0 +1,1 @@
+return { "lukoshkin/trailing-whitespace", }
