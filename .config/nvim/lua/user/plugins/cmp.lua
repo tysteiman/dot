@@ -80,6 +80,9 @@ return {
             require('lspconfig')['tsserver'].setup {
                 capabilities = capabilities
             }
+            require('lspconfig')['intelephense'].setup {
+                capabilities = capabilities
+            }
         end,
     },
 }

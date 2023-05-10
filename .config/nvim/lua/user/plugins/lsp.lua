@@ -6,8 +6,10 @@ return {
         config = function()
             -- Setup language servers.
             local lspconfig = require('lspconfig')
-            --lspconfig.pyright.setup {}
+
             lspconfig.tsserver.setup {}
+            lspconfig.intelephense.setup {}
+
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
