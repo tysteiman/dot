@@ -1,7 +1,7 @@
 return {
     {
         'hrsh7th/nvim-cmp',
-        lazy = false,
+        lazy = true,
         dependencies = {
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-nvim-lsp',
@@ -10,6 +10,7 @@ return {
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
         },
+        event = "BufRead",
         config = function()
             -- Set up nvim-cmp.
             local cmp = require'cmp'
