@@ -1,7 +1,7 @@
 return {
     {
         'hrsh7th/nvim-cmp',
-        lazy = true,
+        lazy = false,
         dependencies = {
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-nvim-lsp',
@@ -10,7 +10,6 @@ return {
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
         },
-        event = "LspAttach", -- only use cmp when lsp is used!
         config = function()
             -- Set up nvim-cmp.
             local cmp = require'cmp'
@@ -81,6 +80,9 @@ return {
                 capabilities = capabilities
             }
             require('lspconfig')['intelephense'].setup {
+                capabilities = capabilities
+            }
+            require('lspconfig')['solargraph'].setup {
                 capabilities = capabilities
             }
         end,

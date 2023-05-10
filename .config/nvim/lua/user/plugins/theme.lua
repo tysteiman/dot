@@ -5,4 +5,5 @@ return {
     { "ellisonleao/gruvbox.nvim", lazy = true, },
     { "Mofiqul/vscode.nvim", lazy = true, },
     { "neanias/everforest-nvim", lazy = true, },
+    { "rose-pine/neovim", lazy = true, name = "rose-pine" },
 }
