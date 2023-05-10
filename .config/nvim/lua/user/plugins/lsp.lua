@@ -8,13 +8,6 @@ return {
             local lspconfig = require('lspconfig')
             --lspconfig.pyright.setup {}
             lspconfig.tsserver.setup {}
-            lspconfig.lua_ls.setup {}
-            --lspconfig.rust_analyzer.setup {
-            --    -- Server-specific settings. See `:help lspconfig-setup`
-            --    settings = {
-            --        ['rust-analyzer'] = {},
-            --    },
-            --}
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
