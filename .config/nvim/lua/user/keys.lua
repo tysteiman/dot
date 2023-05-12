@@ -4,6 +4,9 @@ vim.g.mapleader = " "
 -- use jk instead of escape
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true, silent = true })
 
+-- :on with <leader>o
+vim.api.nvim_set_keymap('n', '<leader>o', ':on<cr>', { noremap = true, silent = true })
+
 -- Kakoune keys
 vim.api.nvim_set_keymap('n', 'gh', '0', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gl', '$', { noremap = true, silent = true })
