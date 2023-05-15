@@ -6,4 +6,5 @@ return {
     { "Mofiqul/vscode.nvim", lazy = true, },
     { "neanias/everforest-nvim", lazy = true, },
     { "rose-pine/neovim", lazy = true, name = "rose-pine" },
+    { "nyoom-engineering/oxocarbon.nvim", lazy = true },
 }
