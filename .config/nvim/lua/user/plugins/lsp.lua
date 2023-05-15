@@ -10,6 +10,7 @@ return {
             lspconfig.tsserver.setup {}
             lspconfig.intelephense.setup {}
             lspconfig.solargraph.setup {}
+            lspconfig.dockerls.setup {}
 
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions

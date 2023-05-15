@@ -86,6 +86,9 @@ return {
             require('lspconfig')['solargraph'].setup {
                 capabilities = capabilities
             }
+            require('lspconfig')['dockerls'].setup {
+                capabilities = capabilities
+            }
         end,
     },
 }
