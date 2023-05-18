@@ -12,3 +12,6 @@ vim.opt.softtabstop = 4
 vim.opt.number = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+
+-- load whatever default colorscheme we want here...
+vim.cmd[[ colorscheme kanagawa ]]

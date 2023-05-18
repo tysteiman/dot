@@ -7,4 +7,6 @@ return {
     { "neanias/everforest-nvim", lazy = true, },
     { "rose-pine/neovim", lazy = true, name = "rose-pine" },
     { "nyoom-engineering/oxocarbon.nvim", lazy = true },
+    { "Mofiqul/dracula.nvim", lazy = true },
+    { "rebelot/kanagawa.nvim", lazy = true },
 }
