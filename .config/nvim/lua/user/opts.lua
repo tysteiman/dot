@@ -11,7 +11,23 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.number = false
 vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
+
+-- require('gruvbox').setup {
+--     contrast = 'hard'
+-- }
+
+-- require('kanagawa').setup {
+--     colors = {
+--         theme = {
+--             all = {
+--                 ui = {
+--                     bg_gutter = "none"
+--                 }
+--             }
+--         }
+--     }
+-- }
 
 -- load whatever default colorscheme we want here...
-vim.cmd[[ colorscheme kanagawa ]]
+vim.cmd[[ colorscheme ayu ]]

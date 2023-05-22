@@ -37,6 +37,3 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':bn<cr>', { noremap = true, silent = 
 -- Lazy
 vim.api.nvim_set_keymap('n', '<leader>l', ':Lazy<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>L', ':Lazy sync<cr>', { noremap = true, silent = true })
-
--- NvimTree
-vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeFindFile<cr>', { noremap = true, silent = true })
