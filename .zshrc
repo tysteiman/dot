@@ -18,11 +18,12 @@ alias ls="exa"
 alias ll="ls -lahF --git --icons"
 alias cat="bat --theme TwoDark"
 alias vff="EDITOR=vim ff"
+alias vfa="EDITOR=vim fa"
 alias kff="EDITOR=kak ff"
 alias v="$EDITOR"
 
 export PATH=$HOME/dot/scripts:$PATH
-export EDITOR=nvim
+export EDITOR=vim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

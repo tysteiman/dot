@@ -30,4 +30,7 @@ vim.opt.cursorline = false
 -- }
 
 -- load whatever default colorscheme we want here...
-vim.cmd[[ colorscheme ayu ]]
+-- vim.cmd[[ colorscheme ayu ]]
+
+
+vim.cmd[[ colorscheme tokyonight-night ]]
