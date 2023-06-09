@@ -9,4 +9,5 @@ return {
     { "nyoom-engineering/oxocarbon.nvim", lazy = true },
     { "Mofiqul/dracula.nvim", lazy = true },
     { "rebelot/kanagawa.nvim", lazy = true },
+    { "shaunsingh/nord.nvim", lazy = true },
 }
