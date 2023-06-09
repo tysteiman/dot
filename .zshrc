@@ -13,6 +13,7 @@ alias grep="grep --color"
 alias lg="lazygit"
 alias ni="nix-env --install"
 alias installed="nix-env --query --installed"
+alias generations="nix-env --list-generations"
 alias ctags="$HOME/.nix-profile/bin/ctags"
 alias ls="exa"
 alias ll="ls -lahF --git --icons"
@@ -28,3 +29,9 @@ export EDITOR=vim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+# End Nix
