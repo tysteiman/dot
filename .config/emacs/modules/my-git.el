@@ -3,6 +3,13 @@
 (use-package magit
   :bind (("C-c m" . magit-status)))
 
+(use-package diff-hl
+  :defer t
+  :hook
+  (prog-mode . diff-hl-mode)
+  (magit-pre-refresh . diff-hl-magit-pre-refresh)
+  (magit-post-refresh . diff-hl-magit-post-refresh))
+
 (defun my/git-blame-line ()
   "Run git blame on current line in file"
   (interactive)
