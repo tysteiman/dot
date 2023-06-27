@@ -1,7 +1,5 @@
 (provide 'my-conf)
 
-(load-theme 'deeper-blue t)
-
 (set-face-attribute 'default nil :height 180 :family "agave Nerd Font")
 
 (column-number-mode)

@@ -19,4 +19,5 @@
 (require 'my-eglot)
 (require 'my-search)
 (require 'my-tree-sitter)
+(require 'my-theme)
 (require 'my-hooks)
