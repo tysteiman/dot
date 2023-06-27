@@ -17,22 +17,22 @@ vim.opt.cursorline = false
 --     contrast = 'hard'
 -- }
 
-require('kanagawa').setup {
-    colors = {
-        theme = {
-            all = {
-                ui = {
-                    bg_gutter = "none"
-                }
-            }
-        }
-    }
-}
-vim.cmd[[ colorscheme kanagawa ]]
+-- require('kanagawa').setup {
+--     colors = {
+--         theme = {
+--             all = {
+--                 ui = {
+--                     bg_gutter = "none"
+--                 }
+--             }
+--         }
+--     }
+-- }
+-- vim.cmd[[ colorscheme kanagawa ]]
 
 -- load whatever default colorscheme we want here...
 -- vim.cmd[[ colorscheme ayu ]]
 
 
--- vim.cmd[[ colorscheme tokyonight-night ]]
+vim.cmd[[ colorscheme tokyonight-night ]]
 -- vim.cmd[[ colorscheme gruvbox ]]

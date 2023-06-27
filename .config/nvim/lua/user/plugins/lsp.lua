@@ -9,7 +9,7 @@ return {
 
             lspconfig.tsserver.setup {}
             lspconfig.intelephense.setup {}
-            lspconfig.solargraph.setup {}
+            -- lspconfig.solargraph.setup {}
             lspconfig.dockerls.setup {}
 
             -- Global mappings.

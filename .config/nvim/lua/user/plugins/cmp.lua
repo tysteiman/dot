@@ -83,9 +83,9 @@ return {
             require('lspconfig')['intelephense'].setup {
                 capabilities = capabilities
             }
-            require('lspconfig')['solargraph'].setup {
-                capabilities = capabilities
-            }
+            -- require('lspconfig')['solargraph'].setup {
+            --     capabilities = capabilities
+            -- }
             require('lspconfig')['dockerls'].setup {
                 capabilities = capabilities
             }
