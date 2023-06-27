@@ -1,7 +1,9 @@
 (provide 'my-eglot)
 
+(use-package project
+  :defer t)
+
 (use-package eglot
-  :commands (eglot)
   :defer t)
 
 (use-package company

@@ -1,6 +1,6 @@
 (provide 'my-conf)
 
-(set-face-attribute 'default nil :height 180 :family "agave Nerd Font")
+(set-face-attribute 'default nil :height 150 :family "Roboto Mono")
 
 (column-number-mode)
 (display-time-mode)
