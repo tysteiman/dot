@@ -1,4 +1,10 @@
 (provide 'my-theme)
 
+(fringe-mode 2)
+
+;; download some extra themes even though i don't use them on load
 (use-package doom-themes
-  :config (load-theme 'doom-feather-dark t))
+  :defer t)
+
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
