@@ -27,5 +27,5 @@
         ("\\(magit\\:.*\\|magit\\-log\\:.*\\)"
          (display-buffer-in-side-window)
          (side . right)
-         (window-width . 0.40)
+         (window-width . 0.50)
          (slot . 0))))
