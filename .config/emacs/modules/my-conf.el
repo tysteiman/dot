@@ -44,8 +44,6 @@
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
 
-(global-set-key (kbd "C-c o i") 'my/open-init)
-
 (defun my/open-module (module)
   "Opens Emacs module file"
   (interactive
@@ -53,4 +51,3 @@
     (read-file-name "Emacs Module: " (concat user-emacs-directory "modules/"))))
   (find-file module))
 
-(global-set-key (kbd "C-c o m") 'my/open-module)

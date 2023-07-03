@@ -22,3 +22,4 @@
 (require 'my-tree-sitter)
 (require 'my-theme)
 (require 'my-hooks)
+(require 'my-keys)
