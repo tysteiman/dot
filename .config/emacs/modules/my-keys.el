@@ -5,6 +5,7 @@
 (global-set-key (kbd "C-M-1") 'delete-other-windows)
 (global-set-key (kbd "C-M-2") 'split-window-below)
 (global-set-key (kbd "C-M-3") 'split-window-right)
+(global-set-key (kbd "C-M-=") 'balance-windows)
 
 ;; navigate to init files
 (global-set-key (kbd "C-c o m") 'my/open-module)
