@@ -16,13 +16,13 @@
       `(("\\*\\(helpful.*\\|[hH]elp\\|Messages\\)\\*"
          (display-buffer-in-side-window)
          (side . left)
-         (window-width . 0.30)
+         (window-width . 0.40)
          (slot . 0))
         ("\\*compilation\\*"
          (display-buffer-in-side-window)
          (side . left)
-         (window-width . 0.30)
-         (window-height . 0.30)
+         (window-width . 0.40)
+         (window-height . 0.40)
          (slot . 1))
         ("\\(magit\\:.*\\|magit\\-log\\:.*\\)"
          (display-buffer-in-side-window)
