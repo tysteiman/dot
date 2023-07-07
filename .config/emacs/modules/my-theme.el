@@ -1,12 +1,8 @@
 (provide 'my-theme)
 
-(fringe-mode 2)
+(fringe-mode 5)
 
-(set-cursor-color "red")
-(set-background-color "black")
-(set-foreground-color "darkgrey")
-(set-face-attribute 'highlight nil :background "darkred" :foreground "white")
-
+(use-package yoshi-theme :config (load-theme 'yoshi t))
 (use-package doom-themes :defer t)
 (use-package gotham-theme :defer t)
 

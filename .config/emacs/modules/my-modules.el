@@ -23,3 +23,4 @@
 (require 'my-theme)
 (require 'my-hooks)
 (require 'my-keys)
+(require 'my-notes)
