@@ -45,3 +45,6 @@
 
 ;; wait until we're initialized properly
 (elpaca-wait)
+
+(global-set-key (kbd "C-c u u") 'elpaca-update-all)
+(global-set-key (kbd "C-c u i") 'elpaca-info)
