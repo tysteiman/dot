@@ -21,6 +21,7 @@
 (require 'my-search)
 (require 'my-tree-sitter)
 (require 'my-theme)
+(require 'my-modeline)
 (require 'my-hooks)
 (require 'my-keys)
 (require 'my-notes)

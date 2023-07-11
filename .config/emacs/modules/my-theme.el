@@ -2,8 +2,10 @@
 
 (fringe-mode 5)
 
+(use-package doom-themes
+  :config (load-theme 'doom-one t))
+
 (use-package yoshi-theme :defer t)
-(use-package doom-themes :defer t)
 (use-package gotham-theme :defer t)
 
 (use-package hl-todo
