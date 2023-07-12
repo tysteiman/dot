@@ -13,3 +13,6 @@
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package diredfl
+  :hook (dired-mode . diredfl-mode))
