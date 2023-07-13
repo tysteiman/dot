@@ -14,6 +14,7 @@
 (require 'my-prettier)
 (require 'my-which-key)
 (require 'my-buffers)
+(require 'my-windows)
 (require 'my-project)
 (require 'my-git)
 (require 'my-org)
