@@ -1,7 +1,11 @@
 (provide 'my-windows)
 
 (use-package ace-window
-  :bind (("M-o" . ace-window)))
+  :bind (("M-o" . ace-window))
+  :config (ace-window-posframe-mode 1))
+
+(use-package posframe
+  :after ace-window)
 
 (use-package windmove
   :elpaca nil
