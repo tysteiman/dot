@@ -25,8 +25,7 @@
       org-startup-folded t
       set-mark-command-repeat-pop t
       mark-ring-max 8
-      global-mark-ring-max 8
-      inhibit-startup-screen t)
+      global-mark-ring-max 8)
 
 (setq-default truncate-lines t
               indent-tabs-mode nil
