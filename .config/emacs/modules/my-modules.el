@@ -19,6 +19,7 @@
 (require 'my-git)
 (require 'my-org)
 (require 'my-eglot)
+(require 'my-company)
 (require 'my-search)
 (require 'my-tree-sitter)
 (require 'my-theme)

@@ -3,7 +3,6 @@
 (fringe-mode 5)
 
 (use-package doom-themes :defer t)
-(use-package gotham-theme :defer t)
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
