@@ -2,7 +2,8 @@
 
 (fringe-mode 5)
 
-(use-package doom-themes :defer t)
+(use-package doom-themes
+  :config (load-theme 'doom-one t))
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
