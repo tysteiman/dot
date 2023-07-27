@@ -18,7 +18,7 @@
 
 (require 'my-langs)
 
-(require 'my-prettier)
+;; (require 'my-prettier)
 
 (require 'my-which-key)
 
