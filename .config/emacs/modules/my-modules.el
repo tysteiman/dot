@@ -38,6 +38,8 @@
 
 (require 'my-search)
 
+(require 'my-consult)
+
 (require 'my-tree-sitter)
 
 (require 'my-theme)

@@ -1,6 +1,6 @@
 (provide 'my-tab-bar)
 
-(tab-bar-mode 1)
+;; (tab-bar-mode 1)
 
 (setq tab-bar-close-button-show nil)
 (setq tab-bar-new-button-show nil)
