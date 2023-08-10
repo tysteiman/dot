@@ -1,6 +1,5 @@
 syntax on
 
-set nonumber
 set noswapfile
 set nowrap
 set incsearch
@@ -17,6 +16,7 @@ set path+=**
 set path-=/usr/include
 set wildmenu
 set relativenumber
+set number
 
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
