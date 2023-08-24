@@ -7,6 +7,7 @@
    :prefix "SPC"
    :keymaps 'evil-normal-state-map
    "b" 'consult-buffer
+   "d" 'dired-jump
    "f" 'projectile-find-file
    "m" 'magit-status
    "o" 'delete-other-windows
