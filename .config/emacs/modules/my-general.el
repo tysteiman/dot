@@ -3,6 +3,7 @@
 (use-package general
   :config
 
+  ;; Main SPC+ keybindings
   (general-define-key
    :prefix "SPC"
    :keymaps 'override
@@ -15,13 +16,23 @@
    "o" 'delete-other-windows
    "p" 'projectile-switch-project
    "s" 'projectile-ripgrep
+   "v" 'projectile-run-vterm
    "w" 'ace-window
    "," 'execute-extended-command
    "/" 'swiper
    "?" 'swiper-thing-at-point
+   "l" '(:ignore t :which-key "LSP")
    "t" '(:ignore t :which-key "Tabs")
    )
 
+  ;; SPC+ VTERM
+  (general-define-key
+   :prefix "SPC"
+   :keymaps 'vterm-mode-map
+   :states 'normal
+   "r" 'rename-buffer)
+
+  ;; g+ Movement Keys
   (general-define-key
    :prefix "g"
    :keymaps 'override
@@ -31,6 +42,17 @@
    "i" 'evil-first-non-blank
    )
 
+  ;; SPC+l+ LSP Keys
+  (general-define-key
+   :prefix "SPC l"
+   :keymaps 'override
+   :states 'normal
+   "l" 'eglot
+   "s" 'eglot-shutdown
+   "x" 'eglot-shutdown-all
+   )
+
+  ;; SPC+t+ Tab Keys
   (general-define-key
    :prefix "SPC t"
    :keymaps 'override
