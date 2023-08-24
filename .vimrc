@@ -26,10 +26,13 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap gh 0
 nnoremap gl $
 nnoremap gi ^
-nnoremap gb L
-nnoremap gt H
-nnoremap gc M
-nnoremap ge G
+
+let mapleader=" "
+
+" nnoremap <leader>tn :tabnew<cr>
+" nnoremap <leader>tm :tabmove
+" nnoremap <leader>tc :tabclose<cr>
+" nnoremap <leader>to :tabonly<cr>
 
 inoremap jk <esc>
 

@@ -9,8 +9,8 @@ vim.opt.laststatus = 2
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.number = false
 vim.opt.relativenumber = true
+vim.opt.number = true
 vim.opt.cursorline = false
 
 -- require('gruvbox').setup {

@@ -47,3 +47,5 @@ hardware-configuration.nix
 .kak.tags.namecache
 .DS_Store
 lazy-lock.json
+
+.recent-files

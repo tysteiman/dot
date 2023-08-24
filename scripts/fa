@@ -6,4 +6,6 @@ if [ ! $FILE ]; then
     exit 1
 fi
 
+echo $FILE >> .recent-files
+
 $EDITOR "$FILE"

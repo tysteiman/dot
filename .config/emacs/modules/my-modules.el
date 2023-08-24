@@ -8,7 +8,7 @@
 
 ;; (require 'my-use-package)
 
-;; (require 'my-evil)
+(require 'my-evil)
 
 (require 'my-modeline)
 
@@ -51,3 +51,5 @@
 (require 'my-notes)
 
 (require 'my-tab-bar)
+
+(require 'my-general)

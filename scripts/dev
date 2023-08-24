@@ -1,5 +1,7 @@
 #/bin/bash
 
+# TODO i would like to not remove the container every time. can we use basename $(pwd)-dev instead? then, check that container
+# and try to start it?
 docker run \
        --rm \
        -it \

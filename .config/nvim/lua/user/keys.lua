@@ -11,10 +11,6 @@ vim.api.nvim_set_keymap('n', '<leader>o', ':on<cr>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', 'gh', '0', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gl', '$', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'gi', '^', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gt', 'H', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gb', 'L', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'ge', 'G', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'gc', 'M', { noremap = true, silent = true })
 
 -- Enter directory of file
 vim.api.nvim_set_keymap('n', '<leader>d', ':Ex<cr>', { noremap = true, silent = true })
