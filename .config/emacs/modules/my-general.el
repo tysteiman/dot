@@ -15,6 +15,7 @@
    "m" 'magit-status
    "o" 'delete-other-windows
    "p" 'projectile-switch-project
+   "q" 'delete-window
    "s" 'projectile-ripgrep
    "v" 'projectile-run-vterm
    "w" 'ace-window

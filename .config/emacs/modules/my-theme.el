@@ -3,7 +3,7 @@
 (fringe-mode 5)
 
 (use-package doom-themes
-  :config (load-theme 'doom-one t))
+  :config (load-theme 'doom-feather-dark t))
 
 (use-package catppuccin-theme :defer t)
 
