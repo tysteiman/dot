@@ -1,8 +1,3 @@
--- Read the docs: https://www.lunarvim.org/docs/configuration
--- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
--- Forum: https://www.reddit.com/r/lunarvim/
--- Discord: https://discord.com/invite/Xb9B4Ny
-
 -- Insert Mode Bindings
 lvim.keys.insert_mode["jk"] = "<esc>"
 
@@ -10,6 +5,9 @@ lvim.keys.insert_mode["jk"] = "<esc>"
 lvim.builtin.indentlines.active = false
 lvim.builtin.breadcrumbs.active = false
 lvim.builtin.nvimtree.setup.view.width = 60
+lvim.builtin.telescope.theme = "ivy"
+lvim.builtin.dap.ui.config.expand_lines = false -- turn off expanding objects on hover in dap ui, makes it hard to read
+-- lvim.builtin.lualine.style = "default"
 
 -- Vim Options
 vim.opt.relativenumber = true
@@ -23,7 +21,7 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
@@ -48,7 +46,6 @@ lvim.plugins = {
 
 require("dap-vscode-js").setup({
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-  -- debugger_path = "/Users/tyler.steiman/.local/share/lunarvim/site/pack/lazy/opt/vscode-js-debug/out/src/vsDebugServer.js", -- Path to vscode-js-debug installation.
   debugger_path = "/Users/tyler.steiman/.local/share/lunarvim/site/pack/lazy/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
   -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
   adapters = { 'pwa-node', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
@@ -67,11 +64,30 @@ require("dap").configurations["typescript"] = {
   --   cwd = "${workspaceFolder}",
   -- },
   {
+    -- -----------------------------------------------------------------
+    -- Launch integrated debug server and attach to it with the debugger
+    -- -----------------------------------------------------------------
+    type = "pwa-node",
+    request = "launch",
+    name = "Launch Nest App",
+    -- trace = true, -- include debugger info
+    runtimeExecutable = "npm",
+    runtimeArgs = {
+      "run",
+      "start:debug",
+    },
+    rootPath = "${workspaceFolder}",
+    cwd = "${workspaceFolder}",
+    console = "integratedTerminal",
+    internalConsoleOptions = "neverOpen",
+  },
+  {
+    -- -----------------------------------------------------------------
+    -- Attach to an already running node process
+    -- -----------------------------------------------------------------
     type = "pwa-node",
     request = "attach",
-    name = "Attach",
-    -- TODO here we could actually write a function to find the nest process i would think?
-    -- Or is there a way to do a better Telescope-type picker or something?
+    name = "Attach to Running Node Process",
     processId = require("dap.utils").pick_process,
     cwd = "${workspaceFolder}",
   },
