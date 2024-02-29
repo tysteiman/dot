@@ -1,6 +1,11 @@
 -- Insert Mode Bindings
 lvim.keys.insert_mode["jk"] = "<esc>"
 
+-- Diffview Bindings
+lvim.keys.normal_mode["<leader>od"] = ":DiffviewOpen<cr>"
+lvim.keys.normal_mode["<leader>oe"] = ":DiffviewToggleFiles<cr>"
+lvim.keys.normal_mode["<leader>of"] = ":DiffviewFileHistory<cr>"
+
 -- Configure Built-in Plugins
 lvim.builtin.indentlines.active = false
 lvim.builtin.breadcrumbs.active = false
@@ -36,12 +41,13 @@ lvim.format_on_save.enabled = true
 lvim.format_on_save.pattern = { "*.ts" }
 
 lvim.plugins = {
-  { "mxsdev/nvim-dap-vscode-js"},
+  { "mxsdev/nvim-dap-vscode-js" },
   {
     "microsoft/vscode-js-debug",
     lazy = true,
-    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out && git checkout package-lock.json",
   },
+  { 'sindrets/diffview.nvim' },
 }
 
 require("dap-vscode-js").setup({
