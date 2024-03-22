@@ -2,7 +2,7 @@
 
 # Quick script for switching tmux sessions using fzf
 
-OUTPUT="$(tmux ls | awk {'print $1'} | tr ":" " " | sed s/\ // | fzf --border=rounded --reverse --height 15)"
+OUTPUT="$(tmux ls 2>/dev/null | awk {'print $1'} | tr ":" " " | sed s/\ // | fzf --border=rounded --reverse --height 12)"
 
 # Handle entering Ctrl+c and exiting out -- don't try to open a tmux session with that
 if [ ! $OUTPUT ]; then

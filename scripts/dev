@@ -5,7 +5,12 @@
 docker run \
        --rm \
        -it \
+       -w /code \
        -v $(pwd):/code \
        -v $HOME/.ssh:/root/.ssh \
+       -v $HOME/.aws:/root/.aws \
+       -v $HOME/.gitconfig:/root/.gitconfig \
+       -v $HOME/.gitignore:/root/.gitignore \
+       -v $HOME/.config/nvim:/root/.config/nvim \
        devtainer \
        sh
