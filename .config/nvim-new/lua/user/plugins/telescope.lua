@@ -12,8 +12,8 @@ return {
 
       -- LSP
       vim.keymap.set('n', '<leader>li', builtin.lsp_implementations, {})
-      vim.keymap.set('n', '<leader>ls', builtin.lsp_workspace_symbols, {})
-      vim.keymap.set('n', '<leader>lS', builtin.lsp_document_symbols, {})
+      vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, {})
+      vim.keymap.set('n', '<leader>lS', builtin.lsp_workspace_symbols, {})
     end,
   }
 }
