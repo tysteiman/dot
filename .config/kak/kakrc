@@ -1,9 +1,9 @@
-colorscheme gruvbox-dark
+colorscheme red-phoenix
 
-# define-command -docstring "Open file with all git files as options" git-files %{
-#     prompt -menu -shell-script-candidates %{ git ls-files } "Open Git File: " %{ e %val{text} }
-# }
-# alias global E git-files
+define-command -docstring "Open file with all git files as options" git-files %{
+    prompt -menu -shell-script-candidates %{ git ls-files } "Open Git File: " %{ e %val{text} }
+}
+alias global E git-files
 
 # line numbers if we want them
 # add-highlighter global/ number-lines -hlcursor
@@ -33,7 +33,6 @@ hook global InsertChar k %{ try %{
 #     tmux-terminal-vertical ff
 # }
 # 
-# unalias global sp spell
 # alias global sp horizontal-split
 
 # PRETTIER!
