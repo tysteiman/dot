@@ -1,5 +1,16 @@
 return {
   {
+    'folke/tokyonight.nvim',
+    priority = 1000,
+    lazy = true,
+    config = function()
+      require("tokyonight").setup({
+        style = "night",
+      })
+      vim.cmd[[colorscheme tokyonight]]
+    end,
+  },
+  {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
     lazy = true,
@@ -31,5 +42,13 @@ return {
       })
       vim.cmd [[colorscheme gruvbox]]
     end,
+  },
+  {
+    'uncleTen276/dark_flat.nvim',
+    lazy = true,
+    config = function()
+      vim.cmd [[ colorscheme dark_flat ]]
+    end,
   }
 }
+
