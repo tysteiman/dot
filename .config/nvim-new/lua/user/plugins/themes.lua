@@ -49,6 +49,13 @@ return {
     config = function()
       vim.cmd [[ colorscheme dark_flat ]]
     end,
+  },
+  {
+    'tanvirtin/monokai.nvim',
+    lazy = false,
+    config = function()
+      vim.cmd [[ colorscheme monokai ]]
+    end,
   }
 }
 
