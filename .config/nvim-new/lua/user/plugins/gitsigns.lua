@@ -1,10 +1,10 @@
 return {
     {
-        "windwp/nvim-ts-autotag",
+        "lewis6991/gitsigns.nvim",
         lazy = true,
         event = "BufRead",
         config = function()
-            require('nvim-ts-autotag').setup()
+            require('gitsigns').setup()
         end,
     },
 }
