@@ -1,4 +1,15 @@
 return {
+  --{
+  --  "jinzhongjia/LspUI.nvim",
+  --  branch = "legacy",
+  --  lazy = true,
+  --  event = "BufRead",
+  --  config = function()
+  --    require("LspUI").setup({
+  --      prompt = false,
+  --    })
+  --  end
+  --},
   {
     'neovim/nvim-lspconfig',
     lazy = true,
