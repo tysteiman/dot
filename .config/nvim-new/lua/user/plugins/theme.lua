@@ -1,5 +1,28 @@
 return {
   {
+    'zaldih/themery.nvim',
+    lazy = false,
+    config = function()
+      require("themery").setup({
+        themes = {
+          'tokyonight',
+          'gruvbox',
+          'onedark',
+          'kanagawa',
+          'monokai',
+          'oxocarbon',
+          'dark_flat',
+        },
+        themeConfigFile = "~/.config/nvim/lua/user/theme.lua",
+        livePreview = true,
+      })
+
+      require('user.theme')
+
+      vim.keymap.set("n", "<leader>t", "<CMD>Themery<CR>", { desc = "Open Themery" })
+    end,
+  },
+  {
     'folke/tokyonight.nvim',
     priority = 1000,
     lazy = true,
@@ -85,6 +108,14 @@ return {
       })
       vim.cmd [[ colorscheme kanagawa ]]
     end,
-  }
+  },
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    lazy = true,
+    config = function()
+      vim.cmd [[ colorscheme onedark ]]
+    end,
+  },
 }
 
