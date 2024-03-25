@@ -2,10 +2,10 @@ return {
   {
     'folke/tokyonight.nvim',
     priority = 1000,
-    lazy = true,
+    lazy = false,
     config = function()
       require("tokyonight").setup({
-        style = "night",
+        style = "moon",
       })
       vim.cmd[[colorscheme tokyonight]]
     end,
@@ -52,7 +52,7 @@ return {
   },
   {
     'tanvirtin/monokai.nvim',
-    lazy = false,
+    lazy = true,
     config = function()
       vim.cmd [[ colorscheme monokai ]]
     end,
