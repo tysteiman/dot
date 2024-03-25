@@ -2,7 +2,7 @@ return {
   {
     'folke/tokyonight.nvim',
     priority = 1000,
-    lazy = false,
+    lazy = true,
     config = function()
       require("tokyonight").setup({
         style = "night",
@@ -57,6 +57,33 @@ return {
     lazy = true,
     config = function()
       vim.cmd [[ colorscheme monokai ]]
+    end,
+  },
+  {
+    'nyoom-engineering/oxocarbon.nvim',
+    priority = 1000,
+    lazy = true,
+    config = function()
+      vim.cmd [[ colorscheme oxocarbon ]]
+    end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    lazy = true,
+    config = function()
+      require('kanagawa').setup({
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none"
+              }
+            }
+          }
+        }
+      })
+      vim.cmd [[ colorscheme kanagawa ]]
     end,
   }
 }
