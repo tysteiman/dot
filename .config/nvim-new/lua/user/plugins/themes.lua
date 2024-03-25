@@ -5,7 +5,7 @@ return {
     lazy = false,
     config = function()
       require("tokyonight").setup({
-        style = "moon",
+        style = "night",
       })
       vim.cmd[[colorscheme tokyonight]]
     end,
@@ -45,6 +45,7 @@ return {
   },
   {
     'uncleTen276/dark_flat.nvim',
+    priority = 1000,
     lazy = true,
     config = function()
       vim.cmd [[ colorscheme dark_flat ]]
@@ -52,6 +53,7 @@ return {
   },
   {
     'tanvirtin/monokai.nvim',
+    priority = 1000,
     lazy = true,
     config = function()
       vim.cmd [[ colorscheme monokai ]]
