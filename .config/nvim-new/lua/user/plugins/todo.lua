@@ -4,6 +4,7 @@ return {
   event = 'BufEnter',
   config = function()
     require('todo-comments').setup({
+      signs = false,
       highlight = {
         pattern = [[.*<(KEYWORDS)\s*]],
       },
