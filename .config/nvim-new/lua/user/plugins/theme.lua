@@ -19,7 +19,7 @@ return {
 
       require('user.theme')
 
-      vim.keymap.set("n", "<leader>t", "<CMD>Themery<CR>", { desc = "Open Themery" })
+      vim.keymap.set("n", "<leader>T", "<CMD>Themery<CR>", { desc = "Open Themery" })
     end,
   },
   {
