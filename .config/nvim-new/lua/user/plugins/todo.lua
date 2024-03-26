@@ -1,7 +1,7 @@
 return {
   'folke/todo-comments.nvim',
   lazy = true,
-  event = 'BufEnter',
+  event = 'BufRead',
   config = function()
     require('todo-comments').setup({
       signs = false,
