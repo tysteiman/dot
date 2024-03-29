@@ -1,20 +1,22 @@
 [user]
-    name = Tyler Steiman
-    email = tsteiman@switchboxinc.com
+  name = Tyler Steiman
+  email = tyler.steiman@madmobile.com
 [core]
-    editor = "vim"
-    excludesfile = "~/.gitignore"
+  editor = "vim"
+  excludesfile = "~/.gitignore"
 [alias]
-    co = checkout
-    st = status
-    br = branch
-    ft = fetch
-    ps = push
-    ct = commit
-    pl = pull
-    df = diff
-    lg = log --graph
+  co = checkout
+  st = status
+  br = branch
+  ft = fetch
+  ps = push
+  ct = commit
+  pl = pull
+  df = diff
+  lg = log --graph
 [pull]
-    rebase = false
+  rebase = false
 [rebase]
-    instructionFormat = %s [%an]
+  instructionFormat = %s [%an]
+[url "https://github.com/"]
+  insteadOf = git://github.com/
