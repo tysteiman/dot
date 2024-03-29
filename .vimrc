@@ -7,7 +7,7 @@ set hlsearch
 set ignorecase
 set smarttab
 set expandtab
-set laststatus=2
+set laststatus=0
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2

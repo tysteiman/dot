@@ -1,15 +1,12 @@
 return {
-    {
-        "nvim-lualine/lualine.nvim",
-        lazy = false,
-        config = function()
-            require('lualine').setup {
-                options = {
-                    icons_enabled = false,
-                    section_separators = { left = '', right = '' },
-                    component_separators = { left = '', right = '' },
-                }
-            }
-        end
-    },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
+    config = function()
+      require('lualine').setup {
+        options = { section_separators = '', component_separators = '' }
+      }
+    end,
+  }
 }
