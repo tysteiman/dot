@@ -25,9 +25,9 @@ return {
       vim.cmd 'LspUI hover'
     end, opts)
 
-    vim.keymap.set('n', '<space>ln', function()
-      vim.cmd 'LspUI reference'
-    end, opts)
+    -- vim.keymap.set('n', '<space>ln', function()
+    --   vim.cmd 'LspUI reference'
+    -- end, opts)
 
     vim.keymap.set('n', '<space>lr', function()
       vim.cmd 'LspUI rename'

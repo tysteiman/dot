@@ -50,7 +50,7 @@ return {
           -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
           -- vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, opts)
           -- vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, opts)
-          -- vim.keymap.set('n', '<leader>ln', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', '<leader>ln', vim.lsp.buf.references, opts)
           vim.keymap.set('n', '<space>lf', function()
             vim.lsp.buf.format { async = true }
           end, opts)
