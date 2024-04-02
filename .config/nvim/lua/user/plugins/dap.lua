@@ -54,25 +54,18 @@ return {
         },
       }
 
-      vim.keymap.set("n", "<leader>dt", function()
-        dap.toggle_breakpoint()
-      end)
+      local wk = require('which-key')
 
-      vim.keymap.set("n", "<leader>do", function()
-        dap.step_over()
-      end)
-
-      vim.keymap.set("n", "<leader>di", function()
-        dap.step_into()
-      end)
-
-      vim.keymap.set("n", "<leader>dc", function()
-        dap.continue()
-      end)
-
-      vim.keymap.set("n", "<leader>dq", function()
-        dap.disconnect()
-      end)
+      wk.register({
+        d = {
+          name = 'Debug',
+          t = { dap.toggle_breakpoint, 'Toggle Breakpoint', },
+          o = { dap.step_over, 'Step Over', },
+          i = { dap.step_into, 'Step Into', },
+          c = { dap.continue, 'Continue', },
+          q = { dap.disconnect, 'Disconnect', },
+        },
+      }, { prefix = '<leader>' })
     end,
   },
   {

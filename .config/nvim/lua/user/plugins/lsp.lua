@@ -10,6 +10,15 @@ return {
       lspconfig.tsserver.setup {}
       lspconfig.intelephense.setup {}
 
+      local wk = require('which-key')
+
+      wk.register({
+        l = {
+          name = 'LSP',
+          n = { vim.lsp.buf.references, 'References' },
+        },
+      }, { prefix = '<leader>' })
+
       -- Global mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
       -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
@@ -50,10 +59,10 @@ return {
           -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
           -- vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, opts)
           -- vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', '<leader>ln', vim.lsp.buf.references, opts)
-          vim.keymap.set('n', '<space>lf', function()
-            vim.lsp.buf.format { async = true }
-          end, opts)
+          -- vim.keymap.set('n', '<leader>ln', vim.lsp.buf.references, opts)
+          -- vim.keymap.set('n', '<space>lf', function()
+          --   vim.lsp.buf.format { async = true }
+          -- end, opts)
         end,
       })
     end,

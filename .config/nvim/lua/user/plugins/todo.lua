@@ -13,7 +13,14 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>tt", "<CMD>TodoQuickFix<CR>", { desc = "Open TODOs in project in quickfix" })
-    vim.keymap.set("n", "<leader>tT", "<CMD>TodoTelescope<CR>", { desc = "Open TODOs in project in telescope" })
+    local wk = require('which-key')
+
+    wk.register({
+      t = {
+        name = 'Todos',
+        t = { '<CMD>TodoQuickFix<CR>', 'View (QuickFix)' },
+        T = { '<CMD>TodoTelescope<CR>', 'View (Telescope)' },
+      },
+    }, { prefix = '<leader>' })
   end,
 }

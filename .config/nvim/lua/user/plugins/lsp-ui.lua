@@ -5,32 +5,10 @@ return {
   config = function()
     require("LspUI").setup({})
 
-    vim.keymap.set('n', '<space>la', function()
-      vim.cmd 'LspUI code_action'
-    end, opts)
-
-    vim.keymap.set('n', '<space>ld', function()
-      vim.cmd 'LspUI definition'
-    end, opts)
-
-    vim.keymap.set('n', '<space>lt', function()
-      vim.cmd 'LspUI type_definition'
-    end, opts)
-
-    vim.keymap.set('n', '<space>li', function()
-      vim.cmd 'LspUI implementation'
-    end, opts)
+    local wk = require('which-key')
 
     vim.keymap.set('n', 'K', function()
       vim.cmd 'LspUI hover'
-    end, opts)
-
-    -- vim.keymap.set('n', '<space>ln', function()
-    --   vim.cmd 'LspUI reference'
-    -- end, opts)
-
-    vim.keymap.set('n', '<space>lr', function()
-      vim.cmd 'LspUI rename'
     end, opts)
 
     vim.keymap.set('n', ']d', function()
@@ -40,5 +18,41 @@ return {
     vim.keymap.set('n', '[d', function()
       vim.cmd 'LspUI diagnostic prev'
     end, opts)
+
+    wk.register({
+      l = {
+        name = 'LSP',
+        a = {
+          function()
+            vim.cmd 'LspUI code_action'
+          end,
+          'Code Actions'
+        },
+        d = {
+          function()
+            vim.cmd 'LspUI definition'
+          end,
+          'Definition'
+        },
+        t = {
+          function()
+            vim.cmd 'LspUI type_definition'
+          end,
+          'Type Definition'
+        },
+        i = {
+          function()
+            vim.cmd 'LspUI implementation'
+          end,
+          'Implementation'
+        },
+        r = {
+          function()
+            vim.cmd 'LspUI rename'
+          end,
+          'Rename'
+        },
+      },
+    }, { prefix = '<leader>' })
   end
 }

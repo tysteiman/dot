@@ -10,23 +10,26 @@ return {
       harpoon:setup()
       -- REQUIRED
 
-      vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
-      vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+      local wk = require('which-key')
 
-      vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
-      vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
-      vim.keymap.set("n", "<leader>6", function() harpoon:list():select(6) end)
-      vim.keymap.set("n", "<leader>7", function() harpoon:list():select(7) end)
-      vim.keymap.set("n", "<leader>8", function() harpoon:list():select(8) end)
-      vim.keymap.set("n", "<leader>9", function() harpoon:list():select(9) end)
-      vim.keymap.set("n", "<leader>0", function() harpoon:list():select(10) end)
+      wk.register({
+        h = {
+          name = 'Harpoon',
+          a = { function() harpoon:list():append() end, 'Add file' },
+          h = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, 'View' },
 
-      -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev() end)
-      vim.keymap.set("n", "<leader>hn", function() harpoon:list():next() end)
+          ['1'] = { function() harpoon:list():select(1) end, 'Harpoon 1' },
+          ['2'] = { function() harpoon:list():select(1) end, 'Harpoon 2' },
+          ['3'] = { function() harpoon:list():select(1) end, 'Harpoon 3' },
+          ['4'] = { function() harpoon:list():select(1) end, 'Harpoon 4' },
+          ['5'] = { function() harpoon:list():select(1) end, 'Harpoon 5' },
+          ['6'] = { function() harpoon:list():select(1) end, 'Harpoon 6' },
+          ['7'] = { function() harpoon:list():select(1) end, 'Harpoon 7' },
+          ['8'] = { function() harpoon:list():select(1) end, 'Harpoon 8' },
+          ['9'] = { function() harpoon:list():select(1) end, 'Harpoon 9' },
+          ['0'] = { function() harpoon:list():select(1) end, 'Harpoon 10' },
+        },
+      }, { prefix = '<leader>' })
     end,
   }
 }

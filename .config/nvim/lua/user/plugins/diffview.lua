@@ -3,16 +3,15 @@ return {
   lazy = true,
   event = 'BufRead',
   config = function()
-    vim.keymap.set('n', '<space>gg', function()
-      vim.cmd 'DiffviewOpen'
-    end, opts)
+    local wk = require('which-key')
 
-    vim.keymap.set('n', '<space>gh', function()
-      vim.cmd 'DiffviewFileHistory'
-    end, opts)
-
-    vim.keymap.set('n', '<space>gq', function()
-      vim.cmd 'DiffviewClose'
-    end, opts)
+    wk.register({
+      g = {
+        name = 'Diff View',
+        g = { '<CMD>DiffviewOpen<CR>', 'Open', },
+        h = { '<CMD>DiffviewFileHistory<CR>', 'File History', },
+        q = { '<CMD>DiffviewClose<CR>', 'Close', },
+      },
+    }, { prefix = '<leader>' })
   end,
 }

@@ -13,6 +13,3 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('user.plugins')
-
-vim.api.nvim_set_keymap('n', '<leader>pp', ':Lazy<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ps', ':Lazy sync<cr>', { noremap = true, silent = true })
