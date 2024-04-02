@@ -18,6 +18,7 @@ set wildmenu
 set norelativenumber
 set nonumber
 set autoread
+set re=0
 
 " What is this?
 set rtp+=/opt/homebrew/opt/fzf
