@@ -14,7 +14,7 @@ return {
     wk.register({
       h = {
         name = 'Harpoon',
-        a = { function() harpoon:list():append() end, 'Add file' },
+        a = { function() harpoon:list():add() end, 'Add file' },
         h = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, 'View' },
 
         ['1'] = { function() harpoon:list():select(1) end, 'Harpoon 1' },
