@@ -1,4 +1,27 @@
 # theme = 'tokyonight_storm'
+theme = 'kanagawa'
 
 [editor]
-cursorline = true
+cursorline = false
+line-number = "relative"
+mouse = false
+scrolloff = 0
+bufferline = "multiple"
+idle-timeout = 100
+auto-format = true
+# rulers = [120]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[keys.insert]
+j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+
