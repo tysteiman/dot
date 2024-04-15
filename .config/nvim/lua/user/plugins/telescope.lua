@@ -21,5 +21,21 @@ return {
         S = { builtin.lsp_workspace_symbols, 'Workspace Symbols' },
       },
     }, { prefix = '<leader>' })
+
+    local telescope = require('telescope')
+
+    telescope.setup {
+      defaults = {
+        layout_strategy = "center",
+        layout_config = {
+          width = 0.4,
+          height = 0.3,
+          prompt_position = "top",
+        },
+        preview = false,
+        previewer = false,
+        sorting_strategy = "ascending",
+      }
+    }
   end,
 }
