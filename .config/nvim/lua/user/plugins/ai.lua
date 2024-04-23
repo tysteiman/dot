@@ -12,6 +12,7 @@ return {
       a = {
         name = 'AI',
         a = { '<CMD>GpChatNew<CR>', 'New GPT Chat' },
+        n = { '<CMD>GpChatNew<CR>', 'New GPT Chat' },
         d = { '<CMD>GpChatDelete<CR>', 'Delete GPT Chat' },
         f = { '<CMD>GpChatFinder<CR>', 'Find GPT Chat' },
         t = { '<CMD>GpChatToggle<CR>', 'Toggle GPT Chat' },
