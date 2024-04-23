@@ -55,5 +55,9 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
+if [[ -f ~/.openai.sh ]]; then
+  source ~/.openai.sh
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

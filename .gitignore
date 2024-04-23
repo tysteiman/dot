@@ -49,3 +49,6 @@ hardware-configuration.nix
 lazy-lock.json
 
 .recent-files
+
+.gp.md
+
