@@ -2,7 +2,7 @@ return {
   'neanias/everforest-nvim',
   name = 'everforest',
   priority = 1000,
-  lazy = false,
+  lazy = true,
   config = function()
     require('everforest').setup({
       -- soft, medium, hard

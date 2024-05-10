@@ -1,5 +1,6 @@
-# theme = 'tokyonight_storm'
-theme = 'kanagawa'
+theme = 'tokyonight_storm'
+# theme = 'kanagawa'
+# theme = 'boo_berry'
 
 [editor]
 cursorline = false
