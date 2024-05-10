@@ -22,6 +22,7 @@ return {
         p = { '<CMD>Lazy<CR>', 'Lazy' },
         s = { '<CMD>Lazy sync<CR>', 'Lazy Sync' },
       },
+      J = { '<CMD>%!cat % | jq --sort-keys<CR>', 'Sort JSON by keys' },
     }, { prefix = '<leader>' })
   end,
 }
