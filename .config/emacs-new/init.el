@@ -54,6 +54,10 @@
 (global-set-key (kbd "C-c o i") 'my/open-init)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c i") 'imenu)
+(global-set-key (kbd "M-<left>") 'windmove-left)
+(global-set-key (kbd "M-<right>") 'windmove-right)
+(global-set-key (kbd "M-<up>") 'windmove-up)
+(global-set-key (kbd "M-<down>") 'windmove-down)
 
 ;; HOOKS
 (add-hook 'compilation-filter-hook (lambda ()
