@@ -242,7 +242,7 @@
   :hook
   (php-mode . tree-sitter-hl-mode)
   (typescript-mode . tree-sitter-hl-mode)
-  (js2-mode . tree-sitter-hl-mode))
+  (java-mode . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs
   :after tree-sitter
