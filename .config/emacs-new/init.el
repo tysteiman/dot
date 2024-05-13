@@ -227,3 +227,25 @@
   :defer t)
 
 (use-package vterm :defer t)
+
+(use-package dap-mode
+  :bind
+  ("C-c d d" . dap-mode)
+  ("C-c d s" . dap-debug)
+  ("C-c d t" . dap-breakpoint-toggle)
+  ("C-c d c" . dap-continue)
+  ("C-c d n" . dap-next)
+  ("C-c d i" . dap-step-in)
+  ("C-c d o" . dap-step-out)
+  ("C-c d q" . dap-disconnect)
+  ("C-c d q" . dap-ui-locals)
+  :config
+  (dap-mode 1)
+  (require 'dap-node)
+  (dap-node-setup)
+  (fringe-mode 10)
+  (dap-ui-mode 1)
+  (dap-tooltip-mode 1)
+  (tooltip-mode 1)
+  (dap-ui-controls-mode 1)
+  (dap-ui-many-windows-mode 1))
