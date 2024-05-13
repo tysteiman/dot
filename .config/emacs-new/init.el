@@ -92,6 +92,10 @@
               lsp-keymap-prefix "C-c l")
   :hook (typescript-mode . lsp))
 
+(use-package lsp-java
+  :after lsp-mode
+  :hook (java-mode . lsp))
+
 (use-package projectile
   :config
   (projectile-mode 1)
