@@ -71,7 +71,8 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :mode ("\\.ts\\'" "\\.js\\'"))
 
 (use-package vertico
   :config
