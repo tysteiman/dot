@@ -2,7 +2,7 @@
 (setq gc-cons-threshold 100000000)
 (setq read-process-output-max (* 1024 1024))
 
-;; (load-theme 'modus-vivendi t)
+(load-theme 'modus-vivendi t)
 (set-cursor-color "red")
 (set-face-attribute 'default nil :height 150 :family "JetBrainsMono Nerd Font Mono")
 
@@ -36,7 +36,7 @@
 (setq-default truncate-lines t
               indent-tabs-mode nil
               c-basic-offset 4
-              js-indent-level 4
+              js-indent-level 2
               sgml-basic-offset 4)
 
 ;;; PUTS
@@ -168,6 +168,7 @@
   :hook (prog-mode . hl-todo-mode))
 
 (use-package doom-themes
+  :defer t
   :config (load-theme 'doom-tokyo-night t))
 
 (use-package rainbow-delimiters
