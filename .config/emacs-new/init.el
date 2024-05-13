@@ -142,7 +142,7 @@
       (message "No active region."))))
 
 (use-package doom-modeline
-  :init (setq doom-modeline-height 40
+  :init (setq doom-modeline-height 25
               doom-modeline-icon t
               doom-modeline-buffer-file-name-style 'file-name
               doom-modeline-vcs-max-length 50
