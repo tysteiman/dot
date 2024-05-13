@@ -31,7 +31,8 @@
       set-mark-command-repeat-pop t
       mark-ring-max 8
       global-mark-ring-max 8
-      native-comp-async-report-warnings-errors nil)
+      native-comp-async-report-warnings-errors nil
+      inhibit-startup-screen t)
 
 (setq-default truncate-lines t
               indent-tabs-mode nil
@@ -49,6 +50,22 @@
   "Open Emacs init.el file"
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
+
+(defun my/npm-test-project ()
+  "Test the current project"
+  (interactive)
+  (async-shell-command
+   "npm run test"
+   "*npm test*"
+   "*npm test ERROR*"))
+
+(defun my/npm-test-file ()
+  "Test the current file"
+  (interactive)
+  (async-shell-command
+   (concat "npm run test " buffer-file-name)
+   "*npm test*"
+   "*npm test ERROR*"))
 
 ;; KEYBINDINGS
 (global-set-key (kbd "C-c o i") 'my/open-init)
