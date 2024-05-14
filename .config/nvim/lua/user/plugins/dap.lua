@@ -48,9 +48,13 @@ return {
         {
           type = "pwa-node",
           request = "attach",
-          name = "Attach to Running Node Process",
-          processId = require("dap.utils").pick_process,
+          name = "Attach to NestJS Application",
+          -- processId = require("dap.utils").pick_process,
           cwd = "${workspaceFolder}",
+          port = 9229,
+          program = "${workspaceFolder}/node_modules/@nestjs/cli/bin/nest.js",
+          localRoot = "${workspaceFolder}",
+          remoteRoot = "${workspaceFolder}",
         },
       }
 
@@ -81,7 +85,7 @@ return {
     config = function()
       require("dap-vscode-js").setup({
         debugger_path = "/Users/tyler.steiman/.local/share/nvim/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
-        adapters = { 'pwa-node', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+        adapters = { 'node', 'pwa-node', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
       })
     end,
   },
