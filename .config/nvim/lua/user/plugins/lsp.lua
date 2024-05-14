@@ -9,6 +9,7 @@ return {
 
       lspconfig.tsserver.setup {}
       lspconfig.intelephense.setup {}
+      lspconfig.clangd.setup {}
 
        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
          vim.lsp.handlers.hover, {
