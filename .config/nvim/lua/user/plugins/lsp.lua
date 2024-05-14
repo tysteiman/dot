@@ -10,27 +10,9 @@ return {
       lspconfig.tsserver.setup {}
       lspconfig.intelephense.setup {}
 
-      local wk = require('which-key')
-
-      wk.register({
-        l = {
-          name = 'LSP',
-          n = { vim.lsp.buf.references, 'References' },
-        },
-      }, { prefix = '<leader>' })
-
-      -- Global mappings.
-      -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-      -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-      -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-      -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-      -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
          vim.lsp.handlers.hover, {
-           -- Use a sharp border with `FloatBorder` highlights
            border = "rounded",
-           -- add the title in hover float window
            title = "Docs"
          }
        )
@@ -47,22 +29,33 @@ return {
           -- See `:help vim.lsp.*` for documentation on any of the below functions
           local opts = { buffer = ev.buf }
           -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-          -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-          -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-          -- vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation, opts)
           -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
           -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
           -- vim.keymap.set('n', '<space>wl', function()
           --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           -- end, opts)
-          -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-          -- vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, opts)
-          -- vim.keymap.set({ 'n', 'v' }, '<leader>la', vim.lsp.buf.code_action, opts)
-          -- vim.keymap.set('n', '<leader>ln', vim.lsp.buf.references, opts)
           -- vim.keymap.set('n', '<space>lf', function()
           --   vim.lsp.buf.format { async = true }
           -- end, opts)
+          local wk = require('which-key')
+
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+
+          wk.register({
+            l = {
+              name = 'LSP',
+              a = { vim.lsp.buf.code_action, 'Code Action' },
+              d = { vim.lsp.buf.definition, 'Definition' },
+              t = { vim.lsp.buf.type_definition, 'Type Definition' },
+              i = { vim.lsp.buf.implementation, 'Implementation' },
+              n = { vim.lsp.buf.references, 'References' },
+              r = { vim.lsp.buf.rename, 'Rename' },
+              e = { vim.diagnostic.open_float, 'Open Diagnostic Float' },
+            },
+          }, { prefix = '<leader>' })
         end,
       })
     end,
