@@ -1,6 +1,6 @@
 return {
   'Robitx/gp.nvim',
-  name = 'ai',
+  name = 'gpt',
   lazy = true,
   event = 'VeryLazy',
   config = function()
