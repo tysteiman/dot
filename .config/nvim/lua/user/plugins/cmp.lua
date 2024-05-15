@@ -67,17 +67,15 @@ return {
 
     -- Set up lspconfig.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local lspconfig = require('lspconfig')
+    local langs = require('user.lsp')
 
-    require('lspconfig')['tsserver'].setup {
-      capabilities = capabilities
-    }
-
-    require('lspconfig')['intelephense'].setup {
-      capabilities = capabilities
-    }
-
-    require('lspconfig')['clangd'].setup {
-      capabilities = capabilities
-    }
+    -- loop over lsps we want, and configure them
+    -- we only do lsp setup here since we don't want lsp without cmp anyways...
+    for _, v in ipairs(langs) do
+      lspconfig[v].setup {
+        capabilities = capabilities
+      }
+    end
   end,
 }

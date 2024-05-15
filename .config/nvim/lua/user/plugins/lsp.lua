@@ -6,10 +6,7 @@ return {
     config = function()
       -- Setup language servers.
       local lspconfig = require('lspconfig')
-
-      lspconfig.tsserver.setup {}
-      lspconfig.intelephense.setup {}
-      lspconfig.clangd.setup {}
+      local langs = require('user.lsp')
 
        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
          vim.lsp.handlers.hover, {

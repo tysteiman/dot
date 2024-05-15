@@ -1,0 +1,5 @@
+return {
+  'tsserver',
+  'intelephense',
+  'clangd',
+}
