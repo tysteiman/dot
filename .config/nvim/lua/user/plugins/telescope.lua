@@ -16,7 +16,6 @@ return {
       },
       l = {
         name = 'LSP',
-        i = { builtin.lsp_implementations, 'Implementations' },
         s = { builtin.lsp_document_symbols, 'Document Symbols' },
         S = { builtin.lsp_workspace_symbols, 'Workspace Symbols' },
       },
