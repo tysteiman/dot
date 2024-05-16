@@ -4,7 +4,8 @@
 
 (load-theme 'modus-vivendi t)
 (set-cursor-color "red")
-(set-face-attribute 'default nil :height 150 :family "JetBrainsMono Nerd Font Mono")
+;;(set-face-attribute 'default nil :height 150 :family "JetBrainsMono Nerd Font Mono")
+(set-face-attribute 'default nil :height 160 :family "GoMono Nerd Font Mono")
 
 (column-number-mode)
 (display-time-mode)
@@ -106,7 +107,8 @@
 
 (use-package lsp-mode
   :init (setq lsp-headerline-breadcrumb-enable nil
-              lsp-keymap-prefix "C-c l")
+              lsp-keymap-prefix "C-c l"
+              lsp-enable-dap-auto-configure nil)
   :hook (typescript-mode . lsp))
 
 (use-package lsp-java
@@ -189,10 +191,6 @@
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
 
-(use-package doom-themes
-  :defer t
-  :config (load-theme 'doom-tokyo-night t))
-
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -250,18 +248,9 @@
 
 (use-package vterm :defer t)
 
-(use-package dap-mode
-  :bind
-  ("C-c d d" . dap-mode)
-  ("C-c d s" . dap-debug)
-  ("C-c d t" . dap-breakpoint-toggle)
-  ("C-c d c" . dap-continue)
-  ("C-c d n" . dap-next)
-  ("C-c d i" . dap-step-in)
-  ("C-c d o" . dap-step-out)
-  ("C-c d q" . dap-disconnect)
-  ("C-c d q" . dap-ui-locals)
-  :config
+(defun my/dap ()
+  "Launch dap mode"
+  (interactive)
   (dap-mode 1)
   (require 'dap-node)
   (dap-node-setup)
@@ -271,3 +260,17 @@
   (tooltip-mode 1)
   (dap-ui-controls-mode 1)
   (dap-ui-many-windows-mode 1))
+
+(use-package dap-mode
+  :defer t
+  :bind
+  ("C-c d d" . my/dap)
+  (:map dap-mode-map
+        ("C-c d s" . dap-debug)
+        ("C-c d t" . dap-breakpoint-toggle)
+        ("C-c d c" . dap-continue)
+        ("C-c d n" . dap-next)
+        ("C-c d i" . dap-step-in)
+        ("C-c d o" . dap-step-out)
+        ("C-c d q" . dap-disconnect)
+        ("C-c d q" . dap-ui-locals)))
