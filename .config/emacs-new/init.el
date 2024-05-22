@@ -47,13 +47,14 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 
+;; DEFUNS
 (defun my/open-init ()
   "Open Emacs init.el file"
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
 
 (defun my/npm-test-project ()
-  "Test the current project"
+  "Test the current project using npm run test"
   (interactive)
   (async-shell-command
    "npm run test"
@@ -61,7 +62,7 @@
    "*npm test ERROR*"))
 
 (defun my/npm-test-file ()
-  "Test the current file"
+  "Test the current file using npm run test <file>"
   (interactive)
   (async-shell-command
    (concat "npm run test " buffer-file-name)
