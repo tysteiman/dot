@@ -3,6 +3,7 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local builtin = require('telescope.builtin')
+    local themes = require('telescope.themes')
 
     local wk = require('which-key')
 
@@ -11,7 +12,9 @@ return {
         name = 'Find',
         f = { builtin.git_files, 'Git Files' },
         F = { builtin.find_files, 'All Files' },
-        g = { builtin.live_grep, 'Grep' },
+        g = { function()
+          builtin.live_grep(themes.get_ivy({}))
+        end, 'Grep' },
         b = { builtin.buffers, 'Buffers' },
       },
       l = {
