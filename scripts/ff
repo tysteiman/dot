@@ -6,11 +6,4 @@ if [ ! $FILE ]; then
     exit 1
 fi
 
-# TODO i'd like to build a larger system that we can revisit files within a given project.
-# Then, write something that could open fzf for recent files... really just writing to a recents
-# file for projects that every time we're in a project we can view recents... shouldn't be hard.
-
-# add file to recent files
-# echo $FILE >> .recent-files
-
 $EDITOR $FILE
