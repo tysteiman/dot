@@ -3,9 +3,9 @@
 (setq read-process-output-max (* 1024 1024))
 
 (load-theme 'modus-vivendi t)
-(set-cursor-color "red")
+(set-cursor-color "yellow")
 ;;(set-face-attribute 'default nil :height 150 :family "JetBrainsMono Nerd Font Mono")
-(set-face-attribute 'default nil :height 160 :family "GoMono Nerd Font Mono")
+(set-face-attribute 'default nil :height 150 :family "GoMono Nerd Font Mono")
 
 (column-number-mode)
 (display-time-mode)
@@ -86,6 +86,7 @@
                             (setq show-trailing-whitespace t)))
 
 ;; PACKAGES
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
@@ -94,6 +95,8 @@
   :mode ("\\.ts\\'" "\\.js\\'"))
 
 (use-package vertico
+  :init
+  (setq vertico-count 10)
   :config
   (vertico-mode 1))
 
