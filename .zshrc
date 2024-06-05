@@ -33,6 +33,7 @@ alias dcs="docker-compose stop"
 alias lv="lvim"
 alias nnvim="nvim -u NONE"
 alias nv="nvim"
+alias nvz="nvim ~/.zshrc"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
