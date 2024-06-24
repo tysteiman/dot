@@ -7,6 +7,8 @@ return {
     "hrsh7th/nvim-cmp",
   },
   config = function()
-    require("codeium").setup()
+    require("codeium").setup({
+      enable_chat = true,
+    })
   end,
 }
