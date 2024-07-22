@@ -11,7 +11,8 @@ return {
     local wk = require('which-key')
 
     wk.setup({
-      window = {
+      notify = false,
+      win = {
         border = 'single',
       },
     })
