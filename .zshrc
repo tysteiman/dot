@@ -21,9 +21,11 @@ alias gl="git log --graph --decorate"
 alias gf="git fetch --all"
 alias grep="grep --color"
 alias lg="lazygit"
-alias ls="exa"
-alias ll="ls -lahF --git --icons"
-alias cat="bat --theme TwoDark"
+alias ls="ls --color"
+alias ll="ls --color -lah"
+# alias ls="exa"
+# alias ll="ls -lahF --git --icons"
+# alias cat="bat --theme TwoDark"
 alias vff="EDITOR=vim ff"
 alias vfa="EDITOR=vim fa"
 alias kff="EDITOR=kak ff"
@@ -45,6 +47,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Our dot scripts
 export PATH=~/dot/scripts:$PATH
+
+# Doom Emacs
+export PATH=~/.config/emacs/bin:$PATH
 
 # Lunarvim bin directory
 export PATH=~/.local/bin:$PATH
