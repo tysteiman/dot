@@ -1,6 +1,6 @@
 return {
   'ellisonleao/gruvbox.nvim',
-  lazy = true,
+  lazy = false,
   priority = 1000,
   config = function()
     require("gruvbox").setup({
@@ -10,6 +10,9 @@ return {
         comments = false,
         operators = false,
         folds = false,
+      },
+      overrides = {
+        SignColumn = { bg = "" },
       },
     })
 
