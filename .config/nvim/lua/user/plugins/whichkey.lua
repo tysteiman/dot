@@ -15,6 +15,9 @@ return {
       win = {
         border = 'single',
       },
+      icons = {
+        mappings = false,
+      },
     })
 
     wk.register({
