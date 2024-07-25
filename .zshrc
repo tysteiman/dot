@@ -34,6 +34,7 @@ alias lv="lvim"
 alias nnvim="nvim -u NONE"
 alias nv="nvim"
 alias nvz="nvim ~/.zshrc"
+alias hh="tail -r ~/.zsh_history | fzf --reverse --border --height 20 | zsh"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
