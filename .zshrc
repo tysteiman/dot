@@ -29,27 +29,18 @@ alias cat="bat"
 alias vff="EDITOR=vim ff"
 alias vfa="EDITOR=vim fa"
 alias kff="EDITOR=kak ff"
-alias lv="lvim"
 alias nv="nvim"
 alias nvz="nvim ~/.zshrc"
 alias hh="tail -r ~/.zsh_history | fzf --reverse --border --height 20 | zsh"
+alias now="date +%m-%d-%y-%H-%M"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Chef
-# export PATH=/opt/chef-workstation/bin/:$PATH
-
 # Our dot scripts
 export PATH=~/dot/scripts:$PATH
-
-# Doom Emacs
-export PATH=~/.config/emacs/bin:$PATH
-
-# Lunarvim bin directory
-export PATH=~/.local/bin:$PATH
 
 # Load mm aws functions
 source ~/scripts/mm-functions.sh
