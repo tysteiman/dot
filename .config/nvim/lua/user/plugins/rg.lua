@@ -1,6 +1,7 @@
 return {
   'duane9/nvim-rg',
-  lazy = false,
+  lazy = true,
+  event = "VeryLazy",
   config = function()
     local wk = require('which-key')
 
