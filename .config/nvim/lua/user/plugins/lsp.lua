@@ -2,7 +2,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = true,
-    event = "BufRead",
+    event = "BufEnter",
     config = function()
       -- Setup language servers.
       local lspconfig = require('lspconfig')

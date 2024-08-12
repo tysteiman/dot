@@ -27,6 +27,20 @@ return {
     }, { prefix = '<leader>' })
 
     local telescope = require('telescope')
+
+    local center_layout = {
+      width = 0.4,
+      height = 0.3,
+      prompt_position = "top",
+    }
+
+    local custom_picker = {
+      preview = false,
+      previewer = false,
+      layout_strategy = "center",
+      layout_config = center_layout,
+    }
+
     telescope.setup({
       defaults = {
         layout_config = {
@@ -34,7 +48,12 @@ return {
           prompt_position = "top",
         },
         sorting_strategy = "ascending",
-      }
+      },
+      pickers = {
+        git_files = custom_picker,
+        find_files = custom_picker,
+        buffers = custom_picker,
+      },
     })
 
     -- telescope.setup {

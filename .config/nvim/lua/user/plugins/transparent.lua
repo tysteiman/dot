@@ -1,6 +1,6 @@
 return {
   'xiyaowong/transparent.nvim',
-  lazy = false,
+  lazy = true,
   config = function()
     require('transparent').setup()
     vim.cmd('TransparentEnable')

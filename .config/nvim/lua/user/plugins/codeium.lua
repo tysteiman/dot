@@ -1,7 +1,7 @@
 return {
   "Exafunction/codeium.nvim",
   lazy = true,
-  event = 'BufRead',
+  event = 'BufEnter',
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",

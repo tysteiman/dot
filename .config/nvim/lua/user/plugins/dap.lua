@@ -1,7 +1,7 @@
 return {
   'mfussenegger/nvim-dap',
   lazy = true,
-  event = "BufRead *.ts",
+  event = "BufEnter *.ts",
   priority = 2,
   config = function()
     local dap = require('dap')

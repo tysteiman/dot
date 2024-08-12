@@ -1,7 +1,7 @@
 return {
   "rcarriga/nvim-dap-ui",
   lazy = true,
-  event = "BufRead *.ts",
+  event = "BufEnter *.ts",
   dependencies = {"nvim-neotest/nvim-nio"},
   priority = 1,
   config = function()

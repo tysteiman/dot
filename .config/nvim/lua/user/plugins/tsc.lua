@@ -1,7 +1,7 @@
 return {
   'dmmulroy/tsc.nvim',
   lazy = true,
-  event = "BufRead *.ts",
+  event = "BufEnter *.ts",
   config = function()
     require('tsc').setup()
 

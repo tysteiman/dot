@@ -1,7 +1,7 @@
 return {
   'hrsh7th/nvim-cmp',
   lazy = true,
-  event = "BufRead",
+  event = "BufEnter",
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',

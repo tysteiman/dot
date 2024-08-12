@@ -1,7 +1,7 @@
 return {
   'johnfrankmorgan/whitespace.nvim',
   lazy = true,
-  event = 'BufRead',
+  event = 'BufEnter',
   config = function()
     -- setup
     local ws = require('whitespace-nvim')

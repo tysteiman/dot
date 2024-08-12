@@ -2,13 +2,13 @@ return {
   {
     "microsoft/vscode-js-debug",
     lazy = true,
-    event = "BufRead *.ts",
+    event = "BufEnter *.ts",
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out && git checkout package-lock.json",
   },
   {
     "mxsdev/nvim-dap-vscode-js",
     lazy = true,
-    event = "BufRead *.ts",
+    event = "BufEnter *.ts",
     config = function()
       require("dap-vscode-js").setup({
         debugger_path = "/Users/tyler.steiman/.local/share/nvim/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.

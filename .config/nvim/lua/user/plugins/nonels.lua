@@ -1,7 +1,7 @@
 return {
   'nvimtools/none-ls.nvim',
   lazy = true,
-  event = "BufRead *.ts",
+  event = "BufEnter *.ts",
   config = function()
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     local null_ls = require("null-ls")
