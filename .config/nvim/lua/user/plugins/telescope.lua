@@ -31,8 +31,8 @@ return {
     local telescope = require('telescope')
 
     local center_layout = {
-      width = 0.4,
-      height = 0.3,
+      width = 0.5,
+      height = 0.6,
       prompt_position = "top",
     }
 
