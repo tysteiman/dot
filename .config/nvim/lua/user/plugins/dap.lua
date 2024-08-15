@@ -1,10 +1,31 @@
 return {
   'mfussenegger/nvim-dap',
   lazy = true,
-  event = "BufEnter *.ts",
+  event = {
+    "BufEnter *.ts",
+    "BufEnter *.php",
+  },
   priority = 2,
   config = function()
     local dap = require('dap')
+
+    dap.adapters.php = {
+      type = 'executable',
+      command = 'node',
+      args = {os.getenv('HOME') .. '/.local/share/nvim/lazy/vscode-php-debug'}
+    }
+
+    dap.configurations.php = {
+      {
+        type = 'php',
+        request = 'launch',
+        name = 'PHP: Attach to XDebug',
+        port = 9003,
+        pathMappings = {
+          ['/var/www'] = '${workspaceFolder}', -- Adjust as necessary
+        },
+      },
+    }
 
     dap.configurations["typescript"] = {
       {
