@@ -1,7 +1,10 @@
 return {
   "rcarriga/nvim-dap-ui",
   lazy = true,
-  event = "BufEnter *.ts",
+  event = {
+    "BufEnter *.ts",
+    "BufEnter *.php",
+  },
   dependencies = {"nvim-neotest/nvim-nio"},
   priority = 1,
   config = function()
