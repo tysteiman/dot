@@ -3,6 +3,7 @@ return {
   lazy = true,
   event = {
     "BufEnter *.ts",
+    "BufEnter *.js",
     "BufEnter *.php",
   },
   dependencies = {"nvim-neotest/nvim-nio"},
