@@ -1,5 +1,6 @@
 return {
-  'tsserver',
+  -- 'tsserver',
+  'ts_ls',
   'intelephense',
   'clangd',
   'emmet_language_server',
