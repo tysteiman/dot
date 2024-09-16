@@ -16,10 +16,9 @@ return {
     local wk = require('which-key')
 
     wk.register({
-      t = {
-        name = 'Todos',
-        t = { '<CMD>TodoQuickFix<CR>', 'View (QuickFix)' },
-        T = { '<CMD>TodoTelescope<CR>', 'View (Telescope)' },
+      f = {
+        t = { '<CMD>TodoQuickFix<CR>', 'Find TODO (QuickFix)' },
+        T = { '<CMD>TodoTelescope<CR>', 'find TODO (Telescope)' },
       },
     }, { prefix = '<leader>' })
   end,
