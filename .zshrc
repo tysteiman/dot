@@ -41,6 +41,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Our dot scripts
 export PATH=~/dot/scripts:$PATH
+export PATH=/Users/tyler.steiman/.ghcup/ghc/9.4.8/bin:$PATH
 
 # Load mm aws functions
 source ~/scripts/mm-functions.sh

@@ -23,20 +23,20 @@ return {
     }
 
     dap.configurations["typescript"] = {
-      {
-        type = "pwa-node",
-        request = "launch",
-        name = "Launch Nest App",
-        runtimeExecutable = "npm",
-        runtimeArgs = {
-          "run",
-          "start:debug",
-        },
-        rootPath = "${workspaceFolder}",
-        cwd = "${workspaceFolder}",
-        console = "integratedTerminal",
-        internalConsoleOptions = "neverOpen",
-      },
+      -- {
+      --   type = "pwa-node",
+      --   request = "launch",
+      --   name = "Launch Nest App",
+      --   runtimeExecutable = "npm",
+      --   runtimeArgs = {
+      --     "run",
+      --     "start:debug",
+      --   },
+      --   rootPath = "${workspaceFolder}",
+      --   cwd = "${workspaceFolder}",
+      --   console = "integratedTerminal",
+      --   internalConsoleOptions = "neverOpen",
+      -- },
       {
         type = "pwa-node",
         request = "launch",
@@ -79,33 +79,7 @@ return {
       },
     }
 
-    dap.configurations["javascript"] = {
-      {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach to Node Application",
-        cwd = "${workspaceFolder}",
-        port = 9229,
-        -- program = "${workspaceFolder}/node_modules/@nestjs/cli/bin/nest.js",
-        localRoot = "${workspaceFolder}",
-        remoteRoot = "${workspaceFolder}",
-      },
-      {
-        type = "pwa-node",
-        request = "attach",
-        name = "Attach to Node Application (9230)",
-        cwd = "${workspaceFolder}",
-        port = 9230,
-        -- program = "${workspaceFolder}/node_modules/@nestjs/cli/bin/nest.js",
-        program = "${workspaceFolder}/src/index.js",
-        remoteRoot = "/opt/madmobile/domain/ua-menu-admin/standalone",
-        localRoot = "${workspaceFolder}",
-        remoteRoot = "${workspaceFolder}",
-      },
-    }
-
     local wk = require('which-key')
-
     wk.register({
       d = {
         name = 'Debug',

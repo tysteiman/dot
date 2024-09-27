@@ -1,6 +1,6 @@
 # theme = 'tokyonight_storm'
 # theme = 'horizon-dark'
-# theme = 'kanagawa'
+theme = 'kanagawa'
 # theme = 'boo_berry'
 
 [editor]
