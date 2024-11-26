@@ -33,6 +33,7 @@ alias nv="nvim"
 alias nvz="nvim ~/.zshrc"
 alias hh="tail -r ~/.zsh_history | fzf --reverse --border --height 20 | zsh"
 alias now="date +%m-%d-%y-%H-%M"
+alias tn="tmux new -s"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
