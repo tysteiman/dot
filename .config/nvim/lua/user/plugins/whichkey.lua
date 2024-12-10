@@ -27,7 +27,7 @@ return {
         B = { function() require('barbar') end, 'Enable Tab Bar' },
         n = { function() vim.cmd('tabnext') end, 'Next Tab' },
         p = { function() vim.cmd('tabprevious') end, 'Previous Tab' },
-        q = { function() vim.cmd('tabclose') end, 'New Tab' },
+        q = { function() vim.cmd('tabclose') end, 'Close Tab' },
         o = { function() vim.cmd('tabonly') end, 'Close All Other Tabs' },
       },
       p = {
