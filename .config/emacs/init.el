@@ -122,6 +122,9 @@
 (use-package swiper
   :bind (("C-M-/" . swiper-thing-at-point)))
 
+(use-package ef-themes
+  :config (load-theme 'ef-autumn t))
+
 ;; TODO this will install LSP and all types of shit, maybe check out dape...
 ;; (use-package dap-mode
 ;;   :defer t
