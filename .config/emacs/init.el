@@ -1,6 +1,5 @@
 ;; Startup
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load-theme 'deeper-blue t)
 (set-face-attribute 'default nil :height 160 :family "0xProto Nerd Font Mono")
 
 ;; Configure Emacs
