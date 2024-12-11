@@ -125,6 +125,9 @@
 (use-package ef-themes
   :config (load-theme 'ef-autumn t))
 
+(use-package diredfl
+  :config (diredfl-global-mode 1))
+
 ;; TODO this will install LSP and all types of shit, maybe check out dape...
 ;; (use-package dap-mode
 ;;   :defer t
