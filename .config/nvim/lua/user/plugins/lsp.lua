@@ -53,6 +53,7 @@ return {
               r = { vim.lsp.buf.rename, 'Rename' },
               e = { vim.diagnostic.open_float, 'Open Diagnostic Float' },
             },
+            F = { function() vim.lsp.buf.format() end, 'Format Buffer with LSP' },
           }, { prefix = '<leader>' })
         end,
       })

@@ -15,4 +15,4 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
--- vim.cmd.colorscheme('retrobox')
+-- vim.cmd.colorscheme('delek')

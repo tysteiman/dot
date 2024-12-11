@@ -79,6 +79,20 @@ return {
       },
     }
 
+    dap.configurations["javascript"] = {
+      {
+        type = "pwa-node",
+        request = "attach",
+        name = "Attach to UA (Port 9230)",
+        port = 9230,
+        program = "${workspaceFolder}/src/index.js",
+        address = "localhost",
+        localRoot = "${workspaceFolder}",
+        remoteRoot = "/opt/madmobile/domain/ua-menu-admin/standalone",
+        skipFiles = {"<node_internals>/**"},
+      },
+    }
+
     local wk = require('which-key')
     wk.register({
       d = {
