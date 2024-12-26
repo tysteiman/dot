@@ -86,7 +86,8 @@
 
 (use-package typescript-mode
   :init (setq-default typescript-indent-level 2)
-  :mode ("\\.ts\\'" "\\.js\\'"))
+  :mode ("\\.ts\\'" "\\.js\\'")
+  :hook (typescript-mode . tree-sitter-hl-mode))
 
 (use-package conf-mode
   :mode ("\\.env\\'"))
@@ -121,11 +122,13 @@
 (use-package swiper
   :bind (("C-M-/" . swiper-thing-at-point)))
 
-(use-package ef-themes
-  :config (load-theme 'ef-autumn t))
+(use-package ef-themes :defer t)
 
 (use-package diredfl
   :config (diredfl-global-mode 1))
+
+(use-package tree-sitter-langs
+  :defer t)
 
 ;; TODO this will install LSP and all types of shit, maybe check out dape...
 ;; (use-package dap-mode
