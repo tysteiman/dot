@@ -1,6 +1,7 @@
 ;; Startup
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(set-face-attribute 'default nil :height 160 :family "0xProto Nerd Font Mono")
+(set-face-attribute 'default nil :height 150 :family "0xProto Nerd Font Mono")
+;; (set-face-attribute 'default nil :height 140 :family "Monaco")
 
 ;; Configure Emacs
 (column-number-mode)
@@ -89,6 +90,10 @@
   :mode ("\\.ts\\'" "\\.js\\'")
   :hook (typescript-mode . tree-sitter-hl-mode))
 
+(use-package json-mode
+  :defer t
+  :hook (json-mode . tree-sitter-hl-mode))
+
 (use-package conf-mode
   :mode ("\\.env\\'"))
 
@@ -127,8 +132,9 @@
 (use-package diredfl
   :config (diredfl-global-mode 1))
 
-(use-package tree-sitter-langs
-  :defer t)
+(use-package tree-sitter-langs :defer t)
+
+(use-package corfu :defer t)
 
 ;; TODO this will install LSP and all types of shit, maybe check out dape...
 ;; (use-package dap-mode
