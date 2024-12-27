@@ -41,6 +41,8 @@
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-j") 'windmove-down)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-M-1") 'delete-other-windows)
+(global-set-key (kbd "C-M-0") 'delete-window)
 
 ;; Hooks
 (add-hook 'compilation-filter-hook (lambda ()
@@ -85,14 +87,19 @@
 (setq use-package-always-ensure t)
 (setq use-package-verbose t)
 
+;; (use-package dap-mode
+;;   :defer t
+;;   :config
+;;   (require 'dap-node)
+;;   (dap-node-setup)
+;;   :hook
+;;   (dap-mode . dap-ui-mode))
+
 (use-package typescript-mode
   :init (setq-default typescript-indent-level 2)
-  :mode ("\\.ts\\'" "\\.js\\'")
-  :hook (typescript-mode . tree-sitter-hl-mode))
+  :mode ("\\.ts\\'" "\\.js\\'"))
 
-(use-package json-mode
-  :defer t
-  :hook (json-mode . tree-sitter-hl-mode))
+(use-package json-mode :defer t)
 
 (use-package conf-mode
   :mode ("\\.env\\'"))
@@ -130,17 +137,28 @@
 (use-package ef-themes :defer t)
 
 (use-package diredfl
-  :config (diredfl-global-mode 1))
+  :defer t
+  :hook (dired-mode . diredfl-mode))
+
+(use-package tree-sitter
+  :defer t
+  :hook
+  (prog-mode . tree-sitter-hl-mode)
+  (json-mode . tree-sitter-hl-mode))
 
 (use-package tree-sitter-langs :defer t)
 
 (use-package corfu :defer t)
 
-;; TODO this will install LSP and all types of shit, maybe check out dape...
-;; (use-package dap-mode
-;;   :defer t
-;;   :config
-;;   (require 'dap-node)
-;;   (dap-node-setup)
-;;   :hook
-;;   (dap-mode . dap-ui-mode))
+(use-package buffer-move
+  :bind (("M-L" . buf-move-right)
+         ("M-H" . buf-move-left)
+         ("M-K" . buf-move-up)
+         ("M-J" . buf-move-down)))
+
+;; (use-package doom-modeline
+;;   :init (setq doom-modeline-height 30
+;;               doom-modeline-vcs-max-length 60
+;;               doom-modeline-buffer-file-name-style "file-name"
+;;               doom-modeline-time-icon nil)
+;;   :config (doom-modeline-mode t))
