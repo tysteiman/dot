@@ -36,6 +36,7 @@
               js-indent-level 2
               sgml-basic-offset 2)
 
+;; Keybindings
 (global-set-key (kbd "M-h") 'windmove-left)
 (global-set-key (kbd "M-l") 'windmove-right)
 (global-set-key (kbd "M-k") 'windmove-up)
@@ -43,6 +44,9 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-M-1") 'delete-other-windows)
 (global-set-key (kbd "C-M-0") 'delete-window)
+(global-set-key (kbd "C-M-3") 'split-window-right)
+(global-set-key (kbd "C-M-2") 'split-window-below)
+(global-set-key (kbd "C-c o i") 'my/config-open)
 
 ;; Hooks
 (add-hook 'compilation-filter-hook (lambda ()
@@ -55,7 +59,13 @@
                            (setq truncate-lines nil)))
 
 (add-hook 'markdown-mode-hook (lambda ()
-                            (setq truncate-lines nil)))
+                                (setq truncate-lines nil)))
+
+;; Open Config
+(defun my/config-open ()
+  "Open init.el"
+  (interactive)
+  (find-file (concat user-emacs-directory "init.el")))
 
 ;; Git Blame
 (defun my/git-blame-line ()
@@ -81,19 +91,29 @@
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
 
+;; NPM Shortcuts
+(defun my/npm-test-file ()
+  "Run current file through npm run test <file> via async shell"
+  (interactive)
+  (async-shell-command
+   (concat
+    "npm run test "
+    (buffer-file-name))
+   "*npm test*"))
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 (setq use-package-verbose t)
 
-;; (use-package dap-mode
-;;   :defer t
-;;   :config
-;;   (require 'dap-node)
-;;   (dap-node-setup)
-;;   :hook
-;;   (dap-mode . dap-ui-mode))
+(use-package dap-mode
+  :defer t
+  :config
+  (require 'dap-node)
+  (dap-node-setup)
+  :hook
+  (dap-mode . dap-ui-mode))
 
 (use-package typescript-mode
   :init (setq-default typescript-indent-level 2)
@@ -134,7 +154,8 @@
 (use-package swiper
   :bind (("C-M-/" . swiper-thing-at-point)))
 
-(use-package ef-themes :defer t)
+(use-package ef-themes
+  :config (load-theme 'ef-dream t))
 
 (use-package diredfl
   :defer t
@@ -156,9 +177,19 @@
          ("M-K" . buf-move-up)
          ("M-J" . buf-move-down)))
 
-;; (use-package doom-modeline
-;;   :init (setq doom-modeline-height 30
-;;               doom-modeline-vcs-max-length 60
-;;               doom-modeline-buffer-file-name-style "file-name"
-;;               doom-modeline-time-icon nil)
-;;   :config (doom-modeline-mode t))
+(use-package emmet-mode
+  :defer t
+  :bind (("C-j" . emmet-expand-line)))
+
+(use-package evil
+  ;; for now only turn on evil for vterm for easier scrolling/searching/etc in terminals
+  :hook (vterm-mode . turn-on-evil-mode))
+
+(use-package doom-modeline
+  :init (setq doom-modeline-height 30
+              doom-modeline-vcs-max-length 60
+              doom-modeline-buffer-file-name-style "file-name"
+              doom-modeline-time-icon nil)
+  :config (doom-modeline-mode t))
+
+(use-package php-mode :defer t)
