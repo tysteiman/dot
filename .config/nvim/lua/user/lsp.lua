@@ -4,4 +4,5 @@ return {
   'intelephense',
   'clangd',
   'emmet_language_server',
+  'ruby_lsp',
 }
