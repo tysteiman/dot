@@ -1,7 +1,6 @@
 ;; Startup
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(set-face-attribute 'default nil :height 150 :family "0xProto Nerd Font Mono")
-;; (set-face-attribute 'default nil :height 140 :family "Monaco")
+(set-face-attribute 'default nil :height 130 :family "0xProto Nerd Font Mono")
 
 ;; Configure Emacs
 (column-number-mode)
@@ -154,8 +153,7 @@
 (use-package swiper
   :bind (("C-M-/" . swiper-thing-at-point)))
 
-(use-package ef-themes
-  :config (load-theme 'ef-dream t))
+(use-package ef-themes :defer t)
 
 (use-package diredfl
   :defer t
@@ -193,3 +191,20 @@
   :config (doom-modeline-mode t))
 
 (use-package php-mode :defer t)
+
+(use-package winum
+  :config (winum-mode)
+  :bind (("M-1" . winum-select-window-1)
+         ("M-2" . winum-select-window-2)
+         ("M-3" . winum-select-window-3)
+         ("M-4" . winum-select-window-4)
+         ("M-5" . winum-select-window-5)
+         ("M-6" . winum-select-window-6)
+         ("M-7" . winum-select-window-7)
+         ("M-8" . winum-select-window-8)
+         ("M-9" . winum-select-window-9)
+         ("M-0" . winum-select-window-0)))
+
+(use-package color-theme-sanityinc-tomorrow
+  :config (load-theme 'sanityinc-tomorrow-night t))
+
