@@ -1,6 +1,6 @@
 ;; Startup
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(set-face-attribute 'default nil :height 130 :family "0xProto Nerd Font Mono")
+(set-face-attribute 'default nil :height 180 :family "0xProto Nerd Font Mono")
 
 ;; Configure Emacs
 (column-number-mode)
@@ -153,7 +153,7 @@
 (use-package swiper
   :bind (("C-M-/" . swiper-thing-at-point)))
 
-(use-package ef-themes :defer t)
+;; (use-package ef-themes :defer t)
 
 (use-package diredfl
   :defer t
@@ -179,16 +179,12 @@
   :defer t
   :bind (("C-j" . emmet-expand-line)))
 
-(use-package evil
-  ;; for now only turn on evil for vterm for easier scrolling/searching/etc in terminals
-  :hook (vterm-mode . turn-on-evil-mode))
-
-(use-package doom-modeline
-  :init (setq doom-modeline-height 30
-              doom-modeline-vcs-max-length 60
-              doom-modeline-buffer-file-name-style "file-name"
-              doom-modeline-time-icon nil)
-  :config (doom-modeline-mode t))
+;; (use-package doom-modeline
+;;   :init (setq doom-modeline-height 30
+;;               doom-modeline-vcs-max-length 60
+;;               doom-modeline-buffer-file-name-style "file-name"
+;;               doom-modeline-time-icon nil)
+;;   :config (doom-modeline-mode t))
 
 (use-package php-mode :defer t)
 
@@ -205,6 +201,6 @@
          ("M-9" . winum-select-window-9)
          ("M-0" . winum-select-window-0)))
 
-(use-package color-theme-sanityinc-tomorrow
-  :config (load-theme 'sanityinc-tomorrow-night t))
+;; (use-package color-theme-sanityinc-tomorrow
+  ;; :config (load-theme 'sanityinc-tomorrow-night t))
 
