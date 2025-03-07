@@ -7,5 +7,6 @@ return {
       },
     })
     vim.api.nvim_set_keymap('n', '<leader>e', '<CMD>NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>E', '<CMD>NvimTreeFindFile<CR>', { noremap = true, silent = true })
   end,
 }
