@@ -7,7 +7,7 @@ fi
 
 setopt inc_append_history
 
-export EDITOR=vim
+export EDITOR=nvim
 
 alias c="clear"
 alias gs="git status"
@@ -35,6 +35,7 @@ alias hh="tail -r ~/.zsh_history | fzf --reverse --border --height 20 | zsh"
 alias now="date +%m-%d-%y-%H-%M"
 alias tn="tmux new -s"
 alias ddg="links duckduckgo.com"
+alias npm-legacy="npm install --verbose --legacy-peer-deps"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
