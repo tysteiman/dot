@@ -1,10 +1,12 @@
 return {
   'mfussenegger/nvim-dap',
-  commit = '7ff6936010b7222fea2caea0f67ed77f1b7c60dd',
+  -- commit = '7ff6936010b7222fea2caea0f67ed77f1b7c60dd',
   lazy = true,
   event = {
     "BufEnter *.ts",
     "BufEnter *.js",
+    "BufEnter *.tsx",
+    "BufEnter *.jsx",
     "BufEnter *.php",
   },
   priority = 2,
