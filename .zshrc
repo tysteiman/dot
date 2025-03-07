@@ -36,6 +36,7 @@ alias now="date +%m-%d-%y-%H-%M"
 alias tn="tmux new -s"
 alias ddg="links duckduckgo.com"
 alias npm-legacy="npm install --verbose --legacy-peer-deps"
+alias nvim-clear-cache="find ~/.local -type d -name 'nvim' | xargs rm -rf"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
