@@ -3,6 +3,11 @@
 # Select a json.package#scripts "run" command (with npm) after finding
 # one using fzf.
 
+if [[ ! -f package.json ]]; then
+  echo "No package.json in this directory, exiting."
+  exit 1
+fi
+
 SCRIPT=$(\
   cat package.json \
   | jq .scripts \
@@ -14,7 +19,7 @@ SCRIPT=$(\
 
 if [[ ! $SCRIPT ]]; then
   echo "No script selected, exiting."
-  exit 1
+  exit 2
 fi
 
 npm run $SCRIPT
