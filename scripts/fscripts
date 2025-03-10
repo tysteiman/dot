@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Select a json.package#scripts "run" command (with npm) after finding
+# one using fzf.
+
+SCRIPT=$(\
+  cat package.json \
+  | jq .scripts \
+  | tr "{}\"" " " \
+  | awk '{print $1}' \
+  | grep -v '^$' \
+  | fzf --reverse --border=rounded \
+)
+
+if [[ ! $SCRIPT ]]; then
+  echo "No script selected, exiting."
+  exit 1
+fi
+
+npm run $SCRIPT
