@@ -7,7 +7,7 @@ fi
 
 setopt inc_append_history
 
-export EDITOR=nvim
+export EDITOR=vim
 
 alias c="clear"
 alias gs="git status"
