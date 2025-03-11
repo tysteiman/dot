@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CUR=$(pwd)
+OUTPUT="$(find $HOME/proj -maxdepth 3 -name '.git' -exec realpath {}/../ \; | fzf --border=rounded --reverse --height 25)"
+
+if [ ! $OUTPUT ]; then
+  echo "No dir selected, exiting."
+  exit 1
+fi
+
+cd $OUTPUT && exec $SHELL
+
+cd $CUR
