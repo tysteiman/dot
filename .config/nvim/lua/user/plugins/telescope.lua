@@ -15,10 +15,8 @@ return {
         f = { builtin.git_files, 'Git Files' },
         F = { builtin.find_files, 'All Files' },
         g = { builtin.live_grep, 'Grep' },
-        -- g = { function()
-        --   builtin.live_grep(themes.get_ivy({}))
-        -- end, 'Grep' },
         b = { builtin.buffers, 'Buffers' },
+        s = { builtin.current_buffer_fuzzy_find, 'Find in Buffer' },
       },
       l = {
         name = 'LSP',
