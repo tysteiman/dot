@@ -45,12 +45,12 @@ return {
           wk.register({
             l = {
               name = 'LSP',
-              a = { vim.lsp.buf.code_action, 'Code Action' },
+              -- a = { vim.lsp.buf.code_action, 'Code Action' },
               d = { vim.lsp.buf.definition, 'Definition' },
               t = { vim.lsp.buf.type_definition, 'Type Definition' },
               i = { vim.lsp.buf.implementation, 'Implementation' },
               n = { vim.lsp.buf.references, 'References' },
-              r = { vim.lsp.buf.rename, 'Rename' },
+              -- r = { vim.lsp.buf.rename, 'Rename' },
               e = { vim.diagnostic.open_float, 'Open Diagnostic Float' },
             },
             F = { function() vim.lsp.buf.format() end, 'Format Buffer with LSP' },
