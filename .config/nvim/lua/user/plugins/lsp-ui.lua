@@ -1,17 +1,9 @@
 return {
   'jinzhongjia/LspUI.nvim',
   event = 'LspAttach',
-  config = function()
-    local ui = require('LspUI')
-    ui.setup()
-
-    local wk = require('which-key')
-    wk.register({
-      l = {
-        name = 'LSP',
-        a = { '<cmd>LspUI code_action<cr>', 'Code Action' },
-        r = { '<cmd>LspUI rename<cr>', 'Rename' },
-      },
-    }, { prefix = '<leader>' })
-  end,
+  opts = {},
+  keys = {
+    { '<leader>la', '<cmd>LspUI code_action<cr>', desc = 'Code Action' },
+    { '<leader>lr', '<cmd>LspUI rename<cr>', desc = 'Rename' },
+  },
 }

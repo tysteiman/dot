@@ -1,13 +1,13 @@
 return {
   'nvim-tree/nvim-tree.lua',
   event = 'VeryLazy',
-  config = function()
-    require("nvim-tree").setup({
-      view = {
-        width = 45,
-      },
-    })
-    vim.api.nvim_set_keymap('n', '<leader>e', '<CMD>NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<leader>E', '<CMD>NvimTreeFindFile<CR>', { noremap = true, silent = true })
-  end,
+  opts = {
+    view = {
+      width = 45,
+    },
+  },
+  keys = {
+    { '<leader>e', '<CMD>NvimTreeFindFileToggle<CR>', desc = 'Tree' },
+    { '<leader>E', '<CMD>NvimTreeFindFile<CR>', desc = 'Tree (Find File)' },
+  },
 }

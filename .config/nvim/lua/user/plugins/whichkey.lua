@@ -21,6 +21,7 @@ return {
     })
 
     wk.register({
+      a = { name = 'AI' },
       b = {
         name = 'Tabs',
         b = { function() vim.cmd('tabnew') end, 'New Tab' },
