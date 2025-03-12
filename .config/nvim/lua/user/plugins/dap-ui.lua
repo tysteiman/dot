@@ -4,6 +4,8 @@ return {
   event = {
     "BufEnter *.ts",
     "BufEnter *.js",
+    "BufEnter *.tsx",
+    "BufEnter *.jsx",
     "BufEnter *.php",
   },
   dependencies = {"nvim-neotest/nvim-nio"},

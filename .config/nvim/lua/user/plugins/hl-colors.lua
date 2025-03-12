@@ -5,7 +5,5 @@ return {
     'BufEnter *.css',
     'BufEnter *.scss',
   },
-  config = function()
-    require('nvim-highlight-colors').setup()
-  end,
+  opts = {},
 }
