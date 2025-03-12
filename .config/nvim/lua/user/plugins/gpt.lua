@@ -1,7 +1,6 @@
 return {
   'Robitx/gp.nvim',
   name = 'gpt',
-  event = 'VeryLazy',
   opts = {},
   keys = {
     { '<leader>an', '<CMD>GpChatNew<CR>', desc = 'New GPT Chat' },

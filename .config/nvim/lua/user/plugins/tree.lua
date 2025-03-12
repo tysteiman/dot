@@ -1,6 +1,5 @@
 return {
   'nvim-tree/nvim-tree.lua',
-  event = 'VeryLazy',
   opts = {
     view = {
       width = 45,
