@@ -1,6 +1,5 @@
 return {
   'nvimtools/none-ls.nvim',
-  lazy = true,
   event = {
     "BufEnter *.ts",
     "BufEnter *.tsx",

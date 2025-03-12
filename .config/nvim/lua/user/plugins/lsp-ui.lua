@@ -1,6 +1,5 @@
 return {
   'jinzhongjia/LspUI.nvim',
-  lazy = true,
   event = 'LspAttach',
   config = function()
     local ui = require('LspUI')

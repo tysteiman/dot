@@ -1,6 +1,5 @@
 return {
   'numToStr/Comment.nvim',
-  lazy = true,
   event = 'VeryLazy',
   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
   config = function()

@@ -1,7 +1,6 @@
 return {
   {
     "microsoft/vscode-js-debug",
-    lazy = true,
     event = {
       "BufEnter *.ts",
       "BufEnter *.js",
@@ -10,7 +9,6 @@ return {
   },
   {
     "mxsdev/nvim-dap-vscode-js",
-    lazy = true,
     event = {
       "BufEnter *.ts",
       "BufEnter *.js",

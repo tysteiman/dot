@@ -1,7 +1,6 @@
 return {
   'Robitx/gp.nvim',
   name = 'gpt',
-  lazy = true,
   event = 'VeryLazy',
   config = function()
     require("gp").setup()

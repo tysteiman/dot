@@ -1,6 +1,5 @@
 return {
   'windwp/nvim-ts-autotag',
-  lazy = true,
   event = {
     'BufRead *.tsx',
     'BufRead *.jsx',

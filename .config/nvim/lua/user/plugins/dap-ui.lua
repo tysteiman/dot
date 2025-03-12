@@ -1,6 +1,5 @@
 return {
   "rcarriga/nvim-dap-ui",
-  lazy = true,
   event = {
     "BufEnter *.ts",
     "BufEnter *.js",

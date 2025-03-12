@@ -1,6 +1,5 @@
 return {
   'dmmulroy/tsc.nvim',
-  lazy = true,
   event = {
     "BufEnter *.ts",
     "BufEnter *.tsx",
