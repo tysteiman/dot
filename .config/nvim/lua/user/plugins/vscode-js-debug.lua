@@ -1,10 +1,7 @@
 return {
   {
     "microsoft/vscode-js-debug",
-    event = {
-      "BufEnter *.ts",
-      "BufEnter *.js",
-    },
+    lazy = true,
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out && git checkout package-lock.json",
   },
   {
@@ -12,6 +9,8 @@ return {
     event = {
       "BufEnter *.ts",
       "BufEnter *.js",
+      "BufEnter *.tsx",
+      "BufEnter *.jsx",
     },
     config = function()
       require("dap-vscode-js").setup({
