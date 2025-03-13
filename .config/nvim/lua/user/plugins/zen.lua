@@ -1,6 +1,5 @@
 return {
   'folke/zen-mode.nvim',
-  event = 'VeryLazy',
   opts = {
     window = {
       width = .60,
@@ -9,4 +8,5 @@ return {
       tmux = { enabled = true },
     },
   },
+  keys = { { '<leader>Z', '<cmd>ZenMode<cr>', desc = 'Zen Mode' } },
 }
