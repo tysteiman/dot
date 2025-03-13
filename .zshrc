@@ -36,7 +36,7 @@ alias now="date +%m-%d-%y-%H-%M"
 alias tn="tmux new -s"
 alias ddg="links duckduckgo.com"
 alias npm-legacy="npm install --verbose --legacy-peer-deps"
-alias nvim-clear-cache="find ~/.local -type d -name 'nvim' | xargs rm -rf"
+alias nvim-clear-cache="rm -rf ~/.config/nvim/lazy-lock.json && find ~/.local -type d -name 'nvim' | xargs rm -rf"
 alias fsc="fscripts"
 alias sed="sed --follow-symlinks"
 
