@@ -1,8 +1,6 @@
 (provide 'my-settings)
 
 (set-face-attribute 'default nil :height 140)
-(load-theme 'wombat)
-(set-cursor-color "indianred")
 
 (column-number-mode)
 (display-time-mode)
