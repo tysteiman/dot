@@ -1,15 +1,19 @@
 -- use space for leader key
 vim.g.mapleader = " "
 
+local set = function(mode, key, action)
+  vim.api.nvim_set_keymap(mode, key, action, { noremap = true, silent = true, })
+end
+
 -- use jk instead of escape
-vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true, silent = true })
+set('i', 'jk', '<esc>')
 
 -- Quickfix
-vim.api.nvim_set_keymap('n', '<leader>j', '<CMD>cn<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>k', '<CMD>cp<CR>', { noremap = true, silent = true })
+set('n', '<leader>j', '<CMD>cn<CR>')
+set('n', '<leader>k', '<CMD>cp<CR>')
 
 -- Window navigation
-vim.api.nvim_set_keymap('n', '<c-h>', '<CMD>wincmd h<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-l>', '<CMD>wincmd l<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-k>', '<CMD>wincmd k<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<c-j>', '<CMD>wincmd j<CR>', { noremap = true, silent = true })
+set('n', '<c-h>', '<CMD>wincmd h<CR>')
+set('n', '<c-l>', '<CMD>wincmd l<CR>')
+set('n', '<c-k>', '<CMD>wincmd k<CR>')
+set('n', '<c-j>', '<CMD>wincmd j<CR>')
