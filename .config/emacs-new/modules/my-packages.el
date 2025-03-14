@@ -13,5 +13,7 @@
 (use-package swiper
   :bind ("C-M-/" . swiper))
 
+(use-package gptel :defer t)
+
 (require 'my-lsp)
 (require 'my-vertico)
