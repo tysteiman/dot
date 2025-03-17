@@ -4,6 +4,8 @@
 
 (use-package doom-themes :defer t)
 
+(use-package gruvbox-theme :defer t)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
