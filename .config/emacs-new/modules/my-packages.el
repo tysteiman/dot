@@ -6,15 +6,12 @@
 (setq use-package-always-ensure t)
 ;; (setq use-package-verbose t)
 
-(use-package vterm :defer t)
-
-(use-package magit :defer t)
-
-(use-package swiper
-  :bind ("C-M-/" . swiper))
-
-(use-package gptel :defer t)
-
 (require 'my-lsp)
 (require 'my-vertico)
 (require 'my-langs)
+(require 'my-ui)
+(require 'my-corfu)
+(require 'my-gpt)
+(require 'my-term)
+(require 'my-git)
+(require 'my-search)
