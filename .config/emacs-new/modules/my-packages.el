@@ -17,3 +17,4 @@
 
 (require 'my-lsp)
 (require 'my-vertico)
+(require 'my-langs)

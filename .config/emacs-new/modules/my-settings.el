@@ -1,6 +1,6 @@
 (provide 'my-settings)
 
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 150)
 
 (column-number-mode)
 (display-time-mode)

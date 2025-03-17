@@ -7,8 +7,8 @@
 (global-set-key (kbd "M-l") 'windmove-right)
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-j") 'windmove-down)
-(global-set-key (kbd "C-M-h") 'windmove-swap-states-left)
-(global-set-key (kbd "C-M-l") 'windmove-swap-states-right)
-(global-set-key (kbd "C-M-k") 'windmove-swap-states-up)
-(global-set-key (kbd "C-M-j") 'windmove-swap-states-down)
+(global-set-key (kbd "M-H") 'windmove-swap-states-left)
+(global-set-key (kbd "M-L") 'windmove-swap-states-right)
+(global-set-key (kbd "M-K") 'windmove-swap-states-up)
+(global-set-key (kbd "M-J") 'windmove-swap-states-down)
 
