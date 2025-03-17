@@ -1,6 +1,7 @@
 (provide 'my-vertico)
 
 (use-package vertico
+  :init (setq vertico-count 15)
   :config (vertico-mode 1))
 
 (use-package marginalia
