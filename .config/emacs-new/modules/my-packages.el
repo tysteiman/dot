@@ -4,7 +4,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
-;; (setq use-package-verbose t)
+(setq use-package-verbose t)
 
 (require 'my-lsp)
 (require 'my-vertico)
