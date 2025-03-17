@@ -22,3 +22,20 @@
     (if (region-active-p)
         (shell-command (format "git blame -L%s,%s %s" beg end file) "*Git blame*")
       (message "No active region."))))
+
+(defun my--open-init-file ()
+  "Open init.el"
+  (interactive)
+  (find-file (concat user-emacs-directory "init.el")))
+
+(defun my--open-module (file)
+  "Open custom emacs module in modules/ dir"
+  (interactive (list (read-file-name "Open Module: " (concat user-emacs-directory "modules/"))))
+  (when (file-exists-p file)
+    (find-file file)))
+
+(defun my--open-package (file)
+  "Open custom emacs package file in modules/packages/"
+  (interactive (list (read-file-name "Open Package: " (concat user-emacs-directory "modules/packages/"))))
+  (when (file-exists-p file)
+    (find-file file)))
