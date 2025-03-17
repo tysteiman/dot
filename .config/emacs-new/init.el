@@ -6,5 +6,6 @@
 (require 'my-settings)
 (require 'my-keys)
 (require 'my-hooks)
+(require 'my-auto-modes)
 (require 'my-defuns)
 (require 'my-packages)
