@@ -12,7 +12,6 @@
 (global-set-key (kbd "M-K") 'windmove-swap-states-up)
 (global-set-key (kbd "M-J") 'windmove-swap-states-down)
 
-
 ;; Config Shortcuts
 (global-set-key (kbd "C-c o i") 'my--open-init-file)
 (global-set-key (kbd "C-c o m") 'my--open-module)
