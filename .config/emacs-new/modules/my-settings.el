@@ -3,7 +3,7 @@
 (set-face-attribute 'default nil :height 160 :family "Mononoki Nerd Font")
 
 (column-number-mode)
-(display-time-mode)
+(display-time-mode 1)
 (winner-mode)
 (which-key-mode)
 (tool-bar-mode 0)
