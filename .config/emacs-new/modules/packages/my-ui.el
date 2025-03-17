@@ -1,7 +1,6 @@
 (provide 'my-ui)
 
-(use-package ef-themes
-  :config (load-theme 'ef-autumn t))
+(use-package ef-themes :defer t)
 
 (use-package doom-themes :defer t)
 
