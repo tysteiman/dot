@@ -2,6 +2,7 @@
 
 (set-face-attribute 'default nil :height 150)
 
+(fringe-mode 4)
 (column-number-mode)
 (display-time-mode)
 (winner-mode)
