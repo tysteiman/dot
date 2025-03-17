@@ -15,3 +15,5 @@
 (require 'my-term)
 (require 'my-git)
 (require 'my-search)
+(require 'my-snippets)
+;(require 'my-dap)
