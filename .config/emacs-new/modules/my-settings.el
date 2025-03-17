@@ -1,8 +1,7 @@
 (provide 'my-settings)
 
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 160 :family "Mononoki Nerd Font")
 
-(fringe-mode 4)
 (column-number-mode)
 (display-time-mode)
 (winner-mode)
