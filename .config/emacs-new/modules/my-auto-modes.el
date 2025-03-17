@@ -2,4 +2,6 @@
 
 (add-to-list 'auto-mode-alist '("\\.[tj]sx\\'" . js-jsx-mode))
 
+(add-to-list 'auto-mode-alist '("\\.mjs\\'" . js-mode))
+
 (add-to-list 'auto-mode-alist '("\\.env.*\\'" . conf-mode))
