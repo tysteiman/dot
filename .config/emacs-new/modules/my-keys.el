@@ -1,6 +1,8 @@
 (provide 'my-keys)
 
+;; Remap Emacs commands
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
 
 ;; Windmove
 (global-set-key (kbd "M-h") 'windmove-left)
