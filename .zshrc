@@ -39,6 +39,7 @@ alias npm-legacy="npm install --verbose --legacy-peer-deps"
 alias nvim-clear-cache="rm -rf ~/.config/nvim/lazy-lock.json && find ~/.local -type d -name 'nvim' | xargs rm -rf"
 alias fsc="fscripts"
 alias sed="sed --follow-symlinks"
+alias jpkg="mvn clean package -DskipTests"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
