@@ -2,6 +2,7 @@
 
 (set-face-attribute 'default nil :height 160 :family "Mononoki Nerd Font")
 
+(fringe-mode 10)
 (column-number-mode)
 (display-time-mode 1)
 (winner-mode)
