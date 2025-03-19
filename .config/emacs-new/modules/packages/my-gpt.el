@@ -11,4 +11,10 @@
          ("C-c a c" . 'gptel-add)
          ("C-c a f" . 'gptel-add-file)
          ("C-c a q" . 'gptel-context-remove-all)
-         ("C-c a r" . 'gptel-rewrite)))
+         ("C-c a r" . 'gptel-rewrite)
+         ("C-c a m" . 'gptel-menu))
+  :config
+  (gptel-make-anthropic "Claude"
+    :stream t
+    :key 'my--gptel-anthropic-key
+    :models '(claude-3-7-sonnet-20250219)))
