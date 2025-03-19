@@ -40,6 +40,7 @@ alias nvim-clear-cache="rm -rf ~/.config/nvim/lazy-lock.json && find ~/.local -t
 alias fsc="fscripts"
 alias sed="sed --follow-symlinks"
 alias jpkg="mvn clean package -DskipTests"
+alias jinstall="mvn install -DskipTests"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
