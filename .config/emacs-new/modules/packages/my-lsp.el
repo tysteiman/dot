@@ -11,18 +11,6 @@
 
 (use-package lsp-java :defer t)
 
-;; (defun my/lsp-start ()
-;;   "Launch LSP and add hook for prog-mode"
-;;   (interactive)
-;;   (lsp)
-;;   (add-hook 'prog-mode-hook 'lsp))
-
-;; (defun my/lsp-stop ()
-;;   "Stops LSP server and removes hook for prog-mode"
-;;   (interactive)
-;;   (remove-hook 'prog-mode-hook 'lsp)
-;;   (lsp-workspace-shutdown (lsp--read-workspace)))
-
 (defun my--buf-hook-name ()
   "Return current buffer's major mode hook as a symbol"
   (intern (format "%s-hook" major-mode)))
