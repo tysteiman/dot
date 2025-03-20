@@ -56,3 +56,4 @@ lazy-lock.json
 /.config/emacs-new/dap-ui-repl-node-history
 /.config/emacs/.extension/
 /.config/emacs-new/bookmarks
+/.config/emacs-new/eww-bookmarks
