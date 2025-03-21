@@ -4,6 +4,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c u t") 'load-theme)
 
 ;; Windmove
 (global-set-key (kbd "M-h") 'windmove-left)
