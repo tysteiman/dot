@@ -15,6 +15,7 @@
 (require 'my-gpt)
 (require 'my-term)
 (require 'my-git)
-(require 'my-search)
+(require 'my-swiper)
 (require 'my-snippets)
+
 ;(require 'my-dap)

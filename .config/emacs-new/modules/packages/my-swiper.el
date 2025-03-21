@@ -1,4 +1,4 @@
-(provide 'my-search)
+(provide 'my-swiper)
 
 (defun my--swiper (&optional arg)
   "Call either `swiper' or `swiper-thing-at-point' depending on if a prefix was passed.
