@@ -40,6 +40,12 @@
   (when (file-exists-p file)
     (find-file file)))
 
+(defun my/open-local-file ()
+  "Open <emacs>/local.el"
+  (interactive)
+  (let ((localfile (concat user-emacs-directory "local.el")))
+    (find-file localfile)))
+
 (defun my--send-region-to-cmd (cmd)
   "Send the region to `cmd'."
   (if (use-region-p)
