@@ -63,3 +63,8 @@
   "Send the region to `async-shell-command'"
   (interactive)
   (my--send-region-to-cmd 'async-shell-command))
+
+(defun my/docker-stop-all ()
+  "Stop all docker containers"
+  (interactive)
+  (async-shell-command "docker stop $(docker ps -aq)"))
