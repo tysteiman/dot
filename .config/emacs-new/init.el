@@ -19,3 +19,8 @@
 (require 'my-auto-modes)
 (require 'my-defuns)
 (require 'my-packages)
+
+;; Load <emacs>/local.el if it exists for local/sensitive things.
+(let ((localfile (concat user-emacs-directory "local.el")))
+  (when (file-exists-p localfile)
+    (load-file localfile)))
