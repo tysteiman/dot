@@ -15,6 +15,7 @@
 (setq make-backup-files nil
       create-lockfiles nil
       vc-follow-symlinks t
+      find-file-visit-truename t
       dired-listing-switches "-lAh"
       shr-use-colors nil
       shr-inhibit-images t
