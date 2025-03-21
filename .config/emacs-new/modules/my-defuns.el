@@ -39,3 +39,21 @@
   (interactive (list (read-file-name "Open Package: " (concat user-emacs-directory "modules/packages/"))))
   (when (file-exists-p file)
     (find-file file)))
+
+(defun my--send-region-to-cmd (cmd)
+  "Send the region to `cmd'."
+  (if (use-region-p)
+      (let ((start (region-beginning))
+            (end (region-end)))
+        (funcall cmd (buffer-substring-no-properties start end) "*Region to Shell*"))
+    (message "Select the text you want to send to shell.")))
+
+(defun my/send-region-to-shell-sync ()
+  "Send the region to `shell-command'"
+  (interactive)
+  (my--send-region-to-cmd 'shell-command))
+
+(defun my/send-region-to-shell-async ()
+  "Send the region to `async-shell-command'"
+  (interactive)
+  (my--send-region-to-cmd 'async-shell-command))

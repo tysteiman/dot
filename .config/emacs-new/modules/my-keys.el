@@ -18,3 +18,7 @@
 (global-set-key (kbd "C-c o i") 'my--open-init-file)
 (global-set-key (kbd "C-c o m") 'my--open-module)
 (global-set-key (kbd "C-c o p") 'my--open-package)
+
+;; Shell
+(global-set-key (kbd "C-c s s") 'my/send-region-to-shell-sync)
+(global-set-key (kbd "C-c s a") 'my/send-region-to-shell-async)
