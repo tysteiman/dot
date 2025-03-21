@@ -15,9 +15,9 @@
 (global-set-key (kbd "M-J") 'windmove-swap-states-down)
 
 ;; Config Shortcuts
-(global-set-key (kbd "C-c o i") 'my--open-init-file)
-(global-set-key (kbd "C-c o m") 'my--open-module)
-(global-set-key (kbd "C-c o p") 'my--open-package)
+(global-set-key (kbd "C-c o i") 'my/open-init-file)
+(global-set-key (kbd "C-c o m") 'my/open-module)
+(global-set-key (kbd "C-c o p") 'my/open-package)
 
 ;; Shell
 (global-set-key (kbd "C-c s s") 'my/send-region-to-shell-sync)
