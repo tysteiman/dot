@@ -1,19 +1,19 @@
 (provide 'my-ui)
 
-(defun my--load-dark-random ()
+(defun my/load-dark-random ()
   "Load a random dark theme"
   (interactive)
   (ef-themes-load-random 'dark))
 
-(defun my--load-light-random ()
+(defun my/load-light-random ()
   "Load a random light theme"
   (interactive)
   (ef-themes-load-random 'light))
 
 (use-package ef-themes
   :bind
-  (("C-c u d" . my--load-dark-random)
-   ("C-c u l" . my--load-light-random)))
+  (("C-c u d" . my/load-dark-random)
+   ("C-c u l" . my/load-light-random)))
 
 (use-package doom-themes :defer t)
 
