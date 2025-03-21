@@ -9,6 +9,7 @@
 (require 'my-lsp)
 (require 'my-vertico)
 (require 'my-langs)
+(require 'my-dashboard)
 (require 'my-ui)
 (require 'my-corfu)
 (require 'my-gpt)
