@@ -24,3 +24,4 @@
 (let ((localfile (concat user-emacs-directory "local.el")))
   (when (file-exists-p localfile)
     (load-file localfile)))
+

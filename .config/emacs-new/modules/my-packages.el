@@ -1,10 +1,11 @@
 (provide 'my-packages)
 
 (require 'package)
+
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-(setq use-package-verbose t)
+
+(setq use-package-always-ensure t
+      use-package-verbose t)
 
 (require 'my-lsp)
 (require 'my-vertico)
@@ -18,4 +19,4 @@
 (require 'my-swiper)
 (require 'my-snippets)
 
-;(require 'my-dap)
+;; (require 'my-dap)

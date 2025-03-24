@@ -1,7 +1,12 @@
 (provide 'my-settings)
 
-(set-face-attribute 'default nil :height 140 :family "Mononoki Nerd Font")
+;; font
+(set-face-attribute 'default nil :height 160 :family "Mononoki Nerd Font")
 
+;; start emacs fullscreen
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+
+;; funcalls
 (fringe-mode 10)
 (column-number-mode)
 (display-time-mode 1)
@@ -12,6 +17,7 @@
 (menu-bar-mode 0)
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; setqs
 (setq make-backup-files nil
       create-lockfiles nil
       vc-follow-symlinks t
@@ -36,4 +42,3 @@
               c-basic-offset 2
               js-indent-level 2
               sgml-basic-offset 2)
-
