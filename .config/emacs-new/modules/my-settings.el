@@ -4,7 +4,7 @@
 (set-face-attribute 'default nil :height 160 :family "Mononoki Nerd Font")
 
 ;; start emacs fullscreen
-(add-to-list 'default-frame-alist '(fullscreen . fullboth))
+;; (add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
 ;; funcalls
 (fringe-mode 10)
