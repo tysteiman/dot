@@ -3,7 +3,10 @@
 (use-package dashboard
   :demand t
   :init
-  (setq dashboard-startup-banner (concat user-emacs-directory "banner.txt")
+  (setq dashboard-startup-banner (concat
+                                  user-emacs-directory
+                                  "banners/"
+                                  "lol.txt")
         dashboard-items '((recents . 10)
                           (bookmarks . 10)
                           (projects . 10)))

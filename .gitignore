@@ -58,3 +58,4 @@ lazy-lock.json
 /.config/emacs-new/bookmarks
 /.config/emacs-new/eww-bookmarks
 /.config/emacs-new/local.el
+/.config/emacs-new/network-security.data
