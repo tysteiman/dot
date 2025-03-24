@@ -49,15 +49,14 @@ export NVM_DIR="$HOME/.nvm"
 
 # Our dot scripts
 export PATH=~/dot/scripts:$PATH
+
 export PATH=/Users/tyler.steiman/.ghcup/ghc/9.4.8/bin:$PATH
+
+# Android (adb, etc.)
+export PATH=/Users/tyler.steiman/Library/Android/sdk/platform-tools:$PATH
 
 # Load mm aws functions
 source ~/scripts/mm-functions.sh
-
-# SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 if [[ -f ~/.secrets.sh ]]; then
   source ~/.secrets.sh
@@ -65,3 +64,9 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# SDKMAN - THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
