@@ -11,6 +11,8 @@
   (ef-themes-load-random 'light))
 
 (use-package ef-themes
+  :demand t
+  :config (load-theme 'ef-autumn t)
   :bind
   (("C-c u d" . my/load-dark-random)
    ("C-c u l" . my/load-light-random)))
