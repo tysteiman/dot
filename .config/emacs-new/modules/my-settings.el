@@ -35,7 +35,9 @@
       mark-ring-max 8
       global-mark-ring-max 8
       native-comp-async-report-warnings-errors nil
-      tags-revert-without-query 1)
+      tags-revert-without-query 1
+      tab-bar-new-button-show nil
+      tab-bar-close-button-show nil)
 
 (setq-default truncate-lines t
               indent-tabs-mode nil
