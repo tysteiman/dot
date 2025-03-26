@@ -9,3 +9,7 @@
 (use-package evil-escape
   :init (setq evil-escape-key-sequence "jk")
   :hook (evil-mode . evil-escape-mode))
+
+(use-package evil-collection
+  :after evil
+  :hook (evil-mode . evil-collection-init))
