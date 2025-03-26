@@ -20,5 +20,5 @@
 (require 'my-git)
 (require 'my-swiper)
 (require 'my-snippets)
-
+(require 'my-evil)
 ;; (require 'my-dap)
