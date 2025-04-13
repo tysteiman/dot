@@ -18,4 +18,9 @@
   (gptel-make-anthropic "Claude"
     :stream t
     :key 'my--gptel-anthropic-key
-    :models '(claude-3-7-sonnet-20250219)))
+    :models '(claude-3-7-sonnet-20250219))
+  (gptel-make-ollama
+      "Ollama"
+    ;; :host "localhost:11434"
+    :models '(mistral:latest)
+    :stream t))

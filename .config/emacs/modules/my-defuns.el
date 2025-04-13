@@ -68,3 +68,34 @@
   "Stop all docker containers"
   (interactive)
   (async-shell-command "docker stop $(docker ps -aq)"))
+
+(defvar my--last-org-src-lang ""
+  "The last source lang used in org mode.")
+
+(defun my/insert-org-src-block (ARG)
+  "Inserts #+begin_src `ARG' and #+end_src blocks for org mode.
+
+Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
+  (interactive (list (read-string
+                      (format "Lang (default %s): " my--last-org-src-lang))))
+  (let ((inslang (if (string-empty-p ARG)
+                     my--last-org-src-lang
+                   ARG)))
+    (insert (format "#+begin_src %s" inslang))
+    (move-end-of-line 1)
+    (newline)
+    (insert "#+end_src")
+    (previous-line)
+    (move-end-of-line 1)
+    (newline)
+    (setq my--last-org-src-lang inslang)))
+
+(defun my/show-ip ()
+  "Show public IP address via ipinfo.io."
+  (interactive)
+  (let ((url "https://ipinfo.io/ip"))
+    (url-retrieve url (lambda (status)
+                        (goto-char url-http-end-of-headers)
+                        (next-line)
+                        (let ((body (buffer-substring-no-properties (point) (point-max))))
+                          (message (format "%s" body)))))))

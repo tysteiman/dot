@@ -1,10 +1,7 @@
 (provide 'my-settings)
 
 ;; font
-(set-face-attribute 'default nil :height 160 :family "Mononoki Nerd Font")
-
-;; start emacs fullscreen
-;; (add-to-list 'default-frame-alist '(fullscreen . fullboth))
+(set-face-attribute 'default nil :height 120 :family "Mononoki Nerd Font")
 
 ;; funcalls
 (fringe-mode 10)
@@ -37,7 +34,10 @@
       native-comp-async-report-warnings-errors nil
       tags-revert-without-query 1
       tab-bar-new-button-show nil
-      tab-bar-close-button-show nil)
+      tab-bar-close-button-show nil
+      dictionary-server "dict.org"
+      initial-scratch-message ""
+      inhibit-startup-screen t)
 
 (setq-default truncate-lines t
               indent-tabs-mode nil

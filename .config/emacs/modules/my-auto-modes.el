@@ -7,3 +7,4 @@
 (my--set-auto-mode "\\.[tj]sx\\'" 'js-jsx-mode)
 (my--set-auto-mode "\\.mjs\\'" 'js-mode)
 (my--set-auto-mode "\\.env.*\\'" 'conf-mode)
+(my--set-auto-mode "\\credentials\\'" 'conf-mode)

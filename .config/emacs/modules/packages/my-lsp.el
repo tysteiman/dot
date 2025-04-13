@@ -1,7 +1,6 @@
 (provide 'my-lsp)
 
 (use-package lsp-mode
-  :defer t
   :init (setq lsp-headerline-breadcrumb-enable nil
               lsp-keymap-prefix "C-c l")
   :config (lsp-enable-which-key-integration)
