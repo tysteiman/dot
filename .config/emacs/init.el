@@ -14,7 +14,7 @@
 
 ;; Load config modules
 (require 'my-settings)
-(require 'my-theme)
+;; (require 'my-theme)
 (require 'my-keys)
 (require 'my-hooks)
 (require 'my-auto-modes)
