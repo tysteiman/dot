@@ -12,10 +12,6 @@
       (string "plum4")
       (mode-line-height 4))
 
-  ;; Shells
-  (add-hook 'eshell-mode-hook (lambda ()
-                                (setq mode-line-format nil)))
-
   ;; Base Emacs faces
   (set-background-color background)
   (set-foreground-color foreground)
@@ -34,6 +30,7 @@
   (set-face-attribute 'fringe nil :background background)
   (set-face-attribute 'link nil :foreground string :underline nil)
   (set-face-attribute 'font-lock-function-name-face nil :foreground builtin)
+  ;; with ruby, this blends with constant too much (builtin)
   (set-face-attribute 'font-lock-variable-name-face nil :foreground constant)
   (set-face-attribute 'font-lock-type-face nil :foreground constant)
 
