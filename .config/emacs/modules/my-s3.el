@@ -1,7 +1,7 @@
 (provide 'my-s3)
 
 ;; Variables
-(defvar my--s3-buckets '((:name "notes" :path "~/notes" :bucket "tyler-steiman-notes/notes"))
+(defvar my--s3-buckets '((:name "notes" :path "~/notes" :bucket "tyler-steiman-notes"))
   "plist of s3 buckets to sync.
 
 :name The display name of the bucket.
@@ -17,7 +17,7 @@
     (let ((name (plist-get dir :name))
           (path (expand-file-name (plist-get dir :path)))
           (bucket (plist-get dir :bucket)))
-      (shell-command
+      (async-shell-command
        (if (string= direction "upload")
            (format "aws s3 sync %s s3://%s" path bucket)
          (format "aws s3 sync s3://%s %s" bucket path))
@@ -36,3 +36,11 @@
 ;; Keybindings
 (global-set-key (kbd "C-c n u") 'my/s3-buckets-upload)
 (global-set-key (kbd "C-c n d") 'my/s3-buckets-download)
+
+;; Display the buffer buffer at the bottom of the screen
+(add-to-list 'display-buffer-alist
+             '("*aws s3 sync*"
+               (display-buffer-in-side-window)
+               (side . bottom)
+               (slot . -1)
+               (window-height . 0.20)))
