@@ -1,6 +1,6 @@
 [user]
   name = Tyler Steiman
-  email = tyler.steiman@madmobile.com
+  email = tsteiman@switchboxinc.com
 [core]
   editor = "vim"
   excludesfile = "~/.gitignore"
