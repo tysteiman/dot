@@ -4,7 +4,8 @@
                                      (ansi-color-apply-on-region (point-min) (point-max))))
 
 (add-hook 'prog-mode-hook (lambda ()
-                            (setq show-trailing-whitespace t)))
+                            (setq show-trailing-whitespace t)
+                            (electric-pair-local-mode 1)))
 
 (add-hook 'org-mode-hook (lambda ()
                            (setq truncate-lines nil)))
