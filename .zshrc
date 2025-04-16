@@ -1,4 +1,5 @@
-export PS1='%1d > '
+# export PS1='%1d > '
+export PS1='%F{blue}%1d %F{magenta}>%f '
 
 export EDITOR=vim
 
