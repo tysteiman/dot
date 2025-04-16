@@ -1,3 +1,5 @@
+export PS1='%1d > '
+
 export EDITOR=vim
 
 alias c="clear"
