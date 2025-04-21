@@ -16,6 +16,8 @@
 
 (use-package doom-themes :defer t)
 
+(use-package zenburn-theme :defer t)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -32,12 +34,5 @@
 (use-package focus
   :bind (("C-c u f" . focus-mode)))
 
-;; (use-package spacious-padding
-;;   :bind (("C-c u p" . spacious-padding-mode)))
-
-;; (use-package doom-modeline
-;;   :init (setq doom-modeline-height 30
-;;               doom-modeline-vcs-max-length 60
-;;               doom-modeline-buffer-file-name-style "file-name"
-;;               doom-modeline-time-icon nil)
-;;   :config (doom-modeline-mode t))
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode))
