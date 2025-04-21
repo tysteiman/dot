@@ -99,3 +99,8 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
                         (next-line)
                         (let ((body (buffer-substring-no-properties (point) (point-max))))
                           (message (format "%s" body)))))))
+
+(defun my/hide-mode-line ()
+  "Temporarily hide the mode-line by setting `mode-line-format' to `nil'."
+  (interactive)
+  (setq mode-line-format nil))
