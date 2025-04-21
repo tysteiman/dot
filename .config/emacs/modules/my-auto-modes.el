@@ -9,3 +9,4 @@
 (my--set-auto-mode "\\.service\\'" 'conf-mode)
 (my--set-auto-mode "\\.env.*\\'" 'conf-mode)
 (my--set-auto-mode "\\credentials\\'" 'conf-mode)
+(my--set-auto-mode "\\default\\'" 'conf-mode)
