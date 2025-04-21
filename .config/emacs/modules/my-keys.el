@@ -24,10 +24,18 @@
 (global-set-key (kbd "C-c o m") 'my/open-module)
 (global-set-key (kbd "C-c o p") 'my/open-package)
 (global-set-key (kbd "C-c o l") 'my/open-local-file)
+(global-set-key (kbd "C-c o h") 'scratch-buffer)
 
 ;; Shell
 (global-set-key (kbd "C-c s s") 'my/send-region-to-shell-sync)
 (global-set-key (kbd "C-c s a") 'my/send-region-to-shell-async)
+
+;; Winner
+(global-set-key (kbd "<left>") 'winner-undo)
+(global-set-key (kbd "<right>") 'winner-redo)
+
+;; UI
+(global-set-key (kbd "C-c u m") 'my/hide-mode-line)
 
 ;; Org
 (with-eval-after-load 'org
