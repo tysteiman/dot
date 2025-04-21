@@ -22,5 +22,6 @@
 (require 'my-swiper)
 (require 'my-snippets)
 (require 'my-org-roam)
+(require 'my-prettier)
 ;; (require 'my-evil)
 ;; (require 'my-dap)
