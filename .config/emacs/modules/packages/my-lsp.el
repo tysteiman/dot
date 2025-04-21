@@ -14,15 +14,28 @@
   "Return current buffer's major mode hook as a symbol"
   (intern (format "%s-hook" major-mode)))
 
+(defun my--reactivate-lsp (ARG)
+  "Look at a buffer and determine whether or not to relaunch lsp."
+  (let ((shouldlsp (member 'lsp (symbol-value (my--buf-hook-name))))
+        (lspon lsp-mode)
+        (lspurl lsp-buffer-uri))
+    (when (and shouldlsp
+               (or
+                (not lspon)
+                (not lspurl)))
+      (lsp))))
+
 (defun my/lsp-start ()
   "Start LSP for the current buffer, but also attach a hook to the current
 major mode to run LSP for every new buffer opened."
   (interactive)
   (lsp)
-  (add-hook (my--buf-hook-name) 'lsp))
+  (add-hook (my--buf-hook-name) 'lsp)
+  (setq window-state-change-functions '(my--reactivate-lsp)))
 
 (defun my/lsp-stop ()
   "Stops LSP server and removes hooks from current major mode"
   (interactive)
   (lsp-workspace-shutdown (lsp--read-workspace))
-  (remove-hook (my--buf-hook-name) 'lsp))
+  (remove-hook (my--buf-hook-name) 'lsp)
+  (setq window-state-change-functions nil))
