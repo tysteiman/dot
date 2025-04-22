@@ -24,9 +24,7 @@
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
 
-(use-package solaire-mode
-  :defer t
-  :config (solaire-global-mode 1))
+(use-package solaire-mode :defer t)
 
 (use-package rainbow-mode
   :bind (("C-c u r" . rainbow-mode)))
