@@ -2,12 +2,19 @@
 
 (use-package magit
   :bind (("C-c m" . magit-status))
-  :config (add-to-list 'display-buffer-alist
-                       '("magit:.*"
-                         (display-buffer-in-side-window)
-                         (side . left)
-                         (slot . -1)
-                         (window-width . 0.33))))
+  :config
+  (add-to-list 'display-buffer-alist
+               '("magit:.*"
+                 (display-buffer-in-side-window)
+                 (side . left)
+                 (slot . 1)
+                 (window-width . 0.33)))
+  (add-to-list 'display-buffer-alist
+               '("magit-log:.*"
+                 (display-buffer-in-side-window)
+                 (side . left)
+                 (slot . 0)
+                 (window-width . 0.33))))
 
 (use-package diff-hl
   :hook
