@@ -11,6 +11,8 @@
   (ef-themes-load-random 'light))
 
 (use-package ef-themes
+  :demand t
+  :config (load-theme 'ef-dark t)
   :bind (("C-c u d" . my/load-dark-random)
          ("C-c u l" . my/load-light-random)))
 
@@ -23,8 +25,6 @@
 
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
-
-(use-package solaire-mode :defer t)
 
 (use-package rainbow-mode
   :bind (("C-c u r" . rainbow-mode)))
