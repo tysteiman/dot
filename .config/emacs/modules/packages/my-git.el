@@ -1,7 +1,13 @@
 (provide 'my-git)
 
 (use-package magit
-  :bind (("C-c m" . magit-status)))
+  :bind (("C-c m" . magit-status))
+  :config (add-to-list 'display-buffer-alist
+                       '("magit:.*"
+                         (display-buffer-in-side-window)
+                         (side . left)
+                         (slot . -1)
+                         (window-width . 0.33))))
 
 (use-package diff-hl
   :hook
