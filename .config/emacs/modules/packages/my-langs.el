@@ -14,3 +14,5 @@
 (use-package php-mode :defer t)
 
 (use-package nginx-mode :defer t)
+
+(use-package swift-mode :defer t)
