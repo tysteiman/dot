@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-c u n") 'display-line-numbers-mode)
 (global-set-key (kbd "<f1>") 'display-line-numbers-mode)
 (global-set-key (kbd "C-c o y") 'dictionary-search)
+(global-set-key (kbd "C-c b") 'balance-windows)
 
 ;; Windmove
 (global-set-key (kbd "M-h") 'windmove-left)
