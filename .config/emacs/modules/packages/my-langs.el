@@ -3,7 +3,6 @@
 (use-package typescript-mode :defer t)
 
 (use-package yaml-mode
-  :defer t
   :hook (yaml-mode . (lambda ()
                        (setq show-trailing-whitespace t))))
 
@@ -16,3 +15,5 @@
 (use-package nginx-mode :defer t)
 
 (use-package swift-mode :defer t)
+
+(use-package slim-mode :defer t)
