@@ -3,6 +3,7 @@
 (use-package typescript-mode :defer t)
 
 (use-package yaml-mode
+  :defer t
   :hook (yaml-mode . (lambda ()
                        (setq show-trailing-whitespace t))))
 
