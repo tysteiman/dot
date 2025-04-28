@@ -17,4 +17,6 @@
       (file-exists-p (concat DIR ".prettierrc"))))
 
 (use-package prettier
-  :hook (js-mode . my/prettier))
+  :defer t
+  ;;:hook (js-mode . my/prettier)
+  )
