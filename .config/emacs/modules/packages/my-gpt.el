@@ -15,12 +15,8 @@
          ("C-c a r" . 'gptel-rewrite)
          ("C-c a m" . 'gptel-menu))
   :config
-  (gptel-make-anthropic "Claude"
-    :stream t
-    :key 'my--gptel-anthropic-key
-    :models '(claude-3-7-sonnet-20250219))
-  (gptel-make-ollama
-      "Ollama"
-    ;; :host "localhost:11434"
-    :models '(mistral:latest)
-    :stream t))
+  (setq gptel-backend (gptel-make-anthropic "Claude"
+                        :stream t
+                        :key 'my--gptel-anthropic-key
+                        :models '(claude-3-7-sonnet-20250219)))
+  (setq gptel-model 'claude-3-7-sonnet-20250219))
