@@ -18,3 +18,5 @@
 (use-package swift-mode :defer t)
 
 (use-package slim-mode :defer t)
+
+(use-package csv-mode :defer t)
