@@ -9,6 +9,7 @@
 (global-set-key (kbd "<f1>") 'display-line-numbers-mode)
 (global-set-key (kbd "C-c o y") 'dictionary-search)
 (global-set-key (kbd "C-c b") 'balance-windows)
+(global-set-key (kbd "<f5>") 'revert-buffer-quick)
 
 ;; Windmove
 (global-set-key (kbd "M-h") 'windmove-left)
@@ -37,6 +38,10 @@
 
 ;; UI
 (global-set-key (kbd "C-c u m") 'my/hide-mode-line)
+
+(global-set-key (kbd "C-c C-;") 'my/insert-semicolon-at-end-of-line)
+(global-set-key (kbd "C-o") 'my/new-line-below)
+(global-set-key (kbd "C-M-o") 'my/new-line-above)
 
 ;; Org
 (with-eval-after-load 'org
