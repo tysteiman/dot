@@ -25,4 +25,10 @@
                  (display-buffer-in-side-window)
                  (side . right)
                  (slot . 1)
+                 (window-width . 0.33)))
+  (add-to-list 'display-buffer-alist
+               '("*ChatGPT*"
+                 (display-buffer-in-side-window)
+                 (side . right)
+                 (slot . 1)
                  (window-width . 0.33))))
