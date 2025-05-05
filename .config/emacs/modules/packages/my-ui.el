@@ -32,3 +32,6 @@
 
 (use-package hl-todo
   :hook (prog-mode . hl-todo-mode))
+
+(use-package highlight-thing
+  :bind (("C-c u h" . highlight-thing-mode)))
