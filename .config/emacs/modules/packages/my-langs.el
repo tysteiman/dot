@@ -11,7 +11,9 @@
 
 (use-package dockerfile-mode :defer t)
 
-(use-package php-mode :defer t)
+(use-package php-mode
+  :defer t
+  :config (keymap-set php-mode-map "M-<tab>" 'completion-at-point))
 
 (use-package nginx-mode :defer t)
 
