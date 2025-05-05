@@ -104,3 +104,24 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
   "Temporarily hide the mode-line by setting `mode-line-format' to `nil'."
   (interactive)
   (setq mode-line-format nil))
+
+(defun my/insert-semicolon-at-end-of-line ()
+  "Inserts a semicolon at the end of the line while preserving your point"
+  (interactive)
+  (save-excursion
+    (end-of-line)
+    (insert ";")))
+
+(defun my/new-line-below ()
+  "Inserts a new line below current line and moves point there"
+  (interactive)
+  (end-of-line)
+  (newline-and-indent))
+
+(defun my/new-line-above ()
+  "Inserts a new line above current line and moves point there"
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (previous-line)
+  (indent-for-tab-command))
