@@ -15,6 +15,10 @@
          ("C-c a r" . 'gptel-rewrite)
          ("C-c a m" . 'gptel-menu))
   :config
+  (gptel-make-gemini "Gemini"
+    :key 'my--gptel-gemini-key
+    :stream t
+    :models '(gemini-2.0-flash))
   (setq gptel-backend (gptel-make-anthropic "Claude"
                         :stream t
                         :key 'my--gptel-anthropic-key

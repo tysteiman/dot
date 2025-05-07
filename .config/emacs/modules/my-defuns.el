@@ -125,3 +125,57 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
   (newline)
   (previous-line)
   (indent-for-tab-command))
+
+(defun my/docker-compose-bash ()
+  (interactive)
+  (my--docker-compose-cmd "bash"))
+
+(defun my/docker-compose-sh ()
+  (interactive)
+  (my--docker-compose-cmd "sh"))
+
+(defun my/docker-compose-up ()
+  (interactive)
+  (my--docker-compose-cmd "up" t))
+
+(defun my--docker-compose-cmd (cmd &optional global)
+  "Send `CMD' to docker compose exec in vterm for whichever service the user chooses"
+  (let* ((root (project-root (project-current)))
+         (file (concat root "docker-compose.yml")))
+    (if (file-exists-p file)
+        (if global
+            (my--docker-compose-launch cmd)
+          (my--docker-compose-parse-compose file cmd))
+      (message "Project does not have a docker-compose.yml"))))
+
+(defun my--docker-compose-parse-compose (file cmd)
+  "Parse user to select a service from docker compose file `FILE' and run `CMD' on it"
+  (let ((data nil))
+    (with-temp-buffer
+      (insert-file-contents file)
+      (setq data (yaml-parse-string (buffer-string))))
+    (let* ((services (hash-table-keys (gethash 'services data)))
+           (choice (completing-read "Choose a service: " services nil t)))
+      (my--docker-compose-launch cmd choice))))
+
+(defun my--docker-compose-launch (cmd &optional service)
+  "Open `vterm' and run `CMD` on `SERVICE', reusing existing buffer if available."
+  (let* ((buffer-name (if service
+                          (format "*vtermlol %s %s %s*"
+                                  (project-name (project-current))
+                                  service
+                                  cmd)
+                        (format "*vterm %s %s*"
+                                (project-name (project-current))
+                                cmd)))
+         (existing-buffer (get-buffer buffer-name)))
+
+    (if existing-buffer
+        (switch-to-buffer existing-buffer)
+      (progn
+        (vterm)
+        (rename-buffer buffer-name)
+        (vterm-send-string (if service
+                               (format "docker compose exec -it %s %s" service cmd)
+                             (format "docker compose %s" cmd)))
+        (vterm-send-return)))))

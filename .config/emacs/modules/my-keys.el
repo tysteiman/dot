@@ -47,7 +47,13 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c n s") 'my/insert-org-src-block))
 
+;; Docker
+(global-set-key (kbd "C-c d b") 'my/docker-compose-bash)
+(global-set-key (kbd "C-c d s") 'my/docker-compose-sh)
+(global-set-key (kbd "C-c d u") 'my/docker-compose-up)
+
 (which-key-add-key-based-replacements "C-c a" "GPT")
+(which-key-add-key-based-replacements "C-c d" "Docker")
 (which-key-add-key-based-replacements "C-c n" "Notes")
 (which-key-add-key-based-replacements "C-c o" "Open...")
 (which-key-add-key-based-replacements "C-c s" "Shell")
