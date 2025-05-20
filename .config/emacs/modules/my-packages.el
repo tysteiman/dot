@@ -24,7 +24,7 @@
 (require 'my-snippets)
 (require 'my-org-roam)
 (require 'my-prettier)
-(require 'my-evil)
-(require 'my-general)
+;; (require 'my-evil)
+;; (require 'my-general)
 (require 'my-docker)
 
