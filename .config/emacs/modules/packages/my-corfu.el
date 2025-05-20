@@ -1,7 +1,9 @@
 (provide 'my-corfu)
 
 (use-package corfu
-  :hook (prog-mode . corfu-mode))
+  :defer t
+  :init (setq corfu-auto t)
+  :bind (("C-c u c" . corfu-mode)))
 
 (use-package corfu-terminal
   :hook (prog-mode . corfu-terminal-mode)

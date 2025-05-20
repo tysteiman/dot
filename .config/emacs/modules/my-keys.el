@@ -49,6 +49,7 @@
 
 ;; Docker
 (global-set-key (kbd "C-c d b") 'my/docker-compose-bash)
+(global-set-key (kbd "C-c d r") 'my/docker-compose-rails-s)
 (global-set-key (kbd "C-c d s") 'my/docker-compose-sh)
 (global-set-key (kbd "C-c d u") 'my/docker-compose-up)
 

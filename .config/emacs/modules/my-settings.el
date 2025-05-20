@@ -1,7 +1,7 @@
 (provide 'my-settings)
 
 ;; font
-(set-face-attribute 'default nil :height 120 :family "Mononoki Nerd Font")
+(set-face-attribute 'default nil :height 180 :family "Mononoki Nerd Font")
 
 ;; funcalls
 (fringe-mode 10)

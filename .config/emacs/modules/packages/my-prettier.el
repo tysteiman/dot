@@ -19,4 +19,5 @@
 (use-package prettier
   :defer t
   ;;:hook (js-mode . my/prettier)
+  :bind (("C-c u p" . my/prettier))
   )

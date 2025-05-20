@@ -126,6 +126,7 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
   (previous-line)
   (indent-for-tab-command))
 
+;; Docker/Term
 (defun my/docker-compose-bash ()
   (interactive)
   (my--docker-compose-cmd "bash"))
@@ -134,12 +135,21 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
   (interactive)
   (my--docker-compose-cmd "sh"))
 
+(defun my/docker-compose-rails-s ()
+  "start rails server in selected docker container"
+  (interactive)
+  (my--docker-compose-cmd "rails s -b 0.0.0.0"))
+
 (defun my/docker-compose-up ()
   (interactive)
   (my--docker-compose-cmd "up" t))
 
 (defun my--docker-compose-cmd (cmd &optional global)
-  "Send `CMD' to docker compose exec in vterm for whichever service the user chooses"
+  "Send `CMD' to docker compose exec in vterm for whichever service the user chooses
+
+`GLOBAL' will bypass the service selection, and run docker compose `CMD' directly."
+  (require 'project)
+  ;; TODO if root and file doesn't exit, just fire project-switch-project?
   (let* ((root (project-root (project-current)))
          (file (concat root "docker-compose.yml")))
     (if (file-exists-p file)
@@ -150,6 +160,7 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
 
 (defun my--docker-compose-parse-compose (file cmd)
   "Parse user to select a service from docker compose file `FILE' and run `CMD' on it"
+  (require 'yaml)
   (let ((data nil))
     (with-temp-buffer
       (insert-file-contents file)
@@ -161,7 +172,7 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
 (defun my--docker-compose-launch (cmd &optional service)
   "Open `vterm' and run `CMD` on `SERVICE', reusing existing buffer if available."
   (let* ((buffer-name (if service
-                          (format "*vtermlol %s %s %s*"
+                          (format "*vterm %s %s %s*"
                                   (project-name (project-current))
                                   service
                                   cmd)
@@ -169,13 +180,15 @@ Defaults to the value of `my--last-org-src-lang' when `ARG' is empty."
                                 (project-name (project-current))
                                 cmd)))
          (existing-buffer (get-buffer buffer-name)))
-
     (if existing-buffer
         (switch-to-buffer existing-buffer)
-      (progn
-        (vterm)
-        (rename-buffer buffer-name)
-        (vterm-send-string (if service
-                               (format "docker compose exec -it %s %s" service cmd)
-                             (format "docker compose %s" cmd)))
-        (vterm-send-return)))))
+      (my--docker-compose-vterm cmd service))))
+
+(defun my--docker-compose-vterm (cmd &optional service)
+  "Run `vterm' command for docker compose"
+  (vterm)
+  (rename-buffer buffer-name)
+  (vterm-send-string (if service
+                         (format "docker compose exec -it %s %s" service cmd)
+                       (format "docker compose %s" cmd)))
+  (vterm-send-return))

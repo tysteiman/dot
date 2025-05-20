@@ -10,3 +10,4 @@
 (my--set-auto-mode "\\.env.*\\'" 'conf-mode)
 (my--set-auto-mode "\\credentials\\'" 'conf-mode)
 (my--set-auto-mode "\\default\\'" 'conf-mode)
+(my--set-auto-mode "\\.prettierrc\\'" 'js-json-mode)
