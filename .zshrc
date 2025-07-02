@@ -18,14 +18,14 @@ alias ga="git add ."
 alias gl="git log --graph --decorate"
 
 alias grep="grep --color"
-# alias lg="lazygit"
+alias lg="lazygit"
 alias ls="eza"
 alias ll="ls -lahF --git --icons"
 # alias cat="bat"
 # alias vff="EDITOR=vim ff"
 # alias vfa="EDITOR=vim fa"
 # alias kff="EDITOR=kak ff"
-# alias nv="nvim"
+alias nv="nvim"
 # alias nvz="nvim ~/.zshrc"
 # alias hh="tail -r ~/.zsh_history | fzf --reverse --border --height 20 | zsh"
 alias now="date +%m-%d-%y-%H-%M"
@@ -38,6 +38,9 @@ alias sed="sed --follow-symlinks"
 # alias jpkg="mvn clean package -DskipTests"
 # alias jinstall="mvn install -DskipTests"
 
+alias irb="irb --noautocomplete"
+alias rb="rbenv"
+
 # Our dot scripts
 export PATH=~/dot/scripts:$PATH
 
@@ -47,3 +50,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # pyenv
 export PATH=~/.pyenv/shims:$PATH
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/tyler/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+#
+. "$HOME/.cargo/env"
