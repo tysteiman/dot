@@ -41,6 +41,8 @@ alias sed="sed --follow-symlinks"
 alias irb="irb --noautocomplete"
 alias rb="rbenv"
 
+source ~/.secrets.sh
+
 # Our dot scripts
 export PATH=~/dot/scripts:$PATH
 
