@@ -17,3 +17,6 @@ set('n', '<c-h>', '<CMD>wincmd h<CR>')
 set('n', '<c-l>', '<CMD>wincmd l<CR>')
 set('n', '<c-k>', '<CMD>wincmd k<CR>')
 set('n', '<c-j>', '<CMD>wincmd j<CR>')
+
+-- Lazy
+set('n', '<leader>L', '<CMD>Lazy<CR>')
