@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Script that parses the formulae in a Makefile and presents them with fzf and runs the command
+
+# Parse Makefile and extract targets (excluding 'all' and any that start with .)
+targets=$(grep -E '^[a-zA-Z0-9_-]+:' Makefile | grep -v '^all:' | sed 's/:.*$//' | sort)
+
+# Check if any targets were found
+if [ -z "$targets" ]; then
+    echo "No make targets found in Makefile"
+    exit 1
+fi
+
+# Use fzf to select a target
+selected=$(echo "$targets" | fzf --prompt="Select make target: " --height=40% --border --reverse)
+
+# Check if user selected something
+if [ -n "$selected" ]; then
+    echo "Running: make $selected"
+    make "$selected"
+else
+    echo "No target selected"
+fi
