@@ -1,6 +1,10 @@
 return {
   "mason-org/mason-lspconfig.nvim",
   event = "VeryLazy",
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
+  },
   opts = {
     ensure_installed = {
       "intelephense",
@@ -10,10 +14,7 @@ return {
   keys = {
     { '<leader>la', vim.lsp.buf.code_action },
     { '<leader>li', vim.lsp.buf.implementation },
-    { '<leader>ln', vim.lsp.buf.rename },
-  },
-  dependencies = {
-    { "mason-org/mason.nvim", opts = {} },
-    "neovim/nvim-lspconfig",
+    { '<leader>ld', vim.lsp.buf.definition },
+    { '<leader>lr', vim.lsp.buf.rename },
   },
 }
