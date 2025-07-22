@@ -21,4 +21,5 @@
 
 (use-package slim-mode :defer t)
 
-(use-package csv-mode :defer t)
+(use-package csv-mode
+  :hook (csv-mode . csv-align-mode))

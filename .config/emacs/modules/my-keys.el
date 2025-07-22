@@ -10,6 +10,10 @@
 (global-set-key (kbd "C-c o y") 'dictionary-search)
 (global-set-key (kbd "C-c b") 'balance-windows)
 (global-set-key (kbd "<f5>") 'revert-buffer-quick)
+(global-set-key (kbd "C-M-1") 'delete-other-windows)
+(global-set-key (kbd "C-M-2") 'split-window-below)
+(global-set-key (kbd "C-M-3") 'split-window-right)
+(global-set-key (kbd "C-M-0") 'delete-window)
 
 ;; Windmove
 (global-set-key (kbd "M-h") 'windmove-left)

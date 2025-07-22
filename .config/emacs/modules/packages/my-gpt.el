@@ -22,8 +22,8 @@
   (setq gptel-backend (gptel-make-anthropic "Claude"
                         :stream t
                         :key 'my--gptel-anthropic-key
-                        :models '(claude-3-7-sonnet-20250219)))
-  (setq gptel-model 'claude-3-7-sonnet-20250219)
+                        :models '(claude-sonnet-4-20250514)))
+  (setq gptel-model 'claude-sonnet-4-20250514)
   (add-to-list 'display-buffer-alist
                '("*Claude*"
                  (display-buffer-in-side-window)
