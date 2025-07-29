@@ -13,5 +13,8 @@ return {
     { '<leader>le', '<cmd>FzfLua lsp_document_diagnostics<cr>' },
     { '<leader>ln', '<cmd>FzfLua lsp_references<cr>' },
     { '<leader>lS', '<cmd>FzfLua lsp_workspace_symbols<cr>' },
+
+    -- UI
+    { '<leader>uc', '<cmd>FzfLua colorschemes<cr>' },
   },
 }

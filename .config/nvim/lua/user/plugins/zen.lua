@@ -8,5 +8,5 @@ return {
       tmux = { enabled = true },
     },
   },
-  keys = { { '<leader>Z', '<cmd>ZenMode<cr>', desc = 'Zen Mode' } },
+  keys = { { '<leader>z', '<cmd>ZenMode<cr>', desc = 'Zen Mode' } },
 }

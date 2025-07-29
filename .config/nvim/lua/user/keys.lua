@@ -20,3 +20,9 @@ set('n', '<c-j>', '<CMD>wincmd j<CR>')
 
 -- Lazy
 set('n', '<leader>L', '<CMD>Lazy<CR>')
+
+-- Prettier - just using the cli for now
+set('n', '<leader>p', 'mf:%!prettier --config .prettierrc % 2>/dev/null<CR>`f')
+
+-- UI
+set('n', '<leader>ul', '<CMD>set relativenumber!<CR>')
