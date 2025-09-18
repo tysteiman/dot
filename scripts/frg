@@ -1,0 +1,4 @@
+#!/bin/bash
+
+FILE=$(rg $1 | fzf --reverse --border=rounded | awk '{print $1}' | sed s/://)
+$EDITOR $FILE

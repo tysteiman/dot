@@ -39,9 +39,9 @@ nnoremap <leader>F :set foldmethod=syntax<CR>
 inoremap jk <esc>
 
 function Set_4_Spaces()
-    setlocal shiftwidth=4
-    setlocal tabstop=4
-    setlocal softtabstop=4
+  setlocal shiftwidth=4
+  setlocal tabstop=4
+  setlocal softtabstop=4
 endfunction
 
 au Filetype php call Set_4_Spaces()

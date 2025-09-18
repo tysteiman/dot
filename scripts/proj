@@ -15,7 +15,7 @@ setup() {
 
 # this command will run realpath on the git directory up 1 level to get to the actual project directory.
 # that result is then piped through fzf
-OUTPUT="$(find $HOME/proj -maxdepth 3 -name '.git' -exec realpath {}/../ \; | fzf --border=rounded --reverse)"
+OUTPUT="$(find $HOME/proj -maxdepth 4 -name '.git' -exec realpath {}/../ \; | fzf --border=rounded --reverse)"
 
 # Handle entering Ctrl+c and exiting out -- don't try to open a tmux session with that
 if [ ! $OUTPUT ]; then

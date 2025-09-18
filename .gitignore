@@ -65,3 +65,4 @@ lazy-lock.json
 /.config/emacs/local.el
 /.config/emacs/org-persist/
 /.config/emacs/org-roam.db
+.notes/

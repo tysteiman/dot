@@ -15,3 +15,5 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
+
+-- vim.cmd[[ colorscheme murphy ]]
