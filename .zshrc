@@ -37,6 +37,7 @@ alias now="date +%m-%d-%y-%H-%M"
 # alias sed="sed --follow-symlinks"
 # alias jpkg="mvn clean package -DskipTests"
 # alias jinstall="mvn install -DskipTests"
+alias ca="cursor-agent"
 
 alias irb="irb --noautocomplete"
 alias rb="rbenv"
@@ -61,3 +62,4 @@ compinit
 # End of Docker CLI completions
 #
 . "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$PATH"
