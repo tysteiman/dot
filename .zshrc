@@ -1,7 +1,7 @@
 # export PS1='%1d > '
 export PS1='%F{blue}%1d %F{magenta}>%f '
 
-export EDITOR=nvim
+export EDITOR=vim
 
 alias c="clear"
 
@@ -21,7 +21,7 @@ alias grep="grep --color"
 alias lg="lazygit"
 alias ls="eza"
 alias ll="ls -lahF --git --icons"
-# alias cat="bat"
+alias cat="bat"
 # alias vff="EDITOR=vim ff"
 # alias vfa="EDITOR=vim fa"
 # alias kff="EDITOR=kak ff"
@@ -29,7 +29,7 @@ alias nv="nvim"
 # alias nvz="nvim ~/.zshrc"
 # alias hh="tail -r ~/.zsh_history | fzf --reverse --border --height 20 | zsh"
 alias now="date +%m-%d-%y-%H-%M"
-# alias tn="tmux new -s"
+alias tn="tmux new -s"
 # alias ddg="links duckduckgo.com"
 # alias npm-legacy="npm install --verbose --legacy-peer-deps"
 # alias nvim-clear-cache="rm -rf ~/.config/nvim/lazy-lock.json && find ~/.local -type d -name 'nvim' | xargs rm -rf"
@@ -43,6 +43,11 @@ alias irb="irb --noautocomplete"
 alias rb="rbenv"
 
 alias nvimmake="CMAKE_BUILD_TYPE=Release make"
+
+alias mac-battery="pmset -g batt"
+alias mb="pmset -g batt"
+
+alias dps="docker ps"
 
 source ~/.secrets.sh
 
@@ -63,3 +68,12 @@ compinit
 #
 . "$HOME/.cargo/env"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/tyler/.lmstudio/bin"
+# End of LM Studio CLI section
+
+if [[ -f ~/.work.sh ]]; then
+  ~/.work.sh
+fi
+

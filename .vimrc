@@ -18,7 +18,7 @@ set wildmenu
 set norelativenumber
 set nonumber
 set autoread
-set re=0
+set updatetime=300
 
 " What is this?
 set rtp+=/opt/homebrew/opt/fzf
@@ -31,10 +31,11 @@ nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 
 " Format current file with Prettier
-nnoremap <leader>P :%!prettier --config .prettierrc %<CR>
+" nnoremap <leader>P :%!prettier --config .prettierrc %<CR>
+autocmd FileType javascript,json,typescript,html nnoremap <buffer> <leader>P :%!prettier --config .prettierrc %<CR>
 
 " Set syntax fold method for navigating JSON files
-nnoremap <leader>F :set foldmethod=syntax<CR>
+" nnoremap <leader>F :set foldmethod=syntax<CR>
 
 inoremap jk <esc>
 

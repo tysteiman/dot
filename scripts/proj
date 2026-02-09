@@ -6,6 +6,7 @@ setup() {
   tmux rename-window -t $2 vim
   tmux new-window -n up -t $2 -c $1
   tmux new-window -n git -t $2 -c $1
+  tmux new-window -n cursor -t $2 -c $1
   tmux select-window -t $2:0
   tmux attach -t $2
 }
