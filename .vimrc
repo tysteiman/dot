@@ -7,7 +7,7 @@ set hlsearch
 set ignorecase
 set smarttab
 set expandtab
-set laststatus=0
+set laststatus=2
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
@@ -19,6 +19,8 @@ set norelativenumber
 set nonumber
 set autoread
 set updatetime=300
+set termguicolors
+set smartcase
 
 " What is this?
 set rtp+=/opt/homebrew/opt/fzf
@@ -47,5 +49,3 @@ endfunction
 
 au Filetype php call Set_4_Spaces()
 au Filetype java call Set_4_Spaces()
-
-color delek

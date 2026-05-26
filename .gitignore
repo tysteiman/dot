@@ -66,3 +66,7 @@ lazy-lock.json
 /.config/emacs/org-persist/
 /.config/emacs/org-roam.db
 .notes/
+.local/
+specs/
+
+**/.claude/settings.local.json
