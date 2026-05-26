@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Script that parses the scripts in a package.json and presents them with fzf and runs the command
+
+# Check if package.json exists
+if [ ! -f "package.json" ]; then
+    echo "No package.json found in current directory"
+    exit 1
+fi
+
+# Parse package.json and extract script names using jq
+scripts=$(jq -r '.scripts | keys[]' package.json 2>/dev/null)
+
+# Check if jq is available and if any scripts were found
+if [ -z "$scripts" ]; then
+    echo "No scripts found in package.json or jq not installed"
+    exit 1
+fi
+
+# Use fzf to select a script
+selected=$(echo "$scripts" | fzf --prompt="Select npm script: " --height=40% --border --reverse)
+
+# Check if user selected something
+if [ -n "$selected" ]; then
+    echo "Running: npm run $selected"
+    npm run "$selected"
+else
+    echo "No script selected"
+fi
