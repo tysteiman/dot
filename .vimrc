@@ -15,8 +15,6 @@ set autoindent
 set path+=**
 set path-=/usr/include
 set wildmenu
-set norelativenumber
-set nonumber
 set autoread
 set updatetime=300
 set termguicolors
@@ -49,3 +47,5 @@ endfunction
 
 au Filetype php call Set_4_Spaces()
 au Filetype java call Set_4_Spaces()
+
+color retrobox
