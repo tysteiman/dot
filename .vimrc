@@ -47,5 +47,3 @@ endfunction
 
 au Filetype php call Set_4_Spaces()
 au Filetype java call Set_4_Spaces()
-
-color retrobox
