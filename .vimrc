@@ -19,8 +19,6 @@ set autoread
 set updatetime=300
 set termguicolors
 set smartcase
-
-" What is this?
 set rtp+=/opt/homebrew/opt/fzf
 
 let mapleader=" "
@@ -29,13 +27,6 @@ nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
-
-" Format current file with Prettier
-" nnoremap <leader>P :%!prettier --config .prettierrc %<CR>
-autocmd FileType javascript,json,typescript,html nnoremap <buffer> <leader>P :%!prettier --config .prettierrc %<CR>
-
-" Set syntax fold method for navigating JSON files
-" nnoremap <leader>F :set foldmethod=syntax<CR>
 
 inoremap jk <esc>
 
