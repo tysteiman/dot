@@ -70,3 +70,5 @@ lazy-lock.json
 specs/
 
 **/.claude/settings.local.json
+.claude/worktrees/
+.claude-shots/
