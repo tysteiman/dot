@@ -8,6 +8,7 @@
 # Window option @claude     = the most urgent state among the window's panes;
 # window-status-format draws an icon from it.
 export LC_ALL=en_US.UTF-8
+source ${0:A:h}/pill.zsh
 
 rank() { case $1 in waiting) print 5;; error) print 4;; working) print 3;; done) print 2;; idle) print 1;; *) print 0;; esac }
 
@@ -57,10 +58,9 @@ case $1 in
       [[ ${s%% *} == $2 || -z ${s#* } ]] && continue   # this session, or no Claude
       (( n[${s#* }]++ ))
     done
-    out=
-    (( n[waiting] )) && out+="#[fg=#e46876]"$''" ${n[waiting]} "
-    (( n[working] )) && out+="#[fg=#e6c384]✻ ${n[working]} "
-    [[ -n $out ]] && print -rn -- "$out "
+    # other sessions' Claude activity: red pill = waiting on you, orange = working
+    (( n[waiting] )) && solid '#e46876' '' "${n[waiting]}"
+    (( n[working] )) && solid '#d97757' '✻' "${n[working]}"
     ;;
 esac
 exit 0

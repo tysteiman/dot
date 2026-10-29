@@ -1,8 +1,9 @@
 #!/bin/zsh
-# tmux status segment for the active pane's directory ($1): branch icon + name,
-# green when the tree is clean, yellow when dirty, then ↑ahead ↓behind its upstream.
+# tmux status pill for the active pane's directory ($1): branch icon + name,
+# in a green pill when the tree is clean, yellow when dirty, then ↑ahead ↓behind its upstream.
 # Prints nothing outside a git repo.
 export LC_ALL=en_US.UTF-8
+source ${0:A:h}/pill.zsh
 cd -q -- "$1" 2>/dev/null || exit 0
 st=$(git --no-optional-locks status --porcelain=v2 --branch 2>/dev/null) || exit 0
 
@@ -20,7 +21,7 @@ done
 (( ${#head} > 24 )) && head="${head[1,23]}…"
 
 [[ -n $dirty ]] && colour='#e6c384' || colour='#98bb6c'   # yellow dirty / green clean
-out="#[fg=$colour]"$''" ${head}"
-(( ahead ))  && out+=" #[fg=#727169]↑${ahead}"
-(( behind )) && out+=" #[fg=#727169]↓${behind}"
-print -rn -- "$out  "
+text=$head
+(( ahead ))  && text+=" ↑${ahead}"
+(( behind )) && text+=" ↓${behind}"
+solid $colour '' "$text"
