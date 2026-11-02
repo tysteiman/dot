@@ -1,31 +1,5 @@
 #!/bin/bash
 
-# Create a new session, create code, up, and git windows, select code, and attach.
-setup() {
-  tmux new -c $1 -s $2 -d
-  tmux rename-window -t $2 files
-  tmux new-window -n servers -t $2 -c $1
-  tmux new-window -n git -t $2 -c $1
-  tmux new-window -n agent -t $2 -c $1
-  tmux select-window -t $2:0
-  tmux attach -t $2
-}
-
-# Script for finding .git directories in our ~/proj folder, piping that into fzf for search/selection,
-# and opening that directory as a new tmux session with that as the name and pwd.
-
-# this command will run realpath on the git directory up 1 level to get to the actual project directory.
-# that result is then piped through fzf
-OUTPUT="$(find $HOME/proj -maxdepth 4 -name '.git' -exec realpath {}/../ \; | fzf --border=rounded --reverse)"
-
-# Handle entering Ctrl+c and exiting out -- don't try to open a tmux session with that
-if [ ! $OUTPUT ]; then
-    exit 1
-fi
-
-# we use the base name as the tmux session name
-BASE="$(basename $OUTPUT)"
-
-# try to attach to a session with this name, if that fails create a new session
-# tmux a -t $BASE || tmux new -c $OUTPUT -s $BASE -d
-tmux a -t $BASE || setup $OUTPUT $BASE
+# Pick a project under ~/proj with fzf and open/attach its tmux session.
+# The real work lives in tproj (also bound to prefix+f inside tmux).
+exec "$(dirname "$0")/tproj" "$@"

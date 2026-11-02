@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Session switcher: fzf over tmux sessions with a live preview of the session's
+# active pane. Type a name that doesn't exist and hit enter to create it.
+#   enter   switch        ctrl-x  kill highlighted session
+#
+# Bound in ~/.tmux.conf (prefix+s / Alt-s) via display-popup.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+list() {
+  tmux list-sessions -F '#{session_name}'$'\t''#{session_windows}w#{?session_attached, ●,}  #{session_path}'
+}
+
+[ "$1" = "--list" ] && { list; exit 0; }
+
+OUT="$(list | fzf --border=rounded --reverse --delimiter=$'\t' --print-query \
+  --prompt='session> ' --header='enter: switch · ctrl-x: kill · no match + enter: create' \
+  --preview='tmux capture-pane -ep -t "={1}:" 2>/dev/null' --preview-window=right:55%:border-left \
+  --bind "ctrl-x:execute-silent(tmux kill-session -t '={1}')+reload($0 --list)")"
+
+[ -z "$OUT" ] && exit 1
+
+QUERY="$(sed -n 1p <<<"$OUT")"
+PICK="$(sed -n 2p <<<"$OUT" | cut -f1)"
+
+if [ -n "$PICK" ]; then
+  TARGET="$PICK"
+elif [ -n "$QUERY" ]; then
+  TARGET="${QUERY//[.:]/_}"
+  tmux has-session -t "=$TARGET" 2>/dev/null || tmux new-session -d -s "$TARGET" -c "$PWD"
+else
+  exit 1
+fi
+
+if [ -n "$TMUX" ]; then tmux switch-client -t "=$TARGET"; else tmux attach -t "=$TARGET"; fi

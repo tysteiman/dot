@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Project picker: find git repos under ~/proj, fzf-select one, and jump to its
+# tmux session (creating it with the files/servers/git/agent layout if needed).
+# Works both inside tmux (switch-client) and outside (attach).
+# Running sessions are listed first and marked with ●.
+#
+# Bound in ~/.tmux.conf (prefix+f / Alt-o) via display-popup; also used by `proj`.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+list() {
+  export SESSIONS
+  SESSIONS="$(tmux list-sessions -F '#S' 2>/dev/null)"
+  find "$HOME/proj" -maxdepth 4 -name '.git' -prune 2>/dev/null \
+    | sed 's|/\.git$||' \
+    | awk '
+        BEGIN { n = split(ENVIRON["SESSIONS"], a, "\n"); for (i = 1; i <= n; i++) act[a[i]] = 1 }
+        {
+          b = $0; sub(".*/", "", b); gsub(/[.:]/, "_", b)   # tmux session-name rules
+          printf "%s\t%s %s\t%s\n", (b in act ? 0 : 1), (b in act ? "●" : " "), b, $0
+        }' \
+    | sort -t$'\t' -s -k1,1 -k2,2 \
+    | cut -f2-
+}
+
+[ "$1" = "--list" ] && { list; exit 0; }
+
+# Create a session with our standard windows (detached).
+setup() {
+  local dir="$1" name="$2"
+  tmux new-session -d -c "$dir" -s "$name" -n files
+  tmux new-window -d -t "=$name:" -n servers -c "$dir"
+  tmux new-window -d -t "=$name:" -n git -c "$dir"
+  tmux new-window -d -t "=$name:" -n agent -c "$dir"
+  tmux select-window -t "=$name:files"
+}
+
+SELECTED="$(list | fzf --border=rounded --reverse --delimiter=$'\t' --with-nth=1 \
+  --prompt='project> ' --header='● = running session' \
+  --preview='ls -1A {2}' --preview-window=right:40%:border-left)"
+
+[ -z "$SELECTED" ] && exit 1
+
+DIR="$(cut -f2 <<<"$SELECTED")"
+NAME="$(basename "$DIR")"; NAME="${NAME//[.:]/_}"
+
+tmux has-session -t "=$NAME" 2>/dev/null || setup "$DIR" "$NAME"
+
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t "=$NAME"
+else
+  tmux attach -t "=$NAME"
+fi

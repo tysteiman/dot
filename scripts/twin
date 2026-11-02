@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Window switcher: fzf over every window in every session, with a preview of
+# the pane. Shows the Claude status marker (@claude) set by ~/.tmux/claude.sh.
+#
+# Bound in ~/.tmux.conf (prefix+w / Alt-w) via display-popup.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+SEL="$(tmux list-windows -a -F \
+  '#{session_name}:#{window_index}'$'\t''#{session_name} / #{window_name}#{?#{@claude},  ✻ #{@claude},}'$'\t''#{pane_current_path}' \
+  | fzf --border=rounded --reverse --delimiter=$'\t' --with-nth=2,3 \
+      --prompt='window> ' \
+      --preview='tmux capture-pane -ep -t {1}' --preview-window=right:55%:border-left)"
+
+[ -z "$SEL" ] && exit 1
+
+TARGET="$(cut -f1 <<<"$SEL")"
+if [ -n "$TMUX" ]; then
+  tmux switch-client -t "$TARGET"
+else
+  tmux attach -t "$TARGET"
+fi
