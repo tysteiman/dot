@@ -4,31 +4,40 @@
 # active pane. Type a name that doesn't exist and hit enter to create it.
 #   enter   switch        ctrl-x  kill highlighted session
 #
-# Bound in ~/.tmux.conf (prefix+s / Alt-s) via display-popup.
+#   tsess --claude   only sessions that have a Claude window (any state), most urgent first
+#
+# Bound in ~/.tmux.conf (prefix+s / Alt-s, and prefix+v / Alt-v for --claude) via display-popup.
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
+ONLY=0; [ "$1" = "--claude" ] && { ONLY=1; shift; }
+
 list() {
-  export CLAUDE
+  export CLAUDE ONLY
   CLAUDE="$("$(dirname "$0")/tclaude" sessions)"   # session<TAB>rank<TAB>icon
   tmux list-sessions -F '#{session_name}'$'\t''#{session_windows}w#{?session_attached, ●,}  #{session_path}' \
     | awk -F'\t' '
         BEGIN {
+          ONLY = ENVIRON["ONLY"]
           m[5] = 0; m[4] = 1; m[2] = 2; m[3] = 3; m[1] = 4   # waiting, error, done, working, idle
           n = split(ENVIRON["CLAUDE"], c, "\n")
           for (i = 1; i <= n; i++) { split(c[i], f, "\t"); rk[f[1]] = f[2]; ic[f[1]] = f[3] }
         }
+        ONLY == 1 && !(($1) in ic) { next }
         { printf "%d\t%s\t%s %s  %s\n", (($1) in ic) ? m[rk[$1]] : 5, $1, ((($1) in ic) ? ic[$1] : " "), $1, $2 }' \
     | sort -t$'\t' -s -k1,1n -k2,2 \
     | cut -f2-
 }
 
 [ "$1" = "--list" ] && { list; exit 0; }
+FLAG=""; [ "$ONLY" = 1 ] && FLAG="--claude"
+if [ "$ONLY" = 1 ]; then PROMPT="claude> "; HEADER="enter: switch · ctrl-x: kill · only sessions running Claude"
+else PROMPT="session> "; HEADER="enter: switch · ctrl-x: kill · no match + enter: create"; fi
 
 OUT="$(list | fzf --border=rounded --reverse --delimiter=$'\t' --with-nth=2.. --ansi --print-query \
-  --prompt='session> ' --header='enter: switch · ctrl-x: kill · no match + enter: create' \
+  --prompt="$PROMPT" --header="$HEADER" \
   --preview='tmux capture-pane -ep -t "={1}:" 2>/dev/null' --preview-window=right:55%:border-left \
-  --bind "ctrl-x:execute-silent(tmux kill-session -t '={1}')+reload($0 --list)")"
+  --bind "ctrl-x:execute-silent(tmux kill-session -t '={1}')+reload($0 $FLAG --list)")"
 
 [ -z "$OUT" ] && exit 1
 
