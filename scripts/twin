@@ -1,15 +1,17 @@
 #!/bin/bash
 
 # Window switcher: fzf over every window in every session, with a preview of
-# the pane. Shows the Claude status marker (@claude) set by ~/.tmux/claude.sh.
+# the pane. Windows where Claude needs you sort first (bell/warn/check icon).
 #
 # Bound in ~/.tmux.conf (prefix+w / Alt-w) via display-popup.
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
-SEL="$(tmux list-windows -a -F \
-  '#{session_name}:#{window_index}'$'\t''#{session_name} / #{window_name}#{?#{@claude},  ✻ #{@claude},}'$'\t''#{pane_current_path}' \
-  | fzf --border=rounded --reverse --delimiter=$'\t' --with-nth=2,3 \
+SEL="$("$(dirname "$0")/tclaude" windows \
+  | awk -F'\t' 'BEGIN { m[5] = 0; m[4] = 1; m[2] = 2; m[3] = 3; m[1] = 4 }   # waiting, error, done, working, idle
+      { printf "%d\t%s\t%s %s / %s\t%s\n", ($2 in m) ? m[$2] : 5, $1, $3, $4, $5, $6 }' \
+  | sort -t$'\t' -s -k1,1n -k2,2 | cut -f2- \
+  | fzf --ansi --border=rounded --reverse --delimiter=$'\t' --with-nth=2,3 \
       --prompt='window> ' \
       --preview='tmux capture-pane -ep -t {1}' --preview-window=right:55%:border-left)"
 

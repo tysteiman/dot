@@ -9,12 +9,23 @@
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
 list() {
-  tmux list-sessions -F '#{session_name}'$'\t''#{session_windows}w#{?session_attached, ●,}  #{session_path}'
+  export CLAUDE
+  CLAUDE="$("$(dirname "$0")/tclaude" sessions)"   # session<TAB>rank<TAB>icon
+  tmux list-sessions -F '#{session_name}'$'\t''#{session_windows}w#{?session_attached, ●,}  #{session_path}' \
+    | awk -F'\t' '
+        BEGIN {
+          m[5] = 0; m[4] = 1; m[2] = 2; m[3] = 3; m[1] = 4   # waiting, error, done, working, idle
+          n = split(ENVIRON["CLAUDE"], c, "\n")
+          for (i = 1; i <= n; i++) { split(c[i], f, "\t"); rk[f[1]] = f[2]; ic[f[1]] = f[3] }
+        }
+        { printf "%d\t%s\t%s %s  %s\n", (($1) in ic) ? m[rk[$1]] : 5, $1, ((($1) in ic) ? ic[$1] : " "), $1, $2 }' \
+    | sort -t$'\t' -s -k1,1n -k2,2 \
+    | cut -f2-
 }
 
 [ "$1" = "--list" ] && { list; exit 0; }
 
-OUT="$(list | fzf --border=rounded --reverse --delimiter=$'\t' --print-query \
+OUT="$(list | fzf --border=rounded --reverse --delimiter=$'\t' --with-nth=2.. --ansi --print-query \
   --prompt='session> ' --header='enter: switch · ctrl-x: kill · no match + enter: create' \
   --preview='tmux capture-pane -ep -t "={1}:" 2>/dev/null' --preview-window=right:55%:border-left \
   --bind "ctrl-x:execute-silent(tmux kill-session -t '={1}')+reload($0 --list)")"

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Shared Claude-state helper for the tmux pickers. Reads the window option @claude
+# (set by ~/.tmux/claude.sh from Claude Code hooks) and prints, tab-separated:
+#   tclaude sessions   session  rank  icon                    (only sessions with Claude)
+#   tclaude windows    target   rank  icon  session  window  path   (every window)
+# rank: 5 waiting · 4 error · 3 working · 2 done · 1 idle · 0 none
+# icon is ANSI-coloured with the Kanagawa palette; use fzf --ansi.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+# Nerd Font glyphs as UTF-8 bytes (macOS bash 3.2 has no \u escapes).
+BELL="$(printf '\xef\x83\xb3')"; WARN="$(printf '\xef\x81\xb1')"
+CHECK="$(printf '\xef\x80\x8c')"; STAR="$(printf '\xe2\x9c\xbb')"
+
+AWK_LIB='
+function rank(s) { return s=="waiting"?5 : s=="error"?4 : s=="working"?3 : s=="done"?2 : s=="idle"?1 : 0 }
+function col(r,g,b,t) { return sprintf("\033[38;2;%d;%d;%dm%s\033[0m", r,g,b,t) }
+function icon(s) {
+  if (s=="waiting") return col(228,104,118,bell)
+  if (s=="error")   return col(126,156,216,warn)
+  if (s=="working") return col(217,119,87,star)
+  if (s=="done")    return col(152,187,108,check)
+  if (s=="idle")    return col(114,113,105,star)
+  return " "
+}'
+T=$'\t'
+case "$1" in
+  sessions)
+    tmux list-windows -a -F "#{session_name}${T}#{@claude}" 2>/dev/null | awk -F'\t' \
+      -v bell="$BELL" -v warn="$WARN" -v check="$CHECK" -v star="$STAR" "$AWK_LIB"'
+      $2 != "" { r = rank($2); if (r > best[$1]) { best[$1] = r; st[$1] = $2 } }
+      END { for (k in best) printf "%s\t%d\t%s\n", k, best[k], icon(st[k]) }' ;;
+  windows)
+    tmux list-windows -a -F "#{session_name}:#{window_index}${T}#{@claude}${T}#{session_name}${T}#{window_name}${T}#{pane_current_path}" 2>/dev/null | awk -F'\t' \
+      -v bell="$BELL" -v warn="$WARN" -v check="$CHECK" -v star="$STAR" "$AWK_LIB"'
+      { printf "%s\t%d\t%s\t%s\t%s\t%s\n", $1, rank($2), icon($2), $3, $4, $5 }' ;;
+  *) echo "usage: tclaude sessions|windows" >&2; exit 2 ;;
+esac

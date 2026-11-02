@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Jump to the next Claude that needs you: waiting > error > done (never `working`
+# or `idle`), across every session. Skips the window you're already in, so
+# repeated presses cycle through everything that's pending.
+#   tattn [CURRENT_WINDOW_ID]
+#
+# Bound in ~/.tmux.conf: prefix+a / Alt-a.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+CUR="${1:-}"
+TARGET="$(tmux list-windows -a -F '#{window_id}'$'\t''#{@claude}'$'\t''#{session_name}:#{window_index}' \
+  | awk -F'\t' -v cur="$CUR" '
+      function rank(s) { return s=="waiting"?3 : s=="error"?2 : s=="done"?1 : 0 }
+      $1 != cur && rank($2) > best { best = rank($2); t = $3 }
+      END { if (t != "") print t }')"
+
+if [ -z "$TARGET" ]; then
+  tmux display-message "No Claude needs attention"
+  exit 0
+fi
+
+tmux switch-client -t "$TARGET"
