@@ -1,0 +1,164 @@
+# yaml-language-server: $schema=plugins/tmux-which-key/config.schema.yaml
+# Source for the which-key menu (prefix Space). Symlinked as config.yaml into the plugin dir by bootstrap.sh;
+# the plugin builds it into its init.tmux on every tmux (re)load.
+command_alias_start_index: 200
+keybindings:
+  prefix_table: Space
+title:
+  style: align=centre,bold
+  prefix: tmux
+  prefix_style: fg=#98bb6c,align=centre,bold
+position:
+  x: C
+  y: C
+custom_variables:
+  - name: log_info
+    value: '#[fg=green,italics] [info]#[default]#[italics]'
+macros:
+  - name: reload-config
+    commands:
+      - display "#{log_info} Reloading ~/.tmux.conf ..."
+      - source-file ~/.tmux.conf
+      - display "#{log_info} Reloaded"
+items:
+  # ── your fzf popups / claude helpers ──
+  - name: Projects
+    key: f
+    command: display-popup -E -w 80% -h 70% -T "#[fg=#957fb8] projects " -d "#{pane_current_path}" "~/dot/scripts/tproj"
+  - name: Sessions
+    key: s
+    command: display-popup -E -w 80% -h 70% -T "#[fg=#957fb8] sessions " -d "#{pane_current_path}" "~/dot/scripts/tsess"
+  - name: Windows
+    key: w
+    command: display-popup -E -w 80% -h 70% -T "#[fg=#957fb8] windows " -d "#{pane_current_path}" "~/dot/scripts/twin"
+  - name: Claude sessions
+    key: v
+    command: display-popup -E -w 80% -h 70% -T "#[fg=#957fb8] claude " -d "#{pane_current_path}" "~/dot/scripts/tsess --claude"
+  - name: Next Claude needing me
+    key: a
+    command: 'run-shell "~/dot/scripts/tattn #{window_id}"'
+  - name: WoW news
+    key: u
+    command: display-popup -E -w 90% -h 70% -T "#[fg=#957fb8] wow news " "~/.tmux/wowhead.sh pick"
+  - name: Previous session
+    key: tab
+    command: switch-client -l
+  - separator: true
+  # ── groups ──
+  - name: +Panes
+    key: p
+    menu:
+      - name: Split right
+        key: '|'
+        command: 'splitw -h -c #{pane_current_path}'
+      - name: Split below
+        key: '-'
+        command: 'splitw -v -c #{pane_current_path}'
+      - name: Zoom
+        key: z
+        command: resizep -Z
+      - name: Choose by number
+        key: p
+        command: displayp -d 0
+      - separator: true
+      - name: Left
+        key: h
+        command: selectp -L
+      - name: Down
+        key: j
+        command: selectp -D
+      - name: Up
+        key: k
+        command: selectp -U
+      - name: Right
+        key: l
+        command: selectp -R
+      - separator: true
+      - name: Swap left
+        key: H
+        command: swapp -t "{left-of}"
+      - name: Swap down
+        key: J
+        command: swapp -t "{down-of}"
+      - name: Swap up
+        key: K
+        command: swapp -t "{up-of}"
+      - name: Swap right
+        key: L
+        command: swapp -t "{right-of}"
+      - name: Break to window
+        key: '!'
+        command: break-pane
+      - name: Respawn
+        key: R
+        command: 'respawnp -k -c #{pane_current_path}'
+      - name: Kill
+        key: X
+        command: 'confirm -p "Kill pane #P? (y/n)" killp'
+  - name: +Window
+    key: W
+    menu:
+      - name: New
+        key: c
+        command: 'neww -c #{pane_current_path}'
+      - name: Last
+        key: tab
+        command: last-window
+      - name: Next
+        key: n
+        command: next-window
+      - name: Previous
+        key: p
+        command: previous-window
+      - name: Rename
+        key: R
+        command: command-prompt -p "Rename window:" -I "#W" "renamew -- \"%%\""
+      - name: +Layout
+        key: l
+        menu:
+          - name: Tiled
+            key: t
+            command: selectl tiled
+          - name: Horizontal
+            key: h
+            command: selectl even-horizontal
+          - name: Vertical
+            key: v
+            command: selectl even-vertical
+      - name: Kill
+        key: X
+        command: 'confirm -p "Kill window #W? (y/n)" killw'
+  - name: +Session
+    key: S
+    menu:
+      - name: New
+        key: N
+        command: command-prompt -p "New session:" "new-session -s \"%%\""
+      - name: Rename
+        key: r
+        command: command-prompt -I "#S" "rename-session -- \"%%\""
+      - name: Detach
+        key: D
+        command: detach-client
+  - name: +Copy / buffers
+    key: c
+    menu:
+      - name: Copy mode
+        key: c
+        command: copy-mode
+      - name: Paste
+        key: p
+        command: paste-buffer
+      - name: Choose buffer
+        key: b
+        command: choose-buffer -Z
+  - separator: true
+  - name: Reload config
+    key: r
+    macro: reload-config
+  - name: Run command
+    key: space
+    command: command-prompt
+  - name: All keys
+    key: '?'
+    command: list-keys -N

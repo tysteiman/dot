@@ -72,3 +72,5 @@ specs/
 **/.claude/settings.local.json
 .claude/worktrees/
 .claude-shots/
+
+/.tmux/plugins/
