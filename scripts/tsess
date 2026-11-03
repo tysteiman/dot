@@ -53,4 +53,15 @@ else
   exit 1
 fi
 
+if [ "$ONLY" = 1 ]; then
+  # Land on the Claude window: the one named "agent" if it runs Claude, else the most urgent one.
+  WIN="$(tmux list-windows -t "=$TARGET" -F '#{window_index}'$'\t''#{window_name}'$'\t''#{@claude}' | awk -F'\t' '
+    $3 == "" { next }
+    $2 == "agent" { print $1; found = 1; exit }
+    { r = ($3=="waiting")*5 + ($3=="error")*4 + ($3=="working")*3 + ($3=="done")*2 + ($3=="idle")
+      if (r > best) { best = r; pick = $1 } }
+    END { if (!found && pick != "") print pick }')"
+  [ -n "$WIN" ] && tmux select-window -t "=$TARGET:$WIN"
+fi
+
 if [ -n "$TMUX" ]; then tmux switch-client -t "=$TARGET"; else tmux attach -t "=$TARGET"; fi

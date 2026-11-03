@@ -51,6 +51,7 @@ case $1 in
     json=$(</dev/stdin)
     [[ $json =~ '"hook_event_name" *: *"([^"]+)"' ]] && event=$match[1]
     [[ $json =~ '"tool_name" *: *"([^"]+)"' ]] && tool=$match[1]
+    [[ $json =~ '"notification_type" *: *"([^"]+)"' ]] && ntype=$match[1]
     case $event in
       SessionStart)      state=idle ;;
       UserPromptSubmit|PostToolUse) state=working ;;
@@ -61,6 +62,13 @@ case $1 in
         want=$state   # notify on the real outcome, even if the marker is suppressed below
         # already looking at this window? then there's nothing new to flag
         [[ $state == done && $(tmux display -p -t "$TMUX_PANE" '#{window_active}#{session_attached}') == 1[1-9]* ]] && state=idle ;;
+      Notification)
+        case $ntype in
+          permission_prompt|elicitation_dialog) state=waiting ;;
+          # Claude sat idle awaiting you: flag it as done unless it's already idle/seen
+          idle_prompt) [[ $(tmux display -p -t "$TMUX_PANE" '#{@claude_state}') == working ]] && state=done || exit 0 ;;
+          *) exit 0 ;;
+        esac ;;
       SessionEnd)        state= ;;
       *) exit 0 ;;
     esac
@@ -80,14 +88,28 @@ case $1 in
     [[ -n $changed ]] && sync_window "$2" ;;
 
   summary)
-    typeset -A n
-    for s in ${(f)"$(tmux list-panes -a -F '#{session_id} #{@claude_state}')"}; do
-      [[ ${s%% *} == $2 || -z ${s#* } ]] && continue   # this session, or no Claude
-      (( n[${s#* }]++ ))
+    # Other sessions' Claude activity, one pill per state, in priority order, each listing
+    # the projects (session names) in that state. Idle is a quiet grey count.
+    typeset -A names cnt
+    local line sid name st
+    for line in ${(f)"$(tmux list-windows -a -F '#{session_id}'$'\t''#{session_name}'$'\t''#{@claude}')"}; do
+      sid=${line%%$'\t'*} name=${line#*$'\t'}
+      st=${name##*$'\t'} name=${name%$'\t'*}
+      [[ $sid == $2 || -z $st ]] && continue   # this session, or no Claude
+      [[ " ${names[$st]} " == *" ${name// /_} "* ]] && continue   # one entry per session per state
+      names[$st]+=" ${name// /_}"
+      (( cnt[$st]++ ))
     done
-    # other sessions' Claude activity: red pill = waiting on you, orange = working
-    (( n[waiting] )) && solid '#e46876' '' "${n[waiting]}"
-    (( n[working] )) && solid '#d97757' '✻' "${n[working]}"
+    local -a list
+    local state icon colour n shown=0 extra=0 max=5
+    for state icon colour in waiting $'\uF0F3' '#e46876'  error $'\uF071' '#7e9cd8'  done $'\uF00C' '#98bb6c'  working '✻' '#d97757'; do
+      list=(${=names[$state]})
+      for n in $list; do   # one pill per project, most urgent first
+        if (( shown < max )); then solid "$colour" "$icon" "${${n//_/ }:0:24}"; (( shown++ )); else (( extra++ )); fi
+      done
+    done
+    (( extra )) && pill '#727169' '' "+$extra"
+    (( cnt[idle] )) && pill '#727169' '✻' "${cnt[idle]}"
     ;;
 esac
 exit 0
