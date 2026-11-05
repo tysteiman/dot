@@ -5,6 +5,7 @@
 #   claude.sh summary SESS  status-right: Claude activity in sessions other than SESS
 #
 # Pane option @claude_state = idle | working | waiting | done | error (unset = no Claude here).
+# Pane option @claude_subs  = running subagents (SubagentStart/Stop); while >0 the pane stays "working".
 # Window option @claude     = the most urgent state among the window's panes;
 # window-status-format draws an icon from it.
 export LC_ALL=en_US.UTF-8
@@ -14,8 +15,9 @@ rank() { case $1 in waiting) print 5;; error) print 4;; working) print 3;; done)
 
 # Recompute the window-level state from its panes and redraw every client's status.
 sync_window() {
-  local win=$1 best= s
-  for s in ${(f)"$(tmux list-panes -t "$win" -F '#{@claude_state}')"}; do
+  local win=$1 best= s line
+  for line in ${(f)"$(tmux list-panes -t "$win" -F '#{@claude_state}')"}; do
+    s=$line
     (( $(rank "$s") > $(rank "$best") )) && best=$s
   done
   if [[ -n $best ]]; then tmux set -w -t "$win" @claude "$best"; else tmux set -wu -t "$win" @claude; fi
@@ -52,27 +54,50 @@ case $1 in
     [[ $json =~ '"hook_event_name" *: *"([^"]+)"' ]] && event=$match[1]
     [[ $json =~ '"tool_name" *: *"([^"]+)"' ]] && tool=$match[1]
     [[ $json =~ '"notification_type" *: *"([^"]+)"' ]] && ntype=$match[1]
+    subs=$(tmux display -p -t "$TMUX_PANE" '#{@claude_subs}')
+    [[ $subs == <-> ]] || subs=0
     case $event in
-      SessionStart)      state=idle ;;
+      SessionStart)      state=idle; subs=0 ;;
+      # subagent events only adjust the count; they never start a turn, so a stray one can't wedge the pane at "working"
+      SubagentStart)     (( subs++ )); state=$(tmux display -p -t "$TMUX_PANE" '#{@claude_state}') ;;
+      SubagentStop)
+        (( subs > 0 )) && (( subs-- ))
+        # last subagent finished after the parent already stopped: resolve the deferred outcome
+        if (( subs == 0 )); then
+          state=$(tmux display -p -t "$TMUX_PANE" '#{@claude_deferred}')
+          if [[ -n $state ]]; then want=$state
+          else state=$(tmux display -p -t "$TMUX_PANE" '#{@claude_state}'); fi   # no deferred stop: leave as is
+        else state=$(tmux display -p -t "$TMUX_PANE" '#{@claude_state}'); fi ;;
       UserPromptSubmit|PostToolUse) state=working ;;
       PreToolUse)        [[ $tool == (AskUserQuestion|ExitPlanMode) ]] && state=waiting || state=working ;;
       PermissionRequest) state=waiting ;;
       Stop|StopFailure)
         [[ $event == StopFailure ]] && state=error || state=done
         want=$state   # notify on the real outcome, even if the marker is suppressed below
-        # already looking at this window? then there's nothing new to flag
-        [[ $state == done && $(tmux display -p -t "$TMUX_PANE" '#{window_active}#{session_attached}') == 1[1-9]* ]] && state=idle ;;
+        if (( subs > 0 )); then   # subagents still running: the session isn't finished
+          tmux set -p -t "$TMUX_PANE" @claude_deferred "$state"
+          want= state=working
+        else
+          # already looking at this window? then there's nothing new to flag
+          [[ $state == done && $(tmux display -p -t "$TMUX_PANE" '#{window_active}#{session_attached}') == 1[1-9]* ]] && state=idle
+        fi ;;
       Notification)
         case $ntype in
           permission_prompt|elicitation_dialog) state=waiting ;;
           # Claude sat idle awaiting you: flag it as done unless it's already idle/seen
-          idle_prompt) [[ $(tmux display -p -t "$TMUX_PANE" '#{@claude_state}') == working ]] && state=done || exit 0 ;;
+          idle_prompt) (( subs > 0 )) && exit 0   # waiting on subagents, not on you
+                       [[ $(tmux display -p -t "$TMUX_PANE" '#{@claude_state}') == working ]] && state=done || exit 0 ;;
           *) exit 0 ;;
         esac ;;
-      SessionEnd)        state= ;;
+      SessionEnd)        state= subs=0 ;;
       *) exit 0 ;;
     esac
     prev=$(tmux display -p -t "$TMUX_PANE" '#{@claude_state}')
+    # a new turn or the resolved outcome clears any deferred stop
+    if [[ $event == (UserPromptSubmit|SessionStart|SessionEnd) || ($event == SubagentStop && $subs == 0) ]]; then
+      tmux set -pu -t "$TMUX_PANE" @claude_deferred
+    fi
+    if (( subs )); then tmux set -p -t "$TMUX_PANE" @claude_subs "$subs"; else tmux set -pu -t "$TMUX_PANE" @claude_subs; fi
     if [[ -n $state ]]; then tmux set -p -t "$TMUX_PANE" @claude_state "$state"
     else tmux set -pu -t "$TMUX_PANE" @claude_state; fi
     sync_window "$TMUX_PANE"
