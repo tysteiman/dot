@@ -34,6 +34,9 @@ items:
   - name: Claude sessions
     key: v
     command: display-popup -E -w 80% -h 70% -T "#[fg=#957fb8] claude " -d "#{pane_current_path}" "~/dot/scripts/tsess --claude"
+  - name: Docker containers
+    key: d
+    command: display-popup -E -w 90% -h 75% -T "#[fg=#957fb8] containers " -d "#{pane_current_path}" "~/dot/scripts/tdock"
   - name: Next Claude needing me
     key: a
     command: 'run-shell "~/dot/scripts/tattn #{window_id}"'

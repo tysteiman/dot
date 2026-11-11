@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# Docker container manager: fzf over every container (running first, grouped by
+# compose project) with a live preview of its ports + recent logs.
+#   enter   shell into it (new tmux window; starts it first if stopped)
+#   ctrl-f  follow its logs (new tmux window)
+#   ctrl-x  stop highlighted      ctrl-d  stop ALL running
+#   ctrl-s  start highlighted     ctrl-r  restart highlighted
+#
+# Bound in ~/.tmux.conf (prefix+D / Alt-d) via display-popup.
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+list() {
+  docker ps -a --format '{{.ID}}\t{{.State}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Label "com.docker.compose.project"}}' \
+    | awk -F'\t' '
+        { rank = ($2 == "running") ? 0 : ($2 == "paused" || $2 == "restarting") ? 1 : 2
+          printf "%d\t%s\t%s\n", rank, $6, $0 }' \
+    | sort -t$'\t' -k1,1n -k2,2 -k5,5 | cut -f3- \
+    | awk -F'\t' '
+        { id[NR] = $1; st[NR] = $2; nm[NR] = $3; im[NR] = $4; ss[NR] = $5
+          if (length($3) > w) w = length($3)
+          if (length($4) > wi) wi = length($4) }
+        END {
+          if (wi > 40) wi = 40
+          for (i = 1; i <= NR; i++) {
+            c = (st[i] == "running") ? "\033[32m" : (st[i] == "paused" || st[i] == "restarting") ? "\033[33m" \
+              : (st[i] == "dead") ? "\033[31m" : "\033[90m"
+            dim = (st[i] == "running") ? "" : "\033[90m"
+            printf "%s\t%s\t%s●\033[0m %s%-*s  \033[90m%-*s  %s\033[0m\n", id[i], nm[i], c, dim, w, nm[i], wi, substr(im[i], 1, wi), ss[i]
+          } }'
+}
+
+preview() {
+  docker inspect -f $'\033[1m{{.Name}}\033[0m  \033[90m{{.Config.Image}}\033[0m\n{{.State.Status}}{{if .State.Running}} since {{.State.StartedAt}}{{else}} (exit {{.State.ExitCode}}){{end}}' "$1" 2>/dev/null \
+    | sed '1s#/##'
+  docker port "$1" 2>/dev/null | sed 's/^/  /'
+  printf '\033[90m%s\033[0m\n' "──────────────────────────────── logs"
+  docker logs --tail 200 "$1" 2>&1
+}
+
+case "$1" in
+  --list)     list; exit 0 ;;
+  --preview)  preview "$2"; exit 0 ;;
+  --stop-all) ids="$(docker ps -q)"; [ -n "$ids" ] && docker stop $ids >/dev/null; exit 0 ;;
+esac
+
+if ! docker info >/dev/null 2>&1; then
+  echo "Docker daemon isn't running."; read -rsn1 -t 3; exit 1
+fi
+
+OUT="$(list | fzf --ansi --border=rounded --reverse --delimiter=$'\t' --with-nth=3.. \
+  --prompt='container> ' \
+  --header='enter: shell · ctrl-f: logs · ctrl-x: stop · ctrl-d: stop all · ctrl-s: start · ctrl-r: restart' \
+  --preview="$0 --preview {1}" --preview-window=right:55%:border-left:follow:wrap \
+  --expect=ctrl-f \
+  --bind "ctrl-x:execute-silent(docker stop {1})+reload($0 --list)" \
+  --bind "ctrl-d:execute-silent($0 --stop-all)+reload($0 --list)" \
+  --bind "ctrl-s:execute-silent(docker start {1})+reload($0 --list)" \
+  --bind "ctrl-r:execute-silent(docker restart {1})+reload($0 --list)")"
+
+KEY="$(sed -n 1p <<<"$OUT")"
+SEL="$(sed -n 2p <<<"$OUT")"
+[ -z "$SEL" ] && exit 1
+ID="$(cut -f1 <<<"$SEL")"
+NAME="$(cut -f2 <<<"$SEL")"
+
+if [ "$KEY" = "ctrl-f" ]; then
+  CMD="docker logs -f --tail 500 $ID"
+  WIN="$NAME (logs)"
+else
+  [ "$(docker inspect -f '{{.State.Running}}' "$ID")" = "true" ] || docker start "$ID" >/dev/null
+  # bash if the image has it, else sh; keep the window open if exec fails (e.g. distroless image)
+  CMD="docker exec -it $ID sh -c 'command -v bash >/dev/null 2>&1 && exec bash || exec sh' \
+    || { echo; echo 'exec failed — press enter'; read; }"
+  WIN="$NAME"
+fi
+
+if [ -n "$TMUX" ]; then tmux new-window -n "$WIN" -c "$PWD" "$CMD"; else eval "$CMD"; fi
